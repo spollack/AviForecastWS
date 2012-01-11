@@ -1,5 +1,5 @@
 //
-// launch the web server
+// web server
 //
 
 var express = require('express');
@@ -21,9 +21,10 @@ app.listen(port, function() {
 var request = require('request');
 
 function onRequest(origRequest, origResponse) {
-	request('http://www.google.com', function (error, response, body) {
+	request('http://www.nwac.us/forecast/avalanche/current/zone/1/', function (error, response, body) {
 		if (!error && response.statusCode === 200) {
 			console.log("Got a successful response");
+			console.log(response.body);
 			origResponse.send('Hello ' + origRequest.params.id + '!\n');
 		} else {
 			console.log("Got an error");
