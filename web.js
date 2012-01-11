@@ -20,14 +20,18 @@ app.listen(port, function() {
 
 var request = require('request');
 
+// origRequest/origResponse are the mobile-client-originated HTTP request; not to be confused with
+// the server to server request that we initiate here
 function onRequest(origRequest, origResponse) {
-	request('http://www.nwac.us/forecast/avalanche/current/zone/1/', function (error, response, body) {
+	var URL = 'http://www.nwac.us/forecast/avalanche/current/zone/6/';
+	request(URL, function (error, response, body) {
 		if (!error && response.statusCode === 200) {
-			console.log("Got a successful response");
+			console.log("Got a successful response; URL: " + URL);
 			console.log(response.body);
 			origResponse.send('Hello ' + origRequest.params.id + '!\n');
 		} else {
-			console.log("Got an error");
+			console.log("Got an error; URL: " + URL + "; status code: " + response.statusCode + "; error: " + error);
+			origResponse.send("Error\n"); 
 		}
 	});
 }
