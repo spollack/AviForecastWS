@@ -18,19 +18,15 @@ app.listen(port, function() {
 // request handling
 //
 
-var http = require('http');
+var request = require('request');
 
-function onRequest(request, response) {
-	var options = {
-	  host: 'www.google.com',
-	  port: 80,
-	  path: '/index.html'
-	};
-	
-	http.get(options, function(clientResponse) {
-		console.log("Got response: " + clientResponse.statusCode);
-		response.send('Hello ' + request.params.id + '!\n');
-	}).on('error', function(e) {
-		console.log("Got error: " + e.message);
+function onRequest(origRequest, origResponse) {
+	request('http://www.google.com', function (error, response, body) {
+		if (!error && response.statusCode === 200) {
+			console.log("Got a successful response");
+			origResponse.send('Hello ' + origRequest.params.id + '!\n');
+		} else {
+			console.log("Got an error");
+		}
 	});
 }
