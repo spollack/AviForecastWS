@@ -20,18 +20,25 @@ app.listen(port, function() {
 
 var request = require('request');
 
-// origRequest/origResponse are the mobile-client-originated HTTP request; not to be confused with
+// origRequest/origResponse are the client-originated HTTP request; not to be confused with
 // the server to server request that we initiate here
 function onRequest(origRequest, origResponse) {
+	var aviLevel = 0; 
 	var URL = 'http://www.nwac.us/forecast/avalanche/current/zone/6/';
 	request(URL, function (error, response, body) {
 		if (!error && response.statusCode === 200) {
 			console.log("Got a successful response; URL: " + URL);
-			console.log(response.body);
-			origResponse.send('Hello ' + origRequest.params.id + '!\n');
+			aviLevel = parseForecast(body); 
 		} else {
 			console.log("Got an error; URL: " + URL + "; status code: " + response.statusCode + "; error: " + error);
-			origResponse.send("Error\n"); 
 		}
+		
+		// send response back to the originating client
+//		origResponse.send('Hello ' + origRequest.params.id + '!\n');
+		origResponse.send(String(aviLevel));
 	});
+}
+
+function parseForecast(body) {
+	return 1; 
 }
