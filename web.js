@@ -11,7 +11,7 @@ app.get('/region/:id', onRequest);
 // use the value from the PORT env variable if available
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
-	console.log("Listening on " + port);
+	console.log('Listening on ' + port);
 });
 
 //
@@ -23,23 +23,35 @@ var request = require('request');
 // origRequest/origResponse are the client-originated HTTP request; not to be confused with
 // the server to server request that we initiate here
 function onRequest(origRequest, origResponse) {
-	var aviLevel = 0; 
-	var URL = 'http://www.nwac.us/forecast/avalanche/current/zone/6/';
-	request(URL, function (error, response, body) {
-		if (!error && response.statusCode === 200) {
-			console.log("Got a successful response; URL: " + URL);
-			aviLevel = parseForecast(body, URL); 
-		} else {
-			console.log("Got an error; URL: " + URL + "; status code: " + response.statusCode + "; error: " + error);
-		}
-		
-		// send response back to the originating client
-//		origResponse.send('Hello ' + origRequest.params.id + '!\n');
-		origResponse.send(String(aviLevel));
-	});
+	var aviLevel = 0;
+    var id = origRequest.params.id;
+	var URL = getURLFromId(id);
+
+    if (!URL) {
+        console.log('Invalid id: ' + id);
+        // BUGBUG handling of errors on the client???
+        origResponse.send('ERROR: invalid id');
+    } else {
+        request(URL, function (error, response, body) {
+            if (!error && response.statusCode === 200) {
+                console.log('Successful response; id: ' + id + '; URL: ' + URL);
+                aviLevel = parseForecast(body, id);
+            } else {
+                console.log('Error response; id: ' + id + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
+            }
+
+            // send data response back to the originating client
+            origResponse.send(String(aviLevel));
+        });
+    }
 }
 
-function parseForecast(body, URL) {
+function getURLFromId(id) {
+    // NOTE this will have to be refined...
+    return 'http://www.nwac.us/forecast/avalanche/current/zone/' + id + '/';
+}
+
+function parseForecast(body, id) {
 	var aviLevel = 0; 
 	
 	// find the first match for this regex
@@ -48,7 +60,7 @@ function parseForecast(body, URL) {
 	
 	if (match && match.length > 1) {
         var matchLevel = match[1].toLowerCase();
-		console.log('Found regex; URL: ' + URL + '; match: ' + matchLevel);
+		console.log('Found regex; id: ' + id + '; match: ' + matchLevel);
 		switch(matchLevel) {
 			case 'low':
 				aviLevel = 1;
@@ -69,7 +81,7 @@ function parseForecast(body, URL) {
 				break;
 		}
 	} else {
-		console.log('No regex match; URL: ' + URL);
+		console.log('No regex match; id: ' + id);
 	}
 	
 	return aviLevel; 
