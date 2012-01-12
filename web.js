@@ -6,12 +6,13 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
+// path mapping
 app.get('/region/:id', onRequest);
 
 // use the value from the PORT env variable if available
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
-	console.log('Listening on ' + port);
+	console.log('listening on ' + port);
 });
 
 //
@@ -20,47 +21,52 @@ app.listen(port, function() {
 
 var request = require('request');
 
+// get the avalanche forecast info from the appropriate source, and return it to the originating client
+// in all cases, some response will be sent to the client
 // origRequest/origResponse are the client-originated HTTP request; not to be confused with
-// the server to server request that we initiate here
+// the server to server request that we initiate here to query the appropriate forecast site
 function onRequest(origRequest, origResponse) {
-	var aviLevel = 0;
     var id = origRequest.params.id;
 	var URL = getURLFromId(id);
 
     if (!URL) {
-        console.log('Invalid id: ' + id);
-        // BUGBUG handling of errors on the client???
-        origResponse.send('ERROR: invalid id');
+        console.log('invalid id received from client; id: ' + id);
+        origResponse.send(noDataAvailableResponse());
     } else {
         request(URL, function (error, response, body) {
             if (!error && response.statusCode === 200) {
-                console.log('Successful response; id: ' + id + '; URL: ' + URL);
-                aviLevel = parseForecast(body, id);
+                console.log('successful response; id: ' + id + '; URL: ' + URL);
+                var aviLevel = parseForecast(body, id);
+                responseBody = (String(aviLevel));
+                origResponse.send(responseBody);
             } else {
-                console.log('Error response; id: ' + id + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
+                console.log('error response; id: ' + id + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
+                origResponse.send(noDataAvailableResponse());
             }
-
-            // send data response back to the originating client
-            origResponse.send(String(aviLevel));
         });
     }
 }
 
+function noDataAvailableResponse() {
+    return String(0);
+}
+
 function getURLFromId(id) {
-    // NOTE this will have to be refined...
+    // NOTE this will have to be extended to support other avalanche forecast centers
     return 'http://www.nwac.us/forecast/avalanche/current/zone/' + id + '/';
 }
 
 function parseForecast(body, id) {
 	var aviLevel = 0; 
 	
-	// find the first match for this regex
-    // NOTE this will have to be refined...
+	// scrape the website; find the first, case insensitive, match for this regex
+    // NOTE this will have to be extended to support other avalanche forecast centers
 	var match = body.match(/(low|moderate|considerable|high|extreme) avalanche danger/i);
-	
+
+    // the capture group from the regex will be in slot 1 in the array
 	if (match && match.length > 1) {
         var matchLevel = match[1].toLowerCase();
-		console.log('Found regex; id: ' + id + '; match: ' + matchLevel);
+		console.log('found regex match; id: ' + id + '; match: ' + matchLevel);
 		switch(matchLevel) {
 			case 'low':
 				aviLevel = 1;
@@ -81,7 +87,7 @@ function parseForecast(body, id) {
 				break;
 		}
 	} else {
-		console.log('No regex match; id: ' + id);
+		console.log('no regex match; id: ' + id);
 	}
 	
 	return aviLevel; 
