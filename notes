@@ -1,0 +1,51 @@
+data sources:
+----------
+www.nwac.us
+www.avalanche.org
+www.avalanche.ca ; http://www.avalanche.ca/cac/bulletins/latest
+
+http://www.nwac.us/forecast/avalanche/current/zone/1/
+    an example of a stable forecast link by region. 
+
+http://www.nwac.us/dangerrose/preview/2227/
+    an example of a generated danger rose. generated for a specific date, region, etc., with a generated URL. 400x400, on a transparent background.
+
+avalanche levels definitions
+    single image: http://www.nwac.us/media/uploads/NA_danger_scale_2010.jpg (image is 480x266)
+    as text and icons: http://www.avalanche.ca/cac/bulletins/danger-scale
+
+i've downloaded the danger scale icons. they are PDFs. source is: http://www.avalanche.org/zip/Danger_Scale_Icons.zip
+
+KMZ/KML files for regions:
+    all of Canada: http://avalanche.ca/kmz/bulletinregions.kmz
+    NW: would need to define. could base on NW region map: http://www.nwac.us/media/images/avalanche-map-small.jpg but would be manual work.
+
+
+basic app design concept:
+----------
+* overview map
+    * uses the map view, zoomed out a ways, hybrid view mode; center on user's current location
+    * overlay regions based on current "bottom line" avalanche forecast color (and/or icon)
+    * click a region to drill to details
+* details pages
+    * shows the detailed forecast information for that region (including forecast timestamp, avalanche roses if available, etc.)
+    * exact details will depend on the forecasting region
+* information page
+    * shows the level definitions, etc.
+
+
+things to build:
+----------
+WS
+    call returns data in what format? ideally atomic for consistency, although that is a bit more work. want bottom line rating, full forecast, probably other broken out fields in the future. 
+    return other data fields
+    support other avi centers beyond nwac
+iOS
+    recreate app with real name, git repository, etc.
+    make networking real/robust (multipart, offline, etc.)
+    figure out image display, including bundling image resources in app
+    host map view
+    markers/regions on map
+    info page
+    parsing of reicher WS response format, once that is added
+    drill down to details page
