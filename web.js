@@ -28,7 +28,7 @@ function onRequest(origRequest, origResponse) {
 	request(URL, function (error, response, body) {
 		if (!error && response.statusCode === 200) {
 			console.log("Got a successful response; URL: " + URL);
-			aviLevel = parseForecast(body); 
+			aviLevel = parseForecast(body, URL); 
 		} else {
 			console.log("Got an error; URL: " + URL + "; status code: " + response.statusCode + "; error: " + error);
 		}
@@ -39,6 +39,38 @@ function onRequest(origRequest, origResponse) {
 	});
 }
 
-function parseForecast(body) {
-	return 1; 
+function parseForecast(body, URL) {
+	var aviLevel = 0; 
+	
+	// find the first match for this regex
+    // NOTE this will have to be refined...
+	var match = body.match(/(low|moderate|considerable|high|extreme) avalanche danger/i);
+	
+	if (match && match.length > 1) {
+        var matchLevel = match[1].toLowerCase();
+		console.log('Found regex; URL: ' + URL + '; match: ' + matchLevel);
+		switch(matchLevel) {
+			case 'low':
+				aviLevel = 1;
+				break;
+			case 'moderate':
+				aviLevel = 2;
+				break;
+			case 'considerable':
+				aviLevel = 3;
+				break;
+			case 'high':
+				aviLevel = 4;
+				break;
+			case 'extreme':
+				aviLevel = 5;
+				break;
+			default:
+				break;
+		}
+	} else {
+		console.log('No regex match; URL: ' + URL);
+	}
+	
+	return aviLevel; 
 }
