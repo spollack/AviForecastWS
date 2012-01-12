@@ -59,9 +59,10 @@ function getURLFromId(id) {
 function parseForecast(body, id) {
 	var aviLevel = 0; 
 	
-	// scrape the website; find the first, case insensitive, match for this regex
+	// scrape the website for the data we need
+    // cases handled: mixed case, extra or no spaces between words
     // NOTE this will have to be extended to support other avalanche forecast centers
-	var match = body.match(/(low|moderate|considerable|high|extreme) avalanche danger/i);
+	var match = body.match(/(low|moderate|considerable|high|extreme)\s*avalanche\s*danger/i);
 
     // the capture group from the regex will be in slot 1 in the array
 	if (match && match.length > 1) {
