@@ -34,7 +34,7 @@ basic app design concept:
     * shows the level definitions, etc.
 
 
-things to build:
+things to do:
 ----------
 WS
     call returns data in what format? ideally atomic for consistency, although that is a bit more work. want bottom line rating, full forecast, probably other broken out fields in the future. 
@@ -43,8 +43,6 @@ WS
 iOS
     recreate app with real name, git repository, etc.
     make networking real/robust (multipart, offline, etc.)
-    figure out image display, including bundling image resources in app
-    host map view
     markers/regions on map
     info page
     parsing of richer WS response format, once that is added
