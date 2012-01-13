@@ -31,24 +31,31 @@ function onRequest(origRequest, origResponse) {
 
     if (!URL) {
         console.log('invalid id received from client; id: ' + id);
-        origResponse.send(noDataAvailableResponse());
+        sendNoDataAvailableResponse(origResponse);
     } else {
         request(URL, function (error, response, body) {
             if (!error && response.statusCode === 200) {
                 console.log('successful response; id: ' + id + '; URL: ' + URL);
                 var aviLevel = parseForecast(body, id);
-                responseBody = ('{aviLevel:' + String(aviLevel) + '}');
-                origResponse.send(responseBody);
+                sendDataResponse(origResponse, aviLevel);
             } else {
                 console.log('error response; id: ' + id + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
-                origResponse.send(noDataAvailableResponse());
+                sendNoDataAvailableResponse(origResponse);
             }
         });
     }
 }
 
-function noDataAvailableResponse() {
-    return '{aviLevel:0}';
+function sendNoDataAvailableResponse(origResponse) {
+    sendDataResponse(origResponse, 0);
+}
+
+function sendDataResponse(origResponse, aviLevel) {
+    // BUGBUG use a real library for creating JSON
+    var responseBody = ('{aviLevel:' + String(aviLevel) + '}');
+
+    origResponse.contentType('application/json');
+    origResponse.send(responseBody);
 }
 
 function getURLFromId(id) {
