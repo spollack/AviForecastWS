@@ -37,7 +37,7 @@ function onRequest(origRequest, origResponse) {
             if (!error && response.statusCode === 200) {
                 console.log('successful response; id: ' + id + '; URL: ' + URL);
                 var aviLevel = parseForecast(body, id);
-                responseBody = (String(aviLevel));
+                responseBody = ('{aviLevel:' + String(aviLevel) + '}');
                 origResponse.send(responseBody);
             } else {
                 console.log('error response; id: ' + id + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
@@ -48,7 +48,7 @@ function onRequest(origRequest, origResponse) {
 }
 
 function noDataAvailableResponse() {
-    return String(0);
+    return '{aviLevel:0}';
 }
 
 function getURLFromId(id) {
