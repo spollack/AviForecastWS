@@ -42,13 +42,12 @@ WS
     support other avi centers beyond nwac
     set up unit tests for the web scraping piece, with examples of real pages from the sites as well as other corner cases
 iOS
-    make networking real/robust; best options seem to be AFNetworking or MKNetworkKit
-    create UI layout
-    create data model (NSMutableDictionary, key is region id; value is object with the aviLevel, full forecast, map region, etc.), including caching
-    markers/regions on map
+    create data model (NSMutableDictionary, key is region id; value is object with the aviLevel, full forecast, map region, region name, etc.), including caching
     list of ids with regions (parse from file; download from WS, or store in bundle?)
+    draw actual overlays based on data, and color appropriately
+    create real UI layout
     info page
-    parsing of richer WS response format, once that is added
+    parsing of fuller WS response format, once that is added
     drill down to details page
  other
     off-machine source control
@@ -56,7 +55,11 @@ iOS
     liability warning?
     ask for ratings?
     icons, startup screens
-    orientation settings
+    check orientation settings
+    check unloading behavior (viewdidunload, etc.) -- what should be view level vs. app level? what should get unloaded?
+    check low memory behavior
+    check no network behavior
+    check no GPS behavior
     attributions?
     LLC?
     pricing?
