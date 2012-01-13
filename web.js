@@ -52,7 +52,7 @@ function sendNoDataAvailableResponse(origResponse) {
 
 function sendDataResponse(origResponse, aviLevel) {
     // BUGBUG use a real library for creating JSON
-    var responseBody = ('{aviLevel:' + String(aviLevel) + '}');
+    var responseBody = ('{"aviLevel":' + String(aviLevel) + '}');
 
     origResponse.contentType('application/json');
     origResponse.send(responseBody);
