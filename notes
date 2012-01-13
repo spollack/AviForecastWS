@@ -37,13 +37,27 @@ basic app design concept:
 things to do:
 ----------
 WS
-    call returns data in what format? ideally atomic for consistency, although that is a bit more work. want bottom line rating, full forecast, probably other broken out fields in the future. 
-    return other data fields
+    parse other data fields
+    return other data fields in atomic message (and switch to real JSON generation)
     support other avi centers beyond nwac
+    set up unit tests for the web scraping piece, with examples of real pages from the sites as well as other corner cases
 iOS
-    recreate app with real name, git repository, etc.
-    make networking real/robust (multipart, offline, etc.)
+    make networking real/robust; best options seem to be AFNetworking or MKNetworkKit
+    create UI layout
+    create data model (NSMutableDictionary, key is region id; value is object with the aviLevel, full forecast, map region, etc.), including caching
     markers/regions on map
+    list of ids with regions (parse from file; download from WS, or store in bundle?)
     info page
     parsing of richer WS response format, once that is added
     drill down to details page
+ other
+    off-machine source control
+    iOS4 support?
+    liability warning?
+    ask for ratings?
+    icons, startup screens
+    orientation settings
+    attributions?
+    LLC?
+    pricing?
+    submit app to Apple
