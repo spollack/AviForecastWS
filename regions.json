@@ -4,25 +4,25 @@
         "URL": "http://www.nwac.us/forecast/avalanche/current/zone/6/",
         "displayName": "WA Cascades near and west of crest - between Stevens and Snoqualmie Pass",
         "points":
-                [
-                    {"lat": 47.476, "lon": -121.722},
-                    {"lat": 47.391, "lon": -121.476},
-                    {"lat": 47.709, "lon": -121.130},
-                    {"lat": 47.861, "lon": -121.795}
-                ]
+            [
+                {"lat": 47.476, "lon": -121.722},
+                {"lat": 47.391, "lon": -121.476},
+                {"lat": 47.709, "lon": -121.130},
+                {"lat": 47.861, "lon": -121.795}
+            ]
     },
     {
         "regionId": "nwac_7",
         "URL": "http://www.nwac.us/forecast/avalanche/current/zone/7/",
         "displayName": "WA Cascades near and west of crest - between Snoqualmie and White Pass",
         "points":
-                [
-                    {"lat": 47.476, "lon": -121.722},
-                    {"lat": 47.391, "lon": -121.476},
-                    {"lat": 47.070, "lon": -120.866},
-                    {"lat": 46.665, "lon": -121.484},
-                    {"lat": 46.690, "lon": -121.576},
-                    {"lat": 46.536, "lon": -122.481}
-                ]
+            [
+                {"lat": 47.476, "lon": -121.722},
+                {"lat": 47.391, "lon": -121.476},
+                {"lat": 47.070, "lon": -120.866},
+                {"lat": 46.665, "lon": -121.484},
+                {"lat": 46.690, "lon": -121.576},
+                {"lat": 46.536, "lon": -122.481}
+            ]
     }
 ]
