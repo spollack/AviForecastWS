@@ -71,9 +71,8 @@ function parseForecast(body, regionId) {
 	var aviLevel = 0; 
 	
 	// scrape the website for the data we need
-    // cases handled: mixed case, extra or no spaces between words
+    // cases handled: mixed case; keywords like "high" showing up inside other words, like "highway"
     // NOTE this will have to be extended to support other avalanche forecast centers
-//	var match = body.match(/(low|moderate|considerable|high|extreme)\s*avalanche\s*danger/i);
     var match = body.match(/\W(low|moderate|considerable|high|extreme)\W/i);
 
     // the capture group from the regex will be in slot 1 in the array
