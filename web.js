@@ -73,7 +73,8 @@ function parseForecast(body, regionId) {
 	// scrape the website for the data we need
     // cases handled: mixed case, extra or no spaces between words
     // NOTE this will have to be extended to support other avalanche forecast centers
-	var match = body.match(/(low|moderate|considerable|high|extreme)\s*avalanche\s*danger/i);
+//	var match = body.match(/(low|moderate|considerable|high|extreme)\s*avalanche\s*danger/i);
+    var match = body.match(/\W(low|moderate|considerable|high|extreme)\W/i);
 
     // the capture group from the regex will be in slot 1 in the array
 	if (match && match.length > 1) {

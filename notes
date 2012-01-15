@@ -37,14 +37,15 @@ basic app design concept:
 things to do:
 ----------
 WS
+    serve regions.json
     parse other data fields
-    return other data fields in atomic message (and switch to real JSON generation)
+    return other data fields in data message (and switch to real JSON generation)
     support other avi centers beyond nwac
     set up unit tests for the web scraping piece, with examples of real pages from the sites as well as other corner cases
 iOS
+    fetch regions.json
     create data model (NSMutableDictionary, key is region id; value is object with the aviLevel, full forecast, map region, region name, etc.), including caching
-    list of ids with regions (parse from file; download from WS, or store in bundle?)
-    draw actual overlays based on data, and color appropriately
+    draw actual overlays based on data, and color appropriately based on conditions
     create real UI layout
     info page
     parsing of fuller WS response format, once that is added
