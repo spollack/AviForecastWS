@@ -71,7 +71,12 @@ function parseForecast(body, regionId) {
 	var aviLevel = 0; 
 	
 	// scrape the website for the data we need
-    // cases handled: mixed case; keywords like "high" showing up inside other words, like "highway"
+    //
+    // looks for the *first* occurrence of one of the five avi level keywords on the page
+    // various cases handled:
+    // * mixed case
+    // * keywords showing up inside other words, like "high" in "highway"
+    // * no whitespace, multiple whitespace, or non-whitespace before or after keyword
     // NOTE this will have to be extended to support other avalanche forecast centers
     var match = body.match(/\W(low|moderate|considerable|high|extreme)\W/i);
 

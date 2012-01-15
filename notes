@@ -46,6 +46,7 @@ iOS
     fetch regions.json
     create data model (NSMutableDictionary, key is region id; value is object with the aviLevel, full forecast, map region, region name, etc.), including caching
     draw actual overlays based on data, and color appropriately based on conditions
+    bug: once app is running, and aviLevel color set, color does not update (need to refresh when app regains focus)
     create real UI layout
     info page
     parsing of fuller WS response format, once that is added
