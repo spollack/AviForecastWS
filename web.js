@@ -63,7 +63,7 @@ function onRequest_v0(origRequest, origResponse) {
                 if (!error && response.statusCode === 200) {
                     console.log('successful response; regionId: ' + regionId + '; URL: ' + URL);
                     var aviLevel = findAviLevel(body);
-                    sendDataResponse(origResponse, aviLevel);
+                    sendDataResponse(origResponse, {'aviLevel': aviLevel});
                 } else {
                     console.log('error response; regionId: ' + regionId + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
                     origResponse.send('0');
@@ -105,7 +105,11 @@ function sendNoDataAvailableResponse(origResponse) {
 }
 
 function sendDataResponse(origResponse, forecast) {
-    origResponse.json(forecast);
+
+    origResponse.contentType('application/json');
+    if (forecast) {
+        origResponse.send(JSON.stringify(forecast));
+    }
 }
 
 function getURLForRegionId(regionId) {
