@@ -37,32 +37,45 @@ basic app design concept:
 things to do:
 ----------
 WS
+    set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases
     serve regions.json
-    parse other data fields
-    return other data fields in data message (and switch to real JSON generation)
     support other avi centers beyond nwac
-    set up unit tests for the web scraping piece, with examples of real pages from the sites as well as other corner cases
+    remove console messages for happy path (or turn down, via a real logger like Winston)
+    scale testing
 iOS
-    fetch regions.json
-    create data model (NSMutableDictionary, key is region id; value is object with the aviLevel, full forecast, map region, region name, etc.), including caching
+    parsing of fuller WS response format, once that is added (including empty response; date not matching; matching date but aviLevel == 0)
+    create data model (NSMutableDictionary, key is region id; value is object with the details); including caching of data within a session
     draw actual overlays based on data, and color appropriately based on conditions
-    bug: once app is running, and aviLevel color set, color does not update (need to refresh when app regains focus)
-    create real UI layout
-    info page
-    parsing of fuller WS response format, once that is added
-    drill down to details page
- other
-    off-machine source control
+    refresh forecast data and redraw when app regains focus (app lifecycle events, chapter 11 in book)
+    fetch regions.json
+    design and implement real UI layout
+    readable layout on non-retina displays
+    bug: map didn't center to user location on JohnC's iPad
+    info page(s)?
+    drill down to details page?
+    offline caching?
     iOS4 support?
     liability warning?
     ask for ratings?
-    icons, startup screens
+    push notifications?
+    user performance acceptable?
+    startup screens
     check orientation settings
-    check unloading behavior (viewdidunload, etc.) -- what should be view level vs. app level? what should get unloaded?
+    check task switching behavior (viewDidUnload, etc.) -- what should be view level vs. app level? what should get unloaded?
     check low memory behavior
     check no network behavior
     check no GPS behavior
     attributions?
-    LLC?
-    pricing?
+ other
+    beta testing (TestFlight)
+    ensure accuracy!
+    work with NWAC
+    contact other avalanche centers?
+    LLC? or just add "Sebnarware" or similar to my existing biz license?
+    paid or free? thinking free
     submit app to Apple
+    marketing
+future possibilities
+    weather links
+    info links
+    field tools (inclinometer, etc.)

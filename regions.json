@@ -1,7 +1,6 @@
 [
     {
         "regionId": "nwac_6",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/6/",
         "displayName": "WA Cascades near and west of crest - between Stevens and Snoqualmie Pass",
         "points":
             [
@@ -13,7 +12,6 @@
     },
     {
         "regionId": "nwac_7",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/7/",
         "displayName": "WA Cascades near and west of crest - between Snoqualmie and White Pass",
         "points":
             [
