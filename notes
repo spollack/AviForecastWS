@@ -37,16 +37,16 @@ basic app design concept:
 things to do:
 ----------
 WS
-    set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases
     serve regions.json
     support other avi centers beyond nwac
+    set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases
     remove console messages for happy path (or turn down, via a real logger like Winston)
     scale testing
 iOS
+    refresh forecast data and redraw when app regains focus (app lifecycle events, chapter 11 in book)
     parsing of fuller WS response format, once that is added (including empty response; date not matching; matching date but aviLevel == 0)
     create data model (NSMutableDictionary, key is region id; value is object with the details); including caching of data within a session
     draw actual overlays based on data, and color appropriately based on conditions
-    refresh forecast data and redraw when app regains focus (app lifecycle events, chapter 11 in book)
     fetch regions.json
     design and implement real UI layout
     readable layout on non-retina displays
