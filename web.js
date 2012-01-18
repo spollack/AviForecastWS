@@ -107,6 +107,7 @@ function sendNoDataAvailableResponse(origResponse) {
 function sendDataResponse(origResponse, forecast) {
 
     origResponse.contentType('application/json');
+    
     if (forecast) {
         origResponse.send(JSON.stringify(forecast));
     }
