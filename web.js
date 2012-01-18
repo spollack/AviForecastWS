@@ -52,11 +52,11 @@ function runServer() {
 
 function onRequest_v0(origRequest, origResponse) {
     var regionId = origRequest.params.regionId;
-    var URL = getURLForRegionId(regionId);
+    var URL = getURLForRegionId_v0(regionId);
 
     if (!URL) {
         console.log('invalid regionId received from client; regionId: ' + regionId);
-        origResponse.send('0');
+        origResponse.send({'aviLevel': 0});
     } else {
         request(URL,
             function (error, response, body) {
@@ -66,11 +66,16 @@ function onRequest_v0(origRequest, origResponse) {
                     sendDataResponse(origResponse, {'aviLevel': aviLevel});
                 } else {
                     console.log('error response; regionId: ' + regionId + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
-                    origResponse.send('0');
+                    origResponse.send({'aviLevel': 0});
                 }
             }
         );
     }
+}
+
+function getURLForRegionId_v0(regionId) {
+    // BUGBUG nwac specific and hacked for v0 protocol only
+    return 'http://www.nwac.us/forecast/avalanche/current/zone/' + regionId + '/';
 }
 
 // get the avalanche forecast info from the appropriate source, and return it to the originating client
@@ -110,12 +115,30 @@ function sendDataResponse(origResponse, forecast) {
 
     if (forecast) {
         origResponse.send(JSON.stringify(forecast));
+    } else {
+        origResponse.send();
     }
 }
 
 function getURLForRegionId(regionId) {
     // BUGBUG nwac specific; this will have to be extended to support other avalanche forecast centers
-    return 'http://www.nwac.us/forecast/avalanche/current/zone/' + regionId + '/';
+
+    var URL = null; 
+
+    if (regionId) {
+        var components = regionId.split('_');
+        if (components.length === 2) {
+            switch (components[0]) {
+                case "nwac":
+                    URL = 'http://www.nwac.us/forecast/avalanche/current/zone/' + components[1] + '/';
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    
+    return URL;
 }
 
 // avalanche forecasts typically have a timestamp that says when the forecast was issued; and then present

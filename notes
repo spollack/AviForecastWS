@@ -37,31 +37,32 @@ basic app design concept:
 things to do:
 ----------
 WS
+    hardcode v0 protocol to return AVI_LEVEL_UNKNOWN; or remove?
     serve regions.json
     support other avi centers beyond nwac
     set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases
-    remove console messages for happy path (or turn down, via a real logger like Winston)
-    scale testing
+    remove console messages for happy path, or switch to a real logger and turn down (via Winston)
+    scale testing?
 iOS
-    refresh forecast data and redraw when app regains focus (app lifecycle events, chapter 11 in book)
-    parsing of fuller WS response format, once that is added (including empty response; date not matching; matching date but aviLevel == 0)
-    create data model (NSMutableDictionary, key is region id; value is object with the details); including caching of data within a session
+    create real data model
     draw actual overlays based on data, and color appropriately based on conditions
+    pass actual regionId
+    add buttons for today/tomorrow (or mon/tue/wed or whatever)
     fetch regions.json
     design and implement real UI layout
     readable layout on non-retina displays
-    bug: map didn't center to user location on JohnC's iPad
     info page(s)?
     drill down to details page?
     offline caching?
     iOS4 support?
     liability warning?
     ask for ratings?
-    push notifications?
+    management of multiple concurrent network requests
     user performance acceptable?
+    consider switching map to hybrid view mode, but if so change overlays to stand out better on this background
     startup screens
     check orientation settings
-    check task switching behavior (viewDidUnload, etc.) -- what should be view level vs. app level? what should get unloaded?
+    check task switching behavior (viewDidUnload, etc.) -- what should get unloaded?
     check low memory behavior
     check no network behavior
     check no GPS behavior
@@ -76,6 +77,7 @@ iOS
     submit app to Apple
     marketing
 future possibilities
+    push notifications
     weather links
     info links
     field tools (inclinometer, etc.)
