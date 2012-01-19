@@ -22,6 +22,15 @@ var AVI_LEVEL_EXTREME = 5;
 
 
 //
+// general helpers
+//
+
+String.prototype.trim = function() {
+    return this.replace(/^\s+/, '').replace(/\s+$/, '');
+};
+
+
+//
 // HTTP server
 //
 
@@ -32,8 +41,9 @@ function runServer() {
     var app = express.createServer(express.logger());
 
     // path mapping
-    app.get('/region/:regionId', onRequest_v0);
-    app.get('/version/1/region/:regionId', onRequest_v1);
+    app.get('/region/:regionId', onRequestRegion_v0);
+    app.get('/version/1/config', onRequestConfig_v1);
+    app.get('/version/1/region/:regionId', onRequestRegion_v1);
 
     // use the value from the PORT env variable if available, fallback if not
     var port = process.env.PORT || 5000;
@@ -50,39 +60,21 @@ function runServer() {
 // request handling
 //
 
-function onRequest_v0(origRequest, origResponse) {
-    var regionId = origRequest.params.regionId;
-    var URL = getURLForRegionId_v0(regionId);
-
-    if (!URL) {
-        console.log('invalid regionId received from client; regionId: ' + regionId);
-        origResponse.send({'aviLevel': 0});
-    } else {
-        request(URL,
-            function (error, response, body) {
-                if (!error && response.statusCode === 200) {
-                    console.log('successful response; regionId: ' + regionId + '; URL: ' + URL);
-                    var aviLevel = findAviLevel(body);
-                    sendDataResponse(origResponse, {'aviLevel': aviLevel});
-                } else {
-                    console.log('error response; regionId: ' + regionId + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
-                    origResponse.send({'aviLevel': 0});
-                }
-            }
-        );
-    }
+function onRequestRegion_v0(origRequest, origResponse) {
+    // NOTE just here until old clients upgrade; for now, just return AVI_LEVEL_UNKNOWN
+    origResponse.send({'aviLevel': AVI_LEVEL_UNKNOWN});
 }
 
-function getURLForRegionId_v0(regionId) {
-    // BUGBUG nwac specific and hacked for v0 protocol only
-    return 'http://www.nwac.us/forecast/avalanche/current/zone/' + regionId + '/';
+function onRequestConfig_v1(origRequest, origResponse) {
+    origResponse.contentType('application/json');
+    origResponse.sendfile('regions.json');
 }
 
 // get the avalanche forecast info from the appropriate source, and return it to the originating client
 //
 // origRequest/origResponse are the client-originated HTTP request; not to be confused with
 // the server to server request that we initiate here to query the appropriate forecast site
-function onRequest_v1(origRequest, origResponse) {
+function onRequestRegion_v1(origRequest, origResponse) {
     var regionId = origRequest.params.regionId;
 	var URL = getURLForRegionId(regionId);
 
@@ -236,10 +228,6 @@ function aviLevelFromName(aviLevelName) {
 
     return aviLevel;
 }
-
-String.prototype.trim = function() {
-    return this.replace(/^\s+/, '').replace(/\s+$/, '');
-};
 
 function parseForecastIssuedDate(body, regionId) {
     // BUGBUG nwac specific; this will have to be extended to support other avalanche forecast centers

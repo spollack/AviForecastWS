@@ -37,20 +37,19 @@ basic app design concept:
 things to do:
 ----------
 WS
-    hardcode v0 protocol to return AVI_LEVEL_UNKNOWN; or remove?
     serve regions.json
     support other avi centers beyond nwac
     set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases
     remove console messages for happy path, or switch to a real logger and turn down (via Winston)
     scale testing?
 iOS
-    add buttons for today/tomorrow (or mon/tue/wed or whatever)
+    parse regions.json to create initial objects
     fetch regions.json
+    management of multiple concurrent network requests
+    track and throttle global refreshes (don't refresh if already done within the last few seconds)
+    clean up MVC separations
     design and implement real UI layout
     readable layout on non-retina displays
-    track and throttle global refreshes (dont' refresh if already done within the last few seconds)
-    clean up MVC separations
-    management of multiple concurrent network requests
     user performance acceptable?
     info page(s)?
     drill down to details page?
@@ -58,6 +57,9 @@ iOS
     iOS4 support?
     liability warning?
     ask for ratings?
+    add yesterday? day after tomorrow?
+    overlay avi symbols too?
+    make toolbar completely transparent
     consider switching map to hybrid view mode, but if so change overlays to stand out better on this background
     startup screens
     check orientation settings
@@ -78,6 +80,8 @@ iOS
     marketing
 future possibilities
     push notifications
-    weather links
-    info links
+    weather info
+    telemetry info
+    more avi info
     field tools (inclinometer, etc.)
+    Android version
