@@ -44,21 +44,20 @@ WS
     remove console messages for happy path, or switch to a real logger and turn down (via Winston)
     scale testing?
 iOS
-    create real data model
-    draw actual overlays based on data, and color appropriately based on conditions
-    pass actual regionId
     add buttons for today/tomorrow (or mon/tue/wed or whatever)
     fetch regions.json
     design and implement real UI layout
     readable layout on non-retina displays
+    track and throttle global refreshes (dont' refresh if already done within the last few seconds)
+    clean up MVC separations
+    management of multiple concurrent network requests
+    user performance acceptable?
     info page(s)?
     drill down to details page?
     offline caching?
     iOS4 support?
     liability warning?
     ask for ratings?
-    management of multiple concurrent network requests
-    user performance acceptable?
     consider switching map to hybrid view mode, but if so change overlays to stand out better on this background
     startup screens
     check orientation settings
@@ -67,6 +66,7 @@ iOS
     check no network behavior
     check no GPS behavior
     attributions?
+    unit tests?
  other
     beta testing (TestFlight)
     ensure accuracy!

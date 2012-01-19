@@ -266,7 +266,7 @@ function parseForecastValues(body, regionId, forecastDays, aviLevels) {
     // forecast blocks can potentially describe multiple days; can describe say "Thursday" vs. "Thursday night";
     // can describe days that have already passed; can contain multiple avi levels
     // NOTE typical string for nwac: '<strong>Monday:</strong> Considerable avalanche danger above 4000 feet and moderate below. Increasing danger Monday afternoon and night.<'
-    var forecastBlocks = body.match(/<strong>[^:]+:\s*<\/strong>[^<]+</g);
+    var forecastBlocks = body.match(/<strong>[^:]+:[^<]*<\/strong>[^<]+</g);
     for ( var i = 0; i < forecastBlocks.length; i++) {
         console.log('forecastBlocks[' + i + ']: ' + forecastBlocks[i]);
     }
