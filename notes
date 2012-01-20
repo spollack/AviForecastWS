@@ -38,12 +38,11 @@ things to do:
 ----------
 WS
     add more regions to regions.json
-        find good tool for drawing regions and getting a set of lat/lon coordinates
-    naming
-        check for nameserver update -- waiting for propagation
-        rename Heroku app? (sebnarware)
-        update URLs to www.sebnarware.com/AviForecastWS/...
-        push out new client build
+        use Google Earth to draw regions and get KML
+        convert KML coordinates to JSON
+    app naming
+        rename Heroku app (aviforecastws) -- "heroku rename newname"
+        update client URLs, and push out new build
     support other avi centers beyond nwac
     set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases
     remove console messages for happy path, or switch to a real logger and turn down (via Winston)
@@ -81,8 +80,10 @@ iOS
         what is through BLS vs. sec of state?
         annual fees and requirements?
         any other structural documents required?
+        how long does it take to get set up?
+        updating Seattle biz license
         anything else i need to know?
-    set up www.sebnarware.com website
+    set up www.sebnarware.com website (via brinkster; see https://help.brinkster.com/KB/a125/how-do-i-redirect-a-domain-or-subdomain.aspx)
     update my developer account with Apple for business name?
     paid or free? thinking free
     submit app to Apple
