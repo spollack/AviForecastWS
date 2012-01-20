@@ -38,6 +38,7 @@ things to do:
 ----------
 WS
     add more regions to regions.json
+        find good tool for drawing regions and getting a set of lat/lon coordinates
     naming
         check for nameserver update -- waiting for propagation
         rename Heroku app? (sebnarware)
