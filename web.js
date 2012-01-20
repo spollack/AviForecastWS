@@ -113,16 +113,17 @@ function sendDataResponse(origResponse, forecast) {
 }
 
 function getURLForRegionId(regionId) {
-    // BUGBUG nwac specific; this will have to be extended to support other avalanche forecast centers
-
-    var URL = null; 
+    var URL = null;
 
     if (regionId) {
         var components = regionId.split('_');
-        if (components.length === 2) {
+        if (components.length > 1) {
             switch (components[0]) {
-                case "nwac":
+                case 'nwac':
                     URL = 'http://www.nwac.us/forecast/avalanche/current/zone/' + components[1] + '/';
+                    break;
+                case 'cac':
+                    URL = 'http://www.avalanche.ca/cac/bulletins/latest/' + components[1] + '/';
                     break;
                 default:
                     break;
@@ -139,6 +140,8 @@ function getURLForRegionId(regionId) {
 function parseForecast(body, regionId) {
 
     var forecast = null;
+
+    // BUGBUG will need to change this to the forecast first date, to generalize to cac
 
     // get the forecast issued date
     var forecastIssuedDate = parseForecastIssuedDate(body, regionId);

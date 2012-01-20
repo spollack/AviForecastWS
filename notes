@@ -2,10 +2,7 @@ data sources:
 ----------
 www.nwac.us
 www.avalanche.org
-www.avalanche.ca ; http://www.avalanche.ca/cac/bulletins/latest
-
-http://www.nwac.us/forecast/avalanche/current/zone/1/
-    an example of a stable forecast link by region. 
+www.avalanche.ca
 
 http://www.nwac.us/dangerrose/preview/2227/
     an example of a generated danger rose. generated for a specific date, region, etc., with a generated URL. 400x400, on a transparent background.
@@ -19,6 +16,14 @@ i've downloaded the danger scale icons. they are PDFs. source is: http://www.ava
 KMZ/KML files for regions:
     all of Canada: http://avalanche.ca/kmz/bulletinregions.kmz
     NW: would need to define. could base on NW region map: http://www.nwac.us/media/images/avalanche-map-small.jpg but would be manual work.
+
+notes on regions:
+----------
+Canada:
+* 12 regions with regular CAC forecasts
+* 2 regions under CAC, but with no real forecasts (Bighorn, North Rockies)
+* 4 from pc.gc.ca for national parks
+* 3 independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
 
 
 basic app design concept:
@@ -41,6 +46,7 @@ WS
         use Google Earth to draw regions and get KML; or see if NWAC writes back
     app naming
         rename Heroku app (aviforecastws) -- "heroku rename newname"
+        shorten version/1 to v1
         update client URLs, and push out new build
     support other avi centers beyond nwac
     set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases

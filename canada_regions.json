@@ -1,6 +1,6 @@
 [
     {
-        "regionId": "canada_1",
+        "regionId": "cac_south-columbia",
         "displayName": "South Columbia (Selkirks and Monashees)",
         "points": [
             {
@@ -2194,7 +2194,7 @@
         ]
     },
     {
-        "regionId": "canada_2",
+        "regionId": "vancouverisland_",
         "displayName": "Vancouver Island",
         "points": [
             {
@@ -2548,7 +2548,7 @@
         ]
     },
     {
-        "regionId": "canada_3",
+        "regionId": "cac_northwest-coastal",
         "displayName": "Northwest (Terrace and Coast)",
         "points": [
             {
@@ -6750,7 +6750,7 @@
         ]
     },
     {
-        "regionId": "canada_4",
+        "regionId": "cac_northwest-inland",
         "displayName": "Northwest (Smithers and Interior)",
         "points": [
             {
@@ -8460,7 +8460,7 @@
         ]
     },
     {
-        "regionId": "canada_5",
+        "regionId": "cac_sea-to-sky",
         "displayName": "South Coast (Sea to Sky)",
         "points": [
             {
@@ -12954,7 +12954,7 @@
         ]
     },
     {
-        "regionId": "canada_6",
+        "regionId": "whistlerblackcomb_",
         "displayName": "Whistler Backcountry",
         "points": [
             {
@@ -13244,7 +13244,7 @@
         ]
     },
     {
-        "regionId": "canada_7",
+        "regionId": "cac_north-shore",
         "displayName": "North Shore",
         "points": [
             {
@@ -13582,7 +13582,7 @@
         ]
     },
     {
-        "regionId": "canada_8",
+        "regionId": "cacx_north-rockies",
         "displayName": "North Rockies",
         "points": [
             {
@@ -16872,7 +16872,7 @@
         ]
     },
     {
-        "regionId": "canada_9",
+        "regionId": "cac_south-coast",
         "displayName": "South Coast (Duffey Lake and Inland)",
         "points": [
             {
@@ -19358,7 +19358,7 @@
         ]
     },
     {
-        "regionId": "canada_10",
+        "regionId": "cac_cariboos",
         "displayName": "North Columbia (Cariboos)",
         "points": [
             {
@@ -20948,7 +20948,7 @@
         ]
     },
     {
-        "regionId": "canada_11",
+        "regionId": "cac_monashees-selkirks",
         "displayName": "North Columbia (Monashees and Selkirks)",
         "points": [
             {
@@ -22630,7 +22630,7 @@
         ]
     },
     {
-        "regionId": "canada_12",
+        "regionId": "pc.gc.ca_3",
         "displayName": "Glacier National Park",
         "points": [
             {
@@ -24268,7 +24268,7 @@
         ]
     },
     {
-        "regionId": "canada_13",
+        "regionId": "cac_purcells",
         "displayName": "South Columbia (Purcells)",
         "points": [
             {
@@ -25602,7 +25602,7 @@
         ]
     },
     {
-        "regionId": "canada_14",
+        "regionId": "cac_kootenay-boundary",
         "displayName": "Kootenay Boundary",
         "points": [
             {
@@ -26636,7 +26636,7 @@
         ]
     },
     {
-        "regionId": "canada_15",
+        "regionId": "pc.gc.ca_2",
         "displayName": "Jasper National Park",
         "points": [
             {
@@ -30114,7 +30114,7 @@
         ]
     },
     {
-        "regionId": "canada_16",
+        "regionId": "cacx_bighorn",
         "displayName": "Bighorn",
         "points": [
             {
@@ -31020,7 +31020,7 @@
         ]
     },
     {
-        "regionId": "canada_17",
+        "regionId": "pc.gc.ca_1",
         "displayName": "Banff, Yoho and Kootenay National Parks",
         "points": [
             {
@@ -31330,7 +31330,7 @@
         ]
     },
     {
-        "regionId": "canada_18",
+        "regionId": "alberta_kananaskis",
         "displayName": "Kananaskis Country",
         "points": [
             {
@@ -32728,7 +32728,7 @@
         ]
     },
     {
-        "regionId": "canada_19",
+        "regionId": "cac_south-rockies",
         "displayName": "South Rockies (Elk Valley and Crowsnest Pass)",
         "points": [
             {
@@ -34490,7 +34490,7 @@
         ]
     },
     {
-        "regionId": "canada_20",
+        "regionId": "cac_lizardrange",
         "displayName": "South Rockies (Fernie and Lizard Range)",
         "points": [
             {
@@ -35376,7 +35376,7 @@
         ]
     },
     {
-        "regionId": "canada_21",
+        "regionId": "pc.gc.ca_4",
         "displayName": "Waterton Lakes National Park",
         "points": [
             {
