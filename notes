@@ -37,32 +37,33 @@ basic app design concept:
 things to do:
 ----------
 WS
-    serve regions.json
+    add more regions to regions.json
+    naming
+        check for nameserver update -- waiting for propagation
+        rename Heroku app? (sebnarware)
+        update URLs to www.sebnarware.com/AviForecastWS/...
+        push out new client build
     support other avi centers beyond nwac
     set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases
     remove console messages for happy path, or switch to a real logger and turn down (via Winston)
     scale testing?
 iOS
-    parse regions.json to create initial objects
-    fetch regions.json
-    management of multiple concurrent network requests
-    track and throttle global refreshes (don't refresh if already done within the last few seconds)
-    clean up MVC separations
+    after adding more regions
+        management of multiple concurrent network requests?
+        track and throttle global refreshes (don't refresh if already done within the last few seconds)?
+        user performance acceptable?
     design and implement real UI layout
     readable layout on non-retina displays
-    user performance acceptable?
     info page(s)?
     drill down to details page?
     offline caching?
     iOS4 support?
     liability warning?
     ask for ratings?
-    add yesterday? day after tomorrow?
     overlay avi symbols too?
     make toolbar completely transparent
     consider switching map to hybrid view mode, but if so change overlays to stand out better on this background
     startup screens
-    check orientation settings
     check task switching behavior (viewDidUnload, etc.) -- what should get unloaded?
     check low memory behavior
     check no network behavior
@@ -74,7 +75,14 @@ iOS
     ensure accuracy!
     work with NWAC; switch to their REST api when available
     contact other avalanche centers?
-    LLC? or just add "Sebnarware" or similar to my existing biz license?
+    LLC -- call and talk it through with the state
+        LLC name? vs. trade names?
+        what is through BLS vs. sec of state?
+        annual fees and requirements?
+        any other structural documents required?
+        anything else i need to know?
+    set up www.sebnarware.com website
+    update my developer account with Apple for business name?
     paid or free? thinking free
     submit app to Apple
     marketing
@@ -82,6 +90,7 @@ future possibilities
     push notifications
     weather info
     telemetry info
+    add previous days to view history
     more avi info
     field tools (inclinometer, etc.)
     Android version
