@@ -38,8 +38,7 @@ things to do:
 ----------
 WS
     add more regions to regions.json
-        use Google Earth to draw regions and get KML
-        convert KML coordinates to JSON
+        use Google Earth to draw regions and get KML; or see if NWAC writes back
     app naming
         rename Heroku app (aviforecastws) -- "heroku rename newname"
         update client URLs, and push out new build
@@ -81,6 +80,7 @@ iOS
         annual fees and requirements?
         any other structural documents required?
         how long does it take to get set up?
+        do i need to shut down the old business? or does it get transformed?
         updating Seattle biz license
         anything else i need to know?
     set up www.sebnarware.com website (via brinkster; see https://help.brinkster.com/KB/a125/how-do-i-redirect-a-domain-or-subdomain.aspx)

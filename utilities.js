@@ -5,7 +5,8 @@
 var fs = require('fs');
 
 
-KMLFileToJSONFile('nwac_regions.kml','nwac_regions.json','nwac');
+//KMLFileToJSONFile('nwac_regions.kml','nwac_regions.json','nwac');
+KMLFileToJSONFile('canada_regions.kml','canada_regions.json','canada');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix) {
