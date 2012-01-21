@@ -49,8 +49,9 @@ function KMLStringToJSONString(KML, regionPrefix) {
 
                     var components = coordinates[j].match(/[-+]?[0-9]*\.[0-9]*/g);
                     if (components && components.length >= 2) {
-                        var lat = components[0];
-                        var lon = components[1];
+                        // NOTE latitude comes after longitude in KML ... weird
+                        var lat = components[1];
+                        var lon = components[0];
                         //console.log('lat: ' + lat + '; lon: ' + lon);
 
                         data[i].points[j] = {'lat': lat, 'lon': lon};
