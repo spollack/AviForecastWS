@@ -1,54 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
-    <Document>
-        <name>KmlFile</name>
-        <Style id="sh_ylw-pushpin">
-            <IconStyle>
-                <scale>1.3</scale>
-                <Icon>
-                    <href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-                </Icon>
-                <hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-            </IconStyle>
-            <PolyStyle>
-                <colorMode>random</colorMode>
-            </PolyStyle>
-        </Style>
-        <Style id="sn_ylw-pushpin">
-            <IconStyle>
-                <scale>1.1</scale>
-                <Icon>
-                    <href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-                </Icon>
-                <hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
-            </IconStyle>
-            <PolyStyle>
-                <colorMode>random</colorMode>
-            </PolyStyle>
-        </Style>
-        <StyleMap id="msn_ylw-pushpin">
-            <Pair>
-                <key>normal</key>
-                <styleUrl>#sn_ylw-pushpin</styleUrl>
-            </Pair>
-            <Pair>
-                <key>highlight</key>
-                <styleUrl>#sh_ylw-pushpin</styleUrl>
-            </Pair>
-        </StyleMap>
-        <Placemark>
-            <name>Olympics</name>
-            <styleUrl>#msn_ylw-pushpin</styleUrl>
-            <Polygon>
-                <tessellate>1</tessellate>
-                <outerBoundaryIs>
-                    <LinearRing>
-                        <coordinates>
-                            -123.8874588871808,47.80607984025842,0 -123.7855013614598,47.69771259806143,0 -123.6092783218506,47.55766379236243,0 -123.4217252714086,47.47974434977975,0 -123.2237621910768,47.49707099267726,0 -123.0584946124002,47.64914991885904,0 -122.9901702231548,47.88936925438292,0 -123.0427525154289,47.9744908337568,0 -123.2634975858784,47.9928145685977,0 -123.5474789699895,48.00076350698714,0 -123.8170237527366,47.98739291663394,0 -123.9389369253526,47.93901195253278,0 -123.8874588871808,47.80607984025842,0
-                        </coordinates>
-                    </LinearRing>
-                </outerBoundaryIs>
-            </Polygon>
-        </Placemark>
-    </Document>
+<Document>
+	<name>nwac_regions.kml</name>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<PolyStyle>
+			<colorMode>random</colorMode>
+		</PolyStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<PolyStyle>
+			<colorMode>random</colorMode>
+		</PolyStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Folder>
+		<name>NWAC</name>
+		<open>1</open>
+		<Placemark>
+			<name>Olympics</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-123.8874588871808,47.80607984025842,0 -123.7855013614598,47.69771259806143,0 -123.6092783218506,47.55766379236243,0 -123.4217252714086,47.47974434977975,0 -123.2237621910768,47.49707099267726,0 -123.0584946124002,47.64914991885904,0 -122.9901702231548,47.88936925438292,0 -123.0427525154289,47.9744908337568,0 -123.2634975858784,47.9928145685977,0 -123.5474789699895,48.00076350698714,0 -123.8170237527366,47.98739291663394,0 -123.9389369253526,47.93901195253278,0 -123.8874588871808,47.80607984025842,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<name>Stevens Pass</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-121.0718285858468,47.62663284666024,0 -120.8860423253119,47.65881753245863,0 -120.8722859889561,47.80706931240949,0 -121.0259925251554,47.86120546648448,0 -121.1633680799825,47.83182653553821,0 -121.2146102857374,47.71580141758079,0 -121.0718285858468,47.62663284666024,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<name>Snoqualmie Pass</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-121.5366860992391,47.31180036205748,0 -121.3697754877893,47.26288901533317,0 -121.270703569084,47.32198762724494,0 -121.2219979209048,47.42489670355688,0 -121.3552844573023,47.49831503799317,0 -121.4910505697708,47.49278810594276,0 -121.5339873067747,47.39846851965152,0 -121.5366860992391,47.31180036205748,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<name>White Pass</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-121.4937539750441,46.61088502532512,0 -121.426818656871,46.56123596184385,0 -121.3406898481991,46.56231263504876,0 -121.2733557245133,46.59707018970343,0 -121.2737642006698,46.66629348405922,0 -121.332844458305,46.69639461858066,0 -121.4334920895288,46.69799146646769,0 -121.4924703939447,46.66646491067941,0 -121.4937539750441,46.61088502532512,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<name>Cascades West, North</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-122.0082416376159,48.70324139511396,0 -121.8153936599576,47.87869568659397,0 -121.7218709001051,47.86683357363262,0 -121.6217313280746,47.83635778149247,0 -121.5161480003116,47.80368344812662,0 -121.3694619968857,47.71084969400322,0 -121.2142661651857,47.71693646901263,0 -121.163393031798,47.83179432748094,0 -121.1214067948838,47.84085604138622,0 -121.1221935060968,48.03519966199059,0 -120.8949931917805,48.16130777993424,0 -121.0440270093465,48.32049091425061,0 -121.0175657400691,48.48368138650444,0 -120.7054693370933,48.50199049416618,0 -120.4789146027741,49.0002248986922,0 -121.9972450491484,49.00073793172494,0 -122.0082416376159,48.70324139511396,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<name>Cascades West, North-Central</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-121.8380452162022,47.51756702139453,0 -121.8101305204448,47.4983403436984,0 -121.7058242591428,47.46336837648352,0 -121.6616855758509,47.44430810379088,0 -121.5970999352216,47.42754616998492,0 -121.5804057274329,47.41326314737978,0 -121.5348032819364,47.39810982029643,0 -121.4910005803374,47.49249822405164,0 -121.4169326713409,47.49608706437688,0 -121.3550565547309,47.49842868246705,0 -121.3051638495534,47.47119643877164,0 -121.0719914776387,47.62664862228219,0 -121.2156322661798,47.7166986422265,0 -121.3690692533739,47.71039340717746,0 -121.5825704732653,47.80975924997592,0 -121.8123145176511,47.84815530457704,0 -121.8380452162022,47.51756702139453,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+</Document>
 </kml>

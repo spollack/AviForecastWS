@@ -10,8 +10,7 @@ http://www.nwac.us/dangerrose/preview/2227/
 avalanche levels definitions
     single image: http://www.nwac.us/media/uploads/NA_danger_scale_2010.jpg (image is 480x266)
     as text and icons: http://www.avalanche.ca/cac/bulletins/danger-scale
-
-i've downloaded the danger scale icons. they are PDFs. source is: http://www.avalanche.org/zip/Danger_Scale_Icons.zip
+    i've downloaded the danger scale icons. they are PDFs. source is: http://www.avalanche.org/zip/Danger_Scale_Icons.zip
 
 KMZ/KML files for regions:
     all of Canada: http://avalanche.ca/kmz/bulletinregions.kmz
@@ -61,6 +60,7 @@ iOS
     readable layout on non-retina displays
     info page(s)?
     drill down to details page?
+    refresh regions.json periodically?
     offline caching?
     iOS4 support?
     liability warning?
