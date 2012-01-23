@@ -264,10 +264,13 @@ function parseForecastValues(body, regionId, forecastDays, aviLevels) {
 
     for (var day = 0; day < NUM_FORECAST_DAYS; day++) {
 
+        // look for the day name, case insensitive, before the colon
+        var regExp = new RegExp(forecastDays[day] + '[^:]*:','i');
+
         // find the first block that contains the relevant day string, and extract the first avalanche keyword therein
         for (var block = 0; block < forecastBlocks.length; block++) {
 
-            if (forecastBlocks[block].indexOf(forecastDays[day]) != -1) {
+            if (forecastBlocks[block].match(regExp)) {
 
                 aviLevels[day] = findAviLevel(forecastBlocks[block]);
                 console.log('parsing forecast values; regionId: ' + regionId + '; day: ' + day + '; day name: ' +
