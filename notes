@@ -1,9 +1,5 @@
 data sources:
 ----------
-www.nwac.us
-www.avalanche.org
-www.avalanche.ca
-
 http://www.nwac.us/dangerrose/preview/2227/
     an example of a generated danger rose. generated for a specific date, region, etc., with a generated URL. 400x400, on a transparent background.
 
@@ -11,10 +7,6 @@ avalanche levels definitions
     single image: http://www.nwac.us/media/uploads/NA_danger_scale_2010.jpg (image is 480x266)
     as text and icons: http://www.avalanche.ca/cac/bulletins/danger-scale
     i've downloaded the danger scale icons. they are PDFs. source is: http://www.avalanche.org/zip/Danger_Scale_Icons.zip
-
-KMZ/KML files for regions:
-    all of Canada: http://avalanche.ca/kmz/bulletinregions.kmz
-    NW: would need to define. could base on NW region map: http://www.nwac.us/media/images/avalanche-map-small.jpg but would be manual work.
 
 notes on regions:
 ----------
@@ -25,26 +17,11 @@ Canada:
 * 3 independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
 
 
-basic app design concept:
-----------
-* overview map
-    * uses the map view, zoomed out a ways, hybrid view mode; center on user's current location
-    * overlay regions based on current "bottom line" avalanche forecast color (and/or icon)
-    * click a region to drill to details
-* details pages
-    * shows the detailed forecast information for that region (including forecast timestamp, avalanche roses if available, etc.)
-    * exact details will depend on the forecasting region
-* information page
-    * shows the level definitions, etc.
-
-
 things to do:
 ----------
 WS
-    add more regions to regions.json
-        use Google Earth to draw regions and get KML; or see if NWAC writes back
     app naming
-        rename Heroku app (aviforecastws) -- "heroku rename newname"
+        rename Heroku app (avalanche or aviforecastws) -- "heroku rename newname"
         shorten version/1 to v1
         update client URLs, and push out new build
     support other avi centers beyond nwac
@@ -52,12 +29,10 @@ WS
     remove console messages for happy path, or switch to a real logger and turn down (via Winston)
     scale testing?
 iOS
-    after adding more regions
-        management of multiple concurrent network requests?
-        track and throttle global refreshes (don't refresh if already done within the last few seconds)?
-        user performance acceptable?
+    change default zoom to be a bit wider
+    recognize clicks on regions to get more details?
     design and implement real UI layout
-    readable layout on non-retina displays
+    readable layout on non-retina displays -- replace top graphic (full screen is 480x320, or 960x640)
     info page(s)?
     drill down to details page?
     refresh regions.json periodically?
@@ -70,9 +45,14 @@ iOS
     consider switching map to hybrid view mode, but if so change overlays to stand out better on this background
     startup screens
     check task switching behavior (viewDidUnload, etc.) -- what should get unloaded?
-    check low memory behavior
+    after adding more regions
+        optimization: only fetch forecasts if overlay actually gets loaded?
+        management of multiple concurrent network requests?
+        track and throttle global refreshes (don't refresh if already done within the last few seconds)?
+    check behavior on various networks (WiFi vs. 3G vs. Edge)
     check no network behavior
     check no GPS behavior
+    check low memory behavior
     attributions?
     unit tests?
  other
@@ -92,6 +72,7 @@ iOS
     set up www.sebnarware.com website (via brinkster; see https://help.brinkster.com/KB/a125/how-do-i-redirect-a-domain-or-subdomain.aspx)
     update my developer account with Apple for business name?
     paid or free? thinking free
+    take screenshots
     submit app to Apple
     marketing
 future possibilities

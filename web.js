@@ -270,7 +270,8 @@ function parseForecastValues(body, regionId, forecastDays, aviLevels) {
             if (forecastBlocks[block].indexOf(forecastDays[day]) != -1) {
 
                 aviLevels[day] = findAviLevel(forecastBlocks[block]);
-                console.log('parsing forecast values; regionId: ' + regionId + '; day: ' + day + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
+                console.log('parsing forecast values; regionId: ' + regionId + '; day: ' + day + '; day name: ' +
+                    forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
 
                 break;
             }
