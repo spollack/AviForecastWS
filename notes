@@ -1,13 +1,3 @@
-data sources:
-----------
-http://www.nwac.us/dangerrose/preview/2227/
-    an example of a generated danger rose. generated for a specific date, region, etc., with a generated URL. 400x400, on a transparent background.
-
-avalanche levels definitions
-    single image: http://www.nwac.us/media/uploads/NA_danger_scale_2010.jpg (image is 480x266)
-    as text and icons: http://www.avalanche.ca/cac/bulletins/danger-scale
-    i've downloaded the danger scale icons. they are PDFs. source is: http://www.avalanche.org/zip/Danger_Scale_Icons.zip
-
 notes on regions:
 ----------
 Canada:
@@ -22,64 +12,59 @@ things to do:
 WS
     app naming
         rename Heroku app (avalanche or aviforecastws) -- "heroku rename newname"
-        shorten version/1 to v1
         update client URLs, and push out new build
-    support other avi centers beyond nwac
-    set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases
-    remove console messages for happy path, or switch to a real logger and turn down (via Winston)
-    scale testing?
+    support other avi centers (CAC; pc.gc.ca; etc.)
+    testing
+        set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
+        scale testing?
+    operations
+        remove console messages for happy path, or switch to a real logger and turn down (via Winston)
 iOS
-    change default zoom to be a bit wider
-    recognize clicks on regions to get more details?
-    design and implement real UI layout
-    readable layout on non-retina displays -- replace top graphic (full screen is 480x320, or 960x640)
-    info page(s)?
-    drill down to details page?
-    refresh regions.json periodically?
-    offline caching?
+    forecast details page (for now, just show entire site-specific details page)
+        figure out how to recognize clicks on annotations
+        figure out how to just to another view
+    data management
+        add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
+        track and throttle global refreshes (don't refresh if already done within the last few seconds)?
+        refresh regions.json periodically?
+        offline data caching?
+        only fetch forecasts if overlay view actually gets loaded?
     iOS4 support?
     liability warning?
-    ask for ratings?
-    overlay avi symbols too?
-    make toolbar completely transparent
-    consider switching map to hybrid view mode, but if so change overlays to stand out better on this background
-    startup screens
-    check task switching behavior (viewDidUnload, etc.) -- what should get unloaded?
-    after adding more regions
-        optimization: only fetch forecasts if overlay actually gets loaded?
-        management of multiple concurrent network requests?
-        track and throttle global refreshes (don't refresh if already done within the last few seconds)?
-    check behavior on various networks (WiFi vs. 3G vs. Edge)
-    check no network behavior
-    check no GPS behavior
-    check low memory behavior
-    attributions?
-    unit tests?
+    ask for app ratings?
+    testing
+        unit tests?
+        test on various iOS versions
+        test on various device types
+        check task switching behavior
+        check behavior on various networks (WiFi vs. 3G vs. Edge)
+        check no network behavior
+        check no GPS behavior
+        check "use location: not allowed" behavior
+        check low memory behavior
  other
-    beta testing (TestFlight)
-    ensure accuracy!
-    work with NWAC; switch to their REST api when available
+    beta testing
+    set up NWAC for beta testing
     contact other avalanche centers?
-    LLC -- call and talk it through with the state
-        LLC name? vs. trade names?
-        what is through BLS vs. sec of state?
-        annual fees and requirements?
-        any other structural documents required?
-        how long does it take to get set up?
-        do i need to shut down the old business? or does it get transformed?
-        updating Seattle biz license
-        anything else i need to know?
+    LLC
+        get confirmation from SOS
+        reserve domain name (icicleventuresllc.com)? and map it in brinkster
+        file with BLS online
+        email BLS to ask them to shut down my old business
+        update Seattle biz license
+        update my developer account with Apple from individual to business (see http://developer.apple.com/support/ios/account-management.html)
+        create bank account
     set up www.sebnarware.com website (via brinkster; see https://help.brinkster.com/KB/a125/how-do-i-redirect-a-domain-or-subdomain.aspx)
-    update my developer account with Apple for business name?
+    set up www.icicleventuresllc.com website (via brinkster; see https://help.brinkster.com/KB/a125/how-do-i-redirect-a-domain-or-subdomain.aspx)?
     paid or free? thinking free
     take screenshots
     submit app to Apple
     marketing
 future possibilities
+    switch to NWAC JSON api when available
     push notifications
     weather info
     telemetry info
     add previous days to view history
-    more avi info
-    field tools (inclinometer, etc.)
+    more avi reference info
     Android version

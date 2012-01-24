@@ -2,6 +2,7 @@
     {
         "regionId": "cac_south-columbia",
         "displayName": "South Columbia (Selkirks and Monashees)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/south-columbia/",
         "points": [
             {
                 "lat": "51.18497138849386",
@@ -2196,6 +2197,7 @@
     {
         "regionId": "vancouverisland_",
         "displayName": "Vancouver Island",
+        "URL":"http://www.islandavalanchebulletin.com/",
         "points": [
             {
                 "lat": "49.66787483837379",
@@ -2550,6 +2552,7 @@
     {
         "regionId": "cac_northwest-coastal",
         "displayName": "Northwest (Terrace and Coast)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/northwest-coastal/",
         "points": [
             {
                 "lat": "55.11894565953548",
@@ -6752,6 +6755,7 @@
     {
         "regionId": "cac_northwest-inland",
         "displayName": "Northwest (Smithers and Interior)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/northwest-inland/",
         "points": [
             {
                 "lat": "58.04362160155711",
@@ -8462,6 +8466,7 @@
     {
         "regionId": "cac_sea-to-sky",
         "displayName": "South Coast (Sea to Sky)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/sea-to-sky/",
         "points": [
             {
                 "lat": "49.32798858018165",
@@ -12956,6 +12961,7 @@
     {
         "regionId": "whistlerblackcomb_",
         "displayName": "Whistler Backcountry",
+        "URL":"http://www.whistlerblackcomb.com/weather/advisory/index.htm",
         "points": [
             {
                 "lat": "50.09263149795051",
@@ -13246,6 +13252,7 @@
     {
         "regionId": "cac_north-shore",
         "displayName": "North Shore",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/north-shore/",
         "points": [
             {
                 "lat": "49.41607396011919",
@@ -13584,6 +13591,7 @@
     {
         "regionId": "cacx_north-rockies",
         "displayName": "North Rockies",
+        "URL":"",
         "points": [
             {
                 "lat": "53.07679252379724",
@@ -16874,6 +16882,7 @@
     {
         "regionId": "cac_south-coast",
         "displayName": "South Coast (Duffey Lake and Inland)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/south-coast/",
         "points": [
             {
                 "lat": "50.30868544114347",
@@ -19360,6 +19369,7 @@
     {
         "regionId": "cac_cariboos",
         "displayName": "North Columbia (Cariboos)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/cariboos/",
         "points": [
             {
                 "lat": "52.36996858536077",
@@ -20950,6 +20960,7 @@
     {
         "regionId": "cac_monashees-selkirks",
         "displayName": "North Columbia (Monashees and Selkirks)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/monashees-selkirks/",
         "points": [
             {
                 "lat": "51.17552163492612",
@@ -22632,6 +22643,7 @@
     {
         "regionId": "pc.gc.ca_3",
         "displayName": "Glacier National Park",
+        "URL":"http://avalanche.pc.gc.ca/bulletin-eng.aspx?m=1&d=TODAY&r=3",
         "points": [
             {
                 "lat": "51.25236005418716",
@@ -24270,6 +24282,7 @@
     {
         "regionId": "cac_purcells",
         "displayName": "South Columbia (Purcells)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/purcells/",
         "points": [
             {
                 "lat": "51.1078171204119",
@@ -25604,6 +25617,7 @@
     {
         "regionId": "cac_kootenay-boundary",
         "displayName": "Kootenay Boundary",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/kootenay-boundary/",
         "points": [
             {
                 "lat": "49.88290349583519",
@@ -26638,6 +26652,7 @@
     {
         "regionId": "pc.gc.ca_2",
         "displayName": "Jasper National Park",
+        "URL":"http://avalanche.pc.gc.ca/bulletin-eng.aspx?m=1&d=TODAY&r=2",
         "points": [
             {
                 "lat": "51.95328288536721",
@@ -30116,6 +30131,7 @@
     {
         "regionId": "cacx_bighorn",
         "displayName": "Bighorn",
+        "URL":"",
         "points": [
             {
                 "lat": "52.38550681898611",
@@ -31022,6 +31038,7 @@
     {
         "regionId": "pc.gc.ca_1",
         "displayName": "Banff, Yoho and Kootenay National Parks",
+        "URL":"http://avalanche.pc.gc.ca/bulletin-eng.aspx?m=1&d=TODAY&r=1",
         "points": [
             {
                 "lat": "51.21046972748098",
@@ -31332,6 +31349,7 @@
     {
         "regionId": "alberta_kananaskis",
         "displayName": "Kananaskis Country",
+        "URL":"http://www.tpr.alberta.ca/parks/kananaskis/backcountryreport.asp",
         "points": [
             {
                 "lat": "51.02134193792883",
@@ -32730,6 +32748,7 @@
     {
         "regionId": "cac_south-rockies",
         "displayName": "South Rockies (Elk Valley and Crowsnest Pass)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/south-rockies/",
         "points": [
             {
                 "lat": "49.42377188783632",
@@ -34492,6 +34511,7 @@
     {
         "regionId": "cac_lizardrange",
         "displayName": "South Rockies (Fernie and Lizard Range)",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/lizardrange/",
         "points": [
             {
                 "lat": "49.58528990226505",
@@ -35378,6 +35398,7 @@
     {
         "regionId": "pc.gc.ca_4",
         "displayName": "Waterton Lakes National Park",
+        "URL":"http://avalanche.pc.gc.ca/bulletin-eng.aspx?m=1&d=TODAY&r=4",
         "points": [
             {
                 "lat": "49.17925532500622",

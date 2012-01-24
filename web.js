@@ -41,9 +41,8 @@ function runServer() {
     var app = express.createServer(express.logger());
 
     // path mapping
-    app.get('/region/:regionId', onRequestRegion_v0);
-    app.get('/version/1/config', onRequestConfig_v1);
-    app.get('/version/1/region/:regionId', onRequestRegion_v1);
+    app.get('/v1/regions', onRequestRegions_v1);
+    app.get('/v1/region/:regionId', onRequestRegion_v1);
 
     // use the value from the PORT env variable if available, fallback if not
     var port = process.env.PORT || 5000;
@@ -60,12 +59,7 @@ function runServer() {
 // request handling
 //
 
-function onRequestRegion_v0(origRequest, origResponse) {
-    // NOTE just here until old clients upgrade; for now, just return AVI_LEVEL_UNKNOWN
-    origResponse.send({'aviLevel': AVI_LEVEL_UNKNOWN});
-}
-
-function onRequestConfig_v1(origRequest, origResponse) {
+function onRequestRegions_v1(origRequest, origResponse) {
     origResponse.contentType('application/json');
     origResponse.sendfile('regions.json');
 }
