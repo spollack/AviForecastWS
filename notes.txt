@@ -1,0 +1,78 @@
+notes on regions:
+----------
+Canada:
+* 12 regions with regular CAC forecasts
+* 2 regions under CAC, but with no real forecasts (Bighorn, North Rockies)
+* 4 from pc.gc.ca for national parks
+* 3 independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
+
+
+things to do:
+----------
+iOS
+    register new beta testers with Apple
+    push new build
+    NWAC popup: consider linking directly to mobile version of NWAC site? or send a user-agent header to fool it? or set a cookie?
+    make legend more readable: consider a vertical stack, overlaid on map? or hypenated words?
+    redraw flashing: consider not drawing regions until data has loaded?
+    data management
+        offline data caching?
+        add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
+        track and throttle global refreshes (don't refresh if already done within the last few seconds)?
+        refresh regions.json periodically (may be hard...)?
+        only fetch forecasts if overlay view actually gets loaded?
+        am i going to have to combine the forecast lookups into one/fewer calls?
+    liability warning?
+    ask for app ratings?
+    mapkit crash bug?
+        see: http://stackoverflow.com/questions/8022609/ios-5-mapkit-crashes-with-overlays-when-zoom-pan
+        see: https://devforums.apple.com/message/584753
+        see: https://devforums.apple.com/thread/48154?tstart=0
+    testing
+        test on various iOS versions
+        test on various device types
+        check behavior on various networks (WiFi vs. 3G vs. Edge)
+        check no network behavior
+        check no GPS behavior
+        check low memory behavior
+WS
+    support other avi centers
+        CAC
+        pc.gc.ca
+        canada independents
+        other US regions
+    cleanup
+        use regions.json for URL lookup? (and other metadata like parsing style)
+    testing
+        set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
+        scale testing?
+    operations
+        remove console messages for happy path, or switch to a real logger and turn down (via Winston)
+        trending? (e.g. number of requests, # of users, etc.)
+        monitoring? (e.g. pingdom)
+        alerting?
+        staging env?
+ other
+    contact other avalanche centers?
+    LLC
+        get confirmation from BLS
+        update Seattle biz license
+        update my developer account with Apple from individual to business (see http://developer.apple.com/support/ios/account-management.html)
+        create bank account for LLC
+    set up www.sebnarware.com website (via brinkster; see https://help.brinkster.com/KB/a125/how-do-i-redirect-a-domain-or-subdomain.aspx)
+    get domain for icicleventures too?
+    paid or free? thinking free
+    take screenshots
+    submit app to Apple
+    marketing
+future possibilities
+    switch to NWAC JSON api when available
+    feature to put in a place name, and have the map jump there
+    push notifications
+    weather info
+    telemetry info
+    add previous days to view history
+    more avi reference info
+    consider updating shared components
+    iPad-specific version
+    Android version (or PhoneGap version)
