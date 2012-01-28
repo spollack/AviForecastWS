@@ -10,11 +10,7 @@ Canada:
 things to do:
 ----------
 iOS
-    register new beta testers with Apple
-    push new build
-    NWAC popup: consider linking directly to mobile version of NWAC site? or send a user-agent header to fool it? or set a cookie?
-    make legend more readable: consider a vertical stack, overlaid on map? or hypenated words?
-    redraw flashing: consider not drawing regions until data has loaded?
+    make legend more readable (consider a vertical stack, overlaid on map? or hyphenated words)?
     data management
         offline data caching?
         add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
