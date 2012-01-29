@@ -7,12 +7,16 @@ Canada:
 * 3 independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
 
 
+release notes:
+----------
+* compress the regions data for network transmission (85% size savings), to improve speed to first data overlay display
+* added basic usage analytics
+
+
 things to do:
 ----------
 iOS
     data management
-        data compression
-            express isn't gzip-ing the regions.json right now (85% savings...)   (client side is doing the right thing for Accept-Encoding)
         slow performance to first data drawn when app launched right after phone boots up -- network contention probably
         if forecast load fails for a region, still show it (either show as no data, or at least have it reappear when the forecasts reload)
         consider testing with a large number of (fake) regions, to see how everything works at scale now

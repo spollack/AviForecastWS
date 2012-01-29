@@ -42,8 +42,10 @@ function runServer() {
     var app = express.createServer();
 
     app.use(express.logger());
+    // take our explicit app routes in preference to serving static content
     app.use(app.router);
-    app.use(gzippo.staticGzip(__dirname + '/public'));
+    // set the max age to 0, so that the client should always check If-Modified-Since
+    app.use(gzippo.staticGzip(__dirname + '/public', {clientMaxAge: 0}));
 
     // path mapping
     app.get('/v1/regions', onRequestRegions_v1);
