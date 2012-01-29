@@ -11,13 +11,13 @@ things to do:
 ----------
 iOS
     data management
+        data compression
+            express isn't gzip-ing the regions.json right now (85% savings...)   (client side is doing the right thing for Accept-Encoding)
         slow performance to first data drawn when app launched right after phone boots up -- network contention probably
         if forecast load fails for a region, still show it (either show as no data, or at least have it reappear when the forecasts reload)
         consider testing with a large number of (fake) regions, to see how everything works at scale now
         data caching (for offline, and for startup performance)? (https://github.com/steipete/SDURLCache; http://redbot.org; http://www.mnot.net/cache_docs/)
             be sure caching headers are being set appropriately on the server side for dynamic content
-            express isn't gzip-ing the regions.json right now (85% savings...)  express.staticGzip
-            make sure we are requesting regions.json with the right Accept-Encoding headers (see: http://www.voidasterisk.org/post/2871929495/how-to-enable-http-gzip-in-nsurlconnection)
             make sure we are sending the if-modified-since for regions.json (examine/log http request headers inside server?)
         add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
         combine the forecast lookups into one/fewer calls?

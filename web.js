@@ -3,6 +3,7 @@
 //
 
 var express = require('express');
+var gzippo = require('gzippo');
 var request = require('request');
 var moment = require('moment');
 
@@ -38,7 +39,11 @@ runServer();
 
 function runServer() {
 
-    var app = express.createServer(express.logger());
+    var app = express.createServer();
+
+    app.use(express.logger());
+    app.use(app.router);
+    app.use(gzippo.staticGzip(__dirname + '/public'));
 
     // path mapping
     app.get('/v1/regions', onRequestRegions_v1);
@@ -61,7 +66,7 @@ function runServer() {
 
 function onRequestRegions_v1(origRequest, origResponse) {
     origResponse.contentType('application/json');
-    origResponse.sendfile('regions.json');
+    origResponse.sendfile('public/v1/regions.json');
 }
 
 // get the avalanche forecast info from the appropriate source, and return it to the originating client
