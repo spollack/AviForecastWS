@@ -45,7 +45,7 @@ function runServer() {
     // take our explicit app routes in preference to serving static content
     app.use(app.router);
     // set the max age to 1 second, so that the client should then check If-Modified-Since after that time period
-    // NOTE would set this to zero, but a bug in gzippo prevents this
+    // NOTE would set this to zero, but a bug in gzippo prevents this (https://github.com/tomgallacher/gzippo/issues/22)
     app.use(gzippo.staticGzip(__dirname + '/public', {clientMaxAge: 1000}));
 
     // path mapping
