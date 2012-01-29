@@ -5,18 +5,18 @@
 var fs = require('fs');
 
 
-KMLFileToJSONFile('nwac_regions.kml','nwac_regions.json','nwac');
-//KMLFileToJSONFile('canada_regions.kml','canada_regions.json','canada');
+KMLFileToJSONFile('nwac_regions.kml','test_nwac_regions.json','nwac','http://www.nwac.us/forecast/avalanche/current/zone/');
+//KMLFileToJSONFile('canada_regions.kml','canada_regions.json','canada','');
 
 
-function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix) {
-    var JSONString = KMLStringToJSONString(fs.readFileSync(KMLFileName, 'utf8'), regionPrefix);
+function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {
+    var JSONString = KMLStringToJSONString(fs.readFileSync(KMLFileName, 'utf8'), regionPrefix, URLPrefix);
     if (JSONString) {
         fs.writeFileSync(JSONFileName, JSONString, 'utf8');
     }
 }
 
-function KMLStringToJSONString(KML, regionPrefix) {
+function KMLStringToJSONString(KML, regionPrefix, URLPrefix) {
 
     var JSONString = null;
 
@@ -36,7 +36,7 @@ function KMLStringToJSONString(KML, regionPrefix) {
             //console.log('name: ' + name);
 
             var oneBasedIndex = i + 1;
-            data[i] = {'regionId': regionPrefix + '_' + oneBasedIndex, 'displayName': name, 'points':[]};
+            data[i] = {'regionId': regionPrefix + '_' + oneBasedIndex, 'displayName': name, 'URL' : URLPrefix, 'points':[]};
 
             var coordinatesMatch = placemarkBlocks[i].match(/<coordinates>\s*([\S\s]*?)\s*<\/coordinates>/);
             var coordinatesList = (coordinatesMatch && coordinatesMatch.length > 1) ? coordinatesMatch[1] : '';

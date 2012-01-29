@@ -10,14 +10,22 @@ Canada:
 things to do:
 ----------
 iOS
-    make legend more readable (consider a vertical stack, overlaid on map? or hyphenated words)?
     data management
-        offline data caching?
+        slow performance to first data drawn when app launched right after phone boots up -- network contention probably
+        if forecast load fails for a region, still show it (either show as no data, or at least have it reappear when the forecasts reload)
+        consider testing with a large number of (fake) regions, to see how everything works at scale now
+        data caching (for offline, and for startup performance)? (https://github.com/steipete/SDURLCache; http://redbot.org; http://www.mnot.net/cache_docs/)
+            be sure caching headers are being set appropriately on the server side for dynamic content
+            express isn't gzip-ing the regions.json right now (85% savings...)  express.staticGzip
+            make sure we are requesting regions.json with the right Accept-Encoding headers (see: http://www.voidasterisk.org/post/2871929495/how-to-enable-http-gzip-in-nsurlconnection)
+            make sure we are sending the if-modified-since for regions.json (examine/log http request headers inside server?)
         add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
+        combine the forecast lookups into one/fewer calls?
         track and throttle global refreshes (don't refresh if already done within the last few seconds)?
         refresh regions.json periodically (may be hard...)?
         only fetch forecasts if overlay view actually gets loaded?
-        am i going to have to combine the forecast lookups into one/fewer calls?
+    spinny wheel for time when data is loading; also for when web pages are loading
+    is legend readable enough? (consider taller&narrower font; hyphenated words; linking from legend to info page, or having it slide down or pop up)
     liability warning?
     ask for app ratings?
     mapkit crash bug?
@@ -29,16 +37,17 @@ iOS
         test on various device types
         check behavior on various networks (WiFi vs. 3G vs. Edge)
         check no network behavior
+        test various cache cases
         check no GPS behavior
         check low memory behavior
 WS
     support other avi centers
-        CAC
+        CAC -- get access to their XML api
         pc.gc.ca
         canada independents
         other US regions
     cleanup
-        use regions.json for URL lookup? (and other metadata like parsing style)
+        use regions.json for URL lookup? (probably need separate fields for server endpoint vs. client webpage; could also store other metadata like parsing style)
     testing
         set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
         scale testing?
@@ -49,7 +58,6 @@ WS
         alerting?
         staging env?
  other
-    contact other avalanche centers?
     LLC
         get confirmation from BLS
         update Seattle biz license
@@ -60,6 +68,7 @@ WS
     paid or free? thinking free
     take screenshots
     submit app to Apple
+    contact other avalanche centers?
     marketing
 future possibilities
     switch to NWAC JSON api when available
