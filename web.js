@@ -107,6 +107,7 @@ function sendNoDataAvailableResponse(origResponse) {
 function sendDataResponse(origResponse, forecast) {
 
     origResponse.contentType('application/json');
+    origResponse.setHeader('Date', new Date().toUTCString());
 
     if (forecast) {
         origResponse.header('Cache-Control', 'max-age=' + CACHE_MAX_AGE_SECONDS);
