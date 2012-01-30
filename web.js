@@ -12,14 +12,16 @@ var moment = require('moment');
 // constants
 //
 
-var NUM_FORECAST_DAYS = 3;
-
 var AVI_LEVEL_UNKNOWN = 0;
 var AVI_LEVEL_LOW = 1;
 var AVI_LEVEL_MODERATE = 2;
 var AVI_LEVEL_CONSIDERABLE = 3;
 var AVI_LEVEL_HIGH = 4;
 var AVI_LEVEL_EXTREME = 5;
+
+var CACHE_MAX_AGE_SECONDS = 300;
+
+var NUM_FORECAST_DAYS = 3;
 
 
 //
@@ -44,9 +46,7 @@ function runServer() {
     app.use(express.logger());
     // take our explicit app routes in preference to serving static content
     app.use(app.router);
-    // set the max age to 1 second, so that the client should then check If-Modified-Since after that time period
-    // NOTE would set this to zero, but a bug in gzippo prevents this (https://github.com/tomgallacher/gzippo/issues/22)
-    app.use(gzippo.staticGzip(__dirname + '/public', {clientMaxAge: 1000}));
+    app.use(gzippo.staticGzip(__dirname + '/public', {clientMaxAge: (CACHE_MAX_AGE_SECONDS * 1000)}));
 
     // path mapping
     app.get('/v1/regions', onRequestRegions_v1);
@@ -67,6 +67,7 @@ function runServer() {
 // request handling
 //
 
+// BUGBUG this is deprecated, as it returns uncompressed content; remove once everyone is on client builds >385
 function onRequestRegions_v1(origRequest, origResponse) {
     origResponse.contentType('application/json');
     origResponse.sendfile('public/v1/regions.json');
@@ -108,8 +109,10 @@ function sendDataResponse(origResponse, forecast) {
     origResponse.contentType('application/json');
 
     if (forecast) {
+        origResponse.header('Cache-Control', 'max-age=' + CACHE_MAX_AGE_SECONDS);
         origResponse.send(JSON.stringify(forecast));
     } else {
+        origResponse.header('Cache-Control', 'max-age=0');
         origResponse.send();
     }
 }
