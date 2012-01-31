@@ -9,49 +9,19 @@ Canada:
 
 release notes:
 ----------
-* compress the regions data for network transmission (85% size savings), to improve speed to first data overlay display
-* added basic usage analytics
 
 
 things to do:
 ----------
-iOS
-    data management
-        slow performance and some network failures when app launched right after phone boots up -- network contention probably
-        if forecast load fails for a region, still show it (either show as no data, or at least have it reappear when the forecasts reload)
-        consider testing with a large number of (fake) regions, to see how everything works at scale now
-        persistent client-side data caching (for offline, and for startup performance)?
-            (see: https://github.com/steipete/SDURLCache; http://redbot.org; http://www.mnot.net/cache_docs/)
-            be sure caching headers are being set appropriately on the server side for dynamic content
-            make sure we are sending the if-modified-since for regions.json (examine/log http request headers inside server?)
-        add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
-        combine the forecast lookups into one/fewer calls?
-        track and throttle global refreshes (don't refresh if already done within the last few seconds)?
-        refresh regions.json periodically (may be hard...)?
-        only fetch forecasts if overlay view actually gets loaded?
-    spinny wheel for time when data is loading; also for when web pages are loading
-    is legend readable enough? (consider taller&narrower font; hyphenated words; linking from legend to info page, or having it slide down or pop up)
-    liability warning?
-    ask for app ratings?
-    mapkit crash bug?
-        see: http://stackoverflow.com/questions/8022609/ios-5-mapkit-crashes-with-overlays-when-zoom-pan
-        see: https://devforums.apple.com/message/584753
-        see: https://devforums.apple.com/thread/48154?tstart=0
-    testing
-        test on various iOS versions
-        test on various device types
-        check behavior on various networks (WiFi vs. 3G vs. Edge)
-        check no network behavior
-        test various cache cases
-        check no GPS behavior
-        check low memory behavior
 WS
     support other avi centers
-        CAC -- get access to their XML api
+        CAC
+            read up on CAAML
         pc.gc.ca
         canada independents
         other US regions
     cleanup
+        clean up cache max-age settings
         use regions.json for URL lookup? (probably need separate fields for server endpoint vs. client webpage; could also store other metadata like parsing style)
     testing
         set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
@@ -62,6 +32,35 @@ WS
         monitoring? (e.g. pingdom)
         alerting?
         staging env?
+iOS
+    data management
+        right after phone bootup, saw some network failures once -- try to repro
+        consider testing with a large number of (fake) regions, to see how everything works at scale now?
+        add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
+        combine the forecast lookups into one/fewer calls?
+        refresh regions.json periodically (requires full cleanup and reload...)?
+        only fetch forecasts if overlay view actually gets loaded?
+        persistent cache
+            divide into two persistent caches, must keep and want to keep but purgable by iOS5 (see http://robnapier.net/blog/offline-uiwebview-nsurlprotocol-588)?
+            limit size of purgable cache?
+    is legend readable enough? (consider taller&narrower font; hyphenated words; linking from legend to info page, or having it slide down or pop up)
+    presentation of forecasts
+        come up with some way to show variations in forecast by elevation zone on overview?
+    networkActivityIndicator when sub-web pages are loading after first one?
+    liability warning?
+    ask for app ratings?
+    mapkit crash bug -- implement workaround?
+        see: http://stackoverflow.com/questions/8022609/ios-5-mapkit-crashes-with-overlays-when-zoom-pan
+        see: https://devforums.apple.com/message/584753
+        see: https://devforums.apple.com/thread/48154
+    testing
+        test on various iOS versions
+        test on various device types
+        check behavior on various networks (WiFi vs. 3G vs. Edge)
+        check no network behavior
+        test various cache cases
+        check no GPS behavior
+        check low memory behavior
  other
     LLC
         get confirmation from BLS
@@ -83,6 +82,6 @@ future possibilities
     telemetry info
     add previous days to view history
     more avi reference info
-    consider updating shared components
+    consider updating shared components (client; server)
     iPad-specific version
     Android version (or PhoneGap version)
