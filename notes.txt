@@ -15,26 +15,27 @@ things to do:
 ----------
 WS
     support other avi centers
-        CAC
-            read up on CAAML
+        CAC (via CAAML)
+            clean up code, logging, test, check in, push out
         pc.gc.ca
-        canada independents
-        other US regions
+        Canada independents
+        Utah
+        Colorado
+        other US
     cleanup
-        clean up cache max-age settings
-        use regions.json for URL lookup? (probably need separate fields for server endpoint vs. client webpage; could also store other metadata like parsing style)
+        remove console messages for happy path, or switch to a real logger and turn down (via Winston)
     testing
         set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
         scale testing?
     operations
-        remove console messages for happy path, or switch to a real logger and turn down (via Winston)
         trending? (e.g. number of requests, # of users, etc.)
         monitoring? (e.g. pingdom)
         alerting?
         staging env?
 iOS
     data management
-        right after phone bootup, saw some network failures once -- try to repro
+        put in flurry timers for loads/reloads
+        performance is slow on older phones
         consider testing with a large number of (fake) regions, to see how everything works at scale now?
         add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
         combine the forecast lookups into one/fewer calls?
@@ -43,10 +44,11 @@ iOS
         persistent cache
             divide into two persistent caches, must keep and want to keep but purgable by iOS5 (see http://robnapier.net/blog/offline-uiwebview-nsurlprotocol-588)?
             limit size of purgable cache?
-    is legend readable enough? (consider taller&narrower font; hyphenated words; linking from legend to info page, or having it slide down or pop up)
+            use cache contents even if network is available (either per regular cache rules; or as first data, before network data loads)?
+    add "3 days out", for CAC? rename "today", [tue], [wed], [thu] or similar?
+    is legend readable enough? looked just readable on iPhone 3G (consider taller&narrower font; hyphenated words; linking from legend to info page, or having it slide down or pop up)
     presentation of forecasts
         come up with some way to show variations in forecast by elevation zone on overview?
-    networkActivityIndicator when sub-web pages are loading after first one?
     liability warning?
     ask for app ratings?
     mapkit crash bug -- implement workaround?

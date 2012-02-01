@@ -6,6 +6,7 @@ var express = require('express');
 var gzippo = require('gzippo');
 var request = require('request');
 var moment = require('moment');
+var xml2js = require('xml2js');
 
 
 //
@@ -20,8 +21,6 @@ var AVI_LEVEL_HIGH = 4;
 var AVI_LEVEL_EXTREME = 5;
 
 var CACHE_MAX_AGE_SECONDS = 300;
-
-var NUM_FORECAST_DAYS = 3;
 
 
 //
@@ -44,12 +43,12 @@ function runServer() {
     var app = express.createServer();
 
     app.use(express.logger());
-    // take our explicit app routes in preference to serving static content
+    // use our explicit app routes in preference to serving static content
     app.use(app.router);
     app.use(gzippo.staticGzip(__dirname + '/public', {clientMaxAge: (CACHE_MAX_AGE_SECONDS * 1000)}));
 
     // path mapping
-    app.get('/v1/regions', onRequestRegions_v1);
+    app.get('/v1/regions', onRequestRegions_v1);  // BUGBUG note this is deprecated; see function definition below
     app.get('/v1/region/:regionId', onRequestRegion_v1);
 
     // use the value from the PORT env variable if available, fallback if not
@@ -79,20 +78,20 @@ function onRequestRegions_v1(origRequest, origResponse) {
 // the server to server request that we initiate here to query the appropriate forecast site
 function onRequestRegion_v1(origRequest, origResponse) {
     var regionId = origRequest.params.regionId;
-	var URL = getURLForRegionId(regionId);
+	var regionDetails = getRegionDetailsForRegionId(regionId);
 
-    if (!URL) {
+    if (!regionDetails) {
         console.log('invalid regionId received from client; regionId: ' + regionId);
         sendNoDataAvailableResponse(origResponse);
     } else {
-        request(URL,
+        request(regionDetails.serverURL,
             function (error, response, body) {
                 if (!error && response.statusCode === 200) {
-                    console.log('successful response; regionId: ' + regionId + '; URL: ' + URL);
-                    var forecast = parseForecast(body, regionId);
-                    sendDataResponse(origResponse, forecast);
+                    console.log('successful response; regionId: ' + regionDetails.regionId + '; URL: ' + regionDetails.serverURL);
+                    var forecast = regionDetails.parser(body, regionDetails);
+                    sendResponse(origResponse, forecast);
                 } else {
-                    console.log('error response; regionId: ' + regionId + '; URL: ' + URL + '; status code: ' + response.statusCode + '; error: ' + error);
+                    console.log('error response; regionId: ' + regionDetails.regionId + '; URL: ' + regionDetails.serverURL + '; status code: ' + response.statusCode + '; error: ' + error);
                     sendNoDataAvailableResponse(origResponse);
                 }
             }
@@ -101,88 +100,53 @@ function onRequestRegion_v1(origRequest, origResponse) {
 }
 
 function sendNoDataAvailableResponse(origResponse) {
-    sendDataResponse(origResponse, null);
+    sendResponse(origResponse, null);
 }
 
-function sendDataResponse(origResponse, forecast) {
+function sendResponse(origResponse, forecast) {
 
     origResponse.contentType('application/json');
-    origResponse.setHeader('Date', new Date().toUTCString());
 
     if (forecast) {
-        origResponse.header('Cache-Control', 'max-age=' + CACHE_MAX_AGE_SECONDS);
+        origResponse.setHeader('Date', new Date().toUTCString());
+        origResponse.setHeader('Cache-Control', 'max-age=' + CACHE_MAX_AGE_SECONDS);
         origResponse.send(JSON.stringify(forecast));
     } else {
-        origResponse.header('Cache-Control', 'max-age=0');
         origResponse.send();
     }
 }
 
-function getURLForRegionId(regionId) {
-    var URL = null;
+function getRegionDetailsForRegionId(regionId) {
+
+    var regionDetails = null;
 
     if (regionId) {
         var components = regionId.split('_');
-        if (components.length > 1) {
+
+        if (components.length > 0) {
+
+            // NOTE the URLs used here by the server for pull data may be different than the URLs for users viewing the corresponding forecast as a web page
+            var serverURL = null;
+            var parser = null;
             switch (components[0]) {
                 case 'nwac':
-                    URL = 'http://www.nwac.us/forecast/avalanche/current/zone/' + components[1] + '/';
+                    serverURL = 'http://www.nwac.us/forecast/avalanche/current/zone/' + components[1] + '/';
+                    parser = parseForecast_nwac;
                     break;
                 case 'cac':
-                    URL = 'http://www.avalanche.ca/cac/bulletins/latest/' + components[1] + '/';
+                    // NOTE cac is sensitive to a trailing slash, don't put it in
+                    serverURL = 'http://www.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
+                    parser = parseForecast_cac;
                     break;
                 default:
                     break;
             }
-        }
-    }
-    
-    return URL;
-}
 
-// avalanche forecasts typically have a timestamp that says when the forecast was issued; and then present
-// the forecast details labelled only by day of week, e.g. "Thursday: xxx". so to know exactly which dates
-// they are describing, we need to parse out both pieces and use them together.
-function parseForecast(body, regionId) {
-
-    var forecast = null;
-
-    // BUGBUG will need to change this to the forecast first date, to generalize to cac
-
-    // get the forecast issued date
-    var forecastIssuedDate = parseForecastIssuedDate(body, regionId);
-
-    if (forecastIssuedDate) {
-
-        // using forecast issued date to anchor things, set up our forecast dates and days
-        // start with the day the forecast was issued, and increment forward from there
-        var forecastDates = [NUM_FORECAST_DAYS];
-        var forecastDays = [NUM_FORECAST_DAYS];
-        var aviLevels = [NUM_FORECAST_DAYS];
-
-        for (var i = 0; i < NUM_FORECAST_DAYS; i++) {
-            // copy the value of the forecast issued date, and then offset by the appropriate number of days
-            forecastDates[i] = moment(moment(forecastIssuedDate).valueOf());
-            moment(forecastDates[i].add('days',i));
-
-            // get the day name for that date
-            forecastDays[i] = moment(forecastDates[i]).format("dddd");
-
-            aviLevels[i] = AVI_LEVEL_UNKNOWN;
-        }
-
-        // get the forecast details
-        parseForecastValues(body, regionId, forecastDays, aviLevels);
-
-        // fill out the return object
-        forecast = [NUM_FORECAST_DAYS];
-        for (var j = 0; j < NUM_FORECAST_DAYS; j++) {
-            forecast[j] = {'date':moment(forecastDates[j]).format('YYYY-MM-DD'), 'aviLevel':aviLevels[j]};
-            console.log('forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            regionDetails = {'regionId': regionId, 'provider': components[0], 'subregion': components[1], 'serverURL': serverURL, 'parser': parser};
         }
     }
 
-    return forecast;
+    return regionDetails;
 }
 
 // looks for the *highest* avi level keyword within the string
@@ -238,27 +202,72 @@ function aviLevelFromName(aviLevelName) {
     return aviLevel;
 }
 
-function parseForecastIssuedDate(body, regionId) {
-    // BUGBUG nwac specific; this will have to be extended to support other avalanche forecast centers
+function parseForecast_nwac(body, regionDetails) {
+
+    // nwac forecasts  have a timestamp that says when the forecast was issued; and then present the forecast
+    // details labelled only by day of week, e.g. "Thursday: xxx". so to know exactly which dates they are
+    // describing, we need to parse out both pieces and use them together.
+
+    var forecast = null;
+
+    // get the forecast issued date
+    var forecastIssuedDate = parseForecastIssuedDate_nwac(body, regionDetails);
+
+    if (forecastIssuedDate) {
+
+        // NWAC forecasts go at most 3 days out, and often are 2 days out; choose the max we want to look for
+        var NUM_FORECAST_DAYS_NWAC = 3;
+
+        // using forecast issued date to anchor things, set up our forecast dates and days
+        // start with the day the forecast was issued, and increment forward from there
+        var forecastDates = [NUM_FORECAST_DAYS_NWAC];
+        var forecastDays = [NUM_FORECAST_DAYS_NWAC];
+        var aviLevels = [NUM_FORECAST_DAYS_NWAC];
+
+        for (var i = 0; i < NUM_FORECAST_DAYS_NWAC; i++) {
+            // copy the value of the forecast issued date, and then offset by the appropriate number of days
+            forecastDates[i] = moment(moment(forecastIssuedDate).valueOf());
+            moment(forecastDates[i].add('days',i));
+
+            // get the day name for that date
+            forecastDays[i] = moment(forecastDates[i]).format("dddd");
+
+            aviLevels[i] = AVI_LEVEL_UNKNOWN;
+        }
+
+        // get the forecast details
+        parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels);
+
+        // fill out the return object
+        forecast = [NUM_FORECAST_DAYS_NWAC];
+        for (var j = 0; j < NUM_FORECAST_DAYS_NWAC; j++) {
+            forecast[j] = {'date':moment(forecastDates[j]).format('YYYY-MM-DD'), 'aviLevel':aviLevels[j]};
+            console.log('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    }
+
+    return forecast;
+}
+
+function parseForecastIssuedDate_nwac(body, regionDetails) {
 
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
     // NOTE typical string for nwac: '<span class="dynamic">1445 PM PST Mon Jan 16 2012</span>'
     var timestampMatch = body.match(/<span class="dynamic">\s*\d+\s+\w+\s+\w+\s+\w+\s+(\w+\s+\d+\s+\d+)\s*<\/span>/);
+
     // the capture group from the regex will be in slot 1 in the array
     if (timestampMatch && timestampMatch.length > 1) {
 
         forecastIssuedDate = moment(timestampMatch[1], "MMM DD YYYY");
-        console.log('found forecast issue date; regionId: ' + regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+        console.log('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
     }
 
     return forecastIssuedDate;
 }
 
-function parseForecastValues(body, regionId, forecastDays, aviLevels) {
-    // BUGBUG nwac specific; this will have to be extended to support other avalanche forecast centers
-
+function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) {
     // capture the set of forecast blocks within the body; typically there are 2 or 3
     // forecast blocks can potentially describe multiple days; can describe say "Thursday" vs. "Thursday night";
     // can describe days that have already passed; can contain multiple avi levels
@@ -268,7 +277,7 @@ function parseForecastValues(body, regionId, forecastDays, aviLevels) {
         console.log('forecastBlocks[' + i + ']: ' + forecastBlocks[i]);
     }
 
-    for (var day = 0; day < NUM_FORECAST_DAYS; day++) {
+    for (var day = 0; day < forecastDays.length; day++) {
 
         // look for the day name, case insensitive, before the colon
         var regExp = new RegExp(forecastDays[day] + '[^:]*:','i');
@@ -279,7 +288,7 @@ function parseForecastValues(body, regionId, forecastDays, aviLevels) {
             if (forecastBlocks[block].match(regExp)) {
 
                 aviLevels[day] = findAviLevel(forecastBlocks[block]);
-                console.log('parsing forecast values; regionId: ' + regionId + '; day: ' + day + '; day name: ' +
+                console.log('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
                     forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
 
                 break;
@@ -287,6 +296,72 @@ function parseForecastValues(body, regionId, forecastDays, aviLevels) {
         }
     }
 }
+
+function parseForecast_cac(body, regionDetails) {
+
+    var forecast = null;
+
+    // NOTE eliminate the XML namespace prefixes, it screws up the JSON generated below
+    body = body.replace(/caaml:/g,'');
+    body = body.replace(/gml:/g,'');
+
+    var parser = new xml2js.Parser();
+    parser.parseString(body, function (err, result) {
+
+        // console.log(JSON.stringify(result, null, 4));
+
+        var issuedDate = dateStringFromDateTimeString_cac(result.observations.Bulletin.validTime.TimePeriod.beginPosition);
+
+        var dayForecasts = result.observations.Bulletin.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRating;
+
+        // NOTE create an extra slot for the day the forecast was issued, is usually the day before the first described day
+        forecast = [dayForecasts.length + 1];
+
+        for (var i = 0; i < dayForecasts.length; i++) {
+
+            var date = dateStringFromDateTimeString_cac(dayForecasts[i].validTime.TimeInstant.timePosition);
+
+            // take the highest danger level listed across the elevation zones
+            var aviLevel = Math.max(
+                aviLevelFromName(dayForecasts[i].dangerRatingAlpValue),
+                aviLevelFromName(dayForecasts[i].dangerRatingTlnValue),
+                aviLevelFromName(dayForecasts[i].dangerRatingBtlValue));
+
+            // NOTE special case the forecast issued day, which is usually the day before the first described day,
+            // and use the first described day's forecast for it
+            if (i === 0) {
+                forecast[0] = {'date': issuedDate, 'aviLevel': aviLevel};
+            }
+
+            // put this described day in the array, shifted by one position
+            forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
+        }
+
+        for (var j = 0; j < forecast.length; j++) {
+            console.log('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+
+    });
+
+    return forecast;
+}
+
+function dateStringFromDateTimeString_cac(dateTimeString) {
+    // NOTE typical date string: '2012-02-02T18:14:00'
+    return dateTimeString.slice(0,10);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
