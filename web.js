@@ -2,6 +2,7 @@
 // required packages
 //
 
+var winston = require('winston');
 var express = require('express');
 var gzippo = require('gzippo');
 var request = require('request');
@@ -38,10 +39,23 @@ String.prototype.trim = function() {
 
 runServer();
 
+function configLogger() {
+    // remove the default transport, so that we can reconfigure it
+    winston.remove(winston.transports.Console);
+
+    // verbose, info, warn, error are the log levels i'm using
+    winston.add(winston.transports.Console, {level: 'info', timestamp: true});
+
+    winston.handleExceptions();
+}
+
 function runServer() {
+
+    configLogger();
 
     var app = express.createServer();
 
+    // get web server logging; NOTE this is separate from the winston logging
     app.use(express.logger());
     // use our explicit app routes in preference to serving static content
     app.use(app.router);
@@ -56,7 +70,7 @@ function runServer() {
 
     app.listen(port,
         function() {
-            console.log('listening on ' + port);
+            winston.info('server listening on port: ' + port);
         }
     );
 }
@@ -81,17 +95,17 @@ function onRequestRegion_v1(origRequest, origResponse) {
 	var regionDetails = getRegionDetailsForRegionId(regionId);
 
     if (!regionDetails) {
-        console.log('invalid regionId received from client; regionId: ' + regionId);
+        winston.warn('invalid regionId received from client; regionId: ' + regionId);
         sendNoDataAvailableResponse(origResponse);
     } else {
         request(regionDetails.serverURL,
             function (error, response, body) {
                 if (!error && response.statusCode === 200) {
-                    console.log('successful response; regionId: ' + regionDetails.regionId + '; URL: ' + regionDetails.serverURL);
+                    winston.info('successful serverURL response; regionId: ' + regionDetails.regionId + '; serverURL: ' + regionDetails.serverURL);
                     var forecast = regionDetails.parser(body, regionDetails);
                     sendResponse(origResponse, forecast);
                 } else {
-                    console.log('error response; regionId: ' + regionDetails.regionId + '; URL: ' + regionDetails.serverURL + '; status code: ' + response.statusCode + '; error: ' + error);
+                    winston.warn('error serverURL response; regionId: ' + regionDetails.regionId + '; serverURL: ' + regionDetails.serverURL + '; status code: ' + response.statusCode + '; error: ' + error);
                     sendNoDataAvailableResponse(origResponse);
                 }
             }
@@ -164,7 +178,7 @@ function findAviLevel(string) {
     if (levelMatch && levelMatch.length > 0) {
         // scan the matches, and take the highest level found
         for (var i = 0; i < levelMatch.length; i++) {
-            console.log('levelMatch[' + i + ']: ' + levelMatch[i]);
+            winston.verbose('levelMatch[' + i + ']: ' + levelMatch[i]);
             aviLevel = Math.max(aviLevel, aviLevelFromName(levelMatch[i]));
         }
     }
@@ -242,7 +256,7 @@ function parseForecast_nwac(body, regionDetails) {
         forecast = [NUM_FORECAST_DAYS_NWAC];
         for (var j = 0; j < NUM_FORECAST_DAYS_NWAC; j++) {
             forecast[j] = {'date':moment(forecastDates[j]).format('YYYY-MM-DD'), 'aviLevel':aviLevels[j]};
-            console.log('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
         }
     }
 
@@ -261,7 +275,7 @@ function parseForecastIssuedDate_nwac(body, regionDetails) {
     if (timestampMatch && timestampMatch.length > 1) {
 
         forecastIssuedDate = moment(timestampMatch[1], "MMM DD YYYY");
-        console.log('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
     }
 
     return forecastIssuedDate;
@@ -274,7 +288,7 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
     // NOTE typical string for nwac: '<strong>Monday:</strong> Considerable avalanche danger above 4000 feet and moderate below. Increasing danger Monday afternoon and night.<'
     var forecastBlocks = body.match(/<strong>[^:]+:[^<]*<\/strong>[^<]+</g);
     for ( var i = 0; i < forecastBlocks.length; i++) {
-        console.log('forecastBlocks[' + i + ']: ' + forecastBlocks[i]);
+        winston.verbose('forecastBlocks[' + i + ']: ' + forecastBlocks[i]);
     }
 
     for (var day = 0; day < forecastDays.length; day++) {
@@ -288,7 +302,7 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
             if (forecastBlocks[block].match(regExp)) {
 
                 aviLevels[day] = findAviLevel(forecastBlocks[block]);
-                console.log('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
+                winston.verbose('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
                     forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
 
                 break;
@@ -307,8 +321,6 @@ function parseForecast_cac(body, regionDetails) {
 
     var parser = new xml2js.Parser();
     parser.parseString(body, function (err, result) {
-
-        // console.log(JSON.stringify(result, null, 4));
 
         var issuedDate = dateStringFromDateTimeString_cac(result.observations.Bulletin.validTime.TimePeriod.beginPosition);
 
@@ -338,7 +350,7 @@ function parseForecast_cac(body, regionDetails) {
         }
 
         for (var j = 0; j < forecast.length; j++) {
-            console.log('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
         }
 
     });

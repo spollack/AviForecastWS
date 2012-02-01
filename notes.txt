@@ -15,15 +15,11 @@ things to do:
 ----------
 WS
     support other avi centers
-        CAC (via CAAML)
-            clean up code, logging, test, check in, push out
         pc.gc.ca
         Canada independents
         Utah
         Colorado
         other US
-    cleanup
-        remove console messages for happy path, or switch to a real logger and turn down (via Winston)
     testing
         set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
         scale testing?
