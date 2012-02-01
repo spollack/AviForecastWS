@@ -1,49 +1,40 @@
-notes on regions:
-----------
-Canada:
-* 12 regions with regular CAC forecasts
-* 2 regions under CAC, but with no real forecasts (Bighorn, North Rockies)
-* 4 from pc.gc.ca for national parks
-* 3 independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
-
-
-release notes:
-----------
-
-
 things to do:
 ----------
 WS
+    testing
+        set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
     support other avi centers
-        pc.gc.ca
-        Canada independents
+        pc.gc.ca (4 regions)
+        Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
         Utah
         Colorado
         other US
-    testing
-        set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
-        scale testing?
     operations
+        scale testing?
         trending? (e.g. number of requests, # of users, etc.)
         monitoring? (e.g. pingdom)
         alerting?
         staging env?
 iOS
     data management
-        put in flurry timers for loads/reloads
         performance is slow on older phones
-        consider testing with a large number of (fake) regions, to see how everything works at scale now?
+        forecast loading
+            combine the forecast lookups into one/fewer calls?
+            load forecasts in order of closeness to location?
         add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
-        combine the forecast lookups into one/fewer calls?
         refresh regions.json periodically (requires full cleanup and reload...)?
-        only fetch forecasts if overlay view actually gets loaded?
         persistent cache
             divide into two persistent caches, must keep and want to keep but purgable by iOS5 (see http://robnapier.net/blog/offline-uiwebview-nsurlprotocol-588)?
             limit size of purgable cache?
             use cache contents even if network is available (either per regular cache rules; or as first data, before network data loads)?
+    add an info page that gives instructions?
     add "3 days out", for CAC? rename "today", [tue], [wed], [thu] or similar?
+    after regaining focus
+        recenter on user location?
+        can i make regions not redraw until new data is actually present? is the mapview invalidating all the overlays itself?
     is legend readable enough? looked just readable on iPhone 3G (consider taller&narrower font; hyphenated words; linking from legend to info page, or having it slide down or pop up)
-    presentation of forecasts
+    more data at-a-glance
+        click on a region bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
         come up with some way to show variations in forecast by elevation zone on overview?
     liability warning?
     ask for app ratings?
@@ -51,6 +42,8 @@ iOS
         see: http://stackoverflow.com/questions/8022609/ios-5-mapkit-crashes-with-overlays-when-zoom-pan
         see: https://devforums.apple.com/message/584753
         see: https://devforums.apple.com/thread/48154
+    switch to NWAC JSON api when available?
+    feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
     testing
         test on various iOS versions
         test on various device types
@@ -61,7 +54,6 @@ iOS
         check low memory behavior
  other
     LLC
-        get confirmation from BLS
         update Seattle biz license
         update my developer account with Apple from individual to business (see http://developer.apple.com/support/ios/account-management.html)
         create bank account for LLC
@@ -69,12 +61,11 @@ iOS
     get domain for icicleventures too?
     paid or free? thinking free
     take screenshots
+    write app marketing blurb
     submit app to Apple
     contact other avalanche centers?
     marketing
 future possibilities
-    switch to NWAC JSON api when available
-    feature to put in a place name, and have the map jump there
     push notifications
     weather info
     telemetry info
