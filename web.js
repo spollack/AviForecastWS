@@ -62,7 +62,6 @@ function runServer() {
     app.use(gzippo.staticGzip(__dirname + '/public', {clientMaxAge: (CACHE_MAX_AGE_SECONDS * 1000)}));
 
     // path mapping
-    app.get('/v1/regions', onRequestRegions_v1);  // BUGBUG note this is deprecated; see function definition below
     app.get('/v1/region/:regionId', onRequestRegion_v1);
 
     // use the value from the PORT env variable if available, fallback if not
@@ -79,12 +78,6 @@ function runServer() {
 //
 // request handling
 //
-
-// BUGBUG this is deprecated, as it returns uncompressed content; remove once everyone is on client builds >385
-function onRequestRegions_v1(origRequest, origResponse) {
-    origResponse.contentType('application/json');
-    origResponse.sendfile('public/v1/regions.json');
-}
 
 // get the avalanche forecast info from the appropriate source, and return it to the originating client
 //
