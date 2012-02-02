@@ -1,9 +1,20 @@
 things to do:
 ----------
+ business
+    change my developer account with Apple from individual to business -- migrate or open new?
+    set up bank-to-bank transfer between SmithBarney and USBank; talk to Mike Napier
+    update Seattle business license
+    reserve app name in iTunes Connect
+    paid or free? thinking free
+    take screenshots
+    write app marketing blurb
+    submit app to Apple
+    set up sebnarware.com website
+    marketing
 WS
     testing
-        set up unit tests (via Mocha) for the web scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
-    support other avi centers
+        set up unit tests (via Mocha, or similar) for the data scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
+    support other avi centers --  contact them...
         pc.gc.ca (4 regions)
         Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
         Utah
@@ -52,25 +63,13 @@ iOS
         test various cache cases
         check no GPS behavior
         check low memory behavior
- other
-    LLC
-        update Seattle biz license
-        update my developer account with Apple from individual to business (see http://developer.apple.com/support/ios/account-management.html)
-        create bank account for LLC
-    set up www.sebnarware.com website (via brinkster; see https://help.brinkster.com/KB/a125/how-do-i-redirect-a-domain-or-subdomain.aspx)
-    get domain for icicleventures too?
-    paid or free? thinking free
-    take screenshots
-    write app marketing blurb
-    submit app to Apple
-    contact other avalanche centers?
-    marketing
 future possibilities
-    push notifications
     weather info
     telemetry info
-    add previous days to view history
     more avi reference info
+    show previous days, for history
+    push notifications
     consider updating shared components (client; server)
+    Android version
+    PhoneGap version
     iPad-specific version
-    Android version (or PhoneGap version)
