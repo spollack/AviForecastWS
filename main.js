@@ -261,8 +261,8 @@ function getRegionDetailsForRegionId(regionId) {
     return regionDetails;
 }
 
-exports.findAviLevel = findAviLevel;
-function findAviLevel(string) {
+exports.findHighestAviLevelInString = findHighestAviLevelInString;
+function findHighestAviLevelInString(string) {
 
     // NOTE looks for the *highest* avi level keyword within the string
 
@@ -270,16 +270,18 @@ function findAviLevel(string) {
 
     // various cases handled:
     // * mixed case
-    // * keywords showing up inside other words, like "high" in "highway"
-    // * no whitespace, multiple whitespace, or non-whitespace before or after keyword
+    // * not matching keywords showing up inside other words, like "high" in "highway"
+    // * no whitespace, whitespace, or multiple whitespace
     // * multiple keywords, same or different, within the string
-    var levelMatch = string.match(/\W(low|moderate|considerable|high|extreme)\W/gi);
+    if (string) {
+        var levelMatch = string.match(/\b(low|moderate|considerable|high|extreme)\b/gi);
 
-    if (levelMatch && levelMatch.length > 0) {
-        // scan the matches, and take the highest level found
-        for (var i = 0; i < levelMatch.length; i++) {
-            winston.verbose('levelMatch[' + i + ']: ' + levelMatch[i]);
-            aviLevel = Math.max(aviLevel, aviLevelFromName(levelMatch[i]));
+        if (levelMatch && levelMatch.length > 0) {
+            // scan the matches, and take the highest level found
+            for (var i = 0; i < levelMatch.length; i++) {
+                winston.verbose('levelMatch[' + i + ']: ' + levelMatch[i]);
+                aviLevel = Math.max(aviLevel, aviLevelFromName(levelMatch[i]));
+            }
         }
     }
 
@@ -406,7 +408,7 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
 
             if (forecastBlocks[block].match(regExp)) {
 
-                aviLevels[day] = findAviLevel(forecastBlocks[block]);
+                aviLevels[day] = findHighestAviLevelInString(forecastBlocks[block]);
                 winston.verbose('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
                     forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
 

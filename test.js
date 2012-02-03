@@ -27,3 +27,57 @@ describe('aviLevelFromName', function(){
     })
 })
 
+describe('findAviLevelInString', function(){
+    describe('matching strings', function(){
+        it('should return the correct avi Level', function(){
+            aviws.findHighestAviLevelInString('low').should.equal(1);
+            aviws.findHighestAviLevelInString('moderate').should.equal(2);
+            aviws.findHighestAviLevelInString('considerable').should.equal(3);
+            aviws.findHighestAviLevelInString('high').should.equal(4);
+            aviws.findHighestAviLevelInString('extreme').should.equal(5);
+            aviws.findHighestAviLevelInString('Low').should.equal(1);
+            aviws.findHighestAviLevelInString('lOW').should.equal(1);
+            aviws.findHighestAviLevelInString(' low').should.equal(1);
+            aviws.findHighestAviLevelInString('low ').should.equal(1);
+            aviws.findHighestAviLevelInString(' low ').should.equal(1);
+            aviws.findHighestAviLevelInString('   lOw ').should.equal(1);
+        })
+    })
+    describe('non-matching strings', function(){
+        it('should return 0', function(){
+            aviws.findHighestAviLevelInString('foo').should.equal(0);
+            aviws.findHighestAviLevelInString('lower').should.equal(0);
+            aviws.findHighestAviLevelInString('lowhigh').should.equal(0);
+            aviws.findHighestAviLevelInString('').should.equal(0);
+            aviws.findHighestAviLevelInString(null).should.equal(0);
+        })
+    })
+    describe('multiple matching strings', function(){
+        it('should return the highest level', function(){
+            aviws.findHighestAviLevelInString('low high').should.equal(4);
+            aviws.findHighestAviLevelInString(' low high   ').should.equal(4);
+            aviws.findHighestAviLevelInString('high low').should.equal(4);
+            aviws.findHighestAviLevelInString('low low').should.equal(1);
+            aviws.findHighestAviLevelInString('low high low').should.equal(4);
+            aviws.findHighestAviLevelInString('low highways').should.equal(1);
+        })
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
