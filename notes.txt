@@ -1,15 +1,19 @@
 things to do:
 ----------
  business
-    change my developer account with Apple from individual to business -- migrate or open new?
-    set up bank-to-bank transfer between SmithBarney and USBank; talk to Mike Napier
+    change my developer account with Apple from individual to business (in progress)
+    set up bank-to-bank transfer between SmithBarney and USBank; talk to Mike Napier (left message)
     update Seattle business license
-    reserve app name in iTunes Connect
-    paid or free? thinking free
-    take screenshots
+    set up sebnarware.com/icicleventures.com website
+        marketing page
+        support page
+    set up sebnarware.com/icicleventures.com emails -- test once DNS propagates; check junk mail folder
+    EULA?
+    paid or free? thinking free initially (maybe do pro version later)
+    take screenshots, and trim off status bars (should be 640x920, down from 640x960)
+    app store optimization (http://www.mobiledevhq.com/ -- help with keywords, etc.)
     write app marketing blurb
-    submit app to Apple
-    set up sebnarware.com website
+    submit app to Apple via iTunes Connect
     marketing
 WS
     testing
@@ -19,41 +23,40 @@ WS
         Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
         Utah
         Colorado
-        other US
+        other US (look at avalanche.org for details)
     operations
         scale testing?
         trending? (e.g. number of requests, # of users, etc.)
-        monitoring? (e.g. pingdom)
+        monitoring? (e.g. pingdom; see what heroku has built-in)
         alerting?
         staging env?
 iOS
     data management
-        performance is slow on older phones
-        forecast loading
-            combine the forecast lookups into one/fewer calls?
-            load forecasts in order of closeness to location?
+        combine the forecast lookups into one call
+        performance is slow on older phones -- review flurry data after we've had a few days to gather it
         add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
         refresh regions.json periodically (requires full cleanup and reload...)?
         persistent cache
             divide into two persistent caches, must keep and want to keep but purgable by iOS5 (see http://robnapier.net/blog/offline-uiwebview-nsurlprotocol-588)?
-            limit size of purgable cache?
+            limit size of purgable cache? probably not needed
             use cache contents even if network is available (either per regular cache rules; or as first data, before network data loads)?
     add an info page that gives instructions?
-    add "3 days out", for CAC? rename "today", [tue], [wed], [thu] or similar?
+    add "3 days out", for CAC? rename "today", [tue], [wed], [thu] or similar? but this makes NWAC look bad...
     after regaining focus
         recenter on user location?
         can i make regions not redraw until new data is actually present? is the mapview invalidating all the overlays itself?
-    is legend readable enough? looked just readable on iPhone 3G (consider taller&narrower font; hyphenated words; linking from legend to info page, or having it slide down or pop up)
+    legend
+        is it readable enough? looked just readable on iPhone 3G (consider taller&narrower font; hyphenated words)
+        link from legend to info page (or have it slide down or pop up)?
     more data at-a-glance
         click on a region bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
-        come up with some way to show variations in forecast by elevation zone on overview?
     liability warning?
     ask for app ratings?
-    mapkit crash bug -- implement workaround?
+    mapkit crash bug -- implement workaround? (seen this in the simulator, but never yet on a real device)
         see: http://stackoverflow.com/questions/8022609/ios-5-mapkit-crashes-with-overlays-when-zoom-pan
         see: https://devforums.apple.com/message/584753
         see: https://devforums.apple.com/thread/48154
-    switch to NWAC JSON api when available?
+    switch to NWAC JSON api when available
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
     testing
         test on various iOS versions
@@ -70,6 +73,8 @@ future possibilities
     show previous days, for history
     push notifications
     consider updating shared components (client; server)
+    Pro version of app
     Android version
+    WinPhone version
     PhoneGap version
     iPad-specific version

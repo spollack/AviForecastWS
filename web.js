@@ -8,6 +8,7 @@ var gzippo = require('gzippo');
 var request = require('request');
 var moment = require('moment');
 var xml2js = require('xml2js');
+var fs = require('fs');
 
 
 //
@@ -21,7 +22,13 @@ var AVI_LEVEL_CONSIDERABLE = 3;
 var AVI_LEVEL_HIGH = 4;
 var AVI_LEVEL_EXTREME = 5;
 
-var CACHE_MAX_AGE_SECONDS = 300;
+var CACHE_MAX_AGE_SECONDS = 60;
+var FORECAST_GEN_INTERVAL_SECONDS = 120;
+
+var STATIC_FILES_DIR_PATH = __dirname + '/public';
+var REGIONS_PATH = __dirname + '/public/v1/regions.json';
+var FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
+var FORECASTS_DATA_TEMP_PATH = __dirname + '/public/v1/forecasts_TEMP.json';
 
 
 //
@@ -39,27 +46,48 @@ String.prototype.trim = function() {
 
 runServer();
 
+function runServer() {
+
+    configLogger();
+
+    initializeForecastProcessing();
+
+    startHTTPServer();
+}
+
 function configLogger() {
     // remove the default transport, so that we can reconfigure it
     winston.remove(winston.transports.Console);
 
     // verbose, info, warn, error are the log levels i'm using
-    winston.add(winston.transports.Console, {level: 'info', timestamp: true});
-
-    winston.handleExceptions();
+    winston.add(winston.transports.Console, {level: 'info', timestamp: true, handleExceptions: true});
 }
 
-function runServer() {
+function initializeForecastProcessing() {
 
-    configLogger();
+    var regions = JSON.parse(fs.readFileSync(REGIONS_PATH, 'utf8'));
+
+    // generate the forecast content
+    aggregateForecasts(regions);
+
+    // configure a timer to regenerate the forecast content on a recurring basis
+    setInterval(aggregateForecasts, FORECAST_GEN_INTERVAL_SECONDS * 1000, regions);
+}
+
+function startHTTPServer() {
 
     var app = express.createServer();
 
-    // get web server logging; NOTE this is separate from the winston logging
+    // set up the express middleware, in the order we want it to execute
+
+    // enable web server logging; NOTE this is separate from the winston logging
     app.use(express.logger());
     // use our explicit app routes in preference to serving static content
     app.use(app.router);
-    app.use(gzippo.staticGzip(__dirname + '/public', {clientMaxAge: (CACHE_MAX_AGE_SECONDS * 1000)}));
+    // server static content, compressed
+    app.use(gzippo.staticGzip(STATIC_FILES_DIR_PATH, {clientMaxAge:(CACHE_MAX_AGE_SECONDS * 1000)}));
+    // handle errors gracefully
+    app.use(express.errorHandler());
 
     // path mapping
     app.get('/v1/region/:regionId', onRequestRegion_v1);
@@ -68,7 +96,9 @@ function runServer() {
     var port = process.env.PORT || 5000;
 
     app.listen(port,
-        function() {
+        function () {
+            // NOTE if you don't get this log message, then the http server didn't start correctly;
+            // check if another instance is already running...
             winston.info('server listening on port: ' + port);
         }
     );
@@ -78,6 +108,8 @@ function runServer() {
 //
 // request handling
 //
+// NOTE this is deprecated; can remove this once all clients have updated to not use it, unless its useful for testing
+//
 
 // get the avalanche forecast info from the appropriate source, and return it to the originating client
 //
@@ -85,25 +117,16 @@ function runServer() {
 // the server to server request that we initiate here to query the appropriate forecast site
 function onRequestRegion_v1(origRequest, origResponse) {
     var regionId = origRequest.params.regionId;
-	var regionDetails = getRegionDetailsForRegionId(regionId);
 
-    if (!regionDetails) {
-        winston.warn('invalid regionId received from client; regionId: ' + regionId);
-        sendNoDataAvailableResponse(origResponse);
-    } else {
-        request(regionDetails.serverURL,
-            function (error, response, body) {
-                if (!error && response.statusCode === 200) {
-                    winston.info('successful serverURL response; regionId: ' + regionDetails.regionId + '; serverURL: ' + regionDetails.serverURL);
-                    var forecast = regionDetails.parser(body, regionDetails);
-                    sendResponse(origResponse, forecast);
-                } else {
-                    winston.warn('error serverURL response; regionId: ' + regionDetails.regionId + '; serverURL: ' + regionDetails.serverURL + '; status code: ' + response.statusCode + '; error: ' + error);
-                    sendNoDataAvailableResponse(origResponse);
-                }
+    forecastForRegionId(regionId,
+        function(regionId, forecast) {
+            if (!forecast) {
+                sendNoDataAvailableResponse(origResponse);
+            } else {
+                sendResponse(origResponse, forecast);
             }
-        );
-    }
+        }
+    );
 }
 
 function sendNoDataAvailableResponse(origResponse) {
@@ -123,6 +146,79 @@ function sendResponse(origResponse, forecast) {
     }
 }
 
+
+//
+// forecast content generation
+//
+
+function aggregateForecasts(regions) {
+    winston.info('aggregateForecasts: initiated');
+
+    var forecastsRemainingCount = regions.length;
+    var forecasts = [];
+
+    for (var i = 0; i < regions.length; i++) {
+
+        var regionId = regions[i].regionId;
+        winston.verbose('generating forecast for regionId: ' + regionId);
+
+        forecastForRegionId(regionId,
+            function(regionId, forecast) {
+
+                // add the forecast to the forecasts array
+                // NOTE the order of completion is not deterministic, so they may end up in any order in the array
+                forecasts.push({'regionId':regionId, 'forecast':forecast});
+
+                forecastsRemainingCount--;
+                if (forecastsRemainingCount === 0) {
+                    winston.info('aggregateForecasts: all forecasts received');
+                    winston.verbose(JSON.stringify(forecasts, null, 4));
+
+                    // write the forecasts out to a static json file, that can be served by the HTTP server
+
+                    // NOTE to ensure atomicity at the filesystem level, we write out to a temporary file, and
+                    // then move it into place, overwriting the old file
+
+                    fs.writeFile(FORECASTS_DATA_TEMP_PATH, JSON.stringify(forecasts, null, 4), 'utf8',
+                        function() {
+                            fs.rename(FORECASTS_DATA_TEMP_PATH, FORECASTS_DATA_PATH,
+                                function() {
+                                    winston.info('aggregateForecasts: forecast data file updated');
+                                }
+                            );
+                        }
+                    );
+                }
+            }
+        );
+    }
+}
+
+function forecastForRegionId(regionId, onForecast) {
+
+	var regionDetails = getRegionDetailsForRegionId(regionId);
+
+    if (!regionDetails) {
+        winston.warn('invalid regionId: ' + regionId);
+        onForecast(regionId, null);
+    } else {
+        request(regionDetails.dataURL,
+            function (error, response, body) {
+                if (!error && response.statusCode === 200) {
+                    winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
+                        '; dataURL: ' + regionDetails.dataURL);
+                    var forecast = regionDetails.parser(body, regionDetails);
+                    onForecast(regionId, forecast);
+                } else {
+                    winston.warn('error dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
+                        regionDetails.dataURL + '; status code: ' + response.statusCode + '; error: ' + error);
+                    onForecast(regionId, null);
+                }
+            }
+        );
+    }
+}
+
 function getRegionDetailsForRegionId(regionId) {
 
     var regionDetails = null;
@@ -130,26 +226,28 @@ function getRegionDetailsForRegionId(regionId) {
     if (regionId) {
         var components = regionId.split('_');
 
-        if (components.length > 0) {
+        if (components && components.length > 0) {
 
-            // NOTE the URLs used here by the server for pull data may be different than the URLs for users viewing the corresponding forecast as a web page
-            var serverURL = null;
+            // NOTE the URLs used here by the server for pull data may be different than the URLs for users viewing the
+            // corresponding forecast as a web page
+            var dataURL = null;
             var parser = null;
             switch (components[0]) {
                 case 'nwac':
-                    serverURL = 'http://www.nwac.us/forecast/avalanche/current/zone/' + components[1] + '/';
+                    dataURL = 'http://www.nwac.us/forecast/avalanche/current/zone/' + components[1] + '/';
                     parser = parseForecast_nwac;
                     break;
                 case 'cac':
                     // NOTE cac is sensitive to a trailing slash, don't put it in
-                    serverURL = 'http://www.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
+                    dataURL = 'http://www.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
                     parser = parseForecast_cac;
                     break;
                 default:
                     break;
             }
 
-            regionDetails = {'regionId': regionId, 'provider': components[0], 'subregion': components[1], 'serverURL': serverURL, 'parser': parser};
+            regionDetails = {'regionId': regionId, 'provider': components[0], 'subregion': components[1], 'dataURL': dataURL, 'parser': parser};
+            winston.verbose('regionDetails: ' + JSON.stringify(regionDetails));
         }
     }
 
