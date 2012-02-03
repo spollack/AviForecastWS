@@ -17,8 +17,9 @@ things to do:
     marketing
 WS
     testing
-        set up unit tests (via Mocha, or similar) for the data scraping piece, with examples of real pages from the sites as well as other corner cases, to ensure accuracy
-    support other avi centers --  contact them...
+        build more unit tests
+        add examples of real pages from the sites as well as other corner cases, to ensure accuracy
+    support other avi centers (contact them as i go)
         pc.gc.ca (4 regions)
         Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
         Utah
@@ -29,8 +30,10 @@ WS
         trending? (e.g. number of requests, # of users, etc.)
         monitoring? (e.g. pingdom; see what heroku has built-in)
         alerting?
-        staging env?
 iOS
+    Several people did not realize that one needs to tap the forecast area to get the details...
+        Some suggested putting some sort of icon (ie, danger level symbol) on the forecast zone would encourage one to tap it
+        add an info page that gives instructions?
     data management
         combine the forecast lookups into one call
         performance is slow on older phones -- review flurry data after we've had a few days to gather it
@@ -40,7 +43,6 @@ iOS
             divide into two persistent caches, must keep and want to keep but purgable by iOS5 (see http://robnapier.net/blog/offline-uiwebview-nsurlprotocol-588)?
             limit size of purgable cache? probably not needed
             use cache contents even if network is available (either per regular cache rules; or as first data, before network data loads)?
-    add an info page that gives instructions?
     add "3 days out", for CAC? rename "today", [tue], [wed], [thu] or similar? but this makes NWAC look bad...
     after regaining focus
         recenter on user location?
@@ -78,3 +80,4 @@ future possibilities
     WinPhone version
     PhoneGap version
     iPad-specific version
+    staging env

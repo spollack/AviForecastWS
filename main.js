@@ -155,6 +155,7 @@ function sendResponse(origResponse, forecast) {
 // forecast content generation
 //
 
+exports.aggregateForecasts = aggregateForecasts;
 function aggregateForecasts(regions) {
     winston.info('aggregateForecasts: initiated');
 
@@ -198,6 +199,7 @@ function aggregateForecasts(regions) {
     }
 }
 
+exports.forecastForRegionId = forecastForRegionId;
 function forecastForRegionId(regionId, onForecast) {
 
 	var regionDetails = getRegionDetailsForRegionId(regionId);
@@ -223,6 +225,7 @@ function forecastForRegionId(regionId, onForecast) {
     }
 }
 
+exports.getRegionDetailsForRegionId = getRegionDetailsForRegionId;
 function getRegionDetailsForRegionId(regionId) {
 
     var regionDetails = null;
@@ -258,8 +261,10 @@ function getRegionDetailsForRegionId(regionId) {
     return regionDetails;
 }
 
-// looks for the *highest* avi level keyword within the string
+exports.findAviLevel = findAviLevel;
 function findAviLevel(string) {
+
+    // NOTE looks for the *highest* avi level keyword within the string
 
     var aviLevel = 0;
 
@@ -281,8 +286,10 @@ function findAviLevel(string) {
     return aviLevel;
 }
 
-// convert avi level name to number
+exports.aviLevelFromName = aviLevelFromName;
 function aviLevelFromName(aviLevelName) {
+
+    // convert avi level name to number
 
     var aviLevel = AVI_LEVEL_UNKNOWN;
 
@@ -311,6 +318,7 @@ function aviLevelFromName(aviLevelName) {
     return aviLevel;
 }
 
+exports.parseForecast_nwac = parseForecast_nwac;
 function parseForecast_nwac(body, regionDetails) {
 
     // nwac forecasts  have a timestamp that says when the forecast was issued; and then present the forecast
@@ -358,6 +366,7 @@ function parseForecast_nwac(body, regionDetails) {
     return forecast;
 }
 
+exports.parseForecastIssuedDate_nwac = parseForecastIssuedDate_nwac;
 function parseForecastIssuedDate_nwac(body, regionDetails) {
 
     var forecastIssuedDate = null;
@@ -376,6 +385,7 @@ function parseForecastIssuedDate_nwac(body, regionDetails) {
     return forecastIssuedDate;
 }
 
+exports.parseForecastValues_nwac = parseForecastValues_nwac;
 function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) {
     // capture the set of forecast blocks within the body; typically there are 2 or 3
     // forecast blocks can potentially describe multiple days; can describe say "Thursday" vs. "Thursday night";
@@ -406,6 +416,7 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
     }
 }
 
+exports.parseForecast_cac = parseForecast_cac;
 function parseForecast_cac(body, regionDetails) {
 
     var forecast = null;
@@ -453,6 +464,7 @@ function parseForecast_cac(body, regionDetails) {
     return forecast;
 }
 
+exports.dateStringFromDateTimeString_cac = dateStringFromDateTimeString_cac;
 function dateStringFromDateTimeString_cac(dateTimeString) {
     // NOTE typical date string: '2012-02-02T18:14:00'
     return dateTimeString.slice(0,10);
