@@ -22,8 +22,12 @@ var AVI_LEVEL_CONSIDERABLE = 3;
 var AVI_LEVEL_HIGH = 4;
 var AVI_LEVEL_EXTREME = 5;
 
+// NOTE to ensure forecasts get generated, ensure FORECAST_GEN_INTERVAL_SECONDS >> DATA_REQUEST_TIMEOUT_SECONDS
+// NOTE the total delay that a client might see from forecast issued to available at client is the sum
+// of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
+var DATA_REQUEST_TIMEOUT_SECONDS = 30;
+var FORECAST_GEN_INTERVAL_SECONDS = 60;
 var CACHE_MAX_AGE_SECONDS = 60;
-var FORECAST_GEN_INTERVAL_SECONDS = 120;
 
 var STATIC_FILES_DIR_PATH = __dirname + '/public';
 var REGIONS_PATH = __dirname + '/public/v1/regions.json';
@@ -202,7 +206,7 @@ function forecastForRegionId(regionId, onForecast) {
         winston.warn('invalid regionId: ' + regionId);
         onForecast(regionId, null);
     } else {
-        request(regionDetails.dataURL,
+        request({'url':regionDetails.dataURL, 'timeout': DATA_REQUEST_TIMEOUT_SECONDS * 1000},
             function (error, response, body) {
                 if (!error && response.statusCode === 200) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
