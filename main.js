@@ -188,7 +188,7 @@ function aggregateForecasts(regions) {
                         function() {
                             fs.rename(FORECASTS_DATA_TEMP_PATH, FORECASTS_DATA_PATH,
                                 function() {
-                                    winston.info('aggregateForecasts: forecast data file updated');
+                                    winston.info('aggregateForecasts: forecast data file updated; path: ' + FORECASTS_DATA_PATH);
                                 }
                             );
                         }

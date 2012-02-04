@@ -3,6 +3,8 @@ things to do:
  business
     change my developer account with Apple from individual to business (in progress)
     set up bank-to-bank transfer between SmithBarney and USBank; talk to Mike Napier (left message)
+    switch brinkster (and other biz expenses) to biz account
+    order checks for biz account
     update Seattle business license
     set up sebnarware.com/icicleventures.com website
         marketing page
@@ -15,45 +17,30 @@ things to do:
     write app marketing blurb
     submit app to Apple via iTunes Connect
     marketing
-WS
-    testing
-        build more unit tests
-        add examples of real pages from the sites as well as other corner cases, to ensure accuracy
-    support other avi centers (contact them as i go)
-        pc.gc.ca (4 regions)
-        Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
-        Utah
-        Colorado
-        other US (look at avalanche.org for details)
-    operations
-        scale testing?
-        trending? (e.g. number of requests, # of users, etc.)
-        monitoring? (e.g. pingdom; see what heroku has built-in)
-        alerting?
 iOS
-    Several people did not realize that one needs to tap the forecast area to get the details...
-        Some suggested putting some sort of icon (ie, danger level symbol) on the forecast zone would encourage one to tap it
-        add an info page that gives instructions?
+    bug: handle new forecast for unknown region
+    bug: (from JohnC) weird shifting of label to overlap buttons
+    feedback: make "tap region" message a hint that slides out after some time period? or replace with help/info button and page?
+    legend
+        feedback: link from legend to info page (or have it slide down or pop up), or definitions one by one (feedback from Kenny)
+        is it readable enough? looked just readable on iPhone 3G (consider taller&narrower font; hyphenated words)
     data management
-        combine the forecast lookups into one call
         performance is slow on older phones -- review flurry data after we've had a few days to gather it
         add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
         refresh regions.json periodically (requires full cleanup and reload...)?
         persistent cache
+            really stale detailed forecast content can stay in cache... address by not showing content if forecasts for that region is already out of date?
             divide into two persistent caches, must keep and want to keep but purgable by iOS5 (see http://robnapier.net/blog/offline-uiwebview-nsurlprotocol-588)?
             limit size of purgable cache? probably not needed
             use cache contents even if network is available (either per regular cache rules; or as first data, before network data loads)?
     add "3 days out", for CAC? rename "today", [tue], [wed], [thu] or similar? but this makes NWAC look bad...
-    after regaining focus
-        recenter on user location?
-        can i make regions not redraw until new data is actually present? is the mapview invalidating all the overlays itself?
-    legend
-        is it readable enough? looked just readable on iPhone 3G (consider taller&narrower font; hyphenated words)
-        link from legend to info page (or have it slide down or pop up)?
     more data at-a-glance
         click on a region bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
+        some suggested putting some sort of icon (ie, danger level symbol) on the forecast zone would encourage one to tap it
+    add an info page that gives instructions?
     liability warning?
     ask for app ratings?
+    viral aspect -- make it easy to share via FB/twitter?
     mapkit crash bug -- implement workaround? (seen this in the simulator, but never yet on a real device)
         see: http://stackoverflow.com/questions/8022609/ios-5-mapkit-crashes-with-overlays-when-zoom-pan
         see: https://devforums.apple.com/message/584753
@@ -68,6 +55,23 @@ iOS
         test various cache cases
         check no GPS behavior
         check low memory behavior
+WS
+    put in write file path!
+    testing
+        build more unit tests
+        add examples of real pages from the sites as well as other corner cases, to ensure accuracy
+    cleanup file organization
+    support other avi centers (contact them as i go)
+        pc.gc.ca (4 regions)
+        Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
+        Utah
+        Colorado
+        other US (look at avalanche.org for details)
+    operations
+        scale testing?
+        trending? (e.g. number of requests, # of users, etc.)
+        monitoring? (e.g. pingdom; see what heroku has built-in)
+        alerting?
 future possibilities
     weather info
     telemetry info
