@@ -1,5 +1,5 @@
 var should = require('should');
-var aviws = require('./main.js');
+var aviws = require('../main.js');
 
 describe('aviLevelFromName', function(){
     describe('matching strings', function(){

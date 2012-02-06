@@ -2,31 +2,37 @@ things to do:
 ----------
  business
     change my developer account with Apple from individual to business (in progress)
-    set up bank-to-bank transfer between SmithBarney and USBank; talk to Mike Napier (left message)
-    switch brinkster (and other biz expenses) to biz account
-    order checks for biz account
-    update Seattle business license
-    set up sebnarware.com/icicleventures.com website
-        marketing page
-        support page
-    set up sebnarware.com/icicleventures.com emails -- test once DNS propagates; check junk mail folder
-    EULA?
-    paid or free? thinking free initially (maybe do pro version later)
+    set up icicleventures.com/sebnarware.com website (marketing page, support page)
+    set up bank-to-bank transfer between SmithBarney and USBank [via Mike Napier; also: update will; Anna's account access; paper stmt]
     take screenshots, and trim off status bars (should be 640x920, down from 640x960)
-    app store optimization (http://www.mobiledevhq.com/ -- help with keywords, etc.)
     write app marketing blurb
     submit app to Apple via iTunes Connect
-    marketing
+    marketing effort
+        app store optimization (http://www.mobiledevhq.com/ -- help with keywords, etc. -- once app is in app store)
+        post on my facebook
+        ping all my beta testers
+        email bushwackers, wac
+        reach out to avalanche centers
+business, later
+    switch brinkster hosting (and other biz expenses) to biz account, once i have the new debit card
+    order checks for biz account?
+    figure out better solution for icicleventures.com/sebnarware.com emails
+        (brinkster aliases and forwarding didn't work to gmail, would get a delivery failure; although it would forward fine to hotmail)
+        (current approach: have brinkster email accounts for each, and have gmail poll them via POP3 into my seth@pollackphoto.com account)
+        (drawbacks of current approach: mail may not be polled frequently; limit of 5 accounts)
+        (other issues: can do from field fine in gmail web client, but not in Apple Mail or iPhone mail)
+        possible solution: keep separate accounts, but add each in my mail clients?
 iOS
-    bug: handle new forecast for unknown region
-    bug: (from JohnC) weird shifting of label to overlap buttons
     feedback: make "tap region" message a hint that slides out after some time period? or replace with help/info button and page?
     legend
         feedback: link from legend to info page (or have it slide down or pop up), or definitions one by one (feedback from Kenny)
         is it readable enough? looked just readable on iPhone 3G (consider taller&narrower font; hyphenated words)
     data management
+        test with poor (but present) network connection
         performance is slow on older phones -- review flurry data after we've had a few days to gather it
-        add refresh button for explicit forecast refresh? OR add forecasts last fetched time (but has to be across all forecasts)?
+        make sure regions.json is cached persistently in the common case, and do an if-modified-since or equiv to update
+        add forecasts last fetched time?
+        add refresh button for explicit forecast refresh?
         refresh regions.json periodically (requires full cleanup and reload...)?
         persistent cache
             really stale detailed forecast content can stay in cache... address by not showing content if forecasts for that region is already out of date?
@@ -45,34 +51,19 @@ iOS
         see: http://stackoverflow.com/questions/8022609/ios-5-mapkit-crashes-with-overlays-when-zoom-pan
         see: https://devforums.apple.com/message/584753
         see: https://devforums.apple.com/thread/48154
-    switch to NWAC JSON api when available
-    feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
-    testing
-        test on various iOS versions
-        test on various device types
-        check behavior on various networks (WiFi vs. 3G vs. Edge)
-        check no network behavior
-        test various cache cases
-        check no GPS behavior
-        check low memory behavior
 WS
-    put in write file path!
     testing
         build more unit tests
         add examples of real pages from the sites as well as other corner cases, to ensure accuracy
-    cleanup file organization
     support other avi centers (contact them as i go)
         pc.gc.ca (4 regions)
         Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
         Utah
         Colorado
         other US (look at avalanche.org for details)
-    operations
-        scale testing?
-        trending? (e.g. number of requests, # of users, etc.)
-        monitoring? (e.g. pingdom; see what heroku has built-in)
-        alerting?
 future possibilities
+    switch to NWAC JSON api when available
+    feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
     weather info
     telemetry info
     more avi reference info
@@ -85,3 +76,4 @@ future possibilities
     PhoneGap version
     iPad-specific version
     staging env
+    better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)
