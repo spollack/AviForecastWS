@@ -27,13 +27,11 @@ business
         (other issues: can do from field fine in gmail web client, but not in Apple Mail or iPhone mail)
         possible solution: keep separate accounts, but add each in my mail clients?
 WS
-    clean up deprecated request handling stuff in webservice (or leave for testing purposes)?
-    clean up timestamps in webservice -- heroku adds its own, probably don't need mine
     webservice testing
         build more unit tests
         add examples of real pages from the sites as well as other corner cases, to ensure accuracy
     support other avi centers (contact them as i go)
-        pc.gc.ca (4 regions) [CAAML at http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=1 etc.]
+        pc.gc.ca (4 regions) [CAAML at http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=1 etc.; URL is http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=2 etc.]
         Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
         Utah
         Colorado

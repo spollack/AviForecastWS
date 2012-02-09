@@ -64,7 +64,7 @@ function configLogger() {
     winston.remove(winston.transports.Console);
 
     // verbose, info, warn, error are the log levels i'm using
-    winston.add(winston.transports.Console, {level: 'info', timestamp: true, handleExceptions: true});
+    winston.add(winston.transports.Console, {level: 'info', handleExceptions: true});
 }
 
 function initializeForecastProcessing() {
@@ -86,15 +86,10 @@ function startHTTPServer() {
 
     // enable web server logging; NOTE this is separate from the winston logging
     app.use(express.logger());
-    // use our explicit app routes in preference to serving static content
-    app.use(app.router);
     // server static content, compressed
     app.use(gzippo.staticGzip(STATIC_FILES_DIR_PATH, {clientMaxAge:(CACHE_MAX_AGE_SECONDS * 1000)}));
     // handle errors gracefully
     app.use(express.errorHandler());
-
-    // path mapping
-    app.get('/v1/region/:regionId', onRequestRegion_v1);
 
     // use the value from the PORT env variable if available, fallback if not
     var port = process.env.PORT || 5000;
@@ -106,48 +101,6 @@ function startHTTPServer() {
             winston.info('server listening on port: ' + port);
         }
     );
-}
-
-
-//
-// request handling
-//
-// NOTE this is deprecated; can remove this once all clients have updated to not use it, unless its useful for testing
-//
-
-// get the avalanche forecast info from the appropriate source, and return it to the originating client
-//
-// origRequest/origResponse are the client-originated HTTP request; not to be confused with
-// the server to server request that we initiate here to query the appropriate forecast site
-function onRequestRegion_v1(origRequest, origResponse) {
-    var regionId = origRequest.params.regionId;
-
-    forecastForRegionId(regionId,
-        function(regionId, forecast) {
-            if (!forecast) {
-                sendNoDataAvailableResponse(origResponse);
-            } else {
-                sendResponse(origResponse, forecast);
-            }
-        }
-    );
-}
-
-function sendNoDataAvailableResponse(origResponse) {
-    sendResponse(origResponse, null);
-}
-
-function sendResponse(origResponse, forecast) {
-
-    origResponse.contentType('application/json');
-
-    if (forecast) {
-        origResponse.setHeader('Date', new Date().toUTCString());
-        origResponse.setHeader('Cache-Control', 'max-age=' + CACHE_MAX_AGE_SECONDS);
-        origResponse.send(JSON.stringify(forecast));
-    } else {
-        origResponse.send();
-    }
 }
 
 
