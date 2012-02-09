@@ -1,7 +1,7 @@
 things to do for launch:
 --------------------
 marketing
-    determine pricing!!!
+    determine pricing (and what to say, if anything, in app blurb)!!!
     flesh out sebnarware.com/icicleventures.com website (marketing page, support page; any email addresses needed)
     app store optimization (http://www.mobiledevhq.com/ -- help with keywords, etc. -- once app is in app store)
     post on my facebook
@@ -9,17 +9,16 @@ marketing
     email bushwackers, wac
     reach out to avalanche centers
     get screenshots for details screens that match overview screens
-v1.01
+v1.1
     beta test
     submit to Apple
 
 things to do later:
 --------------------
 business
-    set up bank-to-bank transfer between SmithBarney and USBank
+    set up bank-to-bank transfer between SmithBarney and USBank, via Mike Napier
     transfer money into account
-    switch brinkster hosting (and other biz expenses) to biz account, once i have the new debit card
-    order checks for biz account?
+    switch brinkster hosting (and other biz expenses) to biz account
     figure out better solution for sebnarware.com/icicleventures.com emails
         (brinkster aliases and forwarding didn't work to gmail, would get a delivery failure; although it would forward fine to hotmail)
         (current approach: have brinkster email accounts for each, and have gmail poll them via POP3 into my seth@pollackphoto.com account)
@@ -31,7 +30,6 @@ WS
         build more unit tests
         add examples of real pages from the sites as well as other corner cases, to ensure accuracy
     support other avi centers (contact them as i go)
-        pc.gc.ca (4 regions) [CAAML at http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=1 etc.; URL is http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=2 etc.]
         Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
         Utah
         Colorado
@@ -42,38 +40,31 @@ WS
     server-based trending?
     better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
 iOS
-    remove hack and use mobile version of NWAC site (and other sites)?
+    store regions.json persistently in app (where it cannot be erased by iOS)
+        do an if-modified-since or equiv to update, for performance (file is large, and growing)
+        get rid of special no regions.json alert path
+        check and refresh regions.json periodically (requires full cleanup and reload)?
+    ask for app ratings within the app?
+    viral aspect -- make it easy to share via FB/twitter?
     get rotation and zooming working correctly on danger level view
+    offline mode
+        offline: give message if detailed view unavailable for a region?
+        really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
+    label regions with their names?
+    add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
     more data at-a-glance
         click on a region bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
         some suggested putting some sort of icon (ie, danger level symbol) on the forecast zone would encourage one to tap it
-    have version numbers for disclaimer accepted (use app version number)?
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
     deal w/ folks not allowing location services in some way (help text? FAQ on website?)
-    look into Safari Reader mode -- can this be leaveraged programmatically for the details web pages?
-    label regions with their names?
-    data management
-        make sure regions.json is cached persistently in the common case, and do an if-modified-since or equiv to update, for performance (file is large, and growing) (and get rid of special no regions.json alert path if so)
-        use cache contents even if network is available (either per regular cache rules; or as first data, before network data loads)?
-        divide persistent cache into two, a) must keep and b) want to keep but purgable by iOS5 (see http://robnapier.net/blog/offline-uiwebview-nsurlprotocol-588)?
-        really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
-        refresh regions.json periodically (requires full cleanup and reload)?
-        offline: give message if detailed view unavailable for a region?
-    ask for app ratings within the app?
-    viral aspect -- make it easy to share via FB/twitter?
-    add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
     add weather info?
     add telemetry info?
     add more avi reference info?
-    show previous days, for history?
+    show previous days, for history? allow selecting further into the future?
     add push notifications?
     update linked components?
-    mapkit crash bug -- implement workaround of drawing everything with one annotion? (seen this in the simulator, but never yet on a real device)
-        see: http://stackoverflow.com/questions/8022609/ios-5-mapkit-crashes-with-overlays-when-zoom-pan
-        see: https://devforums.apple.com/message/584753
-        see: https://devforums.apple.com/thread/48154
+    have version numbers for disclaimer accepted (use app version number)?
 additional versions to consider
-    Pro (paid or subscription) iPhone version
+    Pro (paid; one time or subscription) iPhone version
     Android version
-    WinPhone version
-    PhoneGap version
+    PhoneGap version for other platforms (WinPhone, Blackberry, etc.)
