@@ -15,6 +15,7 @@ var fs = require('fs');
 // constants
 //
 
+// avi danger levels
 var AVI_LEVEL_UNKNOWN = 0;
 var AVI_LEVEL_LOW = 1;
 var AVI_LEVEL_MODERATE = 2;
@@ -22,6 +23,7 @@ var AVI_LEVEL_CONSIDERABLE = 3;
 var AVI_LEVEL_HIGH = 4;
 var AVI_LEVEL_EXTREME = 5;
 
+// time intervals
 // NOTE to ensure forecasts get generated, ensure FORECAST_GEN_INTERVAL_SECONDS >> DATA_REQUEST_TIMEOUT_SECONDS
 // NOTE the total delay that a client might see from forecast issued to available at client is the sum
 // of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
@@ -29,6 +31,7 @@ var DATA_REQUEST_TIMEOUT_SECONDS = 30;
 var FORECAST_GEN_INTERVAL_SECONDS = 60;
 var CACHE_MAX_AGE_SECONDS = 60;
 
+// filepaths
 var STATIC_FILES_DIR_PATH = __dirname + '/public';
 var REGIONS_PATH = __dirname + '/public/v1/regions.json';
 var FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
@@ -200,7 +203,11 @@ function getRegionDetailsForRegionId(regionId) {
                 case 'cac':
                     // NOTE cac is sensitive to a trailing slash, don't put it in
                     dataURL = 'http://www.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
-                    parser = parseForecast_cac;
+                    parser = parseForecast_caaml;
+                    break;
+                case 'pc.gc.ca':
+                    dataURL = 'http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
+                    parser = parseForecast_caaml;
                     break;
                 default:
                     break;
@@ -371,8 +378,8 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
     }
 }
 
-exports.parseForecast_cac = parseForecast_cac;
-function parseForecast_cac(body, regionDetails) {
+exports.parseForecast_caaml = parseForecast_caaml;
+function parseForecast_caaml(body, regionDetails) {
 
     var forecast = null;
 
@@ -383,7 +390,8 @@ function parseForecast_cac(body, regionDetails) {
     var parser = new xml2js.Parser();
     parser.parseString(body, function (err, result) {
 
-        var issuedDate = dateStringFromDateTimeString_cac(result.observations.Bulletin.validTime.TimePeriod.beginPosition);
+        var forecastIssuedDate = dateStringFromDateTimeString_caaml(result.observations.Bulletin.validTime.TimePeriod.beginPosition);
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
 
         var dayForecasts = result.observations.Bulletin.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRating;
 
@@ -392,18 +400,25 @@ function parseForecast_cac(body, regionDetails) {
 
         for (var i = 0; i < dayForecasts.length; i++) {
 
-            var date = dateStringFromDateTimeString_cac(dayForecasts[i].validTime.TimeInstant.timePosition);
+            var date = dateStringFromDateTimeString_caaml(dayForecasts[i].validTime.TimeInstant.timePosition);
 
-            // take the highest danger level listed across the elevation zones
-            var aviLevel = Math.max(
-                aviLevelFromName(dayForecasts[i].dangerRatingAlpValue),
-                aviLevelFromName(dayForecasts[i].dangerRatingTlnValue),
-                aviLevelFromName(dayForecasts[i].dangerRatingBtlValue));
+            // NOTE some caaml sites (like cac) list by multiple elevation zones; others (like pc.gc.ca) just give a main value
+            var aviLevel = AVI_LEVEL_UNKNOWN;
+            if (dayForecasts[i].mainValue) {
+                aviLevel = dayForecasts[i].mainValue;
+            } else {
+                // take the highest danger level listed
+                aviLevel = Math.max(
+                    aviLevelFromName(dayForecasts[i].dangerRatingAlpValue),
+                    aviLevelFromName(dayForecasts[i].dangerRatingTlnValue),
+                    aviLevelFromName(dayForecasts[i].dangerRatingBtlValue));
+            }
+
 
             // NOTE special case the forecast issued day, which is usually the day before the first described day,
             // and use the first described day's forecast for it
             if (i === 0) {
-                forecast[0] = {'date': issuedDate, 'aviLevel': aviLevel};
+                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
             }
 
             // put this described day in the array, shifted by one position
@@ -419,8 +434,8 @@ function parseForecast_cac(body, regionDetails) {
     return forecast;
 }
 
-exports.dateStringFromDateTimeString_cac = dateStringFromDateTimeString_cac;
-function dateStringFromDateTimeString_cac(dateTimeString) {
+exports.dateStringFromDateTimeString_caaml = dateStringFromDateTimeString_caaml;
+function dateStringFromDateTimeString_caaml(dateTimeString) {
     // NOTE typical date string: '2012-02-02T18:14:00'
     return dateTimeString.slice(0,10);
 }
