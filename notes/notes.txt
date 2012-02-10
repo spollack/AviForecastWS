@@ -1,14 +1,15 @@
 things to do for launch:
 --------------------
-marketing
+pre-launch
     determine pricing (and what to say, if anything, in app blurb)!!!
     flesh out sebnarware.com/icicleventures.com website (marketing page, support page; any email addresses needed)
+    get screenshots for details screens that match overview screens in terms of danger levels, if possible
+post-launch
     app store optimization (http://www.mobiledevhq.com/ -- help with keywords, etc. -- once app is in app store)
     post on my facebook
     ping all my beta testers
     email bushwackers, wac
     reach out to avalanche centers
-    get screenshots for details screens that match overview screens
 v1.1
     beta test
     submit to Apple
@@ -26,18 +27,16 @@ business
         (other issues: can do from field fine in gmail web client, but not in Apple Mail or iPhone mail)
         possible solution: keep separate accounts, but add each in my mail clients?
 WS
-    webservice testing
-        build more unit tests
-        add examples of real pages from the sites as well as other corner cases, to ensure accuracy
     support other avi centers (contact them as i go)
         Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
         Utah
         Colorado
         other US (look at avalanche.org for details)
+    add more forecast data test cases
     switch to NWAC JSON api when available
     update linked components?
-    staging environment?
     server-based trending?
+    staging environment?
     better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
 iOS
     store regions.json persistently in app (where it cannot be erased by iOS)
@@ -65,6 +64,6 @@ iOS
     update linked components?
     have version numbers for disclaimer accepted (use app version number)?
 additional versions to consider
-    Pro (paid; one time or subscription) iPhone version
+    Pro (ie paid; one time or subscription) iPhone version
     Android version
     PhoneGap version for other platforms (WinPhone, Blackberry, etc.)

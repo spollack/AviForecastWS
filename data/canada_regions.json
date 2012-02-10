@@ -27922,7 +27922,7 @@
         ]
     },
     {
-        "regionId": "pc.gc.ca_1",
+        "regionId": "pc_1",
         "displayName": "Banff, Yoho and Kootenay National Parks",
         "URL":"http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=1",
         "points": [
@@ -28233,7 +28233,7 @@
         ]
     },
     {
-        "regionId": "pc.gc.ca_2",
+        "regionId": "pc_2",
         "displayName": "Jasper National Park",
         "URL":"http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=2",
         "points": [
@@ -31712,7 +31712,7 @@
         ]
     },
     {
-        "regionId": "pc.gc.ca_3",
+        "regionId": "pc_3",
         "displayName": "Glacier National Park",
         "URL":"http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=3",
         "points": [
@@ -33351,7 +33351,7 @@
         ]
     },
     {
-        "regionId": "pc.gc.ca_4",
+        "regionId": "pc_4",
         "displayName": "Waterton Lakes National Park",
         "URL":"http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=4",
         "points": [

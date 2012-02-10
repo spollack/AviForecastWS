@@ -1,68 +1,184 @@
 var should = require('should');
-var aviws = require('../main.js');
+var fs = require('fs');
+var forecasts = require('../forecasts.js');
 
 describe('aviLevelFromName', function(){
     describe('matching strings', function(){
         it('should return the correct avi Level', function(){
-            aviws.aviLevelFromName('low').should.equal(1);
-            aviws.aviLevelFromName('moderate').should.equal(2);
-            aviws.aviLevelFromName('considerable').should.equal(3);
-            aviws.aviLevelFromName('high').should.equal(4);
-            aviws.aviLevelFromName('extreme').should.equal(5);
-            aviws.aviLevelFromName('Low').should.equal(1);
-            aviws.aviLevelFromName('lOW').should.equal(1);
-            aviws.aviLevelFromName(' low').should.equal(1);
-            aviws.aviLevelFromName('low ').should.equal(1);
-            aviws.aviLevelFromName(' low ').should.equal(1);
-            aviws.aviLevelFromName('   lOw ').should.equal(1);
+            forecasts.aviLevelFromName('low').should.equal(1);
+            forecasts.aviLevelFromName('moderate').should.equal(2);
+            forecasts.aviLevelFromName('considerable').should.equal(3);
+            forecasts.aviLevelFromName('high').should.equal(4);
+            forecasts.aviLevelFromName('extreme').should.equal(5);
+            forecasts.aviLevelFromName('Low').should.equal(1);
+            forecasts.aviLevelFromName('lOW').should.equal(1);
+            forecasts.aviLevelFromName(' low').should.equal(1);
+            forecasts.aviLevelFromName('low ').should.equal(1);
+            forecasts.aviLevelFromName(' low ').should.equal(1);
+            forecasts.aviLevelFromName('   lOw ').should.equal(1);
         })
     })
     describe('non-matching strings', function(){
         it('should return 0', function(){
-            aviws.aviLevelFromName('foo').should.equal(0);
-            aviws.aviLevelFromName('lower').should.equal(0);
-            aviws.aviLevelFromName('').should.equal(0);
-            aviws.aviLevelFromName(null).should.equal(0);
+            forecasts.aviLevelFromName('foo').should.equal(0);
+            forecasts.aviLevelFromName('lower').should.equal(0);
+            forecasts.aviLevelFromName('').should.equal(0);
+            forecasts.aviLevelFromName(null).should.equal(0);
         })
     })
 })
 
-describe('findAviLevelInString', function(){
+describe('findHighestAviLevelInString', function(){
     describe('matching strings', function(){
         it('should return the correct avi Level', function(){
-            aviws.findHighestAviLevelInString('low').should.equal(1);
-            aviws.findHighestAviLevelInString('moderate').should.equal(2);
-            aviws.findHighestAviLevelInString('considerable').should.equal(3);
-            aviws.findHighestAviLevelInString('high').should.equal(4);
-            aviws.findHighestAviLevelInString('extreme').should.equal(5);
-            aviws.findHighestAviLevelInString('Low').should.equal(1);
-            aviws.findHighestAviLevelInString('lOW').should.equal(1);
-            aviws.findHighestAviLevelInString(' low').should.equal(1);
-            aviws.findHighestAviLevelInString('low ').should.equal(1);
-            aviws.findHighestAviLevelInString(' low ').should.equal(1);
-            aviws.findHighestAviLevelInString('   lOw ').should.equal(1);
+            forecasts.findHighestAviLevelInString('low').should.equal(1);
+            forecasts.findHighestAviLevelInString('moderate').should.equal(2);
+            forecasts.findHighestAviLevelInString('considerable').should.equal(3);
+            forecasts.findHighestAviLevelInString('high').should.equal(4);
+            forecasts.findHighestAviLevelInString('extreme').should.equal(5);
+            forecasts.findHighestAviLevelInString('Low').should.equal(1);
+            forecasts.findHighestAviLevelInString('lOW').should.equal(1);
+            forecasts.findHighestAviLevelInString(' low').should.equal(1);
+            forecasts.findHighestAviLevelInString('low ').should.equal(1);
+            forecasts.findHighestAviLevelInString(' low ').should.equal(1);
+            forecasts.findHighestAviLevelInString('   lOw ').should.equal(1);
         })
     })
     describe('non-matching strings', function(){
         it('should return 0', function(){
-            aviws.findHighestAviLevelInString('foo').should.equal(0);
-            aviws.findHighestAviLevelInString('lower').should.equal(0);
-            aviws.findHighestAviLevelInString('lowhigh').should.equal(0);
-            aviws.findHighestAviLevelInString('').should.equal(0);
-            aviws.findHighestAviLevelInString(null).should.equal(0);
+            forecasts.findHighestAviLevelInString('foo').should.equal(0);
+            forecasts.findHighestAviLevelInString('lower').should.equal(0);
+            forecasts.findHighestAviLevelInString('lowhigh').should.equal(0);
+            forecasts.findHighestAviLevelInString('').should.equal(0);
+            forecasts.findHighestAviLevelInString(null).should.equal(0);
         })
     })
     describe('multiple matching strings', function(){
         it('should return the highest level', function(){
-            aviws.findHighestAviLevelInString('low high').should.equal(4);
-            aviws.findHighestAviLevelInString(' low high   ').should.equal(4);
-            aviws.findHighestAviLevelInString('high low').should.equal(4);
-            aviws.findHighestAviLevelInString('low low').should.equal(1);
-            aviws.findHighestAviLevelInString('low high low').should.equal(4);
-            aviws.findHighestAviLevelInString('low highways').should.equal(1);
+            forecasts.findHighestAviLevelInString('low high').should.equal(4);
+            forecasts.findHighestAviLevelInString(' low high   ').should.equal(4);
+            forecasts.findHighestAviLevelInString('high low').should.equal(4);
+            forecasts.findHighestAviLevelInString('low low').should.equal(1);
+            forecasts.findHighestAviLevelInString('low high low').should.equal(4);
+            forecasts.findHighestAviLevelInString('low highways').should.equal(1);
         })
     })
 })
+
+describe('getRegionDetailsForRegionId', function(){
+    describe('matching strings', function(){
+        it('should return the correct region details', function(){
+            forecasts.getRegionDetailsForRegionId('nwac_1').should.have.property('provider','nwac');
+            forecasts.getRegionDetailsForRegionId('cac_1').should.have.property('provider','cac');
+            forecasts.getRegionDetailsForRegionId('pc_1').should.have.property('provider','pc');
+        })
+    })
+    describe('non-matching strings', function(){
+        it('should return null', function(){
+            should.not.exist(forecasts.getRegionDetailsForRegionId('foo'));
+            should.not.exist(forecasts.getRegionDetailsForRegionId('foo_bar'));
+            should.not.exist(forecasts.getRegionDetailsForRegionId(''));
+            should.not.exist(forecasts.getRegionDetailsForRegionId(null));
+        })
+    })
+})
+
+describe('parseForecast_nwac', function(){
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('nwac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2012-02-09');
+            forecast[1].date.should.equal('2012-02-10');
+            forecast[2].date.should.equal('2012-02-11');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
+        })
+    })
+})
+
+describe('parseForecast_cac', function(){
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('cac_sea-to-sky'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(4);
+            forecast[0].date.should.equal('2012-02-09');
+            forecast[1].date.should.equal('2012-02-10');
+            forecast[2].date.should.equal('2012-02-11');
+            forecast[3].date.should.equal('2012-02-12');
+            forecast[0].aviLevel.should.equal(3);
+            forecast[1].aviLevel.should.equal(3);
+            forecast[2].aviLevel.should.equal(2);
+            forecast[3].aviLevel.should.equal(2);
+        })
+    })
+})
+
+describe('parseForecast_pc', function(){
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_pc(fs.readFileSync('test/data/pc/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('pc_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(4);
+            forecast[0].date.should.equal('2012-02-10');
+            forecast[1].date.should.equal('2012-02-11');
+            forecast[2].date.should.equal('2012-02-12');
+            forecast[3].date.should.equal('2012-02-13');
+            forecast[0].aviLevel.should.equal(1);
+            forecast[1].aviLevel.should.equal(1);
+            forecast[2].aviLevel.should.equal(1);
+            forecast[3].aviLevel.should.equal(1);
+        })
+    })
+    describe('file002.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_pc(fs.readFileSync('test/data/pc/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('pc_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(4);
+            forecast[0].date.should.equal('2012-02-09');
+            forecast[1].date.should.equal('2012-02-09');
+            forecast[2].date.should.equal('2012-02-10');
+            forecast[3].date.should.equal('2012-02-11');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
+            forecast[3].aviLevel.should.equal(2);
+        })
+    })
+})
+
+describe('dateStringFromDateTimeString_caaml', function(){
+    describe('valid strings', function(){
+        it('should return the correct date', function(){
+            forecasts.dateStringFromDateTimeString_caaml('2012-02-02T18:14:00').should.equal('2012-02-02');
+            forecasts.dateStringFromDateTimeString_caaml('2012-02-10T00:00:00Z').should.equal('2012-02-10');
+            forecasts.dateStringFromDateTimeString_caaml('2012-02-02').should.equal('2012-02-02');
+        })
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
