@@ -138,7 +138,6 @@ function getRegionDetailsForRegionId(regionId) {
                     dataURL = 'http://www.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
                     parser = parseForecast_cac;
                     break;
-                case 'pc.gc.ca': // BUGBUG deprecated
                 case 'pc':
                     dataURL = 'http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
                     parser = parseForecast_pc;
