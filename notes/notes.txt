@@ -28,10 +28,13 @@ business
         possible solution: keep separate accounts, but add each in my mail clients?
 WS
     support other avi centers (contact them as i go)
-        Canada independents (WhistlerBlackcomb, Vancouver Island, Kananaskis)
-        Utah
         Colorado
+        Utah
         other US (look at avalanche.org for details)
+        WhistlerBlackcomb: http://www.whistlerblackcomb.com/weather/advisory/index.htm
+        Vancouver Island: http://www.islandavalanchebulletin.com/
+        Haute Gaspesie: (French; don't have region info) http://www.centreavalanche.qc.ca/bulletins/
+        Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon)
     add more forecast data test cases
     switch to NWAC JSON api when available
     update linked components?
@@ -45,8 +48,9 @@ iOS
     add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, etc.)?
     cache regions.json persistently in app, for performance? (as file is large, and growing)
-        do a lightweight validity check to see if file update is necessary
+        do a lightweight validity check to see if file update is necessary (still important to keep dynamic updates, e.g. if URL changes)
         note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
+        see for ideas: http://iphoneincubator.com/blog/server-communication/how-to-download-a-file-only-if-it-has-been-updated
         store where it cannot be erased by iOS (separate from other cache)
         could implement as a customer NSURLProtocolHandler, in front of the other one
         get rid of special no regions.json alert path, if no longer needed

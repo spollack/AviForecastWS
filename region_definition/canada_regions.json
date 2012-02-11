@@ -34956,9 +34956,9 @@
         ]
     },
     {
-        "regionId": "alberta_kananaskis",
+        "regionId": "cac_kananaskis",
         "displayName": "Kananaskis Country",
-        "URL":"http://www.tpr.alberta.ca/parks/kananaskis/backcountryreport.asp",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/kananaskis",
         "points": [
             {
                 "lat": "51.02134193792883",
