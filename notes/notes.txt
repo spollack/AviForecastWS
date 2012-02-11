@@ -39,18 +39,21 @@ WS
     staging environment?
     better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
 iOS
-    store regions.json persistently in app (where it cannot be erased by iOS)
-        do an if-modified-since or equiv to update, for performance (file is large, and growing)
-        get rid of special no regions.json alert path
-        check and refresh regions.json periodically (requires full cleanup and reload)?
     ask for app ratings within the app?
     viral aspect -- make it easy to share via FB/twitter?
     get rotation and zooming working correctly on danger level view
+    add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
+    add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, etc.)?
+    cache regions.json persistently in app, for performance? (as file is large, and growing)
+        do a lightweight validity check to see if file update is necessary
+        note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
+        store where it cannot be erased by iOS (separate from other cache)
+        could implement as a customer NSURLProtocolHandler, in front of the other one
+        get rid of special no regions.json alert path, if no longer needed
     offline mode
         offline: give message if detailed view unavailable for a region?
         really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
     label regions with their names?
-    add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
     more data at-a-glance
         click on a region bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
         some suggested putting some sort of icon (ie, danger level symbol) on the forecast zone would encourage one to tap it
