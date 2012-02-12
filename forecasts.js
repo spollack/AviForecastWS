@@ -30,7 +30,7 @@ var AVI_LEVEL_EXTREME = 5;
 // NOTE to ensure forecasts get generated, ensure FORECAST_GEN_INTERVAL_SECONDS >> DATA_REQUEST_TIMEOUT_SECONDS
 // NOTE the total delay that a client might see from forecast issued to available at client is the sum
 // of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
-var DATA_REQUEST_TIMEOUT_SECONDS = 30;
+var DATA_REQUEST_TIMEOUT_SECONDS = 15;
 var FORECAST_GEN_INTERVAL_SECONDS = exports.FORECAST_GEN_INTERVAL_SECONDS = 60;
 var CACHE_MAX_AGE_SECONDS = exports.CACHE_MAX_AGE_SECONDS = 60;
 
@@ -105,8 +105,8 @@ function forecastForRegionId(regionId, onForecast) {
                     var forecast = regionDetails.parser(body, regionDetails);
                     onForecast(regionId, forecast);
                 } else {
-                    winston.warn('error dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
-                        regionDetails.dataURL + '; status code: ' + (response ? response.statusCode : '[null response]') + '; error: ' + error);
+                    winston.warn('failed dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
+                        regionDetails.dataURL + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
                     onForecast(regionId, null);
                 }
             }
