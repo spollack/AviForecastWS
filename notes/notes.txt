@@ -28,11 +28,6 @@ business
         possible solution: keep separate accounts, but add each in my mail clients?
 WS
     data bug from Parks Canada: affects regions 1 and 2 (Banff/Yoho/Kootenay; Jasper)
-    loggly
-        get express to use winston
-        set up saved searches
-        try out alert birds (alertbirds.appspot.com)
-        does this meet my server-based trending and alerting needs?
     look at libraries for parsing HTML
     support other avi centers (contact them as i go)
         Colorado (10 regions) -- sent email
@@ -47,8 +42,10 @@ WS
         Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon)
     add more forecast data test cases
     switch to NWAC JSON api when available and stable
+    loggly
+        i don't get heroku messages -- could switch to heroku loggly add-on for this, but lower data limit and retention time
+        does this meet my server-based trending and alerting needs?
     update linked components?
-    server-based trending?
     better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
 iOS
     ask for app ratings within the app?
