@@ -66,7 +66,7 @@ function aggregateForecasts(regions) {
 
                 forecastsRemainingCount--;
                 if (forecastsRemainingCount === 0) {
-                    winston.info('aggregateForecasts: all forecasts received, region count: ' + regions.length);
+                    winston.info('aggregateForecasts: all forecasts processed, region count: ' + regions.length);
                     winston.verbose(JSON.stringify(forecasts, null, 4));
 
                     // write the forecasts out to a static json file, that can be served by the HTTP server
