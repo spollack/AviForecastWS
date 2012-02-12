@@ -1,7 +1,7 @@
 things to do for launch:
 --------------------
 pre-launch
-    determine pricing (and what to say, if anything, in app blurb)!!!
+    check Apple docs -- what support stuff do i need to provide?
     flesh out sebnarware.com/icicleventures.com website (marketing page, support page; any email addresses needed)
     get screenshots for details screens that match overview screens in terms of danger levels, if possible
 post-launch
@@ -30,7 +30,7 @@ WS
     data bug from Parks Canada: affects regions 1 and 2 (Banff/Yoho/Kootenay; Jasper)
     support other avi centers (contact them as i go)
         Colorado (10 regions) -- sent email
-        Utah (7 regions) -- sent email
+        Utah (7 regions) -- discussing via email
         Bridger-Teton (3 regions)
         Gallatin (3 regions)
         other US (look at avalanche.org for list)
@@ -77,6 +77,7 @@ iOS
     add push notifications?
     update linked components?
     have version numbers for disclaimer accepted (use app version number)?
+    change to subscription model?
 additional versions to consider
     Pro (ie paid; one time or subscription) iPhone version
     Android version

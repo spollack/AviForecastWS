@@ -35,6 +35,7 @@ function configLogger() {
 
     // verbose, info, warn, error are the log levels i'm using
     winston.add(winston.transports.Console, {level: 'info', handleExceptions: true});
+    winston.add(winston.transports.Loggly, {level: 'info', handleExceptions: true, subdomain: 'aviforecast', inputToken:'1e07b218-655c-4003-998e-cedd5112169e'});
 }
 
 function initializeForecastProcessing() {
@@ -68,7 +69,7 @@ function startHTTPServer() {
         function () {
             // NOTE if you don't get this log message, then the http server didn't start correctly;
             // check if another instance is already running...
-            winston.info('server listening on port: ' + port);
+            winston.info('HTTP server listening on port: ' + port);
         }
     );
 }
