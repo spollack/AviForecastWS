@@ -55,8 +55,13 @@ function startHTTPServer() {
 
     // set up the express middleware, in the order we want it to execute
 
-    // enable web server logging; NOTE this is separate from the winston logging
-    app.use(express.logger());
+    // enable web server logging; pipe those log messages through winston
+    var winstonStream = {
+        write: function(str){
+            winston.info(str);
+        }
+    };
+    app.use(express.logger({stream:winstonStream}));
     // server static content, compressed
     app.use(gzippo.staticGzip(forecasts.STATIC_FILES_DIR_PATH, {clientMaxAge:(forecasts.CACHE_MAX_AGE_SECONDS * 1000)}));
     // handle errors gracefully
