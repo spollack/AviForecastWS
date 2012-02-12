@@ -106,7 +106,7 @@ function forecastForRegionId(regionId, onForecast) {
                     onForecast(regionId, forecast);
                 } else {
                     winston.warn('error dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
-                        regionDetails.dataURL + '; status code: ' + response.statusCode + '; error: ' + error);
+                        regionDetails.dataURL + '; status code: ' + (response ? response.statusCode : '[null response]') + '; error: ' + error);
                     onForecast(regionId, null);
                 }
             }

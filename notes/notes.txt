@@ -27,32 +27,39 @@ business
         (other issues: can do from field fine in gmail web client, but not in Apple Mail or iPhone mail)
         possible solution: keep separate accounts, but add each in my mail clients?
 WS
+    data bug from Parks Canada: affects regions 1 and 2 (Banff/Yoho/Kootenay; Jasper)
     support other avi centers (contact them as i go)
-        Colorado
-        Utah
-        other US (look at avalanche.org for details)
+        Colorado (10 regions) -- sent email
+        Utah (7 regions) -- sent email
+        Bridger-Teton (3 regions)
+        Gallatin (3 regions)
+        other US (look at avalanche.org for list)
+        Crested Butte: http://www.cbavalanchecenter.org/
         WhistlerBlackcomb: http://www.whistlerblackcomb.com/weather/advisory/index.htm
         Vancouver Island: http://www.islandavalanchebulletin.com/
         Haute Gaspesie: (French; don't have region info) http://www.centreavalanche.qc.ca/bulletins/
         Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon)
     add more forecast data test cases
-    switch to NWAC JSON api when available
+    switch to NWAC JSON api when available and stable
     update linked components?
     server-based trending?
-    staging environment?
     better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
 iOS
     ask for app ratings within the app?
     viral aspect -- make it easy to share via FB/twitter?
     get rotation and zooming working correctly on danger level view
     add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
-    add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, etc.)?
+    add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
+    switch to DLOG macro so logging ins't in released build?
     cache regions.json persistently in app, for performance? (as file is large, and growing)
-        do a lightweight validity check to see if file update is necessary (still important to keep dynamic updates, e.g. if URL changes)
+        do a lightweight validity check to see if file update is necessary (still important to keep dynamic region file updates, e.g. if URL changes)
         note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
         see for ideas: http://iphoneincubator.com/blog/server-communication/how-to-download-a-file-only-if-it-has-been-updated
         store where it cannot be erased by iOS (separate from other cache)
         could implement as a customer NSURLProtocolHandler, in front of the other one
+        load new file before proceeding
+        make sure i handle both the offline and online cases
+        preload cache at app install
         get rid of special no regions.json alert path, if no longer needed
     offline mode
         offline: give message if detailed view unavailable for a region?
@@ -74,3 +81,61 @@ additional versions to consider
     Pro (ie paid; one time or subscription) iPhone version
     Android version
     PhoneGap version for other platforms (WinPhone, Blackberry, etc.)
+
+avalanche forecast center intro blurb:
+--------------------
+Hello,
+
+I'm currently developing an iPhone app that displays avalanche conditions "at-a-glance", across multiple forecast regions/centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map, based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
+
+I currently have it working with the NWAC, CAC, and Parks Canada forecasting centers (30 regions total). Integrating with you all is next on my list. I'd like to eventually include all the avalanche forecasting centers across North America.
+
+I wanted to touch base with you for several reasons.
+
+First, I want to see about the best way to integrate technically. I can certainly parse the HTML (i.e. from the region-specific bulletin web pages) to gather the forecasts, but if you have something designed for programmatic access, such as a JSON or XML API, please let me know. Also, do you happen to have a KML/KMZ file or anything similar (i.e. geographic data) that describes the borders of your forecast subregions in terms of latitude/longitude coordinate paths? This would be a great help towards integration.
+
+Second, if anyone there has an iPhone (or iPod Touch, or iPad) running iOS4.2+, and would be interested in beta testing the app, i'd be glad to have your input.
+
+Third, i want to get the word out about this application within the avalanche community. I hope to launch it in the Apple app store in the next couple of weeks.
+
+Thanks for your input and help.
+
+Seth Pollack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
