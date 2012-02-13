@@ -134,7 +134,6 @@ function getRegionDetailsForRegionId(regionId) {
                     parser = parseForecast_nwac;
                     break;
                 case 'cac':
-                    // NOTE cac is sensitive to a trailing slash, don't put it in
                     dataURL = 'http://www.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
                     parser = parseForecast_cac;
                     break;
@@ -147,6 +146,7 @@ function getRegionDetailsForRegionId(regionId) {
                     parser = parseForecast_caic;
                     break;
                 default:
+                    winston.warn('no match for regionId: ' + regionId);
                     break;
             }
 
@@ -197,7 +197,7 @@ function getDataURL_caic(subregion) {
             dataURL = baseURL + 'Sangre_de_Cristo_Avalanche_Forecast.xml';
             break;
         default:
-            winston.verbose('getDataURL_caic: no match for subregion: ' + subregion);
+            winston.warn('getDataURL_caic: no match for subregion: ' + subregion);
             break;
     }
 
