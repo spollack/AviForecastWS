@@ -1,10 +1,9 @@
 things to do for launch:
 --------------------
-pre-launch
-    check Apple docs -- what support stuff do i need to provide?
-    flesh out sebnarware.com/icicleventures.com website (marketing page, support page; any email addresses needed)
-    get screenshots for details screens that match overview screens in terms of danger levels, if possible
+v1.0
+    waiting for Apple review
 post-launch
+    flesh out sebnarware.com/icicleventures.com website
     app store optimization (http://www.mobiledevhq.com/ -- help with keywords, etc. -- once app is in app store)
     post on my facebook
     ping all my beta testers
@@ -13,6 +12,7 @@ post-launch
 v1.1
     beta test
     submit to Apple
+    udpate screenshots (get new NWAC detail shot; update to new legend; recheck all)
 
 things to do later:
 --------------------
@@ -24,14 +24,14 @@ business
         (brinkster aliases and forwarding didn't work to gmail, would get a delivery failure; although it would forward fine to hotmail)
         (current approach: have brinkster email accounts for each, and have gmail poll them via POP3 into my seth@pollackphoto.com account)
         (drawbacks of current approach: mail may not be polled frequently; limit of 5 accounts)
-        (other issues: can do from field fine in gmail web client, but not in Apple Mail or iPhone mail)
-        possible solution: keep separate accounts, but add each in my mail clients?
+        (other issues: can use the from field ok in gmail web client, but not in Apple Mail or iPhone mail)
+        possible solution: keep separate accounts, but add each account in all of my mail clients?
 WS
-    data bug from Parks Canada: affects regions 1 and 2 (Banff/Yoho/Kootenay; Jasper)
-    look at libraries for parsing HTML
+    data bug from Parks Canada -- sent email
+    CAIC: requires multiple polygons for a single forecast region, decide how to model
     support other avi centers (contact them as i go)
-        Colorado (10 regions) -- sent email
-        Utah (7 regions) -- discussing via email
+        Colorado (10 regions) -- have forecasts; trying to get permission for regions
+        Utah (7 regions) -- sent email, waiting for more details
         Bridger-Teton (3 regions)
         Gallatin (3 regions)
         other US (look at avalanche.org for list)
@@ -41,6 +41,7 @@ WS
         Haute Gaspesie: (French; don't have region info) http://www.centreavalanche.qc.ca/bulletins/
         Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon)
     add more forecast data test cases
+    look at libraries for parsing HTML (look at emails from Shep, Doc)
     switch to NWAC JSON api when available and stable
     loggly
         i don't get heroku messages -- could switch to heroku loggly add-on for this, but lower data limit and retention time
@@ -48,12 +49,13 @@ WS
     update linked components?
     better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
 iOS
+    Bernie saw an endless loop of "Network fail, try again" when on a busy network (thought: perhaps related to app backgrounding? try to repro)
+    switch to DLOG macro so logging ins't in released build
     ask for app ratings within the app?
     viral aspect -- make it easy to share via FB/twitter?
     get rotation and zooming working correctly on danger level view
     add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
-    switch to DLOG macro so logging ins't in released build?
     cache regions.json persistently in app, for performance? (as file is large, and growing)
         do a lightweight validity check to see if file update is necessary (still important to keep dynamic region file updates, e.g. if URL changes)
         note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
@@ -64,6 +66,8 @@ iOS
         make sure i handle both the offline and online cases
         preload cache at app install
         get rid of special no regions.json alert path, if no longer needed
+        OR... use a software update style model instead? (never block user waiting for download...
+            although investigate what happens to network ops if the app loses focus
     offline mode
         offline: give message if detailed view unavailable for a region?
         really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
