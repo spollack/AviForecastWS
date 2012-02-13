@@ -31,8 +31,8 @@ var AVI_LEVEL_EXTREME = 5;
 // NOTE the total delay that a client might see from forecast issued to available at client is the sum
 // of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
 var DATA_REQUEST_TIMEOUT_SECONDS = 15;
-var FORECAST_GEN_INTERVAL_SECONDS = exports.FORECAST_GEN_INTERVAL_SECONDS = 60;
-var CACHE_MAX_AGE_SECONDS = exports.CACHE_MAX_AGE_SECONDS = 60;
+var FORECAST_GEN_INTERVAL_SECONDS = exports.FORECAST_GEN_INTERVAL_SECONDS = 300;
+var CACHE_MAX_AGE_SECONDS = exports.CACHE_MAX_AGE_SECONDS = 300;
 
 // filepaths
 var STATIC_FILES_DIR_PATH = exports.STATIC_FILES_DIR_PATH  = __dirname + '/public';
@@ -142,6 +142,10 @@ function getRegionDetailsForRegionId(regionId) {
                     dataURL = 'http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
                     parser = parseForecast_pc;
                     break;
+                case 'caic':
+                    dataURL = getDataURL_caic(components[1]);
+                    parser = parseForecast_caic;
+                    break;
                 default:
                     break;
             }
@@ -154,6 +158,50 @@ function getRegionDetailsForRegionId(regionId) {
     }
 
     return regionDetails;
+}
+
+function getDataURL_caic(subregion) {
+
+    var dataURL = null;
+    var baseURL = 'http://avalanche.state.co.us/media/xml/';
+
+    switch (subregion) {
+        case '0':
+            dataURL = baseURL + 'Steamboat_and_Flat_Tops_Avalanche_Forecast.xml';
+            break;
+        case '1':
+            dataURL = baseURL + 'Front_Range_Avalanche_Forecast.xml';
+            break;
+        case '2':
+            dataURL = baseURL + 'Vail_and_Summit_County_Avalanche_Forecast.xml';
+            break;
+        case '3':
+            dataURL = baseURL + 'Sawatch_Range_Avalanche_Forecast.xml';
+            break;
+        case '4':
+            dataURL = baseURL + 'Aspen_Weather_Forecast.xml';
+            break;
+        case '5':
+            dataURL = baseURL + 'Gunnison_Avalanche_Forecast.xml';
+            break;
+        case '6':
+            dataURL = baseURL + 'Grand_Mesa_Avalanche_Forecast.xml';
+            break;
+        case '7':
+            dataURL = baseURL + 'Northern_San_Juan_Avalanche_Forecast.xml';
+            break;
+        case '8':
+            dataURL = baseURL + 'Southern_San_Juan_Avalanche_Forecast.xml';
+            break;
+        case '9':
+            dataURL = baseURL + 'Sangre_de_Cristo_Avalanche_Forecast.xml';
+            break;
+        default:
+            winston.verbose('getDataURL_caic: no match for subregion: ' + subregion);
+            break;
+    }
+
+    return dataURL;
 }
 
 exports.findHighestAviLevelInString = findHighestAviLevelInString;
@@ -278,8 +326,10 @@ function parseForecastIssuedDate_nwac(body, regionDetails) {
     // the capture group from the regex will be in slot 1 in the array
     if (timestampMatch && timestampMatch.length > 1) {
 
-        forecastIssuedDate = moment(timestampMatch[1], "MMM DD YYYY");
+        forecastIssuedDate = moment(timestampMatch[1], 'MMM DD YYYY');
         winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+    } else {
+        winston.warn('parse failure, forecast isse date not found; regionId: ' + regionDetails.regionId);
     }
 
     return forecastIssuedDate;
@@ -291,27 +341,31 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
     // can describe days that have already passed; can contain multiple avi levels
     // NOTE typical string for nwac: '<strong>Monday:</strong> Considerable avalanche danger above 4000 feet and moderate below. Increasing danger Monday afternoon and night.<'
     var forecastBlocks = body.match(/<strong>[^:]+:[^<]*<\/strong>[^<]+</g);
-    for ( var i = 0; i < forecastBlocks.length; i++) {
-        winston.verbose('forecastBlocks[' + i + ']: ' + forecastBlocks[i]);
-    }
+    if (forecastBlocks) {
+        for ( var i = 0; i < forecastBlocks.length; i++) {
+            winston.verbose('forecastBlocks[' + i + ']: ' + forecastBlocks[i]);
+        }
 
-    for (var day = 0; day < forecastDays.length; day++) {
+        for (var day = 0; day < forecastDays.length; day++) {
 
-        // look for the day name, case insensitive, before the colon
-        var regExp = new RegExp(forecastDays[day] + '[^:]*:','i');
+            // look for the day name, case insensitive, before the colon
+            var regExp = new RegExp(forecastDays[day] + '[^:]*:','i');
 
-        // find the first block that contains the relevant day string, and extract the first avalanche keyword therein
-        for (var block = 0; block < forecastBlocks.length; block++) {
+            // find the first block that contains the relevant day string, and extract the first avalanche keyword therein
+            for (var block = 0; block < forecastBlocks.length; block++) {
 
-            if (forecastBlocks[block].match(regExp)) {
+                if (forecastBlocks[block].match(regExp)) {
 
-                aviLevels[day] = findHighestAviLevelInString(forecastBlocks[block]);
-                winston.verbose('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
-                    forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
+                    aviLevels[day] = findHighestAviLevelInString(forecastBlocks[block]);
+                    winston.verbose('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
+                        forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
 
-                break;
+                    break;
+                }
             }
         }
+    } else {
+        winston.warn('parse failure, no blocks found; regionId: ' + regionDetails.regionId);
     }
 }
 
@@ -320,48 +374,48 @@ function parseForecast_cac(body, regionDetails) {
 
     var forecast = null;
 
-    // NOTE eliminate the XML namespace prefixes, it screws up the JSON generated below
-    body = body.replace(/caaml:/g,'');
-    body = body.replace(/gml:/g,'');
-
     var parser = new xml2js.Parser();
+    // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function (err, result) {
+        try {
+            // NOTE cac uses xml namespace prefixes in their tags, which requires this byzantine lookup notation
+            var forecastIssuedDate = dateStringFromDateTimeString_caaml(result['caaml:observations']['caaml:Bulletin']['gml:validTime']['gml:TimePeriod']['gml:beginPosition']);
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
 
-        var forecastIssuedDate = dateStringFromDateTimeString_caaml(result.observations.Bulletin.validTime.TimePeriod.beginPosition);
-        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+            var dayForecasts = result['caaml:observations']['caaml:Bulletin']['caaml:bulletinResultsOf']['caaml:BulletinMeasurements']['caaml:dangerRatings']['caaml:DangerRating'];
 
-        var dayForecasts = result.observations.Bulletin.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRating;
+            // NOTE create an extra slot for the day the forecast was issued, as it may be the day before the first
+            // described day; having a duplicate date in the result is ok
+            forecast = [dayForecasts.length + 1];
 
-        // NOTE create an extra slot for the day the forecast was issued, as it may be the day before the first
-        // described day; having a duplicate date in the result is ok
-        forecast = [dayForecasts.length + 1];
+            for (var i = 0; i < dayForecasts.length; i++) {
 
-        for (var i = 0; i < dayForecasts.length; i++) {
+                var date = dateStringFromDateTimeString_caaml(dayForecasts[i]['gml:validTime']['gml:TimeInstant']['gml:timePosition']);
 
-            var date = dateStringFromDateTimeString_caaml(dayForecasts[i].validTime.TimeInstant.timePosition);
+                // NOTE cac organizes forecasts by multiple elevation zones within a given day;
+                // take the highest danger level listed for each day
+                var aviLevel = Math.max(
+                    aviLevelFromName(dayForecasts[i]['caaml:dangerRatingAlpValue']),
+                    aviLevelFromName(dayForecasts[i]['caaml:dangerRatingTlnValue']),
+                    aviLevelFromName(dayForecasts[i]['caaml:dangerRatingBtlValue']));
 
-            // NOTE cac organizes forecasts by multiple elevation zones within a given day;
-            // take the highest danger level listed for each day
-            var aviLevel = Math.max(
-                aviLevelFromName(dayForecasts[i].dangerRatingAlpValue),
-                aviLevelFromName(dayForecasts[i].dangerRatingTlnValue),
-                aviLevelFromName(dayForecasts[i].dangerRatingBtlValue));
+                // NOTE special case the forecast issued day, which is usually the day before the first described day,
+                // and use the first described day's forecast for it
+                // NOTE this also assumes the days are listed in chronological order in the input data
+                if (i === 0) {
+                    forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+                }
 
-            // NOTE special case the forecast issued day, which is usually the day before the first described day,
-            // and use the first described day's forecast for it
-            // NOTE this also assumes the days are listed in chronological order in the input data
-            if (i === 0) {
-                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+                // put this described day in the array, shifted by one position
+                forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
             }
 
-            // put this described day in the array, shifted by one position
-            forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+             }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
         }
-
-        for (var j = 0; j < forecast.length; j++) {
-            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-        }
-
     });
 
     return forecast;
@@ -373,42 +427,78 @@ function parseForecast_pc(body, regionDetails) {
     var forecast = null;
 
     var parser = new xml2js.Parser();
+    // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function (err, result) {
+        try {
+            var forecastIssuedDate = dateStringFromDateTimeString_caaml(result.observations.Bulletin.validTime.TimePeriod.beginPosition);
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
 
-        var forecastIssuedDate = dateStringFromDateTimeString_caaml(result.observations.Bulletin.validTime.TimePeriod.beginPosition);
-        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+            var dayForecasts = result.observations.Bulletin.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRating;
 
-        var dayForecasts = result.observations.Bulletin.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRating;
+            // NOTE create an extra slot for the day the forecast was issued, as it may be the day before the first
+            // described day; having a duplicate date in the result is ok
+            // NOTE pc lists each day three times, one for each elevation zone
+            forecast = [(dayForecasts.length / 3) + 1];
 
-        // NOTE create an extra slot for the day the forecast was issued, as it may be the day before the first
-        // described day; having a duplicate date in the result is ok
-        // NOTE pc lists each day three times, one for each elevation zone
-        forecast = [(dayForecasts.length / 3) + 1];
+            for (var i = 0; i < (dayForecasts.length / 3); i++) {
 
-        for (var i = 0; i < (dayForecasts.length / 3); i++) {
+                var date = dateStringFromDateTimeString_caaml(dayForecasts[i].validTime.TimeInstant.timePosition);
 
-            var date = dateStringFromDateTimeString_caaml(dayForecasts[i].validTime.TimeInstant.timePosition);
+                // NOTE pc organizes forecasts as separate entries for each elevation zone for each day;
+                // the alpine evevation zone is always listed first, and always has the highest danger level of the
+                // elevation zones, so we use it
+                var aviLevel = parseInt(dayForecasts[i].mainValue);
 
-            // NOTE pc organizes forecasts as separate entries for each elevation zone for each day;
-            // the alpine evevation zone is always listed first, and always has the highest danger level of the
-            // elevation zones, so we use it
-            var aviLevel = parseInt(dayForecasts[i].mainValue);
+                // NOTE special case the forecast issued day, which is usually the day before the first described day,
+                // and use the first described day's forecast for it
+                // NOTE this also assumes the days are listed in chronological order in the input data
+                if (i === 0) {
+                    forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+                }
 
-            // NOTE special case the forecast issued day, which is usually the day before the first described day,
-            // and use the first described day's forecast for it
-            // NOTE this also assumes the days are listed in chronological order in the input data
-            if (i === 0) {
-                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+                // put this described day in the array, shifted by one position
+                forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
             }
 
-            // put this described day in the array, shifted by one position
-            forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
         }
+    });
 
-        for (var j = 0; j < forecast.length; j++) {
-            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+    return forecast;
+}
+
+exports.parseForecast_caic = parseForecast_caic;
+function parseForecast_caic(body, regionDetails) {
+
+    var forecast = null;
+
+    var parser = new xml2js.Parser();
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function (err, result) {
+        try {
+            var forecastIssuedDate = dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.beginPosition);
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+
+            var forecastValidThroughDate = dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.endPosition);
+
+            var aviLevel = parseInt(result.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRatingSingle.mainValue);
+
+            // NOTE caic issues avalanche forcasts for 24 hours at a time (issued in the morning, for that day and the next
+            // early morning, so spanning two days)
+            forecast = [2];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+            forecast[1] = {'date': forecastValidThroughDate, 'aviLevel': aviLevel};
+
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
         }
-
     });
 
     return forecast;

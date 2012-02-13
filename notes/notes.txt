@@ -27,30 +27,36 @@ business
         (other issues: can use the from field ok in gmail web client, but not in Apple Mail or iPhone mail)
         possible solution: keep separate accounts, but add each account in all of my mail clients?
 WS
-    data bug from Parks Canada -- sent email
-    CAIC: requires multiple polygons for a single forecast region, decide how to model
+    try trimming lat/lon to 4 digits after the decimal, to see effect on file size
+    need to convert CAIC geometry (from kml or from js)
+    CAIC: requires multiple polygons for a single forecast region
+        option 1: model as separate subregions, that happen to have the same dataURL and websiteURL
+        option 2: add notion of multiple polygons for a single region
+    data bug from Parks Canada -- they are working on it
     support other avi centers (contact them as i go)
-        Colorado (10 regions) -- have forecasts; trying to get permission for regions
+        Colorado (10 regions) -- have forecasts; have regions
         Utah (7 regions) -- sent email, waiting for more details
         Bridger-Teton (3 regions)
         Gallatin (3 regions)
         other US (look at avalanche.org for list)
-        Crested Butte: http://www.cbavalanchecenter.org/
         WhistlerBlackcomb: http://www.whistlerblackcomb.com/weather/advisory/index.htm
         Vancouver Island: http://www.islandavalanchebulletin.com/
         Haute Gaspesie: (French; don't have region info) http://www.centreavalanche.qc.ca/bulletins/
         Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon)
-    add more forecast data test cases
+        Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     look at libraries for parsing HTML (look at emails from Shep, Doc)
+    consider putting dataURL as a field in regions.json file, and getting it that way
     switch to NWAC JSON api when available and stable
+    add more NWAC forecast data test cases
     loggly
+        don't log to Loggly in test builds, just live deployed ones
         i don't get heroku messages -- could switch to heroku loggly add-on for this, but lower data limit and retention time
         does this meet my server-based trending and alerting needs?
     update linked components?
     better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
 iOS
     Bernie saw an endless loop of "Network fail, try again" when on a busy network (thought: perhaps related to app backgrounding? try to repro)
-    switch to DLOG macro so logging ins't in released build
+    switch to DLOG macro so logging ins't in released build; also don't log Flurry events in test builds
     ask for app ratings within the app?
     viral aspect -- make it easy to share via FB/twitter?
     get rotation and zooming working correctly on danger level view

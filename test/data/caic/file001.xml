@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bulletin  xmlns="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS"  xmlns:gml="http://www.opengis.net/gml"  xmlns:xlink="http://www.w3.org/1999/xlink"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS    http://caaml.org/Schemas/V5.0/Profiles/BulletinUS/CAAMLv5_BulletinUS.xsd"  gml:id="BulletinID01">
+  <metaDataProperty>
+    <MetaData>
+      <dateTimeReport>2012-02-13T07:26:00</dateTimeReport>
+      <srcRef>
+        <Operation gml:id="CAICID01">
+          <name>Colorado Avalanche Information Center</name>
+          <contactPerson>
+            <Person gml:id="CAICStaffID496">
+              <name>Brian McCall</name>
+            </Person>
+          </contactPerson>
+        </Operation>
+      </srcRef>
+      <srcURL>http://avalanche.state.co.us/pub_bc_avo.php?zone_id=4</srcURL>
+    </MetaData>
+  </metaDataProperty>
+  <validTime>
+    <TimePeriod>
+      <beginPosition>2012-02-13T07:17:00</beginPosition>
+      <endPosition>2012-02-14T05:00:00</endPosition>
+    </TimePeriod>
+  </validTime>
+  <bulletinResultsOf>
+    <BulletinMeasurements>
+      <customData>
+        <Media>
+          <uRL>http://avalanche.state.co.us/media</uRL>
+          <description>Some text for the media</description>
+        </Media>
+      </customData>
+      <highlights>&lt;p&gt;New snow fell throughout the Aspen zone on Sunday and Sunday night. Storm totals vary considerably with location. The southwest corner of the Aspen zone received the most new snow with 10-12 inches in the last 24 hours. Snowfall totals drop off to just a few inches as you move north and east in the forecast zone. Concerns for avalanche activity today include storm slabs in the areas with higher snow totals, and wind slabs formed during the last few days. Isolated deep slab avalanches are also a problem throughout the zone.&lt;/p&gt;</highlights>
+      <bulletinType>Bulletin</bulletinType>
+      <dangerRatings>
+        <DangerRatingSingle>
+          <mainValue>3</mainValue>
+          <comment>&lt;p&gt;The avalanche danger for the Aspen zone will vary with location and snowfall totals today. In the southwest corner of the forecast zone, the danger is CONSIDERABLE (Level 3) for all slopes but the south and southwest aspects below treeline. Danger on those southerly aspects below treeline is MODERATE (Level 2). In the rest of the Aspen zone, avalanche danger will remain similar to yesterday. There you will find CONSIDERABLE (Level 3) danger on slopes facing NW-N-NE-E-SE near and above treeline. The danger is MODERATE (Level 2) on all other slopes in areas with the lower snow totals.&lt;/p&gt;</comment>
+        </DangerRatingSingle>
+        <DangerRatingRose>
+          <sectors>
+            <Sector>
+              <validAspectElevation xlink:href="0"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="1"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="2"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="3"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="4"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="5"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="6"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="7"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="8"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="9"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="10"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="11"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="12"/>
+              <mainValue>2</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="13"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="14"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="15"/>
+              <mainValue>2</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="16"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="17"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="18"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="19"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="20"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="21"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="22"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="23"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+          </sectors>
+        </DangerRatingRose>
+      </dangerRatings>
+      <avProblems>
+        <AvProblem>
+          <type>Persistent Slabs</type>
+          <validAspectElevation xlink:href="AspectElevation_NAlp"/>
+          <validAspectElevation xlink:href="AspectElevation_NTln"/>
+          <validAspectElevation xlink:href="AspectElevation_NBtl"/>
+          <expectedAvSize>
+            <Values>
+              <typical>2.5</typical>
+            </Values>
+          </expectedAvSize>
+          <likelihoodOfTriggering>
+            <Values>
+              <typical>Possible</typical>
+            </Values>
+          </likelihoodOfTriggering>
+          <trend>Increasing</trend>
+          <comment>This is a sample problem</comment>
+        </AvProblem>
+        <AvProblem>
+          <type>Persistent Slabs</type>
+          <validAspectElevation xlink:href="AspectElevation_NAlp"/>
+          <validAspectElevation xlink:href="AspectElevation_NTln"/>
+          <validAspectElevation xlink:href="AspectElevation_NBtl"/>
+          <expectedAvSize>
+            <Values>
+              <typical>2.5</typical>
+            </Values>
+          </expectedAvSize>
+          <likelihoodOfTriggering>
+            <Values>
+              <typical>Possible</typical>
+            </Values>
+          </likelihoodOfTriggering>
+          <trend>Increasing</trend>
+          <comment>This is another sample problem</comment>
+        </AvProblem>
+      </avProblems>
+      <avSnowComment>&lt;p&gt;Light snow started to fall in all areas of the Aspen zone by late morning on Sunday. Snow totals with this storm vary quite a bit with location in the forecast area. In the southwest corner of the forecast zone near Schofield and Marble, new snow totals reached 10-12+ inches in the last 24 hours. As you move north and east in the zone, you'll find around 5 inches at Sunlight Mountain, and 2-4 inches at the Aspen area resorts. Independence Pass picked up around 2 inches of new snow. Winds with this storm have been light to moderate out of the southwest. &lt;br /&gt;&lt;br /&gt;There are numerous problems in our snowpack to think about today. In areas of the zone with snow totals reaching 12 inches, triggered storm slab avalanches are becoming likely. This new snow has fallen on a couple weak layers in the upper snowpack. There are crusts and facet layers on the southerly aspects and some small facets and isolated areas of surface hoar on the sheltered northerly aspects resting below this new snow. A second concern is some soft slabs in the upper snowpack formed by drifting snow from recent westerly winds near and above treeline. These are a problem on slopes facing north through southeast at higher elevations. There is also a lingering deep slab problem on many slopes in all areas of the Aspen zone. Layers in the middle and&amp;nbsp; upper snowpack have stiffened and gained strength in the last few weeks. This strengthening upper layer gives the snowpack a deceptively strong feel as you travel through the backcountry, especially in the southwestern portion of the Aspen zone where storm snow totals were deeper during the last month. The underlying snow, however, is still quite weak. Triggering a persistent deep slab avalanche is possible on many steeper slopes. Terrain facing northwest through east at all elevations is the most problematic for these deep slab avalanches.&lt;/p&gt;</avSnowComment>
+    </BulletinMeasurements>
+  </bulletinResultsOf>
+  <locRef xlink:href="ForecastRegionID4"/>
+</Bulletin>

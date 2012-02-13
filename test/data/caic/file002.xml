@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bulletin  xmlns="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS"  xmlns:gml="http://www.opengis.net/gml"  xmlns:xlink="http://www.w3.org/1999/xlink"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS    http://caaml.org/Schemas/V5.0/Profiles/BulletinUS/CAAMLv5_BulletinUS.xsd"  gml:id="BulletinID01">
+  <metaDataProperty>
+    <MetaData>
+      <dateTimeReport>2012-02-13T08:11:00</dateTimeReport>
+      <srcRef>
+        <Operation gml:id="CAICID01">
+          <name>Colorado Avalanche Information Center</name>
+          <contactPerson>
+            <Person gml:id="CAICStaffID2448">
+              <name>Matt Steen</name>
+            </Person>
+          </contactPerson>
+        </Operation>
+      </srcRef>
+      <srcURL>http://avalanche.state.co.us/pub_bc_avo.php?zone_id=8</srcURL>
+    </MetaData>
+  </metaDataProperty>
+  <validTime>
+    <TimePeriod>
+      <beginPosition>2012-02-13T08:00:00</beginPosition>
+      <endPosition>2012-02-14T05:00:00</endPosition>
+    </TimePeriod>
+  </validTime>
+  <bulletinResultsOf>
+    <BulletinMeasurements>
+      <customData>
+        <Media>
+          <uRL>http://avalanche.state.co.us/media</uRL>
+          <description>Some text for the media</description>
+        </Media>
+      </customData>
+      <highlights>&lt;p&gt;There is an Avalanche Warning in affect for the western portion of the South San Juan zone, including the La Plata Mountains, Needle Mountains and the Grenadier Range. A large winter storm has increased the avalanche danger to HIGH (Level 4) on the western part of the Southern San Juan zone. Natural and human-triggered avalanches are likely. Backcountry travelers should avoid moving on or under slopes steeper than about 30 degrees.&lt;/p&gt;</highlights>
+      <bulletinType>Bulletin</bulletinType>
+      <dangerRatings>
+        <DangerRatingSingle>
+          <mainValue>4</mainValue>
+          <comment>&lt;p&gt;&amp;nbsp;The avalanche danger for the Southern San Juan zone is HIGH (Level 4) on NW-N-NE-E aspects near and above treeline and CONSIDERABLE (Level 3) below treeline, and on SE-S-SW-W aspect at all elevations.These conditions exist in the western portion of the zone including the La Plata Mountains, Needle Mountains and the Grenadier Range. Conditions in the eastern portion of the zone near Wolf Creek Pass the avalanche danger is CONSIDERABLE (Level 3) at all aspects and elevations.&lt;/p&gt;
+&lt;!--[endif] --&gt;</comment>
+        </DangerRatingSingle>
+        <DangerRatingRose>
+          <sectors>
+            <Sector>
+              <validAspectElevation xlink:href="0"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="1"/>
+              <mainValue>4</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="2"/>
+              <mainValue>4</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="3"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="4"/>
+              <mainValue>4</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="5"/>
+              <mainValue>4</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="6"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="7"/>
+              <mainValue>4</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="8"/>
+              <mainValue>4</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="9"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="10"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="11"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="12"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="13"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="14"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="15"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="16"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="17"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="18"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="19"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="20"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="21"/>
+              <mainValue>3</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="22"/>
+              <mainValue>4</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+            <Sector>
+              <validAspectElevation xlink:href="23"/>
+              <mainValue>4</mainValue>
+              <pocketValue>0</pocketValue>
+            </Sector>
+          </sectors>
+        </DangerRatingRose>
+      </dangerRatings>
+      <avProblems>
+        <AvProblem>
+          <type>Persistent Slabs</type>
+          <validAspectElevation xlink:href="AspectElevation_NAlp"/>
+          <validAspectElevation xlink:href="AspectElevation_NTln"/>
+          <validAspectElevation xlink:href="AspectElevation_NBtl"/>
+          <expectedAvSize>
+            <Values>
+              <typical>2.5</typical>
+            </Values>
+          </expectedAvSize>
+          <likelihoodOfTriggering>
+            <Values>
+              <typical>Possible</typical>
+            </Values>
+          </likelihoodOfTriggering>
+          <trend>Increasing</trend>
+          <comment>This is a sample problem</comment>
+        </AvProblem>
+        <AvProblem>
+          <type>Persistent Slabs</type>
+          <validAspectElevation xlink:href="AspectElevation_NAlp"/>
+          <validAspectElevation xlink:href="AspectElevation_NTln"/>
+          <validAspectElevation xlink:href="AspectElevation_NBtl"/>
+          <expectedAvSize>
+            <Values>
+              <typical>2.5</typical>
+            </Values>
+          </expectedAvSize>
+          <likelihoodOfTriggering>
+            <Values>
+              <typical>Possible</typical>
+            </Values>
+          </likelihoodOfTriggering>
+          <trend>Increasing</trend>
+          <comment>This is another sample problem</comment>
+        </AvProblem>
+      </avProblems>
+      <avSnowComment>&lt;p&gt;Over the past 24 hours 13 to 18 inches of snow fell across the Southern San Juan zone with light to moderate southwesterly winds. Coal Bank Pass and Wolf Creek Pass received 18 inches and 13 inches reported at Durango Mountain Resort. Southwest winds have been strong enough to move the new snow into new drifts. The weight of the storm snow, with around an inch of water, is enough to stress our weak snowpack and the wind will push it to the breaking point. An avalanche could break into buried layers of weak snow, producing large and dangerous slides. In the western portion of the zone, which encompasses the La Plata Mountains, Needle Mountains and the Grenadier Range there are areas of HIGH (Level 4) avalanche danger where recent storm slabs and wind slabs sit on persistent weak layers. Natural avalanches are likely and human-triggered avalanches are very likely today.&lt;/p&gt;
+&lt;p&gt;Although buried weak layers remain an issue across the zone, the snowpack is generally stronger on the eastside of the zone.&amp;nbsp; Avalanches in the storm snow layer and below fresh wind slabs are presenting the greatest danger in this area. There are also multiple layers of buried surface hoar, 3 to 5 feet down, near Wolf Creek Pass. If you trigger an avalanche in the storm snow, it could be large enough to break down to one of these surface hoar layers. Look for the surface hoar on sheltered slopes that face northwest through north and to the east.&lt;/p&gt;
+&lt;p&gt;Today is a good day to avoid traveling on or below avalanche terrain.&lt;/p&gt;</avSnowComment>
+    </BulletinMeasurements>
+  </bulletinResultsOf>
+  <locRef xlink:href="ForecastRegionID8"/>
+</Bulletin>
