@@ -47,7 +47,6 @@ WS
     switch to NWAC JSON api when available and stable
     add more NWAC forecast data test cases
     loggly
-        don't log to Loggly in test builds, just live deployed ones
         i don't get heroku messages -- could switch to heroku loggly add-on for this, but lower data limit and retention time
         does this meet my server-based trending and alerting needs?
     any way to launch unit tests from WebStorm? (opened ticket with JetBrains)
