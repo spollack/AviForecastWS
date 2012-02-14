@@ -34333,29 +34333,6 @@
         ]
     },
     {
-        "regionId": "caic_011",
-        "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
-        "points": [
-            {
-                "lat": "40.4794",
-                "lon": "-105.8159"
-            },
-            {
-                "lat": "40.4917",
-                "lon": "-105.7968"
-            },
-            {
-                "lat": "40.4772",
-                "lon": "-105.8183"
-            },
-            {
-                "lat": "40.4794",
-                "lon": "-105.8159"
-            }
-        ]
-    },
-    {
         "regionId": "caic_012",
         "displayName": "Front Range",
         "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
@@ -36813,29 +36790,6 @@
             {
                 "lat": "39.3925",
                 "lon": "-106.9995"
-            }
-        ]
-    },
-    {
-        "regionId": "caic_041",
-        "displayName": "Aspen",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=4",
-        "points": [
-            {
-                "lat": "39.5334",
-                "lon": "-106.9533"
-            },
-            {
-                "lat": "39.5338",
-                "lon": "-106.9536"
-            },
-            {
-                "lat": "39.5333",
-                "lon": "-106.9529"
-            },
-            {
-                "lat": "39.5334",
-                "lon": "-106.9533"
             }
         ]
     },

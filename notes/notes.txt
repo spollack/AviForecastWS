@@ -5,6 +5,7 @@ v1.0
 post-launch
     flesh out sebnarware.com/icicleventures.com website
     app store optimization (http://www.mobiledevhq.com/ -- help with keywords, etc. -- once app is in app store)
+    make email list for announcements
     post on my facebook
     ping all my beta testers
     email bushwackers, wac

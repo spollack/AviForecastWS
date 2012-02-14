@@ -173,7 +173,6 @@ function getDataURL_caic(subregion) {
             dataURL = baseURL + 'Steamboat_and_Flat_Tops_Avalanche_Forecast.xml';
             break;
         case '010':
-        case '011':
         case '012':
         case '013':
         case '014':
@@ -187,7 +186,6 @@ function getDataURL_caic(subregion) {
             dataURL = baseURL + 'Sawatch_Range_Avalanche_Forecast.xml';
             break;
         case '040':
-        case '041':
         case '042':
             dataURL = baseURL + 'Aspen_Avalanche_Forecast.xml';
             break;

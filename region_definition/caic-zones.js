@@ -2204,11 +2204,11 @@ var z091 = [
 ];
 
 var Zones=new Array();  // Define each zone and it's polygons
-Zones[0] = new Array(z000,z001,z002,z003)           // Steamboat
-Zones[1] = new Array(z010,z011,z012,z013,z014,z015);// Front Range
+Zones[0] = new Array(z000,z001,z002,z003);          // Steamboat
+Zones[1] = new Array(z010,z011,z012,z013,z014,z015);// Front Range                  NOTE z011 is bogus
 Zones[2] = new Array(z020);                         // Vail Summit 
 Zones[3] = new Array(z030);                         // Sawatch 
-Zones[4] = new Array(z040,z041,z042);               // Aspen
+Zones[4] = new Array(z040,z041,z042);               // Aspen                        NOTE z041 is bogus
 Zones[5] = new Array(z050);                         // Gunnison
 Zones[6] = new Array(z060,z061);                    // Grand Mesa
 Zones[7] = new Array(z070);                         // North San Juan Mountains
@@ -2226,7 +2226,7 @@ function getLatLon(lat,lon) {
 }
 
 var URLPrefix = 'http://avalanche.state.co.us/pub_bc_avo.php?zone_id=';
-var data = [22];
+var data = [20];
 
 data[0] = {'regionId':'caic_' + '000', 'displayName':'Steamboat and Flat Tops', 'URL':URLPrefix + '0', 'points':z000};
 data[1] = {'regionId':'caic_' + '001', 'displayName':'Steamboat and Flat Tops', 'URL':URLPrefix + '0', 'points':z001};
@@ -2234,31 +2234,29 @@ data[2] = {'regionId':'caic_' + '002', 'displayName':'Steamboat and Flat Tops', 
 data[3] = {'regionId':'caic_' + '003', 'displayName':'Steamboat and Flat Tops', 'URL':URLPrefix + '0', 'points':z003};
 
 data[4] = {'regionId':'caic_' + '010', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z010};
-data[5] = {'regionId':'caic_' + '011', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z011};
-data[6] = {'regionId':'caic_' + '012', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z012};
-data[7] = {'regionId':'caic_' + '013', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z013};
-data[8] = {'regionId':'caic_' + '014', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z014};
-data[9] = {'regionId':'caic_' + '015', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z015};
+data[5] = {'regionId':'caic_' + '012', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z012};
+data[6] = {'regionId':'caic_' + '013', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z013};
+data[7] = {'regionId':'caic_' + '014', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z014};
+data[8] = {'regionId':'caic_' + '015', 'displayName':'Front Range', 'URL':URLPrefix + '1', 'points':z015};
 
-data[10] = {'regionId':'caic_' + '020', 'displayName':'Vail and Summit County', 'URL':URLPrefix + '2', 'points':z020};
+data[9] = {'regionId':'caic_' + '020', 'displayName':'Vail and Summit County', 'URL':URLPrefix + '2', 'points':z020};
 
-data[11] = {'regionId':'caic_' + '030', 'displayName':'Sawatch', 'URL':URLPrefix + '3', 'points':z030};
+data[10] = {'regionId':'caic_' + '030', 'displayName':'Sawatch', 'URL':URLPrefix + '3', 'points':z030};
 
-data[12] = {'regionId':'caic_' + '040', 'displayName':'Aspen', 'URL':URLPrefix + '4', 'points':z040};
-data[13] = {'regionId':'caic_' + '041', 'displayName':'Aspen', 'URL':URLPrefix + '4', 'points':z041};
-data[14] = {'regionId':'caic_' + '042', 'displayName':'Aspen', 'URL':URLPrefix + '4', 'points':z042};
+data[11] = {'regionId':'caic_' + '040', 'displayName':'Aspen', 'URL':URLPrefix + '4', 'points':z040};
+data[12] = {'regionId':'caic_' + '042', 'displayName':'Aspen', 'URL':URLPrefix + '4', 'points':z042};
 
-data[15] = {'regionId':'caic_' + '050', 'displayName':'Gunnison', 'URL':URLPrefix + '5', 'points':z050};
+data[13] = {'regionId':'caic_' + '050', 'displayName':'Gunnison', 'URL':URLPrefix + '5', 'points':z050};
 
-data[16] = {'regionId':'caic_' + '060', 'displayName':'Grand Mesa', 'URL':URLPrefix + '6', 'points':z060};
-data[17] = {'regionId':'caic_' + '061', 'displayName':'Grand Mesa', 'URL':URLPrefix + '6', 'points':z061};
+data[14] = {'regionId':'caic_' + '060', 'displayName':'Grand Mesa', 'URL':URLPrefix + '6', 'points':z060};
+data[15] = {'regionId':'caic_' + '061', 'displayName':'Grand Mesa', 'URL':URLPrefix + '6', 'points':z061};
 
-data[18] = {'regionId':'caic_' + '070', 'displayName':'Northern San Juan', 'URL':URLPrefix + '7', 'points':z070};
+data[16] = {'regionId':'caic_' + '070', 'displayName':'Northern San Juan', 'URL':URLPrefix + '7', 'points':z070};
 
-data[19] = {'regionId':'caic_' + '080', 'displayName':'Southern San Juan', 'URL':URLPrefix + '8', 'points':z080};
+data[17] = {'regionId':'caic_' + '080', 'displayName':'Southern San Juan', 'URL':URLPrefix + '8', 'points':z080};
 
-data[20] = {'regionId':'caic_' + '090', 'displayName':'Sangre de Cristo', 'URL':URLPrefix + '9', 'points':z090};
-data[21] = {'regionId':'caic_' + '091', 'displayName':'Sangre de Cristo', 'URL':URLPrefix + '9', 'points':z091};
+data[18] = {'regionId':'caic_' + '090', 'displayName':'Sangre de Cristo', 'URL':URLPrefix + '9', 'points':z090};
+data[19] = {'regionId':'caic_' + '091', 'displayName':'Sangre de Cristo', 'URL':URLPrefix + '9', 'points':z091};
 
 var JSONString = JSON.stringify(data, null, 4);
 
