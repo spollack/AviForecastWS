@@ -27,11 +27,8 @@ business
         (other issues: can use the from field ok in gmail web client, but not in Apple Mail or iPhone mail)
         possible solution: keep separate accounts, but add each account in all of my mail clients?
 WS
-    need to convert CAIC geometry (from kml or from js)
-    CAIC: requires multiple polygons for a single forecast region: model as separate subregions, that happen to have the same dataURL and websiteURL
     data bug from Parks Canada -- they are working on it
     support other avi centers (contact them as i go)
-        Colorado (10 regions) -- have forecasts; have regions
         Utah (7 regions) -- sent email, waiting for more details
         Bridger-Teton (3 regions)
         Gallatin (3 regions)
@@ -39,7 +36,7 @@ WS
         WhistlerBlackcomb: http://www.whistlerblackcomb.com/weather/advisory/index.htm
         Vancouver Island: http://www.islandavalanchebulletin.com/
         Haute Gaspesie: (French; don't have region info) http://www.centreavalanche.qc.ca/bulletins/
-        Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon)
+        Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon) -- show as no data regions, so users can still click through?
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     look at libraries for parsing HTML (look at emails from Shep, Doc)
     consider putting dataURL as a field in regions.json file, and getting it that way on server, along with other regionDetails properties
@@ -51,6 +48,7 @@ WS
     any way to launch unit tests from WebStorm? (opened ticket with JetBrains)
     update linked components?
     better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
+    in fall 2012, contact all avi centers again to see if there have been any changes, etc.
 iOS
     Bernie saw an endless loop of "Network fail, try again" when on a busy network (thought: perhaps related to app backgrounding? try to repro)
     switch to DLOG macro so logging ins't in released build; also don't log Flurry events in test builds
