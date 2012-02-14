@@ -179,7 +179,7 @@ function getDataURL_caic(subregion) {
             dataURL = baseURL + 'Sawatch_Range_Avalanche_Forecast.xml';
             break;
         case '4':
-            dataURL = baseURL + 'Aspen_Weather_Forecast.xml';
+            dataURL = baseURL + 'Aspen_Avalanche_Forecast.xml';
             break;
         case '5':
             dataURL = baseURL + 'Gunnison_Avalanche_Forecast.xml';
