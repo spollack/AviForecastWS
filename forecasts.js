@@ -31,12 +31,12 @@ var AVI_LEVEL_EXTREME = 5;
 // NOTE the total delay that a client might see from forecast issued to available at client is the sum
 // of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
 var DATA_REQUEST_TIMEOUT_SECONDS = 15;
-var FORECAST_GEN_INTERVAL_SECONDS = exports.FORECAST_GEN_INTERVAL_SECONDS = 300;
-var CACHE_MAX_AGE_SECONDS = exports.CACHE_MAX_AGE_SECONDS = 300;
+exports.FORECAST_GEN_INTERVAL_SECONDS = 300;
+exports.CACHE_MAX_AGE_SECONDS = 300;
 
 // filepaths
-var STATIC_FILES_DIR_PATH = exports.STATIC_FILES_DIR_PATH  = __dirname + '/public';
-var REGIONS_PATH = exports.REGIONS_PATH = __dirname + '/public/v1/regions.json';
+exports.STATIC_FILES_DIR_PATH  = __dirname + '/public';
+exports.REGIONS_PATH = __dirname + '/public/v1/regions.json';
 var FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
 var FORECASTS_DATA_TEMP_PATH = __dirname + '/public/v1/forecasts_TEMP.json';
 
@@ -49,7 +49,7 @@ exports.aggregateForecasts = aggregateForecasts;
 function aggregateForecasts(regions) {
     winston.info('aggregateForecasts: initiated');
 
-    var forecastsRemainingCount = regions.length;
+    var forecastsRemaining = {'count':regions.length};
     var forecasts = [];
 
     for (var i = 0; i < regions.length; i++) {
@@ -64,8 +64,8 @@ function aggregateForecasts(regions) {
                 // NOTE the order of completion is not deterministic, so they may end up in any order in the array
                 forecasts.push({'regionId':regionId, 'forecast':forecast});
 
-                forecastsRemainingCount--;
-                if (forecastsRemainingCount === 0) {
+                forecastsRemaining.count--;
+                if (forecastsRemaining.count === 0) {
                     winston.info('aggregateForecasts: all forecasts processed, region count: ' + regions.length);
                     winston.verbose(JSON.stringify(forecasts, null, 4));
 
