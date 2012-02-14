@@ -27,7 +27,6 @@ business
         (other issues: can use the from field ok in gmail web client, but not in Apple Mail or iPhone mail)
         possible solution: keep separate accounts, but add each account in all of my mail clients?
 WS
-    try trimming lat/lon to 4 digits after the decimal, to see effect on file size
     need to convert CAIC geometry (from kml or from js)
     CAIC: requires multiple polygons for a single forecast region: model as separate subregions, that happen to have the same dataURL and websiteURL
     data bug from Parks Canada -- they are working on it
@@ -60,7 +59,14 @@ iOS
     get rotation and zooming working correctly on danger level view
     add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
-    cache regions.json persistently in app, for performance? (as file is large, and growing)
+    label regions with their names?
+    more data at-a-glance
+        click on a region bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
+        some suggested putting some sort of icon (ie, danger level symbol) on the forecast zone would encourage one to tap it
+    offline mode
+        offline: give message if detailed view unavailable for a region?
+        really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
+    cache regions.json persistently in app, for performance? (as file is large, and growing) -- probably not needed after digit compression
         do a lightweight validity check to see if file update is necessary (still important to keep dynamic region file updates, e.g. if URL changes)
         note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
         see for ideas: http://iphoneincubator.com/blog/server-communication/how-to-download-a-file-only-if-it-has-been-updated
@@ -72,13 +78,6 @@ iOS
         get rid of special no regions.json alert path, if no longer needed
         OR... use a software update style model instead? (never block user waiting for download...
             although investigate what happens to network ops if the app loses focus
-    offline mode
-        offline: give message if detailed view unavailable for a region?
-        really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
-    label regions with their names?
-    more data at-a-glance
-        click on a region bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
-        some suggested putting some sort of icon (ie, danger level symbol) on the forecast zone would encourage one to tap it
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
     deal w/ folks not allowing location services in some way (help text? FAQ on website?)
     add weather info?
