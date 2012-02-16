@@ -1,70 +1,71 @@
-things to do for launch:
+things to do now:
 --------------------
-v1.0
-    waiting for Apple review
-post-launch
-    flesh out sebnarware.com/icicleventures.com website
-    app store optimization (http://www.mobiledevhq.com/ -- help with keywords, etc. -- once app is in app store)
-    make email list for announcements
-    post on my facebook
-    ping all my beta testers
-    email bushwackers, wac
-    reach out to avalanche centers
+UAC integration
+    figure out URL(s) to use
+    write unit tests
+    write code
+    test from iOS
+    get UAC folks to test
+    push out
+    notify beta testers
+    update copy in both versions of app in iTunesConnect
+marketing
+    make a list of avi centers with attributes (POC, last contact, # regions, etc. etc.)
+    update email for avi center integration
+    send to not-yet-integrated avalanche organizations
+    update marketing email
+    send to avalanche class instructors
+    find groups in other areas (BC, Canadian Rockies, Colorado, etc.) to send info to
 v1.1
-    beta test
-    submit to Apple
-    udpate screenshots (get new NWAC detail shot; update to new legend; recheck all)
+    NWAC mobile vs. full issue from Kenny -- waiting for resonse from Kenny
+        switch regions.json
+        push to beta testers
+        adjust screenshots based on outcome (either way)
 
 things to do later:
 --------------------
+marketing
+    get folks to write reviews, and to mark reviews as helpful
+    flesh out sebnarware.com website with more app info
+    get app reviewed on app review sites
+    send to AAJ, Rock&Ice, Climbing, Alpinist, ski mags, etc. for review
 business
-    set up bank-to-bank transfer between SmithBarney and USBank, via Mike Napier
+    set up bank-to-bank transfer between SmithBarney and USBank (fill out forms)
     transfer money into account
     switch brinkster hosting (and other biz expenses) to biz account
-    figure out better solution for sebnarware.com/icicleventures.com emails
-        (brinkster aliases and forwarding didn't work to gmail, would get a delivery failure; although it would forward fine to hotmail)
-        (current approach: have brinkster email accounts for each, and have gmail poll them via POP3 into my seth@pollackphoto.com account)
-        (drawbacks of current approach: mail may not be polled frequently; limit of 5 accounts)
-        (other issues: can use the from field ok in gmail web client, but not in Apple Mail or iPhone mail)
-        possible solution: keep separate accounts, but add each account in all of my mail clients?
 WS
-    data bug from Parks Canada -- they are working on it
     support other avi centers (contact them as i go)
-        Utah (7 regions) -- sent email, waiting for more details
-        Bridger-Teton (3 regions)
-        Gallatin (3 regions)
-        other US (look at avalanche.org for list)
+        Utah (7 regions) -- got regions data, need to review
+        Chugach (CNFAIC) -- messaging with a person there, he wants to get integrated
+        Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon) -- show as no data regions, so users can still click through?
         WhistlerBlackcomb: http://www.whistlerblackcomb.com/weather/advisory/index.htm
         Vancouver Island: http://www.islandavalanchebulletin.com/
         Haute Gaspesie: (French; don't have region info) http://www.centreavalanche.qc.ca/bulletins/
-        Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon) -- show as no data regions, so users can still click through?
+        Bridger-Teton (3 regions)
+        Gallatin (3 regions)
+        other US (look at avalanche.org for list)
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     look at libraries for parsing HTML (look at emails from Shep, Doc)
-    consider putting dataURL as a field in regions.json file, and getting it that way on server, along with other regionDetails properties
     switch to NWAC JSON api when available and stable
     add more NWAC forecast data test cases
-    loggly
-        i don't get heroku messages -- could switch to heroku loggly add-on for this, but lower data limit and retention time
-        does this meet my server-based trending and alerting needs?
     any way to launch unit tests from WebStorm? (opened ticket with JetBrains)
+    consider putting dataURL as a field in regions.json file, and getting it that way on server, along with other regionDetails properties?
     update linked components?
-    better monitoring (e.g. pingdom $10/mo; StillAlive $7/mo)?
+    not getting heroku log messages in loggly (could switch to heroku loggly add-on for this, but lower data limit and retention time, or paid)?
     in fall 2012, contact all avi centers again to see if there have been any changes, etc.
 iOS
-    Bernie saw an endless loop of "Network fail, try again" when on a busy network (thought: perhaps related to app backgrounding? try to repro)
-    switch to DLOG macro so logging ins't in released build; also don't log Flurry events in test builds
-    ask for app ratings within the app?
-    viral aspect -- make it easy to share via FB/twitter?
+    more data at-a-glance
+        show the danger rose as an icon on the map too within each region?
+        click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
+        label regions with their names? give them a danger level icon?
+    viral aspect -- make it easy to share via facebook, twitter?
     get rotation and zooming working correctly on danger level view
     add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
-    label regions with their names?
-    more data at-a-glance
-        click on a region bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
-        some suggested putting some sort of icon (ie, danger level symbol) on the forecast zone would encourage one to tap it
     offline mode
         offline: give message if detailed view unavailable for a region?
         really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
+        say when data was cached, for every page?
     cache regions.json persistently in app, for performance? (as file is large, and growing) -- probably not needed after digit compression
         do a lightweight validity check to see if file update is necessary (still important to keep dynamic region file updates, e.g. if URL changes)
         note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
@@ -86,27 +87,28 @@ iOS
     add push notifications?
     update linked components?
     have version numbers for disclaimer accepted (use app version number)?
-    change to subscription model?
+    make iPad experience better?
 additional versions to consider
     Pro (ie paid; one time or subscription) iPhone version
+    go beyond North America
     Android version
-    PhoneGap version for other platforms (WinPhone, Blackberry, etc.)
+    WinPhone version
 
 avalanche forecast center intro blurb:
 --------------------
 Hello,
 
-I'm currently developing an iPhone app that displays avalanche conditions "at-a-glance", across multiple forecast regions/centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map, based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
+I've recently developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecast regions/centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map, based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
-I currently have it working with the NWAC, CAC, and Parks Canada forecasting centers (30 regions total). Integrating with you all is next on my list. I'd like to eventually include all the avalanche forecasting centers across North America.
+You can see the application, read reviews, and download it here: http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
 
-I wanted to touch base with you for several reasons.
+I currently have it working with the NWAC, CAIC, CAC, and Parks Canada forecasting centers (40 regions total). I'd like to get your forecast center integrated as well. My goal is to eventually include all the avalanche forecasting centers across North America.
 
-First, I want to see about the best way to integrate technically. I can certainly parse the HTML (i.e. from the region-specific bulletin web pages) to gather the forecasts, but if you have something designed for programmatic access, such as a JSON or XML API, please let me know. Also, do you happen to have a KML/KMZ file or anything similar (i.e. geographic data) that describes the borders of your forecast subregions in terms of latitude/longitude coordinate paths? This would be a great help towards integration.
-
-Second, if anyone there has an iPhone (or iPod Touch, or iPad) running iOS4.2+, and would be interested in beta testing the app, i'd be glad to have your input.
-
-Third, i want to get the word out about this application within the avalanche community. I hope to launch it in the Apple app store in the next couple of weeks.
+In order to integrate technically, there are two pieces:
+1) forecast region definitions:
+2) actual forecast data: for some forecasting centers i parse
+. I can certainly parse the HTML (i.e. from the region-specific bulletin web pages) to gather the forecasts, but if you have something designed for programmatic access, such as a JSON or XML API, please let me know.
+Also, do you happen to have a KML/KMZ file or anything similar (i.e. geographic data) that describes the borders of your forecast subregions in terms of latitude/longitude coordinate paths? This would be a great help towards integration.
 
 Thanks for your input and help.
 

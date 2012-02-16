@@ -5,8 +5,9 @@
 var fs = require('fs');
 
 
-KMLFileToJSONFile('nwac_regions.kml','test_nwac_regions.json','nwac','http://www.nwac.us/forecast/avalanche/current/zone/');
-//KMLFileToJSONFile('canada_regions.kml','canada_regions.json','canada','');
+KMLFileToJSONFile('UAC/UAC.kml','UAC/UAC.json','uac','http://utahavalanchecenter.org/advisory/');
+// KMLFileToJSONFile('nwac_regions.kml','test_nwac_regions.json','nwac','http://www.nwac.us/forecast/avalanche/current/zone/');
+// KMLFileToJSONFile('canada_regions.kml','canada_regions.json','canada','');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {

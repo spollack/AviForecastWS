@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Folder>
+	<name>Temporary Places</name>
+	<open>1</open>
+	<Document>
+		<name>Logan Region.kmz</name>
+		<Style id="s_ylw-pushpin">
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id="s_ylw-pushpin_hl">
+			<IconStyle>
+				<scale>1.3</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<StyleMap id="m_ylw-pushpin">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#s_ylw-pushpin</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Placemark>
+			<name>Logan Region</name>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-112.0571381767389,41.99374204727312,0 -112.0564781994897,41.84042477225656,0 -112.0865499860997,41.79955631525932,0 -112.0865852747176,41.74075269627123,0 -112.0280365254876,41.58184740194707,0 -111.980016500726,41.46812898730748,0 -111.9375083830754,41.41996038666752,0 -111.8953677110578,41.41237892954514,0 -111.8360436882654,41.38863515533557,0 -111.7549628566538,41.37402099972069,0 -111.6778381597625,41.41418054964856,0 -111.5483831096274,41.41094348361308,0 -111.5083435387138,41.43678564308469,0 -111.4195189244763,41.59684753527204,0 -111.4249106635961,41.70294597316781,0 -111.5079709911468,41.99478428514497,0 -112.0571381767389,41.99374204727312,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Document>
+	<Document>
+		<name>Moab Region.kmz</name>
+		<StyleMap id="m_ylw-pushpin0">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#s_ylw-pushpin0</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id="s_ylw-pushpin_hl0">
+			<IconStyle>
+				<scale>1.3</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id="s_ylw-pushpin0">
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Placemark>
+			<name>Moab Region</name>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-109.392366518097,38.65782529109747,0 -109.4150724810156,38.49146950276498,0 -109.4151993294932,38.48446616151487,0 -109.4152642916988,38.48152533132592,0 -109.4153318230851,38.47860040959652,0 -109.385216167721,38.38379589397648,0 -109.3828664059294,38.37790942928596,0 -109.3816916326055,38.37496606319492,0 -109.3003583334202,38.30510049843571,0 -109.1487745931979,38.27061191664131,0 -109.1425837253132,38.26950915712834,0 -109.0477988359048,38.26532552916987,0 -109.0426958009348,38.26510992290261,0 -109.0365228435655,38.2650332961342,0 -109.0353249557327,38.26505142183809,0 -108.9311251955905,38.31133393220548,0 -108.9311231722568,38.31232738883481,0 -108.9210111811403,38.45488018966423,0 -108.9195154185042,38.4606861992725,0 -108.9309180688458,38.60532386851062,0 -109.0252739455108,38.66169617756165,0 -109.1129097462192,38.69222800233774,0 -109.2666603668136,38.70166440497676,0 -109.392366518097,38.65782529109747,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Document>
+	<Document>
+		<name>Ogden Region.kmz</name>
+		<StyleMap id="m_ylw-pushpin1">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#s_ylw-pushpin1</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#s_ylw-pushpin_hl1</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id="s_ylw-pushpin1">
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id="s_ylw-pushpin_hl1">
+			<IconStyle>
+				<scale>1.3</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Placemark>
+			<name>Ogden Region</name>
+			<styleUrl>#m_ylw-pushpin1</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-111.9886227508557,41.32310694776226,0 -111.9632355548089,41.28288655192669,0 -111.9215847854616,41.18709024249164,0 -111.8957713732588,41.10138205601591,0 -111.8891291600852,41.00067517299864,0 -111.7584789417856,41.01135424079093,0 -111.7558630759688,41.01136074381405,0 -111.7206629765069,41.03714807672658,0 -111.6895868399754,41.06893339432358,0 -111.659926709717,41.08872079144118,0 -111.6054346614728,41.12435382890664,0 -111.6002716329135,41.12632178814184,0 -111.5420883138614,41.16572427480021,0 -111.5380771201395,41.16677201122906,0 -111.4793704973241,41.21425504375424,0 -111.4365994492578,41.25557242877181,0 -111.4352783415926,41.25755583609575,0 -111.4369910570173,41.29473622148597,0 -111.4268082758316,41.34580327572348,0 -111.4610047158399,41.39094130672735,0 -111.5043559251404,41.39952939806898,0 -111.5069790448932,41.3995142797129,0 -111.5553100208862,41.39455235185406,0 -111.5592177091293,41.39457150628418,0 -111.6126997470516,41.3948200700384,0 -111.6153122811124,41.39483157107758,0 -111.6678581977541,41.39226119687123,0 -111.6717981203974,41.39220597784635,0 -111.7122020907287,41.37455648994851,0 -111.7605679033213,41.35966285765785,0 -111.8078249723895,41.37290986619571,0 -111.8725607413203,41.39231038694751,0 -111.9386839151024,41.4138487913567,0 -112.012585560103,41.41362685951766,0 -111.9886227508557,41.32310694776226,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Document>
+	<Document>
+		<name>Provo Region.kmz</name>
+		<StyleMap id="m_ylw-pushpin2">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#s_ylw-pushpin2</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#s_ylw-pushpin_hl2</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id="s_ylw-pushpin_hl2">
+			<IconStyle>
+				<scale>1.3</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id="s_ylw-pushpin2">
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Placemark>
+			<name>Provo Region</name>
+			<styleUrl>#m_ylw-pushpin2</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-111.7263725291115,40.38999368891921,0 -111.6772856847903,40.34058507126569,0 -111.6326712778778,40.22785324744323,0 -111.5523812060473,40.14251052363231,0 -111.5809708858001,40.08543200872311,0 -111.5541009301129,40.06233299593828,0 -111.5212385722965,40.0404623085058,0 -111.4915277280941,40.02891663234847,0 -111.4538201742428,40.04910725720959,0 -111.4369030256953,40.0922449403444,0 -111.4369110389526,40.09288328867536,0 -111.4367276204196,40.15291695875134,0 -111.4369276179919,40.21851010287605,0 -111.4369300073057,40.21913652802759,0 -111.4455672097015,40.2684223427602,0 -111.4842398220498,40.30518584036289,0 -111.496772490718,40.34391975569832,0 -111.5547084575549,40.3800745453842,0 -111.5770019159893,40.39736177385017,0 -111.6002833535002,40.43185446480185,0 -111.6230658260888,40.46926302833371,0 -111.6531081679543,40.48966694212893,0 -111.723131963219,40.48628593063002,0 -111.7654783536011,40.46627969625128,0 -111.7263725291115,40.38999368891921,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Document>
+	<Document>
+		<name>Salt Lake Region.kmz</name>
+		<Style id="s_ylw-pushpin_hl3">
+			<IconStyle>
+				<scale>1.3</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id="s_ylw-pushpin3">
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<StyleMap id="m_ylw-pushpin3">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#s_ylw-pushpin3</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#s_ylw-pushpin_hl3</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Placemark>
+			<name>Salt Lake Region</name>
+			<styleUrl>#m_ylw-pushpin3</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-111.8866417952797,40.99109518637838,0 -111.8696871456785,40.93189348572013,0 -111.8509922709327,40.88735318417186,0 -111.8588733294909,40.86078082669711,0 -111.8627588858174,40.85984020968773,0 -111.9166452202233,40.83366267918054,0 -111.9019922672745,40.79595913616901,0 -111.8528036912294,40.77486701067062,0 -111.8165321954484,40.73257413984706,0 -111.8165157460272,40.72967972200745,0 -111.8004318803944,40.66700761886788,0 -111.8047905952567,40.59354703929725,0 -111.8225438141967,40.52834036811859,0 -111.8251321620111,40.52826704441686,0 -111.8671198436241,40.48979821255128,0 -111.8604092848678,40.44128036891579,0 -111.7944165552133,40.45145924540098,0 -111.7586472200001,40.47783248023858,0 -111.7103307429183,40.49903872987878,0 -111.6538788633562,40.50056300013998,0 -111.6162355772828,40.51237022121521,0 -111.5813252787544,40.526411941111,0 -111.5484582481789,40.52807093890021,0 -111.4873461699325,40.53139286562944,0 -111.4387334438628,40.54453306311022,0 -111.4362278870872,40.54552147784081,0 -111.4163809006336,40.56982929274435,0 -111.4435807391701,40.64098694170982,0 -111.4578057553761,40.67555038497532,0 -111.4861800329719,40.72826014685651,0 -111.454680540219,40.8053022771788,0 -111.4296794487218,40.86299565336594,0 -111.4297232304829,40.86489302631161,0 -111.4422346114117,40.92109300817225,0 -111.5205446346887,40.97724847354269,0 -111.5845092745678,40.99668084767804,0 -111.5870687622941,40.99660441455654,0 -111.7108716881265,41.00949816756049,0 -111.8866417952797,40.99109518637838,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Document>
+	<Document>
+		<name>Skyline Region.kmz</name>
+		<Style id="s_ylw-pushpin_hl4">
+			<IconStyle>
+				<scale>1.3</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id="s_ylw-pushpin4">
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<StyleMap id="m_ylw-pushpin4">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#s_ylw-pushpin4</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#s_ylw-pushpin_hl4</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Placemark>
+			<name>Skyline Region</name>
+			<styleUrl>#m_ylw-pushpin4</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-111.4207903336734,39.69694510794937,0 -111.4027971703004,39.60418019036828,0 -111.4058690204715,39.51604124089046,0 -111.4691799407044,39.42208412143338,0 -111.5384359235869,39.35788068392557,0 -111.5987499384617,39.29606160847617,0 -111.637542608971,39.21027317499043,0 -111.6630624372119,39.10684878820754,0 -111.7010247830393,38.99874258896602,0 -111.6992178539544,38.99612871557049,0 -111.6646476628411,38.92363810596626,0 -111.5834388646726,38.8974865699202,0 -111.5731739313072,38.89610306427557,0 -111.4986301109681,38.88288019523544,0 -111.4714019501391,38.97034186054452,0 -111.4713303041306,38.97588071654671,0 -111.4377377457018,39.14534633219405,0 -111.4377821684178,39.14796488556726,0 -111.3714351279607,39.230391359598,0 -111.3697324882567,39.23439140364268,0 -111.2839931404687,39.31180088759935,0 -111.284007501451,39.31580095235429,0 -111.239758286352,39.44741599647195,0 -111.1935520678667,39.61904336990171,0 -111.1935762643514,39.62432188924262,0 -111.223037944447,39.70161547160625,0 -111.3234326862108,39.73000979290401,0 -111.4207903336734,39.69694510794937,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Document>
+	<Document>
+		<name>Uintas Region.kmz</name>
+		<Style id="s_ylw-pushpin_hl5">
+			<IconStyle>
+				<scale>1.3</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<StyleMap id="m_ylw-pushpin5">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#s_ylw-pushpin5</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#s_ylw-pushpin_hl5</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id="s_ylw-pushpin5">
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Placemark>
+			<name>Uintas Region</name>
+			<styleUrl>#m_ylw-pushpin5</styleUrl>
+			<Polygon>
+				<tessellate>1</tessellate>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-111.3480292487879,40.93637798037774,0 -111.3262449237573,40.84915384462783,0 -111.3163852106225,40.76301614990252,0 -111.314831844996,40.68909074124777,0 -111.3041131781696,40.64414141022576,0 -111.3041151283494,40.64314274933451,0 -111.3159914427563,40.57513088635184,0 -111.3434486706365,40.51203239913307,0 -111.3460706825697,40.50802201461153,0 -111.3947581025299,40.43131524228613,0 -111.286740796276,40.39497422591968,0 -111.2190408152875,40.3603783642497,0 -111.1424641668598,40.27523819858321,0 -111.1034398280019,40.23996593595421,0 -110.9716061104604,40.21825259131198,0 -110.8417916190666,40.25836664116014,0 -110.7762890521054,40.37662484350015,0 -110.7793898266978,40.46691793505362,0 -110.7825026347723,40.62590056796805,0 -110.7838065266799,40.627881638504,0 -110.8159085805873,40.79993561388202,0 -110.840467132922,40.9234840073558,0 -110.8404283416326,40.92849383035106,0 -110.8676274662338,40.97797773266936,0 -111.3480292487879,40.93637798037774,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Document>
+</Folder>
+</kml>
