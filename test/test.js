@@ -1,6 +1,7 @@
 var should = require('should');
 var fs = require('fs');
 var winston = require('winston');
+var moment = require('moment');
 var forecasts = require('../forecasts.js');
 
 // set up the logger
@@ -88,6 +89,16 @@ describe('getRegionDetailsForRegionId', function(){
             should.not.exist(forecasts.getRegionDetailsForRegionId(''));
             should.not.exist(forecasts.getRegionDetailsForRegionId(null));
             should.not.exist(forecasts.getRegionDetailsForRegionId('caic_0123456'));
+        })
+    })
+})
+
+describe('dateStringFromDateTimeString_caaml', function(){
+    describe('valid strings', function(){
+        it('should return the correct date', function(){
+            forecasts.dateStringFromDateTimeString_caaml('2012-02-02T18:14:00').should.equal('2012-02-02');
+            forecasts.dateStringFromDateTimeString_caaml('2012-02-10T00:00:00Z').should.equal('2012-02-10');
+            forecasts.dateStringFromDateTimeString_caaml('2012-02-02').should.equal('2012-02-02');
         })
     })
 })
@@ -260,12 +271,51 @@ describe('parseForecast_caic', function(){
     })
 })
 
-describe('dateStringFromDateTimeString_caaml', function(){
-    describe('valid strings', function(){
-        it('should return the correct date', function(){
-            forecasts.dateStringFromDateTimeString_caaml('2012-02-02T18:14:00').should.equal('2012-02-02');
-            forecasts.dateStringFromDateTimeString_caaml('2012-02-10T00:00:00Z').should.equal('2012-02-10');
-            forecasts.dateStringFromDateTimeString_caaml('2012-02-02').should.equal('2012-02-02');
+describe('parseForecastIssuedDate_uac', function(){
+    it('should return the correct date', function(){
+        var forecastIssuedDate;
+
+        forecastIssuedDate = forecasts.parseForecastIssuedDate_uac('<span id="current-date">Thursday February 16th, 2012</span>',
+            forecasts.getRegionDetailsForRegionId('uac_slc'));
+        moment(forecastIssuedDate).format('YYYY-MM-DD').should.equal('2012-02-16');
+
+        forecastIssuedDate = forecasts.parseForecastIssuedDate_uac('<span id="current-date">Monday January 1st, 2012</span>',
+            forecasts.getRegionDetailsForRegionId('uac_slc'));
+        moment(forecastIssuedDate).format('YYYY-MM-DD').should.equal('2012-01-01');
+    })
+})
+
+describe('parseForecast_uac', function(){
+    describe('file000.html', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file000.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('uac_slc'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('uac_slc'));
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2012-02-16');
+            forecast[0].aviLevel.should.equal(2);
+
+            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('uac_uintas'));
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2012-02-16');
+            forecast[0].aviLevel.should.equal(3);
+
+            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('uac_skyline'));
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2012-02-16');
+            forecast[0].aviLevel.should.equal(0);
         })
     })
 })

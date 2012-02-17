@@ -1,43 +1,37 @@
 things to do now:
 --------------------
-UAC integration
-    figure out URL(s) to use
-    write unit tests
-    write code
-    test from iOS
-    get UAC folks to test
-    push out
-    notify beta testers
-    update copy in both versions of app in iTunesConnect
-marketing
-    make a list of avi centers with attributes (POC, last contact, # regions, etc. etc.)
-    update email for avi center integration
-    send to not-yet-integrated avalanche organizations
-    update marketing email
-    send to avalanche class instructors
-    find groups in other areas (BC, Canadian Rockies, Colorado, etc.) to send info to
-v1.1
-    NWAC mobile vs. full issue from Kenny -- waiting for resonse from Kenny
-        switch regions.json
-        push to beta testers
-        adjust screenshots based on outcome (either way)
+WS
+    bugs in Kananaskis, Lizard Range CAAML data -- emailed CAC
+    deploy regions.json change for NWAC URLs (carefully; other changes in flight related to uac integration)
 
-things to do later:
+things to do as time allows:
 --------------------
 marketing
+    make a list of avi centers with attributes (POC, last contact, # regions, etc. etc.)
+    update marketing email
+    send to avalanche class instructors
+    send to professional avalanche organizations
+    find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
     get folks to write reviews, and to mark reviews as helpful
     flesh out sebnarware.com website with more app info
     get app reviewed on app review sites
-    send to AAJ, Rock&Ice, Climbing, Alpinist, ski mags, etc. for review
+    send to WTA, AAJ, Rock&Ice, Climbing, Alpinist, ski mags, etc. for review
 business
     set up bank-to-bank transfer between SmithBarney and USBank (fill out forms)
     transfer money into account
     switch brinkster hosting (and other biz expenses) to biz account
 WS
+    UAC integration
+        figure out how to add tomorrow's forecast as well
+        test from iOS
+        get UAC folks to test
+        push out
+        get a UAC beta tester
+        update copy in both versions of app in iTunesConnect
     support other avi centers (contact them as i go)
-        Utah (7 regions) -- got regions data, need to review
+        send integration email to not-yet-integrated avalanche organizations!!!
         Chugach (CNFAIC) -- messaging with a person there, he wants to get integrated
-        Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon) -- show as no data regions, so users can still click through?
+        Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon) -- show as no data regions, so users can still click through
         WhistlerBlackcomb: http://www.whistlerblackcomb.com/weather/advisory/index.htm
         Vancouver Island: http://www.islandavalanchebulletin.com/
         Haute Gaspesie: (French; don't have region info) http://www.centreavalanche.qc.ca/bulletins/
@@ -47,9 +41,10 @@ WS
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     look at libraries for parsing HTML (look at emails from Shep, Doc)
     switch to NWAC JSON api when available and stable
-    add more NWAC forecast data test cases
+    add more NWAC forecast data test cases, when there are unusual things
     any way to launch unit tests from WebStorm? (opened ticket with JetBrains)
     consider putting dataURL as a field in regions.json file, and getting it that way on server, along with other regionDetails properties?
+    add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
     update linked components?
     not getting heroku log messages in loggly (could switch to heroku loggly add-on for this, but lower data limit and retention time, or paid)?
     in fall 2012, contact all avi centers again to see if there have been any changes, etc.
@@ -80,6 +75,7 @@ iOS
             although investigate what happens to network ops if the app loses focus
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
     deal w/ folks not allowing location services in some way (help text? FAQ on website?)
+    add a "help your avalanche center" feature to take you to donation pages?
     add weather info?
     add telemetry info?
     add more avi reference info?
@@ -94,25 +90,27 @@ additional versions to consider
     Android version
     WinPhone version
 
-avalanche forecast center intro blurb:
+avalanche forecast center intro/integration blurb:
 --------------------
 Hello,
 
-I've recently developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecast regions/centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map, based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
+I've recently developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map, based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
-You can see the application, read reviews, and download it here: http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
+You can read more about the application, including reviews, and download it here: http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
 
-I currently have it working with the NWAC, CAIC, CAC, and Parks Canada forecasting centers (40 regions total). I'd like to get your forecast center integrated as well. My goal is to eventually include all the avalanche forecasting centers across North America.
+I currently have it working with the NWAC, CAIC, CAC, and Parks Canada forecasting centers (40 regions total). My goal is to eventually include all the avalanche forecasting centers across North America.
 
-In order to integrate technically, there are two pieces:
-1) forecast region definitions:
-2) actual forecast data: for some forecasting centers i parse
-. I can certainly parse the HTML (i.e. from the region-specific bulletin web pages) to gather the forecasts, but if you have something designed for programmatic access, such as a JSON or XML API, please let me know.
-Also, do you happen to have a KML/KMZ file or anything similar (i.e. geographic data) that describes the borders of your forecast subregions in terms of latitude/longitude coordinate paths? This would be a great help towards integration.
+I'd like to get your forecast center integrated. Would you please connect me with your technical point of contact?
 
-Thanks for your input and help.
+In order to integrate technically, there are two elements i'll need:
+1) forecast region definitions: do you happen to have a KMZ file (or any similar geographic data file) that describes the borders of each of your forecast regions in terms of latitude/longitude coordinate paths? If not, i can work with you to create this.
+2) forecast data: I can pull the forecast information by parsing your web pages, but if you have a CAAML feed or other API that you would prefer i use, that would be great.
 
-Seth Pollack
+Thanks for your help.
+
+Seth Pollack / Sebnarware
+seth@sebnarware.com
+206-553-9420
 
 
 
