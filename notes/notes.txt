@@ -1,8 +1,17 @@
 things to do now:
 --------------------
 WS
-    bugs in Kananaskis, Lizard Range CAAML data -- emailed CAC
-    deploy regions.json change for NWAC URLs (carefully; other changes in flight related to uac integration)
+    bug in NWAC parsing -- fix (see test case)
+        i broke NWAC somehow, not sure how ... resolve
+    bugs in Kananaskis, Lizard Range CAAML data -- emailed CAC; follow up
+    UAC integration
+        start parsing RSS instead, get both today and tomorrow forecasts (extendedforecast_rating_0, extendedforecast_rating_1)
+            tomorrow isn't correct yet -- hold this change until Brett is ready
+        deploy changes to staging
+        test all changes on staging
+        deploy changes to prod
+        update description in both versions of app in iTunesConnect
+    write a service that tests for aviLevel == 0 for today for all regions (minus known exceptions), warns me when that happens
 
 things to do as time allows:
 --------------------
@@ -21,13 +30,6 @@ business
     transfer money into account
     switch brinkster hosting (and other biz expenses) to biz account
 WS
-    UAC integration
-        figure out how to add tomorrow's forecast as well
-        test from iOS
-        get UAC folks to test
-        push out
-        get a UAC beta tester
-        update copy in both versions of app in iTunesConnect
     support other avi centers (contact them as i go)
         send integration email to not-yet-integrated avalanche organizations!!!
         Chugach (CNFAIC) -- messaging with a person there, he wants to get integrated

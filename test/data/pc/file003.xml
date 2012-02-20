@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<CaamlData xmlns:display="http://avalanche.pc.gc.ca/caaml/xsd/CAAMLv5_BulletinCAC_Display.xsd" xmlns:xlink="http://avalanche.pc.gc.ca/caaml/xsd/xlinks.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://avalanche.pc.gc.ca/caaml/xsd/CAAMLv5_BulletinCAC_GML.xsd" xsi:schemaLocation="http://avalanche.pc.gc.ca/caaml/xsd/CAAMLv5_BulletinCAC.xsd">
+  <metaDataProperty>
+    <MetaData>
+      <dateTimeReport>2012-02-17T00:00:00</dateTimeReport>
+      <srcRef>
+        <Operation d5p1:id="PCA" xmlns:d5p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+          <name>Parks Canada</name>
+          <contactPerson>
+            <Person d5p1:id="sb-11">
+              <name>steve blake</name>
+            </Person>
+          </contactPerson>
+        </Operation>
+      </srcRef>
+      <srcURL>http://avalanche.pc.gc.ca/bulletin-eng.aspx?r=2&amp;d=2012-02-17</srcURL>
+      <language>en-CA</language>
+    </MetaData>
+  </metaDataProperty>
+  <aspects>
+    <AspectRange d3p1:id="AspectRange_N" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <beginPosition>337.5</beginPosition>
+      <endPosition>22.5</endPosition>
+      <customData>
+        <AspectDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+          <label>N</label>
+        </AspectDisplay>
+      </customData>
+    </AspectRange>
+    <AspectRange d3p1:id="AspectRange_NE" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <beginPosition>22.5</beginPosition>
+      <endPosition>67.5</endPosition>
+      <customData>
+        <AspectDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+          <label>NE</label>
+        </AspectDisplay>
+      </customData>
+    </AspectRange>
+    <AspectRange d3p1:id="AspectRange_E" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <beginPosition>67.5</beginPosition>
+      <endPosition>112.5</endPosition>
+      <customData>
+        <AspectDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+          <label>E</label>
+        </AspectDisplay>
+      </customData>
+    </AspectRange>
+    <AspectRange d3p1:id="AspectRange_SE" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <beginPosition>112.5</beginPosition>
+      <endPosition>157.5</endPosition>
+      <customData>
+        <AspectDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+          <label>SE</label>
+        </AspectDisplay>
+      </customData>
+    </AspectRange>
+    <AspectRange d3p1:id="AspectRange_S" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <beginPosition>157.5</beginPosition>
+      <endPosition>202.5</endPosition>
+      <customData>
+        <AspectDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+          <label>S</label>
+        </AspectDisplay>
+      </customData>
+    </AspectRange>
+    <AspectRange d3p1:id="AspectRange_SW" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <beginPosition>202.5</beginPosition>
+      <endPosition>247.5</endPosition>
+      <customData>
+        <AspectDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+          <label>SW</label>
+        </AspectDisplay>
+      </customData>
+    </AspectRange>
+    <AspectRange d3p1:id="AspectRange_W" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <beginPosition>247.5</beginPosition>
+      <endPosition>292.5</endPosition>
+      <customData>
+        <AspectDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+          <label>W</label>
+        </AspectDisplay>
+      </customData>
+    </AspectRange>
+    <AspectRange d3p1:id="AspectRange_NW" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <beginPosition>292.5</beginPosition>
+      <endPosition>337.5</endPosition>
+      <customData>
+        <AspectDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+          <label>NW</label>
+        </AspectDisplay>
+      </customData>
+    </AspectRange>
+  </aspects>
+  <elevations>
+    <ElevationLabel d3p1:id="ElevationLabel_Alp" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <description>Alpine</description>
+    </ElevationLabel>
+    <ElevationLabel d3p1:id="ElevationLabel_Tln" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <description>Treeline</description>
+    </ElevationLabel>
+    <ElevationLabel d3p1:id="ElevationLabel_Btl" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <description>Below Treeline</description>
+    </ElevationLabel>
+  </elevations>
+  <observations>
+    <Bulletin d3p1:id="PC-2_2012-02-17T0000_817dbdc3-68b6-4452-ac31-faa3dbf910f8" xmlns:d3p1="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_GML.xsd">
+      <validTime>
+        <TimePeriod>
+          <beginPosition>2012-02-17T00:00:00</beginPosition>
+          <endPosition>2012-02-18T00:00:00</endPosition>
+        </TimePeriod>
+      </validTime>
+      <bulletinResultsOf>
+        <BulletinMeasurements>
+          <highlights>!_!We are experiencing a period of good conditions but be sure to assess the potential consequences of a mishap in relation to the size and nature of the terrain.   _3!3_</highlights>
+          <bulletinTitle>Avalanche Bulletin - Jasper National Park</bulletinTitle>
+          <bulletinConfidence>
+            <Components>
+              <confidenceLevel>Good</confidenceLevel>
+              <comment />
+            </Components>
+          </bulletinConfidence>
+          <dangerRatings>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-17T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Alp" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-18T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Alp" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-19T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Alp" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-17T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Tln" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-18T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Tln" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-19T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Tln" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-17T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Btl" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-18T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Btl" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+            <DangerRating>
+              <validTime>
+                <TimeInstant>
+                  <timePosition>2012-02-19T00:00:00</timePosition>
+                </TimeInstant>
+              </validTime>
+              <validElevation d8p1:href="ElevationLabel_Btl" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <mainValue>1</mainValue>
+              <customData>
+                <DangerRatingDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <mainLabel>Low</mainLabel>
+                  <mainForeground>000000</mainForeground>
+                  <mainBackground>52BA4A</mainBackground>
+                </DangerRatingDisplay>
+              </customData>
+            </DangerRating>
+          </dangerRatings>
+          <avProblems>
+            <AvProblem>
+              <type>Deep Persistent Slabs</type>
+              <validAspect d8p1:href="AspectRange_NE" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validAspect d8p1:href="AspectRange_N" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validAspect d8p1:href="AspectRange_E" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validElevation d8p1:href="ElevationLabel_Alp" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <expectedAvSize>
+                <Values>
+                  <min>3</min>
+                  <typical>5</typical>
+                  <max>6</max>
+                </Values>
+              </expectedAvSize>
+              <likelihoodOfTriggering>
+                <Values>
+                  <min>1</min>
+                  <typical>1</typical>
+                  <max>1</max>
+                </Values>
+              </likelihoodOfTriggering>
+              <comment>Conditions are generally stable but pay attention  to slopes threatened by large triggers such as  overhead cornices  and on steep unsupported alpine features.</comment>
+              <customData>
+                <AvProblemDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <aspectsBitmap />
+                  <aspectsBitmapURL />
+                  <elevationsBitmap />
+                  <elevationsBitmapURL />
+                  <expectedAvSizeBitmap />
+                  <expectedAvSizeBitmapURL />
+                  <likelihoodOfTriggeringBitmap />
+                  <likelihoodOfTriggeringBitmapURL />
+                </AvProblemDisplay>
+              </customData>
+            </AvProblem>
+            <AvProblem>
+              <type>Loose Dry</type>
+              <validAspect d8p1:href="AspectRange_NE" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validAspect d8p1:href="AspectRange_E" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validAspect d8p1:href="AspectRange_SE" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validAspect d8p1:href="AspectRange_N" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validElevation d8p1:href="ElevationLabel_Alp" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validElevation d8p1:href="ElevationLabel_Tln" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <validElevation d8p1:href="ElevationLabel_Btl" xmlns:d8p1="http://avalanche.pc.gc.ca/CAAML/xsd/xlinks.xsd" />
+              <expectedAvSize>
+                <Values>
+                  <min>1</min>
+                  <typical>2</typical>
+                  <max>2</max>
+                </Values>
+              </expectedAvSize>
+              <likelihoodOfTriggering>
+                <Values>
+                  <min>1</min>
+                  <typical>1</typical>
+                  <max>2</max>
+                </Values>
+              </likelihoodOfTriggering>
+              <comment>Light snowfalls have buried a surface hoar layer.  This will likely develop into a problem as wind loading and new snow inputs occur.</comment>
+              <customData>
+                <AvProblemDisplay xmlns="http://avalanche.pc.gc.ca/CAAML/xsd/CAAMLv5_BulletinCAC_Display.xsd">
+                  <aspectsBitmap />
+                  <aspectsBitmapURL />
+                  <elevationsBitmap />
+                  <elevationsBitmapURL />
+                  <expectedAvSizeBitmap />
+                  <expectedAvSizeBitmapURL />
+                  <likelihoodOfTriggeringBitmap />
+                  <likelihoodOfTriggeringBitmapURL />
+                </AvProblemDisplay>
+              </customData>
+            </AvProblem>
+          </avProblems>
+          <travelAdvisoryComment>The stable avalanche conditions still require careful decision making.&lt;br&gt;Plan escape routes and identify safe zones before committing to your line.&lt;br&gt;</travelAdvisoryComment>
+        </BulletinMeasurements>
+      </bulletinResultsOf>
+      <locRef>
+        <Region d3p1:id="Jasper-2">
+          <name>Jasper</name>
+          <regionSubType>Forecast Region</regionSubType>
+        </Region>
+      </locRef>
+    </Bulletin>
+  </observations>
+</CaamlData>

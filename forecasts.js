@@ -393,13 +393,12 @@ function parseForecast_cac(body, regionDetails) {
     parser.parseString(body, function (err, result) {
         try {
             // NOTE cac uses xml namespace prefixes in their tags, which requires this byzantine lookup notation
-            var forecastIssuedDate = dateStringFromDateTimeString_caaml(result['caaml:observations']['caaml:Bulletin']['gml:validTime']['gml:TimePeriod']['gml:beginPosition']);
-            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-
             var dayForecasts = result['caaml:observations']['caaml:Bulletin']['caaml:bulletinResultsOf']['caaml:BulletinMeasurements']['caaml:dangerRatings']['caaml:DangerRating'];
 
-            // NOTE create an extra slot for the day the forecast was issued, as it may be the day before the first
-            // described day; having a duplicate date in the result is ok
+            // NOTE create an extra slot for the day before the first described day, as sometimes the forecast is issued
+            // with the first described day as the following day; we want to show some forecast for the time until
+            // the following day kicks in, so we assume in this case the the danger level for the first described day
+            // is also applicable to the time between when the forecast is issued and the first described day;
             forecast = [dayForecasts.length + 1];
 
             for (var i = 0; i < dayForecasts.length; i++) {
@@ -413,11 +412,12 @@ function parseForecast_cac(body, regionDetails) {
                     aviLevelFromName(dayForecasts[i]['caaml:dangerRatingTlnValue']),
                     aviLevelFromName(dayForecasts[i]['caaml:dangerRatingBtlValue']));
 
-                // NOTE special case the forecast issued day, which is usually the day before the first described day,
-                // and use the first described day's forecast for it
+                // NOTE copy the first described day's forcast to the day before (see note above)
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
-                    forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+                    // calculate the day before
+                    var dayBeforeFirstDate = moment(date).subtract('days',1);
+                    forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
                 // put this described day in the array, shifted by one position
@@ -444,13 +444,13 @@ function parseForecast_pc(body, regionDetails) {
     // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function (err, result) {
         try {
-            var forecastIssuedDate = dateStringFromDateTimeString_caaml(result.observations.Bulletin.validTime.TimePeriod.beginPosition);
-            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-
             var dayForecasts = result.observations.Bulletin.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRating;
 
-            // NOTE create an extra slot for the day the forecast was issued, as it may be the day before the first
-            // described day; having a duplicate date in the result is ok
+            // NOTE create an extra slot for the day before the first described day, as sometimes the forecast is issued
+            // with the first described day as the following day; we want to show some forecast for the time until
+            // the following day kicks in, so we assume in this case the the danger level for the first described day
+            // is also applicable to the time between when the forecast is issued and the first described day;
+
             // NOTE pc lists each day three times, one for each elevation zone
             forecast = [(dayForecasts.length / 3) + 1];
 
@@ -463,11 +463,12 @@ function parseForecast_pc(body, regionDetails) {
                 // elevation zones, so we use it
                 var aviLevel = parseInt(dayForecasts[i].mainValue);
 
-                // NOTE special case the forecast issued day, which is usually the day before the first described day,
-                // and use the first described day's forecast for it
+                // NOTE copy the first described day's forcast to the day before (see note above)
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
-                    forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+                    // calculate the day before
+                    var dayBeforeFirstDate = moment(date).subtract('days',1);
+                    forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
                 // put this described day in the array, shifted by one position

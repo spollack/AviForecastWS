@@ -142,6 +142,34 @@ describe('parseForecast_nwac', function(){
             forecast[2].aviLevel.should.equal(2);
         })
     })
+    describe('file002.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file002.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('nwac_12'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2012-02-18');
+            forecast[1].date.should.equal('2012-02-19');
+            forecast[2].date.should.equal('2012-02-20');
+            forecast[0].aviLevel.should.equal(4);
+            forecast[1].aviLevel.should.equal(3);
+            forecast[2].aviLevel.should.equal(3);
+        })
+    })
+    describe('file003.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file003.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('nwac_7'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(2);
+            forecast[0].date.should.equal('2012-02-19');
+            forecast[1].date.should.equal('2012-02-20');
+            forecast[0].aviLevel.should.equal(4);
+            forecast[1].aviLevel.should.equal(3);
+        })
+    })
 })
 
 describe('parseForecast_cac', function(){
@@ -222,7 +250,7 @@ describe('parseForecast_pc', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(4);
-            forecast[0].date.should.equal('2012-02-09');
+            forecast[0].date.should.equal('2012-02-08');
             forecast[1].date.should.equal('2012-02-09');
             forecast[2].date.should.equal('2012-02-10');
             forecast[3].date.should.equal('2012-02-11');
@@ -230,6 +258,25 @@ describe('parseForecast_pc', function(){
             forecast[1].aviLevel.should.equal(2);
             forecast[2].aviLevel.should.equal(2);
             forecast[3].aviLevel.should.equal(2);
+        })
+    })
+    describe('file003.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_pc(fs.readFileSync('test/data/pc/file003.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('pc_2'));
+
+            // NOTE this test case if for the case where there is a bogus issued timestamp that is in the future
+            // (this forecast was actually issued on 2012-02-16, but says it was issued on 2012-02-17)
+            should.exist(forecast);
+            forecast.length.should.equal(4);
+            forecast[0].date.should.equal('2012-02-16');
+            forecast[1].date.should.equal('2012-02-17');
+            forecast[2].date.should.equal('2012-02-18');
+            forecast[3].date.should.equal('2012-02-19');
+            forecast[0].aviLevel.should.equal(1);
+            forecast[1].aviLevel.should.equal(1);
+            forecast[2].aviLevel.should.equal(1);
+            forecast[3].aviLevel.should.equal(1);
         })
     })
 })
