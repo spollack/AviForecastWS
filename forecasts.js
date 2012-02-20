@@ -146,7 +146,7 @@ function getRegionDetailsForRegionId(regionId) {
                     parser = parseForecast_caic;
                     break;
                 case 'uac':
-                    dataURL = 'http://utahavalanchecenter.org/';
+                    dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1] + '/rss';
                     parser = parseForecast_uac;
                     break;
                 default:
