@@ -306,7 +306,7 @@ function parseForecast_nwac(body, regionDetails) {
 
         for (var i = 0; i < NUM_FORECAST_DAYS_NWAC; i++) {
             // copy the value of the forecast issued date, and then offset by the appropriate number of days
-            forecastDates[i] = moment(moment(forecastIssuedDate).valueOf());
+            forecastDates[i] = moment(forecastIssuedDate).clone();
             moment(forecastDates[i].add('days',i));
 
             // get the day name for that date
@@ -350,36 +350,49 @@ function parseForecastIssuedDate_nwac(body, regionDetails) {
 }
 
 function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) {
-    // capture the set of forecast blocks within the body; typically there are 2 or 3
-    // forecast blocks can potentially describe multiple days; can describe say "Thursday" vs. "Thursday night";
-    // can describe days that have already passed; can contain multiple avi levels
-    // NOTE typical string for nwac: '<strong>Monday:</strong> Considerable avalanche danger above 4000 feet and moderate below. Increasing danger Monday afternoon and night.<'
-    var forecastBlocks = body.match(/<strong>[^:]+:[^<]*<\/strong>[^<]+</g);
-    if (forecastBlocks) {
-        for ( var i = 0; i < forecastBlocks.length; i++) {
-            winston.verbose('forecastBlocks[' + i + ']: ' + forecastBlocks[i]);
-        }
+    // first, pull out the relevant chunk of the page
+    var forcastSectionStartIndex = body.indexOf('<h2>Forecast</h2>');
+    var forcastSectionEndIndex = body.indexOf('<h2>Snowpack Analysis</h2>');
 
-        for (var day = 0; day < forecastDays.length; day++) {
+    if (forcastSectionStartIndex !== -1 && forcastSectionEndIndex !== -1) {
+        var forecastSection = body.substring(forcastSectionStartIndex, forcastSectionEndIndex);
 
-            // look for the day name, case insensitive, before the colon
-            var regExp = new RegExp(forecastDays[day] + '[^:]*:','i');
+        // now capture the set of forecast blocks within; typically there are 2 or 3 for nwac;
+        // forecast blocks can potentially describe multiple days; can describe say "Thursday" vs. "Thursday night";
+        // can describe days that have already passed; can contain multiple avi levels
+        // NOTE assumes that each block is on a single line in the file; this appears to be a better heuristic than
+        // using HTML tags, as nwac uses them inconsistently
+        // NOTE typical string for nwac: '<strong>Monday:</strong> Considerable avalanche danger above 4000 feet and moderate below. Increasing danger Monday afternoon and night.<'
+       var forecastBlocks = forecastSection.match(/[^:]+:[^\n]*\n/g);
 
-            // find the first block that contains the relevant day string, and extract the first avalanche keyword therein
-            for (var block = 0; block < forecastBlocks.length; block++) {
+        if (forecastBlocks) {
+            for ( var i = 0; i < forecastBlocks.length; i++) {
+                winston.verbose('forecastBlocks[' + i + ']: ' + forecastBlocks[i]);
+            }
 
-                if (forecastBlocks[block].match(regExp)) {
+            for (var day = 0; day < forecastDays.length; day++) {
 
-                    aviLevels[day] = findHighestAviLevelInString(forecastBlocks[block]);
-                    winston.verbose('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
-                        forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
+                // look for the day name, case insensitive, before the colon
+                var regExp = new RegExp(forecastDays[day] + '[^:]*:','i');
 
-                    break;
+                // find the first block that contains the relevant day string, and extract the first avalanche keyword therein
+                for (var block = 0; block < forecastBlocks.length; block++) {
+
+                    if (forecastBlocks[block].match(regExp)) {
+
+                        aviLevels[day] = findHighestAviLevelInString(forecastBlocks[block]);
+                        winston.verbose('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
+                            forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
+
+                        break;
+                    }
                 }
             }
+        } else {
+            winston.warn('parse failure, no blocks found; regionId: ' + regionDetails.regionId);
         }
     } else {
-        winston.warn('parse failure, no blocks found; regionId: ' + regionDetails.regionId);
+        winston.warn('parse failure, no forecast section found; regionId: ' + regionDetails.regionId);
     }
 }
 

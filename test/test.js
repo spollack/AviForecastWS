@@ -162,12 +162,15 @@ describe('parseForecast_nwac', function(){
             var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file003.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('nwac_7'));
 
+            // NOTE even if there are only two days that are forecast, we return three for nwac
             should.exist(forecast);
-            forecast.length.should.equal(2);
+            forecast.length.should.equal(3);
             forecast[0].date.should.equal('2012-02-19');
             forecast[1].date.should.equal('2012-02-20');
+            forecast[2].date.should.equal('2012-02-21');
             forecast[0].aviLevel.should.equal(4);
             forecast[1].aviLevel.should.equal(3);
+            forecast[2].aviLevel.should.equal(0);
         })
     })
 })

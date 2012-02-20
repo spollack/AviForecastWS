@@ -1,8 +1,6 @@
 things to do now:
 --------------------
 WS
-    bug in NWAC parsing -- fix (see test case)
-        i broke NWAC somehow, not sure how ... resolve
     bugs in Kananaskis, Lizard Range CAAML data -- emailed CAC; follow up
     UAC integration
         start parsing RSS instead, get both today and tomorrow forecasts (extendedforecast_rating_0, extendedforecast_rating_1)
@@ -11,7 +9,7 @@ WS
         test all changes on staging
         deploy changes to prod
         update description in both versions of app in iTunesConnect
-    write a service that tests for aviLevel == 0 for today for all regions (minus known exceptions), warns me when that happens
+    write a service that tests for aviLevel == 0 for any forecast, as well as specifically for current time, for all regions (minus known exceptions), warns me when that happens
 
 things to do as time allows:
 --------------------
