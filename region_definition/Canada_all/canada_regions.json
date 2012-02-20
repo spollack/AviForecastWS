@@ -23724,7 +23724,7 @@
         ]
     },
     {
-        "regionId": "cacx_north-rockies",
+        "regionId": "cac_north-rockies",
         "displayName": "North Rockies",
         "URL":"",
         "points": [
@@ -27015,7 +27015,7 @@
         ]
     },
     {
-        "regionId": "cacx_bighorn",
+        "regionId": "cac_bighorn",
         "displayName": "Bighorn",
         "URL":"",
         "points": [

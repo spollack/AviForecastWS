@@ -544,11 +544,13 @@ function parseForecast_uac(body, regionDetails) {
     var forecast = null;
 
     var forecastIssuedDate = parseForecastIssuedDate_uac(body, regionDetails);
-    var aviLevel = parseForecastValue_uac(body, regionDetails);
+    var aviLevels = parseForecastValue_uac(body, regionDetails);
 
     if (forecastIssuedDate) {
         forecast = [1];
-        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
+//        forecast = [2];
+        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+//        forecast[1] = {'date': moment(forecastIssuedDate).add('days',1).format('YYYY-MM-DD'), 'aviLevel': aviLevels[1]};
 
         for (var j = 0; j < forecast.length; j++) {
             winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
@@ -564,8 +566,8 @@ function parseForecastIssuedDate_uac(body, regionDetails) {
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical string for uac: '<span id="current-date">Thursday February 16th, 2012</span>'
-    var timestampMatch = body.match(/<span id="current-date">\s*\w+\s+(\w+\s+\d+)\w*,\s+(\d+)\s*<\/span>/);
+    // NOTE typical string for uac: '    [title] =&gt; Sunday, February 19th 2012'
+    var timestampMatch = body.match(/\[title\]\s*=&gt;\s*\w+\s*,?\s*(\w+\s+\d+)\w*\s*,?\s+(\d+)/);
 
     // the capture groups from the regex will be in slots 1 and 2 in the array
     if (timestampMatch && timestampMatch.length > 2) {
@@ -583,27 +585,24 @@ function parseForecastIssuedDate_uac(body, regionDetails) {
 
 function parseForecastValue_uac(body, regionDetails) {
 
-    var aviLevel = AVI_LEVEL_UNKNOWN;
+    // uac forecasts two days at a time
+    var aviLevels = [2];
+    aviLevels[0] = AVI_LEVEL_UNKNOWN;
+    aviLevels[1] = AVI_LEVEL_UNKNOWN;
 
-    var regionName = regionDetails.subregion;
-    // NOTE hack to work around differing names in different places for the uac Salt Lake region
-    if (regionName === 'slc') {
-        regionName = 'Salt Lake';
-    }
+    // NOTE typical string for uac: '    [extendedforecast_rating_0] =&gt; Considerable'
+    var dangerRatingMatch0 = body.match(/\[extendedforecast_rating_0\]\s*=&gt;\s*(.\w+)/);
+    var dangerRatingMatch1 = body.match(/\[extendedforecast_rating_1\]\s*=&gt;\s*(.\w+)/);
 
-    // NOTE typical string for uac: 'class="danger-rating-title"><b>Salt Lake rating: moderate</b>'
-    var regExp = new RegExp('danger-rating-title">\s*<b>\s*' + regionName + '([^<]*)<','i');
-    var dangerRatingMatch = body.match(regExp);
-
-    // the capture group from the regex will be in slot 1 in the array
-    if (dangerRatingMatch && dangerRatingMatch.length > 1) {
-        aviLevel = findHighestAviLevelInString(dangerRatingMatch[1]);
-        winston.verbose('parsed forecast; regionId: ' + regionDetails.regionId + '; aviLevel: ' + aviLevel);
+    // the capture groups from the regex will be in slot 1 in each array
+    if (dangerRatingMatch0 && dangerRatingMatch0.length > 1 && dangerRatingMatch1 && dangerRatingMatch1.length > 1) {
+        aviLevels[0] = findHighestAviLevelInString(dangerRatingMatch0[1]);
+        aviLevels[1] = findHighestAviLevelInString(dangerRatingMatch1[1]);
     } else {
-        winston.warn('parse failure, danger level not found; regionId: ' + regionDetails.regionId);
+        winston.warn('parse failure, danger levels not found; regionId: ' + regionDetails.regionId);
     }
 
-    return aviLevel;
+    return aviLevels;
 }
 
 

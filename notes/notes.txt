@@ -1,15 +1,14 @@
 things to do now:
 --------------------
 WS
-    bugs in Kananaskis, Lizard Range CAAML data -- emailed CAC; follow up
     UAC integration
-        start parsing RSS instead, get both today and tomorrow forecasts (extendedforecast_rating_0, extendedforecast_rating_1)
-            tomorrow isn't correct yet -- hold this change until Brett is ready
+        turn on tomorrow forecasts, once Brett is ready
         deploy changes to staging
         test all changes on staging
         deploy changes to prod
         update description in both versions of app in iTunesConnect
     write a service that tests for aviLevel == 0 for any forecast, as well as specifically for current time, for all regions (minus known exceptions), warns me when that happens
+    bugs in Kananaskis, Lizard Range CAAML data -- emailed CAC
 
 things to do as time allows:
 --------------------
@@ -24,6 +23,7 @@ marketing
     get app reviewed on app review sites
     send to WTA, AAJ, Rock&Ice, Climbing, Alpinist, ski mags, etc. for review
 business
+    call for status on check order with USBank
     set up bank-to-bank transfer between SmithBarney and USBank (fill out forms)
     transfer money into account
     switch brinkster hosting (and other biz expenses) to biz account
@@ -31,7 +31,7 @@ WS
     support other avi centers (contact them as i go)
         send integration email to not-yet-integrated avalanche organizations!!!
         Chugach (CNFAIC) -- messaging with a person there, he wants to get integrated
-        Other CAC that are not currently full forecasts (North Rockies, Bighorn, Yukon) -- show as no data regions, so users can still click through
+        CAC Yukon -- get region definition from CAC (it wasn't in their KMZ file)
         WhistlerBlackcomb: http://www.whistlerblackcomb.com/weather/advisory/index.htm
         Vancouver Island: http://www.islandavalanchebulletin.com/
         Haute Gaspesie: (French; don't have region info) http://www.centreavalanche.qc.ca/bulletins/
