@@ -1,14 +1,14 @@
 things to do now:
 --------------------
 WS
-    UAC integration
-        turn on tomorrow forecasts, once Brett is ready
-        deploy changes to staging
-        test all changes on staging
+    latest changes
         deploy changes to prod
         update description in both versions of app in iTunesConnect
+        let UAC folks know
+        let my list know (beta testers, etc.)
+    UAC integration
+        turn on one day out forecasts, once Brett is ready
     write a service that tests for aviLevel == 0 for any forecast, as well as specifically for current time, for all regions (minus known exceptions), warns me when that happens
-    bugs in Kananaskis, Lizard Range CAAML data -- emailed CAC
 
 things to do as time allows:
 --------------------
@@ -49,6 +49,8 @@ WS
     not getting heroku log messages in loggly (could switch to heroku loggly add-on for this, but lower data limit and retention time, or paid)?
     in fall 2012, contact all avi centers again to see if there have been any changes, etc.
 iOS
+    info
+        add more usage info, in terms of what "no rating" means, using your brain out there, etc.
     more data at-a-glance
         show the danger rose as an icon on the map too within each region?
         click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
@@ -57,6 +59,7 @@ iOS
     get rotation and zooming working correctly on danger level view
     add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)? add refresh button for explicit refresh forecast?
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
+    add system message capability, to send dynamic messages to users
     offline mode
         offline: give message if detailed view unavailable for a region?
         really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
@@ -85,10 +88,11 @@ iOS
     have version numbers for disclaimer accepted (use app version number)?
     make iPad experience better?
 additional versions to consider
-    Pro (ie paid; one time or subscription) iPhone version
-    go beyond North America
     Android version
     WinPhone version
+    website version (leverage the aggregation/normalization)
+    Pro (ie paid; one time or subscription) iPhone version
+    go beyond North America
 
 avalanche forecast center intro/integration blurb:
 --------------------
@@ -98,7 +102,7 @@ I've recently developed a free iPhone app that displays avalanche conditions "at
 
 You can read more about the application, including reviews, and download it here: http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
 
-I currently have it working with the NWAC, CAIC, CAC, and Parks Canada forecasting centers (40 regions total). My goal is to eventually include all the avalanche forecasting centers across North America.
+I currently have it working with the NWAC, CAIC, UAC, CAC, and Parks Canada forecasting centers (49 regions total). My goal is to eventually include all the avalanche forecasting centers across North America.
 
 I'd like to get your forecast center integrated. Would you please connect me with your technical point of contact?
 
