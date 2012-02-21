@@ -1,14 +1,11 @@
 things to do now:
 --------------------
 WS
-    latest changes
-        deploy changes to prod
-        update description in both versions of app in iTunesConnect
-        let UAC folks know
-        let my list know (beta testers, etc.)
-    UAC integration
-        turn on one day out forecasts, once Brett is ready
-    write a service that tests for aviLevel == 0 for any forecast, as well as specifically for current time, for all regions (minus known exceptions), warns me when that happens
+    auto-testing service
+        test for aviLevel == 0 for any forecasted day, for all regions (minus known exceptions)
+        test for aviLevel available and != 0 specifically for current time, for all regions (minus known exceptions)
+        on error, capture all inputs, and alert me
+        also snapshot user URL vs. data URL vs. my forecast always, for later review
 
 things to do as time allows:
 --------------------
@@ -28,6 +25,8 @@ business
     transfer money into account
     switch brinkster hosting (and other biz expenses) to biz account
 WS
+    UAC integration
+        enable parsing of "tomorrow" forecasts as well, once Brett is ready
     support other avi centers (contact them as i go)
         send integration email to not-yet-integrated avalanche organizations!!!
         Chugach (CNFAIC) -- messaging with a person there, he wants to get integrated
@@ -102,7 +101,7 @@ I've recently developed a free iPhone app that displays avalanche conditions "at
 
 You can read more about the application, including reviews, and download it here: http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
 
-I currently have it working with the NWAC, CAIC, UAC, CAC, and Parks Canada forecasting centers (49 regions total). My goal is to eventually include all the avalanche forecasting centers across North America.
+I currently have it working with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), CAC (Canada), and Parks Canada forecasting centers (49 regions total). My goal is to eventually include all the avalanche forecasting centers across North America.
 
 I'd like to get your forecast center integrated. Would you please connect me with your technical point of contact?
 
