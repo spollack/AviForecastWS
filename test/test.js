@@ -6,7 +6,7 @@ var forecasts = require('../forecasts.js');
 
 // set up the logger
 winston.remove(winston.transports.Console);
-// verbose, info, warn, error are the log levels i'm using
+// verbose, info, warn, error are the log levels we're using
 winston.add(winston.transports.Console, {level: 'error', handleExceptions: true});
 
 

@@ -431,7 +431,7 @@ function parseForecast_cac(body, regionDetails) {
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before
-                    var dayBeforeFirstDate = moment(date).subtract('days',1);
+                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').clone().subtract('days',1);
                     forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
@@ -482,7 +482,7 @@ function parseForecast_pc(body, regionDetails) {
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before
-                    var dayBeforeFirstDate = moment(date).subtract('days',1);
+                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').clone().subtract('days',1);
                     forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
