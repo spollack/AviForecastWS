@@ -33,7 +33,7 @@ function configLogger() {
     // remove the default transport, so that we can reconfigure it
     winston.remove(winston.transports.Console);
 
-    // verbose, info, warn, error are the log levels i'm using
+    // verbose, info, warn, error are the log levels we're using
     winston.add(winston.transports.Console, {level:'info', handleExceptions:true});
 
     if (process.env.DEBUG) {
