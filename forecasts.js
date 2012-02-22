@@ -359,12 +359,12 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
 
         winston.verbose('forecast section: ' + forecastSection);
 
-        // now capture the set of forecast blocks within; typically there are 2 or 3 for nwac;
+        // capture the forecast blocks within; for nwac there are 2 or 3 (mixed in with non-forecast lines);
         // forecast blocks can potentially describe multiple days; can describe say "Thursday" vs. "Thursday night";
         // can describe days that have already passed; can contain multiple avi levels
         // NOTE assumes that each block is on a single line in the file; this appears to be a better heuristic than
         // using HTML tags, as nwac uses them inconsistently
-        // NOTE typical string for nwac: '<strong>Monday:</strong> Considerable avalanche danger above 4000 feet and moderate below. Increasing danger Monday afternoon and night.<'
+        // NOTE typical string for nwac: '<p><strong>Friday:</strong> Moderate avalanche danger above about 4000 feet and low below. Slightly decreasing Friday night.</p>'
        var forecastBlocks = forecastSection.match(/[^\n]*\n/g);
 
         if (forecastBlocks) {
