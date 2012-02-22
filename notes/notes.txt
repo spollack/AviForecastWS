@@ -11,15 +11,15 @@ marketing
     update marketing email
     send to ski/snowboard/backcountry mags
     send to avalanche class instructors
-    send to professional avalanche organizations
-    send to WTA, AAJ, Rock&Ice, Climbing, Alpinist, etc.
+    send to professional avalanche organizations (National Avalanche Center, etc.)
+    send to WTA, AAJ, Rock&Ice, Climbing, Alpinist, Coast Mountain Culture, etc.
     find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
     get app reviewed on app review sites
     get folks to write reviews, and to mark reviews as helpful
     flesh out sebnarware.com website with more app info
 business
     transfer money into account once bank-to-bank transfer enabled
-    switch brinkster hosting (and other biz expenses) to biz account
+    switch biz expenses to biz account
 WS
     auto-validation of each generated forecast
         test for aviLevel available and != 0 specifically for current time, for all regions (minus known exceptions)
@@ -31,21 +31,38 @@ WS
         enable parsing of "tomorrow" forecasts as well, once Brett is ready
         consider rolling over forecasts into the next morning?
             would be good for early mornings before forecasts are issued, but could be confusing for regions/days where new forecast will NOT be issued...
-    support other avi centers (contact them as i go)
-        send integration email to not-yet-integrated avalanche organizations!!!
-        WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration)
-        Vancouver Island -- http://www.islandavalanchebulletin.com/ (sent email for integration)
-        CAC Yukon -- get region definition from CAC
-        Haute Gaspesie -- get region definition from CAC; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
-        Chugach (CNFAIC) -- got a message from a person there, he wants to get integrated
-        Bridger-Teton (3 regions)
-        Gallatin (3 regions)
-        other US (look at avalanche.org for list)
+    support other avi centers -- send integration email to not-yet-integrated avalanche organizations!!!
+        Canada
+            WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration)
+            Vancouver Island -- http://www.islandavalanchebulletin.com/ (sent email for integration)
+            CAC Yukon -- get region definition from CAC
+            Haute Gaspesie -- get region definition from CAC; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
+        AK
+            Chugach (CNFAIC) -- got a message from a person there, he wants to get integrated
+            Valdez
+            Cordova
+            Juneau
+        CA
+            Mount Shasta
+            Truckee
+            Eastern Sierra
+        ID
+            McCall
+            Panhandle
+            Sun Valley
+        MT
+            Bozeman (Gallatin) (3 regions)
+            Glacier
+            Missoula
+        Jackson WY (Bridger-Teton) (3 regions)
+        Flagstaff AZ
+        Joseph OR
+        Mount Washington NH
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     look at libraries for parsing HTML (look at emails from Shep, Doc)
     switch to NWAC JSON api when available and stable
-    any way to launch unit tests from WebStorm? (opened ticket with JetBrains)
     consider putting dataURL as a field in regions.json file, and getting it that way on server, along with other regionDetails properties?
+    any way to launch unit tests from WebStorm? (opened ticket with JetBrains)
     update linked components?
     not getting heroku log messages in loggly (could switch to heroku loggly add-on for this, but lower data limit and retention time, or paid)?
     in fall 2012, contact all avi centers again to see if there have been any changes, etc.
@@ -58,7 +75,7 @@ iOS
         click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
         label regions with their names? give them a danger level icon?
     add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)?
-    add refresh button for explicit refresh forecast?
+    add refresh button for explicit refresh forecast? have it do a full reload of the regions too?
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
     add system message capability, to send dynamic messages to users
     offline mode
@@ -77,7 +94,7 @@ iOS
         get rid of special no regions.json alert path, if no longer needed
         OR... use a software update style model instead? (never block user waiting for download...
             although investigate what happens to network ops if the app loses focus
-        relead regions.json periodically in app? (for case where people don't restart the app/phone regularly)
+        relead regions.json periodically in app (for case where people don't restart the app/phone regularly)
     get rotation and zooming working correctly on danger scale definition view
     get app rotation working in all views
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
@@ -117,8 +134,6 @@ In order to integrate technically, there are two elements i'll need:
 Thanks for your help.
 
 Seth Pollack / Sebnarware
-seth@sebnarware.com
-206-553-9420
 
 
 
