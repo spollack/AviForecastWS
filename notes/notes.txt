@@ -1,26 +1,25 @@
 things to do now:
 --------------------
-get access to NWAC JSON api
-    sent email to Jorie/Mark, waiting for response
-    see if Benj responds
 
 things to do as time allows:
 --------------------
 marketing
-    make a list of avi centers with attributes (POC, last contact, # regions, etc. etc.)
     update marketing email
-    send to ski/snowboard/backcountry mags
     send to avalanche class instructors
     send to professional avalanche organizations (National Avalanche Center, etc.)
-    send to WTA, AAJ, Rock&Ice, Climbing, Alpinist, Coast Mountain Culture, etc.
+    send to ski/snowboard/backcountry mags: Backcountry Magazine, Coast Mountain Culture, ...
+    send to hiking/climbing orgs/mags: WTA, AAJ, Rock&Ice, Climbing, Alpinist, etc.
     find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
     get app reviewed on app review sites
-    get folks to write reviews, and to mark reviews as helpful
+    get folks to write reviews, update their own reviews, and to mark reviews as helpful
     flesh out sebnarware.com website with more app info
 business
     transfer money into account once bank-to-bank transfer enabled
     switch biz expenses to biz account
 WS
+    get access to NWAC JSON api
+        sent email to Jorie/Mark, waiting for response
+        sent email to Benj, waiting for response
     auto-validation of each generated forecast
         test for aviLevel available and != 0 specifically for current time, for all regions (minus known exceptions)
         test for date gaps in the forecast, or aviLevel == 0 in the middle of a date range (vs. at the end, which is ok)
@@ -33,10 +32,10 @@ WS
             would be good for early mornings before forecasts are issued, but could be confusing for regions/days where new forecast will NOT be issued...
     support other avi centers -- send integration email to not-yet-integrated avalanche organizations!!!
         Canada
+            Vancouver Island -- ready for integration; will eventually come through CAC; http://www.islandavalanchebulletin.com/
             WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration)
-            Vancouver Island -- http://www.islandavalanchebulletin.com/ (sent email for integration)
-            CAC Yukon -- get region definition from CAC
-            Haute Gaspesie -- get region definition from CAC; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
+            CAC Yukon -- emailed CAC for region definition
+            Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         AK
             Chugach (CNFAIC) -- got a message from a person there, he wants to get integrated
             Valdez
@@ -112,8 +111,6 @@ additional versions to consider
     Android version
     WinPhone version
     website version (leverage the aggregation/normalization)
-    Pro (ie paid; one time or subscription) iPhone version
-    go beyond North America
 
 avalanche forecast center intro/integration blurb:
 --------------------
