@@ -49,7 +49,7 @@ exports.aggregateForecasts = aggregateForecasts;
 function aggregateForecasts(regions) {
     winston.info('aggregateForecasts: initiated');
 
-    var forecastsRemaining = {'count':regions.length};
+    var forecastsStatistics = {'count':regions.length, 'remainingCount':regions.length, 'invalidCount':0};
     var forecasts = [];
 
     for (var i = 0; i < regions.length; i++) {
@@ -60,13 +60,24 @@ function aggregateForecasts(regions) {
         forecastForRegionId(regionId,
             function(regionId, forecast) {
 
+                var valid = validateForecast(regionId, forecast, true);
+                if (!valid) {
+                    forecastsStatistics.invalidCount++;
+                }
+
                 // add the forecast to the forecasts array
-                // NOTE the order of completion is not deterministic, so they may end up in any order in the array
+                // NOTE the order of forecast generation completion is not deterministic, so they may end up in any
+                // order in the array
                 forecasts.push({'regionId':regionId, 'forecast':forecast});
 
-                forecastsRemaining.count--;
-                if (forecastsRemaining.count === 0) {
-                    winston.info('aggregateForecasts: all forecasts processed, region count: ' + regions.length);
+                forecastsStatistics.remainingCount--;
+                if (forecastsStatistics.remainingCount === 0) {
+                    winston.info('aggregateForecasts: all forecasts processed, region count: ' + forecastsStatistics.count);
+                    if (forecastsStatistics.invalidCount > 0) {
+                        winston.warn('there were invalid forecasts; invalid forecast count: ' + forecastsStatistics.invalidCount);
+                    } else {
+                        winston.info('all forecasts valid');
+                    }
                     winston.verbose(JSON.stringify(forecasts, null, 4));
 
                     // write the forecasts out to a static json file, that can be served by the HTTP server
@@ -87,6 +98,93 @@ function aggregateForecasts(regions) {
             }
         );
     }
+}
+
+exports.validateForecast = validateForecast;
+function validateForecast(regionId, forecast, validateForCurrentDay) {
+
+    var validForecast = true;
+
+    if (!forecast) {
+        // check for null forecast
+
+        // known exceptions: these regions currently do not provide any danger level ratings
+        // BUGBUG how do i deal with centers shutting down for the season???
+        if (regionId === 'cac_bighorn' || regionId === 'cac_north-rockies') {
+            winston.info('validateForecast: as expected, got null forecast; regionId: ' + regionId);
+        } else {
+            validForecast = false;
+            winston.warn('validateForecast: UNEXPECTED got null forecast; regionId: ' + regionId);
+        }
+    } else {
+        // check forecast contents
+        var i;
+
+        // dates should be sequential, with no gaps
+        var firstDate = forecast[0].date;
+        for (i = 0; i < forecast.length; i++) {
+
+            var expectedDate = moment(firstDate, 'YYYY-MM-DD').add('days', i).format('YYYY-MM-DD');
+            if (expectedDate !== forecast[i].date) {
+                validForecast = false;
+                winston.warn('validateForecast: UNEXPECTED date for regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                break;
+            }
+        }
+
+        // aviLevel should not be AVI_LEVEL_UNKNOWN
+        // NOTE known exceptions: certain regions always return forecasts without danger level ratings
+        for (i = 0; i < forecast.length; i++) {
+            if (forecast[i].aviLevel === AVI_LEVEL_UNKNOWN) {
+                if (regionId === 'caic_090' || regionId === 'caic_091') {
+                    winston.info('validateForecast: as expected, got AVI_LEVEL_UNKNOWN in forecast; regionId: ' + regionId);
+                } else {
+                    validForecast = false;
+                    winston.warn('validateForecast: UNEXPECTED got AVI_LEVEL_UNKNOWN in forecast; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                    break;
+                }
+            }
+        }
+
+        // if things look good so far, continue the validation
+        if (validForecast && validateForCurrentDay) {
+            validForecast = validateForecastForCurrentDay(regionId, forecast);
+        }
+    }
+
+    return validForecast;
+}
+
+exports.validateForecastForCurrentDay = validateForecastForCurrentDay;
+function validateForecastForCurrentDay(regionId, forecast) {
+
+    var validForecast = false;
+
+    if (forecast) {
+        // get the current date
+        // NOTE this is in (server) local time...
+        var today = moment().format('YYYY-MM-DD');
+
+        for (var i = 0; i < forecast.length; i++) {
+            if (forecast[i].date === today) {
+                validForecast = true;
+                winston.info('validateForecastForCurrentDay: as expected, found forecast for current day; regionId: ' + regionId);
+                break;
+            }
+        }
+
+        if (!validForecast) {
+            if (regionId === 'uac_moab') {
+                // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
+                validForecast = true;
+                winston.info('validateForecast: as expected, did not find forecast for current day; regionId: ' + regionId);
+            } else {
+                winston.warn('validateForecastForCurrentDay: UNEXPECTED did not find forecast for current day; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+            }
+        }
+    }
+
+    return validForecast;
 }
 
 function forecastForRegionId(regionId, onForecast) {
@@ -295,7 +393,7 @@ function parseForecast_nwac(body, regionDetails) {
 
     if (forecastIssuedDate) {
 
-        // NWAC forecasts go at most 3 days out, and often are 2 days out; choose the max we want to look for
+        // NWAC forecasts go at most 3 days out, but often are 2 days out; choose the max we want to look for
         var NUM_FORECAST_DAYS_NWAC = 3;
 
         // using forecast issued date to anchor things, set up our forecast dates and days
@@ -318,9 +416,15 @@ function parseForecast_nwac(body, regionDetails) {
         // get the forecast details
         parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels);
 
+        var daysActuallyForecast = NUM_FORECAST_DAYS_NWAC;
+        if (aviLevels[NUM_FORECAST_DAYS_NWAC - 1] === AVI_LEVEL_UNKNOWN) {
+            // forecast was only for 2 days, not 3
+            daysActuallyForecast--;
+        }
+
         // fill out the return object
-        forecast = [NUM_FORECAST_DAYS_NWAC];
-        for (var j = 0; j < NUM_FORECAST_DAYS_NWAC; j++) {
+        forecast = [daysActuallyForecast];
+        for (var j = 0; j < daysActuallyForecast; j++) {
             forecast[j] = {'date':moment(forecastDates[j]).format('YYYY-MM-DD'), 'aviLevel':aviLevels[j]};
             winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
         }
@@ -431,7 +535,7 @@ function parseForecast_cac(body, regionDetails) {
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before
-                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').clone().subtract('days',1);
+                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract('days',1);
                     forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
@@ -482,7 +586,7 @@ function parseForecast_pc(body, regionDetails) {
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before
-                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').clone().subtract('days',1);
+                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract('days',1);
                     forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 

@@ -13,19 +13,15 @@ marketing
     get app reviewed on app review sites
     get folks to write reviews, update their own reviews, and to mark reviews as helpful
     flesh out sebnarware.com website with more app info
+other
+    consider memorial to Johnny (e.g. on the website)
 business
     transfer money into account once bank-to-bank transfer enabled
     switch biz expenses to biz account
 WS
     get access to NWAC JSON api
-        sent email to Jorie/Mark, waiting for response
-        sent email to Benj, waiting for response
-    auto-validation of each generated forecast
-        test for aviLevel available and != 0 specifically for current time, for all regions (minus known exceptions)
-        test for date gaps in the forecast, or aviLevel == 0 in the middle of a date range (vs. at the end, which is ok)
-        on error, capture all inputs, and alert me
-        also snapshot user URL vs. data URL vs. my forecast always, for later review
-        add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
+        emailing with Jorie/Mark/Benj; ping again after Friday March 2nd
+        switch to NWAC JSON api when available and stable
     UAC integration
         enable parsing of "tomorrow" forecasts as well, once Brett is ready
         consider rolling over forecasts into the next morning?
@@ -33,7 +29,7 @@ WS
     support other avi centers -- send integration email to not-yet-integrated avalanche organizations!!!
         Canada
             Vancouver Island -- ready for integration; will eventually come through CAC; http://www.islandavalanchebulletin.com/
-            WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration)
+            WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration); NOTE this region is a subset of sea-to-sky!
             CAC Yukon -- emailed CAC for region definition
             Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         AK
@@ -58,9 +54,12 @@ WS
         Joseph OR
         Mount Washington NH
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
+    create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
     look at libraries for parsing HTML (look at emails from Shep, Doc)
-    switch to NWAC JSON api when available and stable
-    consider putting dataURL as a field in regions.json file, and getting it that way on server, along with other regionDetails properties?
+    further auto-validation of each generated forecast
+        on error, capture all inputs, and alert me
+        also snapshot user URL vs. data URL vs. my forecast always, for later review
+        add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
     any way to launch unit tests from WebStorm? (opened ticket with JetBrains)
     update linked components?
     not getting heroku log messages in loggly (could switch to heroku loggly add-on for this, but lower data limit and retention time, or paid)?
@@ -68,15 +67,16 @@ WS
 iOS
     info
         add more usage info, in terms of what "no rating" means, using your brain out there, etc.
+    add more prominent loading spinner for when loading regions/forecasts
     viral aspect -- make it easy to share via facebook, twitter?
+    add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
+    add system message capability, to send dynamic messages to users
     more data at-a-glance
         show the danger rose as an icon on the map too within each region?
         click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
         label regions with their names? give them a danger level icon?
     add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)?
     add refresh button for explicit refresh forecast? have it do a full reload of the regions too?
-    add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
-    add system message capability, to send dynamic messages to users
     offline mode
         offline: give message if detailed view unavailable for a region?
         really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
@@ -99,18 +99,17 @@ iOS
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
     deal w/ folks not allowing location services in some way (help text? FAQ on website?)
     add a "help your avalanche center" feature to take you to donation pages?
+    add more avi reference info?
     add weather info?
     add telemetry info?
-    add more avi reference info?
     show previous days, for history? allow selecting further into the future?
     add push notifications?
     update linked components?
-    have version numbers for disclaimer accepted (use app version number)?
     make iPad experience better?
 additional versions to consider
     Android version
     WinPhone version
-    website version (leverage the aggregation/normalization)
+    website version
 
 avalanche forecast center intro/integration blurb:
 --------------------

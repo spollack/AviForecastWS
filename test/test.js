@@ -93,6 +93,61 @@ describe('getRegionDetailsForRegionId', function(){
     })
 })
 
+describe('validateForecast', function(){
+    describe('null forecasts', function(){
+        it('should return false, unless it is a known exception region', function(){
+            forecasts.validateForecast('nwac_1', null).should.be.false;
+            forecasts.validateForecast('cac_bighorn', null).should.be.true;     // NOTE this region currently never issues danger levels
+        })
+    })
+    describe('valid forecasts', function(){
+        it('should return true', function(){
+            forecasts.validateForecast('nwac_1',
+                forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('nwac_1')), false).should.be.true;
+
+            forecasts.validateForecast('cac_sea-to-sky',
+                forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('cac_sea-to-sky')), false).should.be.true;
+
+            forecasts.validateForecast('caic_080',
+                forecasts.parseForecast_caic(fs.readFileSync('test/data/caic/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('caic_080')), false).should.be.true;
+        })
+    })
+    describe('forecasts with bad dates', function(){
+        it('should return false', function(){
+            forecasts.validateForecast('nwac_1', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-03', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_1', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-01', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_1', [{date:'2012-01-01', aviLevel:1},{date:'2011-12-31', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_1', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:1},{date:'2012-01-04', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_1', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:1},{date:'2012-01-01', aviLevel:1}], false).should.be.false;
+        })
+    })
+    describe('forecasts with bad aviLevels', function(){
+        it('should return false', function(){
+            forecasts.validateForecast('nwac_1', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:0}], false).should.be.false;
+            forecasts.validateForecast('nwac_1', [{date:'2012-01-01', aviLevel:0},{date:'2012-01-02', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_1', [{date:'2012-01-01', aviLevel:4},{date:'2012-01-02', aviLevel:1},{date:'2012-01-03', aviLevel:0}], false).should.be.false;
+        })
+    })
+})
+
+describe('validateForecastForCurrentDay', function(){
+    describe('current date is not represented', function(){
+        it('should return false', function(){
+            forecasts.validateForecastForCurrentDay('nwac_1', [{date:'2012-01-01', aviLevel:2},{date:'2012-01-02', aviLevel:3}]).should.be.false;
+        })
+    })
+    describe('current date is not represented', function(){
+        it('should return true', function(){
+            // NOTE this is run using current local time...
+            forecasts.validateForecastForCurrentDay('nwac_1',
+                [{date:moment().format('YYYY-MM-DD'), aviLevel:2},{date:moment().add('days', 1).format('YYYY-MM-DD'), aviLevel:3}]).should.be.true;
+        })
+    })
+})
+
 describe('dateStringFromDateTimeString_caaml', function(){
     describe('valid strings', function(){
         it('should return the correct date', function(){
@@ -118,13 +173,11 @@ describe('parseForecast_nwac', function(){
                 forecasts.getRegionDetailsForRegionId('nwac_0'));
 
             should.exist(forecast);
-            forecast.length.should.equal(3);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2012-01-16');
             forecast[1].date.should.equal('2012-01-17');
-            forecast[2].date.should.equal('2012-01-18');
             forecast[0].aviLevel.should.equal(0);
             forecast[1].aviLevel.should.equal(0);
-            forecast[2].aviLevel.should.equal(0);
         })
     })
     describe('file001.html', function(){
@@ -162,15 +215,12 @@ describe('parseForecast_nwac', function(){
             var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file003.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('nwac_7'));
 
-            // NOTE even if there are only two days that are forecast, we return three for nwac
             should.exist(forecast);
-            forecast.length.should.equal(3);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2012-02-19');
             forecast[1].date.should.equal('2012-02-20');
-            forecast[2].date.should.equal('2012-02-21');
             forecast[0].aviLevel.should.equal(4);
             forecast[1].aviLevel.should.equal(3);
-            forecast[2].aviLevel.should.equal(0);
         })
     })
     describe('file004.html', function(){
@@ -178,15 +228,12 @@ describe('parseForecast_nwac', function(){
             var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file004.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('nwac_7'));
 
-            // NOTE even if there are only two days that are forecast, we return three for nwac
             should.exist(forecast);
-            forecast.length.should.equal(3);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2012-02-20');
             forecast[1].date.should.equal('2012-02-21');
-            forecast[2].date.should.equal('2012-02-22');
             forecast[0].aviLevel.should.equal(3);
             forecast[1].aviLevel.should.equal(5);
-            forecast[2].aviLevel.should.equal(0);
         })
     })
 })
