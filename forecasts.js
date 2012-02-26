@@ -111,10 +111,10 @@ function validateForecast(regionId, forecast, validateForCurrentDay) {
         // known exceptions: these regions currently do not provide any danger level ratings
         // BUGBUG how do i deal with centers shutting down for the season???
         if (regionId === 'cac_bighorn' || regionId === 'cac_north-rockies') {
-            winston.info('validateForecast: as expected, got null forecast; regionId: ' + regionId);
+            winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
-            winston.warn('validateForecast: UNEXPECTED got null forecast; regionId: ' + regionId);
+            winston.warn('forecast validation: UNEXPECTED got null forecast; regionId: ' + regionId);
         }
     } else {
         // check forecast contents
@@ -127,7 +127,7 @@ function validateForecast(regionId, forecast, validateForCurrentDay) {
             var expectedDate = moment(firstDate, 'YYYY-MM-DD').add('days', i).format('YYYY-MM-DD');
             if (expectedDate !== forecast[i].date) {
                 validForecast = false;
-                winston.warn('validateForecast: UNEXPECTED date for regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                winston.warn('forecast validation: UNEXPECTED date for regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
                 break;
             }
         }
@@ -137,10 +137,10 @@ function validateForecast(regionId, forecast, validateForCurrentDay) {
         for (i = 0; i < forecast.length; i++) {
             if (forecast[i].aviLevel === AVI_LEVEL_UNKNOWN) {
                 if (regionId === 'caic_090' || regionId === 'caic_091') {
-                    winston.info('validateForecast: as expected, got AVI_LEVEL_UNKNOWN in forecast; regionId: ' + regionId);
+                    winston.info('forecast validation: as expected, got AVI_LEVEL_UNKNOWN in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
-                    winston.warn('validateForecast: UNEXPECTED got AVI_LEVEL_UNKNOWN in forecast; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                    winston.warn('forecast validation: UNEXPECTED got AVI_LEVEL_UNKNOWN in forecast; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
                     break;
                 }
             }
@@ -168,7 +168,7 @@ function validateForecastForCurrentDay(regionId, forecast) {
         for (var i = 0; i < forecast.length; i++) {
             if (forecast[i].date === today) {
                 validForecast = true;
-                winston.info('validateForecastForCurrentDay: as expected, found forecast for current day; regionId: ' + regionId);
+                winston.info('forecast validation: as expected, found forecast for current day; regionId: ' + regionId);
                 break;
             }
         }
@@ -177,9 +177,9 @@ function validateForecastForCurrentDay(regionId, forecast) {
             if (regionId === 'uac_moab') {
                 // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
                 validForecast = true;
-                winston.info('validateForecast: as expected, did not find forecast for current day; regionId: ' + regionId);
+                winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
-                winston.warn('validateForecastForCurrentDay: UNEXPECTED did not find forecast for current day; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                winston.warn('forecast validation: UNEXPECTED did not find forecast for current day; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
             }
         }
     }
