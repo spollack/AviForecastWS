@@ -24,14 +24,8 @@ WS
         switch to NWAC JSON api when available and stable
     UAC integration
         enable parsing of "tomorrow" forecasts as well, once Brett is ready
-        consider rolling over forecasts into the next morning?
-            would be good for early mornings before forecasts are issued, but could be confusing for regions/days where new forecast will NOT be issued...
+    VIACS integration -- ready for integration; will eventually come through CAC; http://www.islandavalanchebulletin.com/
     support other avi centers -- send integration email to not-yet-integrated avalanche organizations!!!
-        Canada
-            Vancouver Island -- ready for integration; will eventually come through CAC; http://www.islandavalanchebulletin.com/
-            WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration); NOTE this region is a subset of sea-to-sky!
-            CAC Yukon -- emailed CAC for region definition
-            Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         AK
             Chugach (CNFAIC) -- got a message from a person there, he wants to get integrated
             Valdez
@@ -53,6 +47,10 @@ WS
         Flagstaff AZ
         Joseph OR
         Mount Washington NH
+        Canada
+            WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration); NOTE this region is a subset of sea-to-sky!
+            CAC Yukon -- emailed CAC for region definition
+            Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
     look at libraries for parsing HTML (look at emails from Shep, Doc)
