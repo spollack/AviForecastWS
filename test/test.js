@@ -441,6 +441,46 @@ describe('parseForecast_uac', function(){
     })
 })
 
+describe('parseForecastIssuedDate_viac', function(){
+    it('should return the correct date', function(){
+        var forecastIssuedDate;
+
+        forecastIssuedDate = forecasts.parseForecastIssuedDate_viac('<div class="date" title="1330111140000"><span class="date_prefix">Date Issued </span>February 24, 2012 at 11:19AM</div>',
+            forecasts.getRegionDetailsForRegionId('viac_'));
+        moment(forecastIssuedDate).format('YYYY-MM-DD').should.equal('2012-02-24');
+
+        forecastIssuedDate = forecasts.parseForecastIssuedDate_viac('<div class="date" title="1330111140000"><span class="date_prefix">Date Issued </span>February 24th, 2012 at 11:19AM</div>',
+            forecasts.getRegionDetailsForRegionId('viac_'));
+        moment(forecastIssuedDate).format('YYYY-MM-DD').should.equal('2012-02-24');
+    })
+})
+
+describe('parseForecast_viac', function(){
+    describe('file000.html', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_viac(fs.readFileSync('test/data/viac/file000.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('viac_'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_viac(fs.readFileSync('test/data/viac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('viac_'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2012-02-24');
+            forecast[1].date.should.equal('2012-02-25');
+            forecast[2].date.should.equal('2012-02-26');
+            forecast[0].aviLevel.should.equal(4);
+            forecast[1].aviLevel.should.equal(3);
+            forecast[2].aviLevel.should.equal(3);
+        })
+    })
+})
+
 
 
 

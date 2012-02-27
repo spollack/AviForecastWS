@@ -247,6 +247,10 @@ function getRegionDetailsForRegionId(regionId) {
                     dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1] + '/rss';
                     parser = parseForecast_uac;
                     break;
+                case 'viac':
+                    dataURL = 'http://www.islandavalanchebulletin.com/';
+                    parser = parseForecast_viac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -398,9 +402,9 @@ function parseForecast_nwac(body, regionDetails) {
 
         // using forecast issued date to anchor things, set up our forecast dates and days
         // start with the day the forecast was issued, and increment forward from there
-        var forecastDates = [NUM_FORECAST_DAYS_NWAC];
-        var forecastDays = [NUM_FORECAST_DAYS_NWAC];
-        var aviLevels = [NUM_FORECAST_DAYS_NWAC];
+        var forecastDates = [];
+        var forecastDays = [];
+        var aviLevels = [];
 
         for (var i = 0; i < NUM_FORECAST_DAYS_NWAC; i++) {
             // copy the value of the forecast issued date, and then offset by the appropriate number of days
@@ -423,7 +427,7 @@ function parseForecast_nwac(body, regionDetails) {
         }
 
         // fill out the return object
-        forecast = [daysActuallyForecast];
+        forecast = [];
         for (var j = 0; j < daysActuallyForecast; j++) {
             forecast[j] = {'date':moment(forecastDates[j]).format('YYYY-MM-DD'), 'aviLevel':aviLevels[j]};
             winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
@@ -518,7 +522,7 @@ function parseForecast_cac(body, regionDetails) {
             // with the first described day as the following day; we want to show some forecast for the time until
             // the following day kicks in, so we assume in this case the the danger level for the first described day
             // is also applicable to the time between when the forecast is issued and the first described day;
-            forecast = [dayForecasts.length + 1];
+            forecast = [];
 
             for (var i = 0; i < dayForecasts.length; i++) {
 
@@ -570,9 +574,9 @@ function parseForecast_pc(body, regionDetails) {
             // the following day kicks in, so we assume in this case the the danger level for the first described day
             // is also applicable to the time between when the forecast is issued and the first described day;
 
-            // NOTE pc lists each day three times, one for each elevation zone
-            forecast = [(dayForecasts.length / 3) + 1];
+            forecast = [];
 
+            // NOTE pc lists each day three times, one for each elevation zone
             for (var i = 0; i < (dayForecasts.length / 3); i++) {
 
                 var date = dateStringFromDateTimeString_caaml(dayForecasts[i].validTime.TimeInstant.timePosition);
@@ -623,7 +627,7 @@ function parseForecast_caic(body, regionDetails) {
 
             // NOTE caic issues avalanche forcasts for 24 hours at a time (issued in the morning, for that day and the next
             // early morning, so spanning two days)
-            forecast = [2];
+            forecast = [];
             forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
             forecast[1] = {'date': forecastValidThroughDate, 'aviLevel': aviLevel};
 
@@ -650,11 +654,10 @@ function parseForecast_uac(body, regionDetails) {
     var forecast = null;
 
     var forecastIssuedDate = parseForecastIssuedDate_uac(body, regionDetails);
-    var aviLevels = parseForecastValue_uac(body, regionDetails);
+    var aviLevels = parseForecastValues_uac(body, regionDetails);
 
     if (forecastIssuedDate) {
-        forecast = [1];
-//        forecast = [2];
+        forecast = [];
         forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
 //        forecast[1] = {'date': moment(forecastIssuedDate).add('days',1).format('YYYY-MM-DD'), 'aviLevel': aviLevels[1]};
 
@@ -689,12 +692,13 @@ function parseForecastIssuedDate_uac(body, regionDetails) {
     return forecastIssuedDate;
 }
 
-function parseForecastValue_uac(body, regionDetails) {
+function parseForecastValues_uac(body, regionDetails) {
 
     // uac forecasts two days at a time
-    var aviLevels = [2];
-    aviLevels[0] = AVI_LEVEL_UNKNOWN;
-    aviLevels[1] = AVI_LEVEL_UNKNOWN;
+    var aviLevels = [];
+    for (var i = 0; i < 2; i++) {
+        aviLevels[i] = AVI_LEVEL_UNKNOWN;
+    }
 
     // NOTE typical string for uac: '    [extendedforecast_rating_0] =&gt; Considerable'
     var dangerRatingMatch0 = body.match(/\[extendedforecast_rating_0\]\s*=&gt;\s*(.\w+)/);
@@ -711,8 +715,83 @@ function parseForecastValue_uac(body, regionDetails) {
     return aviLevels;
 }
 
+exports.parseForecast_viac = parseForecast_viac;
+function parseForecast_viac(body, regionDetails) {
 
+    var forecast = null;
 
+    var forecastIssuedDate = parseForecastIssuedDate_viac(body, regionDetails);
+    var aviLevels = parseForecastValues_viac(body, regionDetails);
+
+    if (forecastIssuedDate && aviLevels) {
+        forecast = [];
+        for (var i = 0; i < aviLevels.length; i++) {
+            forecast[i] = {'date': moment(forecastIssuedDate).clone().add('days', i).format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
+        }
+
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    }
+
+    return forecast;
+}
+
+exports.parseForecastIssuedDate_viac = parseForecastIssuedDate_viac;
+function parseForecastIssuedDate_viac(body, regionDetails) {
+
+    var forecastIssuedDate = null;
+
+    // capture the forecast timestamp
+    // NOTE typical string for viac: 'Date Issued </span>February 24, 2012 at 11:19AM</div>'
+    var timestampMatch = body.match(/Date Issued\s*<\/span>\s*(\w+\s+\d+)\w*\s*,?\s*(\d+)/i);
+
+    // the capture groups from the regex will be in slots 1 and 2 in the array
+    if (timestampMatch && timestampMatch.length > 2) {
+
+        // capture group 1 has the month and day, capture group 2 has the year
+        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
+        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+    } else {
+        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return forecastIssuedDate;
+}
+
+function parseForecastValues_viac(body, regionDetails) {
+
+    // viac forecasts three days at a time
+    var aviLevels = [];
+    for (var i = 0; i < 3; i++) {
+        aviLevels[i] = AVI_LEVEL_UNKNOWN;
+    }
+
+    // NOTE typical string for viac:
+    //    <tr>
+    //    <th>Outlook</th><th>Friday</th><th>Saturday<br /></th><th>Sunday<br /></th>
+    //    </tr>
+    //    <tr>
+    //    <td><strong>Alpine</strong><br /></td>
+    //    <td style="background-color: #ffdd77;">HIGH<br /></td>
+    //    <td style="background-color: #ffdd77;">CONSIDERABLE</td>
+    //    <td style="background-color: #ffdd77;">CONSIDERABLE</td>
+    //    </tr>
+
+    var dangerRatingMatch = body.match(/<td><strong>Alpine<\/strong><br \/><\/td>\s*\n(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)/i);
+
+    // the capture groups will be in slots 1, 2, 3
+    if (dangerRatingMatch && dangerRatingMatch.length === 4) {
+        for (var j = 0; j < aviLevels.length; j++) {
+            aviLevels[j] = findHighestAviLevelInString(dangerRatingMatch[j+1]);
+        }
+    } else {
+        winston.warn('parse failure, danger levels not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return aviLevels;
+}
 
 
 

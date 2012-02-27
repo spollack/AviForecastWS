@@ -4,7 +4,7 @@
 
 var fs = require('fs');
 
-trimDigitsInRegionsJSONFile('../public/v1/regions.json','../public/v1/regions.json',4);
+trimDigitsInRegionsJSONFile('../public/v1/regions.json', '../public/v1/regions.json', 4);
 
 function trimDigitsInRegionsJSONFile(inputFilePath, outputFilePath, digits) {
     var input = fs.readFileSync(inputFilePath, 'utf8');
