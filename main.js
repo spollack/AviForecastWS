@@ -68,7 +68,7 @@ function startHTTPServer() {
         }
     };
     app.use(express.logger({stream:winstonStream}));
-    // server static content, compressed
+    // serve static content, compressed
     app.use(gzippo.staticGzip(forecasts.STATIC_FILES_DIR_PATH, {clientMaxAge:(forecasts.CACHE_MAX_AGE_SECONDS * 1000)}));
     // handle errors gracefully
     app.use(express.errorHandler());
