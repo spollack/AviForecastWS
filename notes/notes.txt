@@ -1,11 +1,14 @@
 things to do now:
 --------------------
     VIAC integration
-        checkin
+        NOTE:forecast was stale mon morning...
         test on staging
         check when new forecast comes out
-        deploy
+        deploy to prod
         update app notes
+        update spreadsheet
+    auto-validation
+        check results
 
 things to do as time allows:
 --------------------
@@ -122,7 +125,7 @@ I've recently developed a free iPhone app that displays avalanche conditions "at
 
 You can read more about the application, including reviews, and download it here: http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
 
-I currently have it working with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), CAC (Canada), and Parks Canada forecasting centers (49 regions total). My goal is to eventually include all the avalanche forecasting centers across North America.
+I currently have it working with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (50 regions total). My goal is to eventually include all the avalanche forecasting centers across North America.
 
 I'd like to get your forecast center integrated. Would you please connect me with your technical point of contact?
 
