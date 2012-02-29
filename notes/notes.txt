@@ -1,14 +1,7 @@
 things to do now:
 --------------------
-    VIAC integration
-        NOTE:forecast was stale mon morning...
-        test on staging
-        check when new forecast comes out
-        deploy to prod
-        update app notes
-        update spreadsheet
-    auto-validation
-        check results
+   auto-validation
+        check and refine results
 
 things to do as time allows:
 --------------------
@@ -26,6 +19,7 @@ other
     consider memorial to Johnny (e.g. on the website)
 business
     transfer money into account once bank-to-bank transfer enabled
+    create list of biz expenses so far that were paid before biz account was set up
     switch biz expenses to biz account
 WS
     get access to NWAC JSON api
@@ -73,6 +67,7 @@ WS
 iOS
     info
         add more usage info, in terms of what "no rating" means, using your brain out there, etc.
+    add alert/feedback if there are no avalanche forecast regions near your current position
     add more prominent loading spinner for when loading regions/forecasts
     viral aspect -- make it easy to share via facebook, twitter?
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
