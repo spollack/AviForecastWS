@@ -2,11 +2,14 @@
 // Copyright (c) 2012 Sebnarware. All rights reserved.
 //
 
+//
+// exports
+//
+var forecasts = module.exports = {};
 
 //
 // required packages
 //
-
 var winston = require('winston');
 var request = require('request');
 var moment = require('moment');
@@ -14,53 +17,44 @@ var xml2js = require('xml2js');
 var fs = require('fs');
 
 
-//
-// constants
-//
-
 // avi danger levels
-var AVI_LEVEL_UNKNOWN = 0;
-var AVI_LEVEL_LOW = 1;
-var AVI_LEVEL_MODERATE = 2;
-var AVI_LEVEL_CONSIDERABLE = 3;
-var AVI_LEVEL_HIGH = 4;
-var AVI_LEVEL_EXTREME = 5;
+forecasts.AVI_LEVEL_UNKNOWN = 0;
+forecasts.AVI_LEVEL_LOW = 1;
+forecasts.AVI_LEVEL_MODERATE = 2;
+forecasts.AVI_LEVEL_CONSIDERABLE = 3;
+forecasts.AVI_LEVEL_HIGH = 4;
+forecasts.AVI_LEVEL_EXTREME = 5;
 
 // time intervals
 // NOTE to ensure forecasts get generated, ensure FORECAST_GEN_INTERVAL_SECONDS >> DATA_REQUEST_TIMEOUT_SECONDS
 // NOTE the total delay that a client might see from forecast issued to available at client is the sum
 // of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
-var DATA_REQUEST_TIMEOUT_SECONDS = 15;
-exports.FORECAST_GEN_INTERVAL_SECONDS = 300;
-exports.CACHE_MAX_AGE_SECONDS = 300;
+forecasts.DATA_REQUEST_TIMEOUT_SECONDS = 15;
+forecasts.FORECAST_GEN_INTERVAL_SECONDS = 300;
+forecasts.CACHE_MAX_AGE_SECONDS = 300;
 
 // filepaths
-exports.STATIC_FILES_DIR_PATH  = __dirname + '/public';
-exports.REGIONS_PATH = __dirname + '/public/v1/regions.json';
-var FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
-var FORECASTS_DATA_TEMP_PATH = __dirname + '/public/v1/forecasts_TEMP.json';
+forecasts.STATIC_FILES_DIR_PATH  = __dirname + '/public';
+forecasts.REGIONS_PATH = __dirname + '/public/v1/regions.json';
+forecasts.FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
+forecasts.FORECASTS_DATA_TEMP_PATH = __dirname + '/public/v1/forecasts_TEMP.json';
 
 
-//
-// forecast content generation
-//
-
-exports.aggregateForecasts = aggregateForecasts;
-function aggregateForecasts(regions) {
+forecasts.aggregateForecasts = function(regions) {
     winston.info('aggregateForecasts: initiated');
 
     var forecastsStatistics = {'count':regions.length, 'remainingCount':regions.length, 'invalidCount':0};
-    var forecasts = [];
+    var forecastsArray = [];
 
     for (var i = 0; i < regions.length; i++) {
 
         var regionId = regions[i].regionId;
         winston.verbose('generating forecast for regionId: ' + regionId);
 
-        forecastForRegionId(regionId,
+        forecasts.forecastForRegionId(regionId,
             function(regionId, forecast) {
 
-                var valid = validateForecast(regionId, forecast, true);
+                var valid = forecasts.validateForecast(regionId, forecast, true);
                 if (!valid) {
                     forecastsStatistics.invalidCount++;
                 }
@@ -68,7 +62,7 @@ function aggregateForecasts(regions) {
                 // add the forecast to the forecasts array
                 // NOTE the order of forecast generation completion is not deterministic, so they may end up in any
                 // order in the array
-                forecasts.push({'regionId':regionId, 'forecast':forecast});
+                forecastsArray.push({'regionId':regionId, 'forecast':forecast});
 
                 forecastsStatistics.remainingCount--;
                 if (forecastsStatistics.remainingCount === 0) {
@@ -85,11 +79,11 @@ function aggregateForecasts(regions) {
                     // NOTE to ensure atomicity at the filesystem level, we write out to a temporary file, and
                     // then move it into place, overwriting the old file
 
-                    fs.writeFile(FORECASTS_DATA_TEMP_PATH, JSON.stringify(forecasts, null, 4), 'utf8',
+                    fs.writeFile(forecasts.FORECASTS_DATA_TEMP_PATH, JSON.stringify(forecastsArray, null, 4), 'utf8',
                         function() {
-                            fs.rename(FORECASTS_DATA_TEMP_PATH, FORECASTS_DATA_PATH,
+                            fs.rename(forecasts.FORECASTS_DATA_TEMP_PATH, forecasts.FORECASTS_DATA_PATH,
                                 function() {
-                                    winston.info('aggregateForecasts: forecast data file updated; path: ' + FORECASTS_DATA_PATH);
+                                    winston.info('aggregateForecasts: forecast data file updated; path: ' + forecasts.FORECASTS_DATA_PATH);
                                 }
                             );
                         }
@@ -98,10 +92,9 @@ function aggregateForecasts(regions) {
             }
         );
     }
-}
+};
 
-exports.validateForecast = validateForecast;
-function validateForecast(regionId, forecast, validateForCurrentDay) {
+forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay) {
 
     // BUGBUG how do i deal with centers shutting down for the season???
 
@@ -135,7 +128,7 @@ function validateForecast(regionId, forecast, validateForCurrentDay) {
 
         // aviLevel should not be AVI_LEVEL_UNKNOWN
         for (i = 0; i < forecast.length; i++) {
-            if (forecast[i].aviLevel === AVI_LEVEL_UNKNOWN) {
+            if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always return forecasts without danger level ratings; others
                 // // are only issued periodically (e.g. once a week), not daily
                 if (regionId === 'caic_090' || regionId === 'caic_091' || regionId === 'uac_moab' || regionId === 'uac_skyline') {
@@ -150,15 +143,14 @@ function validateForecast(regionId, forecast, validateForCurrentDay) {
 
         // if things look good so far, continue the validation
         if (validForecast && validateForCurrentDay) {
-            validForecast = validateForecastForCurrentDay(regionId, forecast);
+            validForecast = forecasts.validateForecastForCurrentDay(regionId, forecast);
         }
     }
 
     return validForecast;
-}
+};
 
-exports.validateForecastForCurrentDay = validateForecastForCurrentDay;
-function validateForecastForCurrentDay(regionId, forecast) {
+forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
     var validForecast = false;
 
@@ -187,18 +179,18 @@ function validateForecastForCurrentDay(regionId, forecast) {
     }
 
     return validForecast;
-}
+};
 
-function forecastForRegionId(regionId, onForecast) {
+forecasts.forecastForRegionId = function(regionId, onForecast) {
 
-    var regionDetails = getRegionDetailsForRegionId(regionId);
+    var regionDetails = forecasts.getRegionDetailsForRegionId(regionId);
 
     if (!regionDetails) {
         winston.warn('invalid regionId: ' + regionId);
         onForecast(regionId, null);
     } else {
-        request({'url':regionDetails.dataURL, 'timeout': DATA_REQUEST_TIMEOUT_SECONDS * 1000},
-            function (error, response, body) {
+        request({'url':regionDetails.dataURL, 'timeout': forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
+            function(error, response, body) {
                 if (!error && response.statusCode === 200) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
                         '; dataURL: ' + regionDetails.dataURL);
@@ -212,10 +204,9 @@ function forecastForRegionId(regionId, onForecast) {
             }
         );
     }
-}
+};
 
-exports.getRegionDetailsForRegionId = getRegionDetailsForRegionId;
-function getRegionDetailsForRegionId(regionId) {
+forecasts.getRegionDetailsForRegionId = function(regionId) {
 
     var regionDetails = null;
 
@@ -231,27 +222,27 @@ function getRegionDetailsForRegionId(regionId) {
             switch (components[0]) {
                 case 'nwac':
                     dataURL = 'http://www.nwac.us/forecast/avalanche/current/zone/' + components[1] + '/';
-                    parser = parseForecast_nwac;
+                    parser = forecasts.parseForecast_nwac;
                     break;
                 case 'cac':
                     dataURL = 'http://www.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
-                    parser = parseForecast_cac;
+                    parser = forecasts.parseForecast_cac;
                     break;
                 case 'pc':
                     dataURL = 'http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
-                    parser = parseForecast_pc;
+                    parser = forecasts.parseForecast_pc;
                     break;
                 case 'caic':
-                    dataURL = getDataURL_caic(components[1]);
-                    parser = parseForecast_caic;
+                    dataURL = forecasts.getDataURL_caic(components[1]);
+                    parser = forecasts.parseForecast_caic;
                     break;
                 case 'uac':
                     dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1] + '/rss';
-                    parser = parseForecast_uac;
+                    parser = forecasts.parseForecast_uac;
                     break;
                 case 'viac':
                     dataURL = 'http://www.islandavalanchebulletin.com/';
-                    parser = parseForecast_viac;
+                    parser = forecasts.parseForecast_viac;
                     break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
@@ -266,9 +257,9 @@ function getRegionDetailsForRegionId(regionId) {
     }
 
     return regionDetails;
-}
+};
 
-function getDataURL_caic(subregion) {
+forecasts.getDataURL_caic = function(subregion) {
 
     var dataURL = null;
     var baseURL = 'http://avalanche.state.co.us/media/xml/';
@@ -320,10 +311,9 @@ function getDataURL_caic(subregion) {
     }
 
     return dataURL;
-}
+};
 
-exports.findHighestAviLevelInString = findHighestAviLevelInString;
-function findHighestAviLevelInString(string) {
+forecasts.findHighestAviLevelInString = function(string) {
 
     // NOTE looks for the *highest* avi level keyword within the string
 
@@ -341,37 +331,36 @@ function findHighestAviLevelInString(string) {
             // scan the matches, and take the highest level found
             for (var i = 0; i < levelMatch.length; i++) {
                 winston.verbose('levelMatch[' + i + ']: ' + levelMatch[i]);
-                aviLevel = Math.max(aviLevel, aviLevelFromName(levelMatch[i]));
+                aviLevel = Math.max(aviLevel, forecasts.aviLevelFromName(levelMatch[i]));
             }
         }
     }
 
     return aviLevel;
-}
+};
 
-exports.aviLevelFromName = aviLevelFromName;
-function aviLevelFromName(aviLevelName) {
+forecasts.aviLevelFromName = function(aviLevelName) {
 
     // convert avi level name to number
 
-    var aviLevel = AVI_LEVEL_UNKNOWN;
+    var aviLevel = forecasts.AVI_LEVEL_UNKNOWN;
 
     if (aviLevelName) {
         switch (aviLevelName.trim().toLowerCase()) {
             case 'low':
-                aviLevel = AVI_LEVEL_LOW;
+                aviLevel = forecasts.AVI_LEVEL_LOW;
                 break;
             case 'moderate':
-                aviLevel = AVI_LEVEL_MODERATE;
+                aviLevel = forecasts.AVI_LEVEL_MODERATE;
                 break;
             case 'considerable':
-                aviLevel = AVI_LEVEL_CONSIDERABLE;
+                aviLevel = forecasts.AVI_LEVEL_CONSIDERABLE;
                 break;
             case 'high':
-                aviLevel = AVI_LEVEL_HIGH;
+                aviLevel = forecasts.AVI_LEVEL_HIGH;
                 break;
             case 'extreme':
-                aviLevel = AVI_LEVEL_EXTREME;
+                aviLevel = forecasts.AVI_LEVEL_EXTREME;
                 break;
             default:
                 break;
@@ -379,14 +368,13 @@ function aviLevelFromName(aviLevelName) {
     }
 
     return aviLevel;
-}
+};
 
 String.prototype.trim = function() {
     return this.replace(/^\s+/, '').replace(/\s+$/, '');
 };
 
-exports.parseForecast_nwac = parseForecast_nwac;
-function parseForecast_nwac(body, regionDetails) {
+forecasts.parseForecast_nwac = function(body, regionDetails) {
 
     // nwac forecasts  have a timestamp that says when the forecast was issued; and then present the forecast
     // details labelled only by day of week, e.g. "Thursday: xxx". so to know exactly which dates they are
@@ -395,7 +383,7 @@ function parseForecast_nwac(body, regionDetails) {
     var forecast = null;
 
     // get the forecast issued date
-    var forecastIssuedDate = parseForecastIssuedDate_nwac(body, regionDetails);
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_nwac(body, regionDetails);
 
     if (forecastIssuedDate) {
 
@@ -416,14 +404,14 @@ function parseForecast_nwac(body, regionDetails) {
             // get the day name for that date
             forecastDays[i] = moment(forecastDates[i]).format("dddd");
 
-            aviLevels[i] = AVI_LEVEL_UNKNOWN;
+            aviLevels[i] = forecasts.AVI_LEVEL_UNKNOWN;
         }
 
         // get the forecast details
-        parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels);
+        forecasts.parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels);
 
         var daysActuallyForecast = NUM_FORECAST_DAYS_NWAC;
-        if (aviLevels[NUM_FORECAST_DAYS_NWAC - 1] === AVI_LEVEL_UNKNOWN) {
+        if (aviLevels[NUM_FORECAST_DAYS_NWAC - 1] === forecasts.AVI_LEVEL_UNKNOWN) {
             // forecast was only for 2 days, not 3
             daysActuallyForecast--;
         }
@@ -437,9 +425,9 @@ function parseForecast_nwac(body, regionDetails) {
     }
 
     return forecast;
-}
+};
 
-function parseForecastIssuedDate_nwac(body, regionDetails) {
+forecasts.parseForecastIssuedDate_nwac = function(body, regionDetails) {
 
     var forecastIssuedDate = null;
 
@@ -453,13 +441,13 @@ function parseForecastIssuedDate_nwac(body, regionDetails) {
         forecastIssuedDate = moment(timestampMatch[1], 'MMM DD YYYY');
         winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
     } else {
-        winston.warn('parse failure, forecast isse date not found; regionId: ' + regionDetails.regionId);
+        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
     }
 
     return forecastIssuedDate;
-}
+};
 
-function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) {
+forecasts.parseForecastValues_nwac = function(body, regionDetails, forecastDays, aviLevels) {
     // first, pull out the relevant chunk of the page
     var forcastSectionStartIndex = body.indexOf('<h2>Forecast</h2>');
     var forcastSectionEndIndex = body.indexOf('<h2>Snowpack Analysis</h2>');
@@ -492,7 +480,7 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
 
                     if (forecastBlocks[block].match(regExp)) {
 
-                        aviLevels[day] = findHighestAviLevelInString(forecastBlocks[block]);
+                        aviLevels[day] = forecasts.findHighestAviLevelInString(forecastBlocks[block]);
                         winston.verbose('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
                             forecastDays[day] + '; block: ' + block + '; aviLevel: ' + aviLevels[day]);
 
@@ -506,16 +494,15 @@ function parseForecastValues_nwac(body, regionDetails, forecastDays, aviLevels) 
     } else {
         winston.warn('parse failure, no forecast section found; regionId: ' + regionDetails.regionId);
     }
-}
+};
 
-exports.parseForecast_cac = parseForecast_cac;
-function parseForecast_cac(body, regionDetails) {
+forecasts.parseForecast_cac = function(body, regionDetails) {
 
     var forecast = null;
 
     var parser = new xml2js.Parser();
     // NOTE this block is called synchronously with parsing, even though it looks async
-    parser.parseString(body, function (err, result) {
+    parser.parseString(body, function(err, result) {
         try {
             // NOTE cac uses xml namespace prefixes in their tags, which requires this byzantine lookup notation
             var dayForecasts = result['caaml:observations']['caaml:Bulletin']['caaml:bulletinResultsOf']['caaml:BulletinMeasurements']['caaml:dangerRatings']['caaml:DangerRating'];
@@ -528,14 +515,14 @@ function parseForecast_cac(body, regionDetails) {
 
             for (var i = 0; i < dayForecasts.length; i++) {
 
-                var date = dateStringFromDateTimeString_caaml(dayForecasts[i]['gml:validTime']['gml:TimeInstant']['gml:timePosition']);
+                var date = forecasts.dateStringFromDateTimeString_caaml(dayForecasts[i]['gml:validTime']['gml:TimeInstant']['gml:timePosition']);
 
                 // NOTE cac organizes forecasts by multiple elevation zones within a given day;
                 // take the highest danger level listed for each day
                 var aviLevel = Math.max(
-                    aviLevelFromName(dayForecasts[i]['caaml:dangerRatingAlpValue']),
-                    aviLevelFromName(dayForecasts[i]['caaml:dangerRatingTlnValue']),
-                    aviLevelFromName(dayForecasts[i]['caaml:dangerRatingBtlValue']));
+                    forecasts.aviLevelFromName(dayForecasts[i]['caaml:dangerRatingAlpValue']),
+                    forecasts.aviLevelFromName(dayForecasts[i]['caaml:dangerRatingTlnValue']),
+                    forecasts.aviLevelFromName(dayForecasts[i]['caaml:dangerRatingBtlValue']));
 
                 // NOTE copy the first described day's forcast to the day before (see note above)
                 // NOTE this also assumes the days are listed in chronological order in the input data
@@ -558,16 +545,15 @@ function parseForecast_cac(body, regionDetails) {
     });
 
     return forecast;
-}
+};
 
-exports.parseForecast_pc = parseForecast_pc;
-function parseForecast_pc(body, regionDetails) {
+forecasts.parseForecast_pc = function(body, regionDetails) {
 
     var forecast = null;
 
     var parser = new xml2js.Parser();
     // NOTE this block is called synchronously with parsing, even though it looks async
-    parser.parseString(body, function (err, result) {
+    parser.parseString(body, function(err, result) {
         try {
             var dayForecasts = result.observations.Bulletin.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRating;
 
@@ -581,7 +567,7 @@ function parseForecast_pc(body, regionDetails) {
             // NOTE pc lists each day three times, one for each elevation zone
             for (var i = 0; i < (dayForecasts.length / 3); i++) {
 
-                var date = dateStringFromDateTimeString_caaml(dayForecasts[i].validTime.TimeInstant.timePosition);
+                var date = forecasts.dateStringFromDateTimeString_caaml(dayForecasts[i].validTime.TimeInstant.timePosition);
 
                 // NOTE pc organizes forecasts as separate entries for each elevation zone for each day;
                 // the alpine evevation zone is always listed first, and always has the highest danger level of the
@@ -609,21 +595,20 @@ function parseForecast_pc(body, regionDetails) {
     });
 
     return forecast;
-}
+};
 
-exports.parseForecast_caic = parseForecast_caic;
-function parseForecast_caic(body, regionDetails) {
+forecasts.parseForecast_caic = function(body, regionDetails) {
 
     var forecast = null;
 
     var parser = new xml2js.Parser();
     // NOTE this block is called synchronously with parsing, even though it looks async
-    parser.parseString(body, function (err, result) {
+    parser.parseString(body, function(err, result) {
         try {
-            var forecastIssuedDate = dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.beginPosition);
+            var forecastIssuedDate = forecasts.dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.beginPosition);
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
 
-            var forecastValidThroughDate = dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.endPosition);
+            var forecastValidThroughDate = forecasts.dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.endPosition);
 
             var aviLevel = parseInt(result.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRatingSingle.mainValue);
 
@@ -642,21 +627,19 @@ function parseForecast_caic(body, regionDetails) {
     });
 
     return forecast;
-}
+};
 
-exports.dateStringFromDateTimeString_caaml = dateStringFromDateTimeString_caaml;
-function dateStringFromDateTimeString_caaml(dateTimeString) {
+forecasts.dateStringFromDateTimeString_caaml = function(dateTimeString) {
     // NOTE typical date string: '2012-02-02T18:14:00' or '2012-02-10T00:00:00Z'
     return dateTimeString.slice(0,10);
-}
+};
 
-exports.parseForecast_uac = parseForecast_uac;
-function parseForecast_uac(body, regionDetails) {
+forecasts.parseForecast_uac = function(body, regionDetails) {
 
     var forecast = null;
 
-    var forecastIssuedDate = parseForecastIssuedDate_uac(body, regionDetails);
-    var aviLevels = parseForecastValues_uac(body, regionDetails);
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_uac(body, regionDetails);
+    var aviLevels = forecasts.parseForecastValues_uac(body, regionDetails);
 
     if (forecastIssuedDate) {
         forecast = [];
@@ -669,10 +652,9 @@ function parseForecast_uac(body, regionDetails) {
     }
 
     return forecast;
-}
+};
 
-exports.parseForecastIssuedDate_uac = parseForecastIssuedDate_uac;
-function parseForecastIssuedDate_uac(body, regionDetails) {
+forecasts.parseForecastIssuedDate_uac = function(body, regionDetails) {
 
     var forecastIssuedDate = null;
 
@@ -692,14 +674,14 @@ function parseForecastIssuedDate_uac(body, regionDetails) {
     }
 
     return forecastIssuedDate;
-}
+};
 
-function parseForecastValues_uac(body, regionDetails) {
+forecasts.parseForecastValues_uac = function(body, regionDetails) {
 
     // uac forecasts two days at a time
     var aviLevels = [];
     for (var i = 0; i < 2; i++) {
-        aviLevels[i] = AVI_LEVEL_UNKNOWN;
+        aviLevels[i] = forecasts.AVI_LEVEL_UNKNOWN;
     }
 
     // NOTE typical string for uac: '    [extendedforecast_rating_0] =&gt; Considerable'
@@ -708,22 +690,21 @@ function parseForecastValues_uac(body, regionDetails) {
 
     // the capture groups from the regex will be in slot 1 in each array
     if (dangerRatingMatch0 && dangerRatingMatch0.length > 1 && dangerRatingMatch1 && dangerRatingMatch1.length > 1) {
-        aviLevels[0] = findHighestAviLevelInString(dangerRatingMatch0[1]);
-        aviLevels[1] = findHighestAviLevelInString(dangerRatingMatch1[1]);
+        aviLevels[0] = forecasts.findHighestAviLevelInString(dangerRatingMatch0[1]);
+        aviLevels[1] = forecasts.findHighestAviLevelInString(dangerRatingMatch1[1]);
     } else {
         winston.warn('parse failure, danger levels not found; regionId: ' + regionDetails.regionId);
     }
 
     return aviLevels;
-}
+};
 
-exports.parseForecast_viac = parseForecast_viac;
-function parseForecast_viac(body, regionDetails) {
+forecasts.parseForecast_viac = function(body, regionDetails) {
 
     var forecast = null;
 
-    var forecastIssuedDate = parseForecastIssuedDate_viac(body, regionDetails);
-    var aviLevels = parseForecastValues_viac(body, regionDetails);
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_viac(body, regionDetails);
+    var aviLevels = forecasts.parseForecastValues_viac(body, regionDetails);
 
     if (forecastIssuedDate && aviLevels) {
         forecast = [];
@@ -737,10 +718,9 @@ function parseForecast_viac(body, regionDetails) {
     }
 
     return forecast;
-}
+};
 
-exports.parseForecastIssuedDate_viac = parseForecastIssuedDate_viac;
-function parseForecastIssuedDate_viac(body, regionDetails) {
+forecasts.parseForecastIssuedDate_viac = function(body, regionDetails) {
 
     var forecastIssuedDate = null;
 
@@ -760,14 +740,14 @@ function parseForecastIssuedDate_viac(body, regionDetails) {
     }
 
     return forecastIssuedDate;
-}
+};
 
-function parseForecastValues_viac(body, regionDetails) {
+forecasts.parseForecastValues_viac = function(body, regionDetails) {
 
     // viac forecasts three days at a time
     var aviLevels = [];
     for (var i = 0; i < 3; i++) {
-        aviLevels[i] = AVI_LEVEL_UNKNOWN;
+        aviLevels[i] = forecasts.AVI_LEVEL_UNKNOWN;
     }
 
     // NOTE typical string for viac:
@@ -786,14 +766,14 @@ function parseForecastValues_viac(body, regionDetails) {
     // the capture groups will be in slots 1, 2, 3
     if (dangerRatingMatch && dangerRatingMatch.length === 4) {
         for (var j = 0; j < aviLevels.length; j++) {
-            aviLevels[j] = findHighestAviLevelInString(dangerRatingMatch[j+1]);
+            aviLevels[j] = forecasts.findHighestAviLevelInString(dangerRatingMatch[j+1]);
         }
     } else {
         winston.warn('parse failure, danger levels not found; regionId: ' + regionDetails.regionId);
     }
 
     return aviLevels;
-}
+};
 
 
 
