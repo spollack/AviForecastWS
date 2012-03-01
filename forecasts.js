@@ -173,7 +173,8 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
-                winston.warn('forecast validation: UNEXPECTED did not find forecast for current day; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                winston.warn('forecast validation: UNEXPECTED did not find forecast for current day; current time: ' + today +
+                    '; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
             }
         }
     }
