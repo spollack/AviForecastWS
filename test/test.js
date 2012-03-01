@@ -1,8 +1,16 @@
+//
+// Copyright (c) 2012 Sebnarware. All rights reserved.
+//
+
+//
+// required packages
+//
 var should = require('should');
-var fs = require('fs');
 var winston = require('winston');
+var fs = require('fs');
 var moment = require('moment');
 var forecasts = require('../forecasts.js');
+
 
 // set up the logger
 winston.remove(winston.transports.Console);

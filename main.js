@@ -2,21 +2,15 @@
 // Copyright (c) 2012 Sebnarware. All rights reserved.
 //
 
-
 //
 // required packages
 //
-
 var winston = require('winston');
 var express = require('express');
 var gzippo = require('gzippo');
 var fs = require('fs');
 var forecasts = require('./forecasts.js');
 
-
-//
-// HTTP server
-//
 
 runServer();
 
