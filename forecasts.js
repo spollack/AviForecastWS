@@ -156,11 +156,16 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
     if (forecast) {
         // get the current date
-        // NOTE this is in (server) local time...
-        var today = moment().format('YYYY-MM-DD');
+        // NOTE timezones are tricky... first offset by the timezone that the environment is in to get back to UTC time,
+        // then offset to get to PST, which is what we use for our checking
+        var timezoneOffsetMinutes = moment().zone();
+        var pstOffsetMinutes = 8 * 60;
+        var currentPSTDate = moment().add('minutes', timezoneOffsetMinutes).subtract('minutes', pstOffsetMinutes).format('YYYY-MM-DD');
+        winston.verbose('forecast validation: right now the PST date is: ' + currentPSTDate);
+        winston.info('now: ' + moment().add('minutes', timezoneOffsetMinutes).subtract('minutes', pstOffsetMinutes).format('YYYY-MM-DD hh:mm:ss'));
 
         for (var i = 0; i < forecast.length; i++) {
-            if (forecast[i].date === today) {
+            if (forecast[i].date === currentPSTDate) {
                 validForecast = true;
                 winston.info('forecast validation: as expected, found forecast for current day; regionId: ' + regionId);
                 break;
@@ -173,7 +178,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
-                winston.warn('forecast validation: UNEXPECTED did not find forecast for current day; current time: ' + today +
+                winston.warn('forecast validation: UNEXPECTED did not find forecast for current day; current date: ' + currentPSTDate +
                     '; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
             }
         }

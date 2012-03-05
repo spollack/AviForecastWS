@@ -2,6 +2,7 @@ things to do now:
 --------------------
    auto-validation
         check and refine results
+   capture some forecasts.json files for working on android app
 
 things to do as time allows:
 --------------------
@@ -55,6 +56,7 @@ WS
             Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
+    capture all generated forecasts (for example, in S3)?
     look at libraries for parsing HTML (node-htmlparser, plus Shep's wrapper on top; other open source wrappers seem to be CSS selection only...)
     further auto-validation of each generated forecast
         on error, capture all inputs, and alert me
@@ -97,6 +99,7 @@ iOS
         relead regions.json periodically in app (for case where people don't restart the app/phone regularly)
     get rotation and zooming working correctly on danger scale definition view
     get app rotation working in all views
+    optimize file size of launch image
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
     deal w/ folks not allowing location services in some way (help text? FAQ on website?)
     add a "help your avalanche center" feature to take you to donation pages?
