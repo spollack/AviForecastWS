@@ -1,8 +1,6 @@
 things to do now:
 --------------------
-   auto-validation
-        check and refine results
-   capture some forecasts.json files for working on android app
+   auto-validation: check and refine results
 
 things to do as time allows:
 --------------------
@@ -16,10 +14,7 @@ marketing
     get app reviewed on app review sites
     get folks to write reviews, update their own reviews, and to mark reviews as helpful
     flesh out sebnarware.com website with more app info
-other
-    consider memorial to Johnny (e.g. on the website)
 business
-    transfer money into account once bank-to-bank transfer enabled
     create list of biz expenses so far that were paid before biz account was set up
     switch biz expenses to biz account
 WS
