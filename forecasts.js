@@ -162,7 +162,6 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
         var pstOffsetMinutes = 8 * 60;
         var currentPSTDate = moment().add('minutes', timezoneOffsetMinutes).subtract('minutes', pstOffsetMinutes).format('YYYY-MM-DD');
         winston.verbose('forecast validation: right now the PST date is: ' + currentPSTDate);
-        winston.info('now: ' + moment().add('minutes', timezoneOffsetMinutes).subtract('minutes', pstOffsetMinutes).format('YYYY-MM-DD hh:mm:ss'));
 
         for (var i = 0; i < forecast.length; i++) {
             if (forecast[i].date === currentPSTDate) {
