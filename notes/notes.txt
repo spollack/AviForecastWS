@@ -18,11 +18,6 @@ business
     create list of biz expenses so far that were paid before biz account was set up
     switch biz expenses to biz account
 WS
-    get access to NWAC JSON api
-        emailing with Jorie/Mark/Benj; ping again after Friday March 2nd
-        switch to NWAC JSON api when available and stable
-    UAC integration
-        enable parsing of "tomorrow" forecasts as well, once Brett is ready
     support other avi centers -- send integration email to not-yet-integrated avalanche organizations!!!
         AK
             Chugach (CNFAIC) -- got a message from a person there, he wants to get integrated
@@ -50,6 +45,8 @@ WS
             CAC Yukon -- emailed CAC for region definition
             Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
+    NWAC integration: get access to NWAC JSON api
+    UAC integration: enable parsing of "tomorrow" forecasts as well, once Brett is ready
     create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
     capture all generated forecasts (for example, in S3)?
     look at libraries for parsing HTML (node-htmlparser, plus Shep's wrapper on top; other open source wrappers seem to be CSS selection only...)
