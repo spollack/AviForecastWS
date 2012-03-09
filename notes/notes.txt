@@ -111,11 +111,12 @@ avalanche forecast center intro/integration blurb:
 --------------------
 Hello,
 
-I've recently developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map, based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
+I've recently developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
-You can read more about the application, including reviews, and download it here: http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
+You can read more about the application, see screenshots, read reviews, and download it here:
+http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
 
-I currently have it working with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (50 regions total). My goal is to eventually include all the avalanche forecasting centers across North America.
+I currently have it working with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (50 forecast regions total). My goals over time are to eventually include all the avalanche forecasting centers across North America, as well as to bring this to other mobile platforms beyond iOS (with Android being next on that list).
 
 I'd like to get your forecast center integrated. Would you please connect me with your technical point of contact?
 
@@ -129,7 +130,24 @@ Seth Pollack / Sebnarware
 
 
 
+get the word out blurb:
+--------------------
+I've recently developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
+You can read more about the application, see screenshots, read reviews, and download it here:
+http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
+
+I currently have it working with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (50 forecast regions total). My goals over time are to eventually include all the avalanche forecasting centers across North America, as well as to bring this to other mobile platforms beyond iOS (with Android being next on that list).
+
+I'd like to spread the word more broadly about this app within the avalanche/backcountry community. If you can help via an email out to the AIARE instructors, that would be fantastic. Also, any additional introductions you can help with, such as with the AAA and the National Avalanche Center, would be great.
+
+Thanks for your help!
+
+Seth
+
+ps: A word on my motivations: i'm doing this project as a free service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Many of us (myself included) have lost friends to avalanches. Anything we can do to get the information out there, so that people are armed to make good decisions, feels important and valuable. Plus its a fun project ;-)
+
+pps: if you'd like to chat, my cell is 206-553-9420.
 
 
 
