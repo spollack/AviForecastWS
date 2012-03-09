@@ -1,6 +1,5 @@
 things to do now:
 --------------------
-   auto-validation: check and refine results
 
 things to do as time allows:
 --------------------
@@ -47,6 +46,7 @@ WS
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     NWAC integration: get access to NWAC JSON api
     UAC integration: enable parsing of "tomorrow" forecasts as well, once Brett is ready
+    auto-validation: check and refine results
     create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
     capture all generated forecasts (for example, in S3)?
     look at libraries for parsing HTML (node-htmlparser, plus Shep's wrapper on top; other open source wrappers seem to be CSS selection only...)
