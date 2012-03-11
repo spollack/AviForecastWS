@@ -407,7 +407,7 @@ forecasts.parseForecast_nwac = function(body, regionDetails) {
             moment(forecastDates[i].add('days',i));
 
             // get the day name for that date
-            forecastDays[i] = moment(forecastDates[i]).format("dddd");
+            forecastDays[i] = moment(forecastDates[i]).format('dddd');
 
             aviLevels[i] = forecasts.AVI_LEVEL_UNKNOWN;
         }
@@ -708,13 +708,14 @@ forecasts.parseForecast_viac = function(body, regionDetails) {
 
     var forecast = null;
 
-    var forecastIssuedDate = forecasts.parseForecastIssuedDate_viac(body, regionDetails);
+    var firstForecastedDate = forecasts.parseFirstForecastedDate_viac(body, regionDetails);
     var aviLevels = forecasts.parseForecastValues_viac(body, regionDetails);
 
-    if (forecastIssuedDate && aviLevels) {
+
+    if (firstForecastedDate && aviLevels) {
         forecast = [];
         for (var i = 0; i < aviLevels.length; i++) {
-            forecast[i] = {'date': moment(forecastIssuedDate).clone().add('days', i).format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
+            forecast[i] = {'date': moment(firstForecastedDate).clone().add('days', i).format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
         }
 
         for (var j = 0; j < forecast.length; j++) {
@@ -723,6 +724,33 @@ forecasts.parseForecast_viac = function(body, regionDetails) {
     }
 
     return forecast;
+};
+
+forecasts.parseFirstForecastedDate_viac = function(body, regionDetails) {
+
+    var firstForecastedDate = null;
+
+    // NOTE viac can issue forecasts the day before or the day of the first forecasted day; we need to correlate the
+    // forecast issued date with the days of week that are described in the forecast
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_viac(body, regionDetails);
+    var firstForecastedDayOfWeek = forecasts.parseFirstForecastedDayOfWeek_viac(body, regionDetails);
+
+    if (forecastIssuedDate && firstForecastedDayOfWeek) {
+
+        var daysOfWeek = [];
+
+        for (var i = 0; i < 2; i++) {
+            // copy the value of the forecast issued date, offset by the appropriate number of days, and get the day of week
+            daysOfWeek[i] = moment(forecastIssuedDate).clone().add('days',i);
+
+            if (moment(daysOfWeek[i]).format('dddd').toLowerCase() === firstForecastedDayOfWeek.toLowerCase()) {
+                firstForecastedDate = daysOfWeek[i];
+                break;
+            }
+        }
+    }
+
+    return firstForecastedDate;
 };
 
 forecasts.parseForecastIssuedDate_viac = function(body, regionDetails) {
@@ -745,6 +773,25 @@ forecasts.parseForecastIssuedDate_viac = function(body, regionDetails) {
     }
 
     return forecastIssuedDate;
+};
+
+forecasts.parseFirstForecastedDayOfWeek_viac = function(body, regionDetails) {
+
+    var firstForecastedDayOfWeek = null;
+
+    // capture the first forecasted day of week
+    // NOTE typical string for viac: '<th style="background-color: #eeeeee;">Outlook</th><th style="background-color: #eeeeee;">Sunday</th><th style="background-color: #eeeeee;">Monday<br /></th><th style="background-color: #eeeeee;">Tuesday<br /></th>'
+    var timestampMatch = body.match(/<th[^>]*>Outlook<\/th><th[^>]*>(\w+)<\/th>/i);
+
+    // the capture groups from the regex will be in slot 1 in the array
+    if (timestampMatch && timestampMatch.length === 2) {
+        firstForecastedDayOfWeek = timestampMatch[1];
+        winston.verbose('found first forecasted day of week; regionId: ' + regionDetails.regionId + '; firstForecastedDayOfWeek: ' + firstForecastedDayOfWeek);
+    } else {
+        winston.warn('parse failure, first forecasted day of week not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return firstForecastedDayOfWeek;
 };
 
 forecasts.parseForecastValues_viac = function(body, regionDetails) {
