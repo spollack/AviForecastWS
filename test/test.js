@@ -509,9 +509,9 @@ describe('parseForecast_viac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2012-03-10');
-            forecast[1].date.should.equal('2012-03-11');
-            forecast[2].date.should.equal('2012-03-12');
+            forecast[0].date.should.equal('2012-03-11');
+            forecast[1].date.should.equal('2012-03-12');
+            forecast[2].date.should.equal('2012-03-13');
             forecast[0].aviLevel.should.equal(3);
             forecast[1].aviLevel.should.equal(4);
             forecast[2].aviLevel.should.equal(4);
