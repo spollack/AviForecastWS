@@ -760,13 +760,13 @@ forecasts.parseForecastValues_viac = function(body, regionDetails) {
     //    <th>Outlook</th><th>Friday</th><th>Saturday<br /></th><th>Sunday<br /></th>
     //    </tr>
     //    <tr>
-    //    <td><strong>Alpine</strong><br /></td>
-    //    <td style="background-color: #ffdd77;">HIGH<br /></td>
-    //    <td style="background-color: #ffdd77;">CONSIDERABLE</td>
-    //    <td style="background-color: #ffdd77;">CONSIDERABLE</td>
+    //    <td style="text-align: center; font-weight: bold; padding: 5px; border: 1px solid #ffffff;"><strong style="font-size: 12px;">Alpine</strong><br /></td>
+    //    <td style="text-align: center; font-weight: bold; background-color: #ffdd77; padding: 5px; border: 1px solid #ffffff;">CONSIDERABLE<br /></td>
+    //    <td style="text-align: center; font-weight: bold; background-color: #f3aa5f; padding: 5px; border: 1px solid #ffffff;">HIGH<br /></td>
+    //    <td style="text-align: center; font-weight: bold; background-color: #f25f5f; padding: 5px; border: 1px solid #ffffff;">HIGH<br /></td>
     //    </tr>
 
-    var dangerRatingMatch = body.match(/<td><strong>Alpine<\/strong><br \/><\/td>\s*\n(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)/i);
+    var dangerRatingMatch = body.match(/<td.*Alpine<\/strong><br \/><\/td>\s*\n(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)/i);
 
     // the capture groups will be in slots 1, 2, 3
     if (dangerRatingMatch && dangerRatingMatch.length === 4) {
