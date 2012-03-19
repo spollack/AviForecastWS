@@ -66,7 +66,7 @@ iOS
         add more usage info, in terms of what "no rating" means, using your brain out there, etc.
     add alert/feedback if there are no avalanche forecast regions near your current position
     add more prominent loading spinner for when loading regions/forecasts
-    viral aspect -- make it easy to share via facebook, twitter?
+    viral aspect -- make it easy to share via email, facebook, twitter?
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
     add system message capability, to send dynamic messages to users
     more data at-a-glance
