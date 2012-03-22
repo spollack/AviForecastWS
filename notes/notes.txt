@@ -62,6 +62,7 @@ WS
 Android
     feasibility review
 iOS
+    update Flurry to get OS version info
     info
         add more usage info, in terms of what "no rating" means, using your brain out there, etc.
     add alert/feedback if there are no avalanche forecast regions near your current position
