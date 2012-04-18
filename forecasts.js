@@ -322,7 +322,7 @@ forecasts.findHighestAviLevelInString = function(string) {
 
     // NOTE looks for the *highest* avi level keyword within the string
 
-    var aviLevel = 0;
+    var aviLevel = forecasts.AVI_LEVEL_UNKNOWN;
 
     // various cases handled:
     // * mixed case
@@ -377,6 +377,22 @@ forecasts.aviLevelFromName = function(aviLevelName) {
 
 String.prototype.trim = function() {
     return this.replace(/^\s+/, '').replace(/\s+$/, '');
+};
+
+forecasts.findAviLevelNumberInString = function(string) {
+
+    var aviLevel = forecasts.AVI_LEVEL_UNKNOWN;
+
+    if (string) {
+        aviLevel = parseInt(string);
+
+        // sanity check the value
+        if (!(aviLevel >= forecasts.AVI_LEVEL_UNKNOWN && aviLevel <= forecasts.AVI_LEVEL_EXTREME)) {
+            aviLevel = forecasts.AVI_LEVEL_UNKNOWN;
+        }
+    }
+
+    return aviLevel;
 };
 
 forecasts.parseForecast_nwac = function(body, regionDetails) {
@@ -577,7 +593,7 @@ forecasts.parseForecast_pc = function(body, regionDetails) {
                 // NOTE pc organizes forecasts as separate entries for each elevation zone for each day;
                 // the alpine evevation zone is always listed first, and always has the highest danger level of the
                 // elevation zones, so we use it
-                var aviLevel = parseInt(dayForecasts[i].mainValue);
+                var aviLevel = forecasts.findAviLevelNumberInString(dayForecasts[i].mainValue);
 
                 // NOTE copy the first described day's forcast to the day before (see note above)
                 // NOTE this also assumes the days are listed in chronological order in the input data
@@ -615,7 +631,7 @@ forecasts.parseForecast_caic = function(body, regionDetails) {
 
             var forecastValidThroughDate = forecasts.dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.endPosition);
 
-            var aviLevel = parseInt(result.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRatingSingle.mainValue);
+            var aviLevel = forecasts.findAviLevelNumberInString(result.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRatingSingle.mainValue);
 
             // NOTE caic issues avalanche forcasts for 24 hours at a time (issued in the morning, for that day and the next
             // early morning, so spanning two days)

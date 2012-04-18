@@ -353,6 +353,25 @@ describe('parseForecast_pc', function(){
             forecast[3].aviLevel.should.equal(1);
         })
     })
+    describe('file004.xml', function(){
+        it('should return the correct forecast details, meaning level 0 for everything', function(){
+            var forecast = forecasts.parseForecast_pc(fs.readFileSync('test/data/pc/file004.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('pc_4'));
+
+            // NOTE this test case if for the case where there is a bogus issued timestamp that is in the future
+            // (this forecast was actually issued on 2012-02-16, but says it was issued on 2012-02-17)
+            should.exist(forecast);
+            forecast.length.should.equal(4);
+            forecast[0].date.should.equal('2012-04-17');
+            forecast[1].date.should.equal('2012-04-18');
+            forecast[2].date.should.equal('2012-04-19');
+            forecast[3].date.should.equal('2012-04-20');
+            forecast[0].aviLevel.should.equal(0);
+            forecast[1].aviLevel.should.equal(0);
+            forecast[2].aviLevel.should.equal(0);
+            forecast[3].aviLevel.should.equal(0);
+        })
+    })
 })
 
 describe('parseForecast_caic', function(){
