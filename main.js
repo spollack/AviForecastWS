@@ -34,7 +34,7 @@ function configLogger() {
         winston.info('development mode, NOT logging to Loggly');
     } else {
         winston.info('production mode, logging to Loggly');
-        winston.add(winston.transports.Loggly, {level:'info', handleExceptions:true, subdomain:'aviforecast', inputToken:'1e07b218-655c-4003-998e-cedd5112169e'});
+        winston.add(winston.transports.Loggly, {level:'info', handleExceptions:true, subdomain:'logs', inputToken:'1e07b218-655c-4003-998e-cedd5112169e'});
     }
 }
 
