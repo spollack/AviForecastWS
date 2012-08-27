@@ -21,7 +21,7 @@ WS
             Valdez
             Cordova
             Juneau
-        CA
+        CA (got a request for "Sierra Nevadas/Tahoe region")
             Mount Shasta
             Truckee
             Eastern Sierra
