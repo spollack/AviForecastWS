@@ -56,9 +56,8 @@ WS
         on error, capture all inputs, and alert me
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
-    switch from loggly to logentries
     fix use of config.js
-    update to current semantics with xml2js
+    update to current semantics (0.2.x not 0.1.x) with xml2js
     set up real (remote) git
 Android
     feasibility review

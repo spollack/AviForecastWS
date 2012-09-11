@@ -17,7 +17,7 @@ runServer();
 
 function runServer() {
 
-    configLogger();
+    configureLogger();
 
     initializeForecastProcessing();
 
