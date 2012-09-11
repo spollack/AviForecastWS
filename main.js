@@ -5,10 +5,11 @@
 //
 // required packages
 //
+var fs = require('fs');
 var winston = require('winston');
 var express = require('express');
 var gzippo = require('gzippo');
-var fs = require('fs');
+var config = require('./config.js');
 var forecasts = require('./forecasts.js');
 
 
@@ -23,20 +24,24 @@ function runServer() {
     startHTTPServer();
 }
 
-function configLogger() {
+function configureLogger() {
+
     // remove the default transport, so that we can reconfigure it
     winston.remove(winston.transports.Console);
 
-    // verbose, info, warn, error are the log levels we're using
-    winston.add(winston.transports.Console, {level:'info', handleExceptions:true});
+    // NOTE verbose, info, warn, error are the log levels we're using
+    winston.add(winston.transports.Console,
+        {
+            level:'info',
+            timestamp:!(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') // the heroku envs already have timestamps
+        });
 
-    if (process.env.DEBUG) {
-        winston.info('development mode, NOT logging to Loggly');
-    } else {
-        winston.info('production mode, logging to Loggly');
-        winston.add(winston.transports.Loggly, {level:'info', handleExceptions:true, subdomain:'logs', inputToken:'1e07b218-655c-4003-998e-cedd5112169e'});
+    if (!(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')) {
+        winston.add(winston.transports.File, {level:'info', timestamp:true, json:false, filename:config.localLogFilePath});
+        winston.info('main_configureLogger NOT production or staging mode; local logfile is at: ' + config.localLogFilePath);
     }
 }
+
 
 function initializeForecastProcessing() {
 

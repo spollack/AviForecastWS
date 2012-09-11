@@ -49,16 +49,17 @@ WS
     auto-validation: check and refine results
     create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
     capture all generated forecasts (for example, in S3)?
-    look at libraries for parsing HTML (node-htmlparser, plus Shep's wrapper on top; other open source wrappers seem to be CSS selection only...)
+    look at libraries for parsing HTML
     further auto-validation of each generated forecast
         validate by time of day (e.g. forecast should be issued by 8am or whatever)
         have classes of validation (issued daily vs. irregularly, issued day before vs. morning of, etc.)
         on error, capture all inputs, and alert me
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
-    update linked components (flurry, etc.)
-    any way to launch unit tests from WebStorm? (opened ticket with JetBrains)
-    not getting heroku log messages in loggly (could switch to heroku loggly add-on for this, but lower data limit and retention time, or paid)?
+    switch from loggly to logentries
+    fix use of config.js
+    update to current semantics with xml2js
+    set up real (remote) git
 Android
     feasibility review
 iOS

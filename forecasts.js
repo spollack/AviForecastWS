@@ -10,11 +10,11 @@ var forecasts = module.exports = {};
 //
 // required packages
 //
+var fs = require('fs');
 var winston = require('winston');
 var request = require('request');
 var moment = require('moment');
 var xml2js = require('xml2js');
-var fs = require('fs');
 
 
 // avi danger levels
@@ -521,7 +521,7 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
 
     var forecast = null;
 
-    var parser = new xml2js.Parser();
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
     // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function(err, result) {
         try {
@@ -572,7 +572,7 @@ forecasts.parseForecast_pc = function(body, regionDetails) {
 
     var forecast = null;
 
-    var parser = new xml2js.Parser();
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
     // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function(err, result) {
         try {
@@ -622,7 +622,7 @@ forecasts.parseForecast_caic = function(body, regionDetails) {
 
     var forecast = null;
 
-    var parser = new xml2js.Parser();
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
     // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function(err, result) {
         try {
