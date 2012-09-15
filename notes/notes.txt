@@ -11,20 +11,22 @@ marketing
     find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
     get folks to write reviews, update their own reviews, and to mark reviews as helpful
     flesh out sebnarware.com website with more app info
+    setup twitter, facebook, blog
+    review marketing guide for steps to take
 WS
     support other avi centers
         take structured data only, not HTML!
         send integration email to not-yet-integrated avalanche organizations (ask about API)
         provide a spec, or even an implementation, of a simple forecast publishing web service to the avalanche centers?
+        CA (got a request for "Sierra Nevadas/Tahoe region")
+            Mount Shasta
+            Truckee
+            Eastern Sierra
         AK
             Chugach (CNFAIC) -- got a message from a person there, he wants to get integrated
             Valdez
             Cordova
             Juneau
-        CA (got a request for "Sierra Nevadas/Tahoe region")
-            Mount Shasta
-            Truckee
-            Eastern Sierra
         ID
             McCall
             Panhandle
@@ -49,7 +51,6 @@ WS
     auto-validation: check and refine results
     create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
     capture all generated forecasts (for example, in S3)?
-    look at libraries for parsing HTML
     further auto-validation of each generated forecast
         validate by time of day (e.g. forecast should be issued by 8am or whatever)
         have classes of validation (issued daily vs. irregularly, issued day before vs. morning of, etc.)
@@ -57,24 +58,25 @@ WS
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
     fix use of config.js
+    use HTML parsing library (cheerio) as opposed by regexs
     update to current semantics (0.2.x not 0.1.x) with xml2js
     set up real (remote) git
 Android
-    feasibility review
+    build Android version!
 iOS
-    update Flurry to get OS version info
+    update Flurry library (to get OS version info, etc.)
     info
         add more usage info, in terms of what "no rating" means, using your brain out there, etc.
     add alert/feedback if there are no avalanche forecast regions near your current position
     add more prominent loading spinner for when loading regions/forecasts
-    viral aspect -- make it easy to share via email, facebook, twitter?
+    viral aspect -- make it easy to share via email, facebook, twitter
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
     add system message capability, to send dynamic messages to users
     more data at-a-glance
         show the danger rose as an icon on the map too within each region?
         click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
         label regions with their names? give them a danger level icon?
-    add forecasts last fetched time (need to pull from cache or persist, for offline case)(System Font size 13; label height 18)?
+    add forecasts last fetched time (need to pull from cache or persist, for offline case) (System Font size 13; label height 18)?
     add refresh button for explicit refresh forecast? have it do a full reload of the regions too?
     offline mode
         offline: give message if detailed view unavailable for a region?
@@ -122,7 +124,7 @@ I'd like to get your forecast center integrated. Would you please connect me wit
 
 In order to integrate technically, there are two elements i'll need:
 1) forecast region definitions: do you happen to have a KMZ file (or any similar geographic data file) that describes the borders of each of your forecast regions in terms of latitude/longitude coordinate paths? If not, i can work with you to create this.
-2) forecast data: I can pull the forecast information by parsing your web pages, but if you have a CAAML feed or other API that you would prefer i use, that would be great.
+2) forecast data: I can pull the forecast information by parsing your web pages, but if you have a CAAML feed or other API that you would prefer i use, that is definitely preferable.
 
 Thanks for your help.
 
