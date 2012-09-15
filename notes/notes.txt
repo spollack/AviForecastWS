@@ -63,6 +63,17 @@ WS
     set up real (remote) git
 Android
     build Android version!
+    networking
+        for v2.2 (Froyo) support, use AndroidHTTPClient (if i wanted to require Gingerbread instead, could move to HttpUrlConnection)
+    map view
+        GoogleMapView
+        build project and virtual device against that SDK
+        get maps key
+        overlays
+    web view
+        WebView; or invoke browser via URLIntent
+    offline caching
+        WebView has an answer, but not sure about offline for maps, or for direct data calls
 iOS
     update Flurry library (to get OS version info, etc.)
     info
