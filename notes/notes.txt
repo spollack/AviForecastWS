@@ -22,6 +22,11 @@ WS
             Mount Shasta
             Truckee
             Eastern Sierra
+        Jackson WY (Bridger-Teton) (3 regions)
+        MT
+            Bozeman (Gallatin) (3 regions)
+            Glacier
+            Missoula
         AK
             Chugach (CNFAIC) -- got a message from a person there, he wants to get integrated
             Valdez
@@ -31,11 +36,6 @@ WS
             McCall
             Panhandle
             Sun Valley
-        MT
-            Bozeman (Gallatin) (3 regions)
-            Glacier
-            Missoula
-        Jackson WY (Bridger-Teton) (3 regions)
         Flagstaff AZ
         Joseph OR
         Mount Washington NH
@@ -64,7 +64,7 @@ WS
 Android
     build Android version!
     networking
-        for v2.2 (Froyo) support, use AndroidHTTPClient (if i wanted to require Gingerbread instead, could move to HttpUrlConnection)
+        to target v2.2 (Froyo) and above, use AndroidHTTPClient (if i wanted to require Gingerbread instead, could move to HttpUrlConnection)
     map view
         GoogleMapView
         build project and virtual device against that SDK
@@ -75,19 +75,18 @@ Android
     offline caching
         WebView has an answer, but not sure about offline for maps, or for direct data calls
 iOS
-    update Flurry library (to get OS version info, etc.)
     info
         add more usage info, in terms of what "no rating" means, using your brain out there, etc.
     add alert/feedback if there are no avalanche forecast regions near your current position
     add more prominent loading spinner for when loading regions/forecasts
     viral aspect -- make it easy to share via email, facebook, twitter
     add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
+    add forecasts last fetched time (need to pull from cache or persist, for offline case) (System Font size 13; label height 18)?
     add system message capability, to send dynamic messages to users
     more data at-a-glance
         show the danger rose as an icon on the map too within each region?
         click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
         label regions with their names? give them a danger level icon?
-    add forecasts last fetched time (need to pull from cache or persist, for offline case) (System Font size 13; label height 18)?
     add refresh button for explicit refresh forecast? have it do a full reload of the regions too?
     offline mode
         offline: give message if detailed view unavailable for a region?
@@ -107,6 +106,8 @@ iOS
             although investigate what happens to network ops if the app loses focus
         relead regions.json periodically in app (for case where people don't restart the app/phone regularly)
     get rotation and zooming working correctly on danger scale definition view
+    use taller danger scale image on iPhone5 (see https://gist.github.com/3719620#file_ui_image%2Bretina4.m for example)
+    make alerts taller on iPhone5 (need to create own UIView, UIAlertView won't do this)
     get app rotation working in all views
     optimize file size of launch image
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
@@ -117,34 +118,41 @@ iOS
     add telemetry info?
     show previous days, for history? allow selecting further into the future?
     add push notifications?
-    update linked components?
     make iPad experience better?
+
 
 avalanche forecast center intro/integration blurb:
 --------------------
+[Avalanche Forecasts mobile app integration]
+
 Hello,
 
-I've recently developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
+Earlier this year I developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
 You can read more about the application, see screenshots, read reviews, and download it here:
 http://itunes.apple.com/app/avalanche-forecasts/id501231389?mt=8
 
-I currently have it working with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (50 forecast regions total). My goals over time are to eventually include all the avalanche forecasting centers across North America, as well as to bring this to other mobile platforms beyond iOS (with Android being next on that list).
+I currently have it working with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (50 forecast regions total so far). My goals over time are to eventually include all the avalanche forecasting centers across North America, as well as to bring this to other mobile platforms beyond iOS (with Android being next on that list).
 
-I'd like to get your forecast center integrated. Would you please connect me with your technical point of contact?
+In preperation for the coming snow season, I'd like to get your forecast center integrated. Would you please connect me with your technical point of contact?
 
 In order to integrate technically, there are two elements i'll need:
 1) forecast region definitions: do you happen to have a KMZ file (or any similar geographic data file) that describes the borders of each of your forecast regions in terms of latitude/longitude coordinate paths? If not, i can work with you to create this.
-2) forecast data: I can pull the forecast information by parsing your web pages, but if you have a CAAML feed or other API that you would prefer i use, that is definitely preferable.
+2) forecast data: do you have a CAAML feed or other API that i can use to pull forecast information? Alternatively I can extract the forecast information by parsing your web pages, but a structured data feed is the much more robust approach.
 
-Thanks for your help.
+Thanks for your help!
 
-Seth Pollack / Sebnarware
+Seth
 
+ps: A word on my motivations: i'm doing this project as a free service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Many of us (myself included) have lost friends to avalanches. Anything we can do to get the information out there, so that people are armed to make good decisions, feels important and valuable. Plus its a fun project!
+
+pps: if you'd like to chat, my cell is 206-553-9420.
 
 
 get the word out blurb:
 --------------------
+[Avalanche Forecasts mobile app]
+
 I've recently developed a free iPhone app that displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
 You can read more about the application, see screenshots, read reviews, and download it here:
@@ -158,7 +166,7 @@ Thanks for your help!
 
 Seth
 
-ps: A word on my motivations: i'm doing this project as a free service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Many of us (myself included) have lost friends to avalanches. Anything we can do to get the information out there, so that people are armed to make good decisions, feels important and valuable. Plus its a fun project ;-)
+ps: A word on my motivations: i'm doing this project as a free service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Many of us (myself included) have lost friends to avalanches. Anything we can do to get the information out there, so that people are armed to make good decisions, feels important and valuable. Plus its a fun project!
 
 pps: if you'd like to chat, my cell is 206-553-9420.
 
