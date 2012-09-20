@@ -13,7 +13,7 @@ marketing
     flesh out sebnarware.com website with more app info
     setup twitter, facebook, blog
     review marketing guide for steps to take
-WS
+WebService
     support other avi centers
         take structured data only, not HTML!
         send integration email to not-yet-integrated avalanche organizations (ask about API)
@@ -75,54 +75,58 @@ Android
     offline caching
         WebView has an answer, but not sure about offline for maps, or for direct data calls
 iOS
-    iOS6 / iPhone5 compatibility
-        remembering legal click seems broken in iOS6 -- is this just in simulator, or in real world too?
-        get rotation and zooming working correctly on danger scale definition view
-        use taller danger scale image on iPhone5 (see https://gist.github.com/3719620#file_ui_image%2Bretina4.m for example)
-        make alerts taller on iPhone5 (need to create own UIView, UIAlertView won't do this)
-        update screenshots
-            need to add new taller versions too -- 640x1136 and 640x1096
-    info
-        add more usage info, in terms of what "no rating" means, using your brain out there, etc.
-    add alert/feedback if there are no avalanche forecast regions near your current position
-    add more prominent loading spinner for when loading regions/forecasts
-    viral aspect -- make it easy to share via email, facebook, twitter
-    add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
-    add forecasts last fetched time (need to pull from cache or persist, for offline case) (System Font size 13; label height 18)?
-    add system message capability, to send dynamic messages to users
-    more data at-a-glance
-        show the danger rose as an icon on the map too within each region?
-        click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
-        label regions with their names? give them a danger level icon?
-    add refresh button for explicit refresh forecast? have it do a full reload of the regions too?
-    offline mode
-        offline: give message if detailed view unavailable for a region?
-        really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
-        say when data was cached, for every page?
-    cache regions.json persistently in app, for performance? (as file is large, and growing) -- probably not needed after digit compression
-        do a lightweight validity check to see if file update is necessary (still important to keep dynamic region file updates, e.g. if URL changes)
-        note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
-        see for ideas: http://iphoneincubator.com/blog/server-communication/how-to-download-a-file-only-if-it-has-been-updated
-        store where it cannot be erased by iOS (separate from other cache)
-        could implement as a customer NSURLProtocolHandler, in front of the other one
-        load new file before proceeding
-        make sure i handle both the offline and online cases
-        preload cache at app install
-        get rid of special no regions.json alert path, if no longer needed
-        OR... use a software update style model instead? (never block user waiting for download...
-            although investigate what happens to network ops if the app loses focus
-        relead regions.json periodically in app (for case where people don't restart the app/phone regularly)
-    get app rotation working in all views
-    optimize file size of launch image
-    feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
-    deal w/ folks not allowing location services in some way (help text? FAQ on website?)
-    add a "help your avalanche center" feature to take you to donation pages?
-    add more avi reference info?
-    add weather info?
-    add telemetry info?
-    show previous days, for history? allow selecting further into the future?
-    add push notifications?
-    make iPad experience better?
+    v2
+        iOS6 / iPhone5 compatibility
+            remembering legal click seems broken in iOS6 -- is this just in simulator, or in real world too?
+            get rotation and zooming working correctly on danger scale definition view
+            use taller danger scale image on iPhone5 (see https://gist.github.com/3719620#file_ui_image%2Bretina4.m for example)
+            make alerts taller on iPhone5 (need to create own UIView, UIAlertView won't do this)
+            update all screenshots
+                use simulated data for screenshots
+                need to add new taller versions too -- 640x1136 and 640x1096
+        status bar
+            add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
+            add alert/feedback if there are no avalanche forecast regions near your current position
+            add more prominent loading spinner for when loading regions/forecasts
+            add forecasts last fetched time (need to pull from cache or persist, for offline case) (System Font size 13; label height 18)?
+        sharing
+            make it easy to share (virally) via facebook, twitter
+        offline mode improvements
+            offline: give message if detailed view unavailable for a region?
+            really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
+            say when data was cached, for every page?
+        misc items
+            deal w/ folks not allowing location services in some way (check if location services available, if not put up pop-up message)
+            add more usage info, in terms of what "no rating" means, using your brain out there, etc.
+            optimize file size of launch image
+    v3
+        add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
+        more data at-a-glance
+            show the danger rose as an icon on the map too within each region?
+            click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
+            label regions with their names? give them a danger level icon?
+        cache regions.json persistently in app, for performance? (as file is large, and growing) -- probably not needed after digit compression
+            do a lightweight validity check to see if file update is necessary (still important to keep dynamic region file updates, e.g. if URL changes)
+            note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
+            see for ideas: http://iphoneincubator.com/blog/server-communication/how-to-download-a-file-only-if-it-has-been-updated
+            store where it cannot be erased by iOS (separate from other cache)
+            could implement as a customer NSURLProtocolHandler, in front of the other one
+            load new file before proceeding
+            make sure i handle both the offline and online cases
+            preload cache at app install
+            get rid of special no regions.json alert path, if no longer needed
+            OR... use a software update style model instead? (never block user waiting for download...
+                although investigate what happens to network ops if the app loses focus
+            relead regions.json periodically in app (for case where people don't restart the app/phone regularly)
+        feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
+        add a "help your avalanche center" feature to take you to donation pages?
+        add more avi reference info?
+        add weather info?
+        add telemetry info?
+        show previous days, for history? allow selecting further into the future?
+        add push notifications?
+        get app rotation working in all views?
+        make iPad experience better?
 
 
 avalanche forecast center intro/integration blurb:
