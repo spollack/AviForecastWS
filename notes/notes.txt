@@ -75,6 +75,13 @@ Android
     offline caching
         WebView has an answer, but not sure about offline for maps, or for direct data calls
 iOS
+    iOS6 / iPhone5 compatibility
+        remembering legal click seems broken in iOS6 -- is this just in simulator, or in real world too?
+        get rotation and zooming working correctly on danger scale definition view
+        use taller danger scale image on iPhone5 (see https://gist.github.com/3719620#file_ui_image%2Bretina4.m for example)
+        make alerts taller on iPhone5 (need to create own UIView, UIAlertView won't do this)
+        update screenshots
+            need to add new taller versions too -- 640x1136 and 640x1096
     info
         add more usage info, in terms of what "no rating" means, using your brain out there, etc.
     add alert/feedback if there are no avalanche forecast regions near your current position
@@ -105,10 +112,6 @@ iOS
         OR... use a software update style model instead? (never block user waiting for download...
             although investigate what happens to network ops if the app loses focus
         relead regions.json periodically in app (for case where people don't restart the app/phone regularly)
-    remembering legal click seems broken in iOS6 -- is this just in simulator, or in real world too?
-    get rotation and zooming working correctly on danger scale definition view
-    use taller danger scale image on iPhone5 (see https://gist.github.com/3719620#file_ui_image%2Bretina4.m for example)
-    make alerts taller on iPhone5 (need to create own UIView, UIAlertView won't do this)
     get app rotation working in all views
     optimize file size of launch image
     feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
