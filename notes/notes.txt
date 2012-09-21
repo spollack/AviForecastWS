@@ -64,7 +64,8 @@ WebService
 Android
     build Android version!
     networking
-        to target v2.2 (Froyo) and above, use AndroidHTTPClient (if i wanted to require Gingerbread instead, could move to HttpUrlConnection)
+        http://loopj.com/android-async-http/
+            tested; it works, but json parsing seems slow (need to test more)
     map view
         GoogleMapView
         build project and virtual device against that SDK
