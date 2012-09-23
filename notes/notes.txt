@@ -19,9 +19,9 @@ WebService
         send integration email to not-yet-integrated avalanche organizations (ask about API)
         provide a spec, or even an implementation, of a simple forecast publishing web service to the avalanche centers?
         CA (got a request for "Sierra Nevadas/Tahoe region")
-            Mount Shasta
-            Truckee
-            Eastern Sierra
+            Mount Shasta -- want to integrate
+            Truckee -- email sent
+            Eastern Sierra -- email sent
         Jackson WY (Bridger-Teton) (3 regions)
         MT
             Bozeman (Gallatin) (3 regions)
@@ -65,7 +65,8 @@ Android
     build Android version!
     networking
         http://loopj.com/android-async-http/
-            tested; it works, but json parsing seems slow (need to test more)
+            tested; it works, but json parsing is very slow (just getting plain response: 4sec; response in JSON: 33sec)
+                tried Jackson, and that was even slower!
     map view
         GoogleMapView
         build project and virtual device against that SDK
