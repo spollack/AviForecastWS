@@ -79,9 +79,8 @@ Android
 iOS
     v2
         iOS6 / iPhone5 compatibility
-            remembering legal click seems broken in iOS6 -- is this just in simulator, or in real world too?
-            get rotation and zooming working correctly on danger scale definition view
-            use taller danger scale image on iPhone5 (see https://gist.github.com/3719620#file_ui_image%2Bretina4.m for example)
+            remembering legal click seems broken in iOS6 (appears to be simulator only)
+            get rotation working correctly on danger scale definition view
             make alerts taller on iPhone5 (need to create own UIView, UIAlertView won't do this)
             update all screenshots
                 use simulated data for screenshots
