@@ -77,29 +77,30 @@ Android
     offline caching
         WebView has an answer, but not sure about offline for maps, or for direct data calls
 iOS
+    v1.2
+        test!!!
+        map zoom level is different on iOS6 vs. iOS5
+        update all screenshots
+            use simulated data for screenshots
+            need to add new taller versions too -- 640x1136 and 640x1096
+        submit to app store
     v2
-        iOS6 / iPhone5 compatibility
-            remembering legal click seems broken in iOS6 (appears to be simulator only)
-            get rotation working correctly on danger scale definition view
-            make alerts taller on iPhone5 (need to create own UIView, UIAlertView won't do this)
-            update all screenshots
-                use simulated data for screenshots
-                need to add new taller versions too -- 640x1136 and 640x1096
+        sharing
+            make it easy to share (virally) via facebook, twitter
+        enhanced UI
+            change info button to bring up a table of topics (master/detail), not a pop-up
+            add more usage info, in terms of what "no rating" means, using your brain out there, etc.
+            get rotation working correctly on danger scale definition view (and maybe elsewhere?)
         status bar
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
+                need to think through how to handle multiple messages, no messages, etc.
             add alert/feedback if there are no avalanche forecast regions near your current position
             add more prominent loading spinner for when loading regions/forecasts
             add forecasts last fetched time (need to pull from cache or persist, for offline case) (System Font size 13; label height 18)?
-        sharing
-            make it easy to share (virally) via facebook, twitter
         offline mode improvements
             offline: give message if detailed view unavailable for a region?
             really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
             say when data was cached, for every page?
-        misc items
-            deal w/ folks not allowing location services in some way (check if location services available, if not put up pop-up message)
-            add more usage info, in terms of what "no rating" means, using your brain out there, etc.
-            optimize file size of launch image
     v3
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
         more data at-a-glance
