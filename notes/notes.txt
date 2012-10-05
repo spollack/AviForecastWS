@@ -80,7 +80,6 @@ iOS
     v1.2
         test!!!
         map zoom level is different on iOS6 vs. iOS5
-        test rate app on iOS6
         update all screenshots
             use simulated data for screenshots
             need to add new taller versions too -- 640x1136 and 640x1096
@@ -120,7 +119,7 @@ iOS
             get rid of special no regions.json alert path, if no longer needed
             OR... use a software update style model instead? (never block user waiting for download...
                 although investigate what happens to network ops if the app loses focus
-            relead regions.json periodically in app (for case where people don't restart the app/phone regularly)
+            reload regions.json periodically in app (for case where people don't restart the app/phone regularly)
         feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
         add a "help your avalanche center" feature to take you to donation pages?
         add more avi reference info?
