@@ -79,7 +79,7 @@ Android
 iOS
     v1.2
         test!!!
-        map zoom level is different on iOS6 vs. iOS5
+        map zoom level is different on iPhone 5 ... why?
         update all screenshots
             use simulated data for screenshots
             need to add new taller versions too -- 640x1136 and 640x1096
