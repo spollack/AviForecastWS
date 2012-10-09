@@ -20,7 +20,7 @@ WebService
         provide a spec, or even an implementation, of a simple forecast publishing web service to the avalanche centers?
         CA
             Mount Shasta -- want to integrate, waiting for followup
-            Sierra (SAC) -- exchanging messages with Andy Anderson
+            Sierra (SAC) -- talked with Andy Anderson; he will send KML; parse RSS for data; moving to CAAML eventually
             Eastern Sierra (ESAC) -- have KMZ; ping Nate Greenberg Nov 1st-ish regarding new data format
         Jackson WY (Bridger-Teton) (3 regions)
         MT
