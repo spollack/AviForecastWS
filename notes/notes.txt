@@ -4,24 +4,34 @@ things to do now:
 things to do as time allows:
 --------------------
 marketing
-    send to avalanche class instructors
-    send to professional avalanche organizations (National Avalanche Center, etc.)
-    send to ski/snowboard/backcountry mags: Backcountry Magazine, Coast Mountain Culture, ...
-    send to hiking/climbing orgs/mags: WTA, AAJ, Rock&Ice, Climbing, Alpinist, etc.
-    find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
-    get folks to write reviews, update their own reviews, and to mark reviews as helpful
-    flesh out sebnarware.com website with more app info
-    setup twitter, facebook, blog
-    review marketing guide for steps to take
+    app store reviews
+        get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
+    sebnarware.com website
+        add more app info
+        make it look nicer
+        SEO
+    social channels
+        setup twitter, facebook, blog
+        start pushing social content
+    review Uli's marketing guide for other steps to take
+    direct outreach
+        send to avalanche class instructors
+        send to professional avalanche organizations (National Avalanche Center, etc.)
+        send to ski/snowboard/backcountry mags: Backcountry Magazine, Coast Mountain Culture, ...
+        send to hiking/climbing orgs/mags: WTA, AAJ, Rock&Ice, Climbing, Alpinist, etc.
+        find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WebService
+    existing avi center integrations
+        NWAC integration: get access to NWAC JSON api
+        UAC integration: enable parsing of "tomorrow" forecasts as well, once Brett is ready
+        in fall 2012, contact all avi centers again to see if there have been any changes, etc.
     support other avi centers
-        take structured data only, not HTML!
-        send integration email to not-yet-integrated avalanche organizations (ask about API)
+        send integration email to not-yet-integrated avalanche organizations (ask about API -- strongly prefer consistently structured data!!!)
         provide a spec, or even an implementation, of a simple forecast publishing web service to the avalanche centers?
         CA
-            Mount Shasta -- want to integrate, waiting for followup
             Sierra (SAC) -- talked with Andy Anderson; he will send KML; parse RSS for data; moving to CAAML eventually
-            Eastern Sierra (ESAC) -- have KMZ; ping Nate Greenberg Nov 1st-ish regarding new data format
+            Eastern Sierra (ESAC) -- received KMZ; ping Nate Greenberg Nov 1st-ish regarding new data format
+            Mount Shasta -- want to integrate, waiting for followup
         Jackson WY (Bridger-Teton) (3 regions)
         MT
             Bozeman (Gallatin) (3 regions)
@@ -44,12 +54,12 @@ WebService
             CAC Yukon -- emailed CAC for region definition
             Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
-    existing avi center integrations
-        NWAC integration: get access to NWAC JSON api
-        UAC integration: enable parsing of "tomorrow" forecasts as well, once Brett is ready
-        in fall 2012, contact all avi centers again to see if there have been any changes, etc.
-    auto-validation: check and refine results
+    fix use of config.js
+    use HTML parsing library (cheerio) as opposed by regexs
+    update to current semantics (0.2.x not 0.1.x) with xml2js
     create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
+    set up real (remote) git
+    auto-validation: check and refine results
     capture all generated forecasts (for example, in S3)?
     further auto-validation of each generated forecast
         validate by time of day (e.g. forecast should be issued by 8am or whatever)
@@ -57,10 +67,6 @@ WebService
         on error, capture all inputs, and alert me
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
-    fix use of config.js
-    use HTML parsing library (cheerio) as opposed by regexs
-    update to current semantics (0.2.x not 0.1.x) with xml2js
-    set up real (remote) git
 Android
     build Android version!
     networking
@@ -78,13 +84,12 @@ Android
         WebView has an answer, but not sure about offline for maps, or for direct data calls
 iOS
     v1.2
-        test!!!
         map zoom level is different on iPhone 5 ... why?
-        start submission to verify exactly what artwork i need
-        1024x1024 icon (recreate from originals at full res)
+        test!!!
         update all screenshots
             use simulated data for screenshots
-            need to add new taller versions too -- 640x1136 and 640x1096
+            need to add new taller versions too -- 640x1136 or 640x1096
+            make it look good (sample data, map positioned to not show dead space, where blue dot is)
         submit to app store
     v2
         sharing
