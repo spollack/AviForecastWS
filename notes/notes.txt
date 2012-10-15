@@ -31,7 +31,7 @@ WebService
         CA
             Sierra (SAC) -- talked with Andy Anderson; he will send KML; parse RSS for data; moving to CAAML eventually
             Eastern Sierra (ESAC) -- received KMZ; ping Nate Greenberg Nov 1st-ish regarding new data format
-            Mount Shasta -- want to integrate, waiting for followup
+            Mount Shasta -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
         Jackson WY (Bridger-Teton) (3 regions)
         MT
             Bozeman (Gallatin) (3 regions)
@@ -84,20 +84,22 @@ Android
         WebView has an answer, but not sure about offline for maps, or for direct data calls
 iOS
     v1.2
-        map zoom level is different on iPhone 5 ... why?
+        map zoom level is different on iPhone 5 ... why? file bug
         test!!!
         update all screenshots
             use simulated data for screenshots
             need to add new taller versions too -- 640x1136 or 640x1096
             make it look good (sample data, map positioned to not show dead space, where blue dot is)
+            need tall screenshots of drilldown to forecast websites too
+                hack it to point to archived versions from their websites? or capture via browser and photoshop it?
         submit to app store
     v2
         sharing
             make it easy to share (virally) via facebook, twitter
-        enhanced UI
+        info section
             change info button to bring up a table of topics (master/detail), not a pop-up
+            add link to webpage that shows all partners, etc.
             add more usage info, in terms of what "no rating" means, using your brain out there, etc.
-            get rotation working correctly on danger scale definition view (and maybe elsewhere?)
         status bar
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
                 need to think through how to handle multiple messages, no messages, etc.
@@ -134,7 +136,7 @@ iOS
         add telemetry info?
         show previous days, for history? allow selecting further into the future?
         add push notifications?
-        get app rotation working in all views?
+        get app rotation working in all views (or at least danger scale definition view)?
         make iPad experience better?
 
 
