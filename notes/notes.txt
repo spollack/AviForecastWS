@@ -67,20 +67,27 @@ WebService
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
 Android
-    build Android version!
-    networking
-        http://loopj.com/android-async-http/
-            tested; it works, but json parsing is very slow (just getting plain response: 4sec; response in JSON: 33sec)
-                tried Jackson, and that was even slower!
-    map view
-        GoogleMapView
-        build project and virtual device against that SDK
-        get maps key
-        overlays
-    web view
-        WebView; or invoke browser via URLIntent
-    offline caching
-        WebView has an answer, but not sure about offline for maps, or for direct data calls
+    create Android v1
+        UI design
+            swap top and bottom ribbons (action bar at top; with app icon?)
+            use hardware back button (not soft buttons)
+            use standard droid icons
+            support landscape mode
+        networking
+            http://loopj.com/android-async-http/
+                in simulator json parsing is very slow (just getting plain response: 4sec; response in JSON: 33sec); even slower using Jackson lib; performance on actual hardware is fine (3sec to get response and parse)
+        map view
+            GoogleMapView
+            build project and virtual device against that SDK
+            get maps key
+            overlays
+        web view
+            WebView; or invoke browser via URLIntent
+        offline caching
+            WebView has an answer, but not sure about offline for maps, or for direct data calls
+        other
+            legal disclaimer
+            production map key
 iOS
     v1.2
         map zoom level is different on iPhone 5 ... why? bug filed with apple (https://bugreport.apple.com/)
