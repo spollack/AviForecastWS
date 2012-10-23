@@ -22,8 +22,8 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WebService
     existing avi center integrations
-        NWAC integration: switch to NWAC JSON api (if they can support pull); or revamp HTML parsing for new format
-        UAC integration: enable parsing of "tomorrow" forecasts as well, once Brett is ready
+        NWAC integration: switch to NWAC JSON api (if they can support pull); or revamp HTML parsing for new format (look at dev.nwac.us)
+        UAC integration: RSS feeds being reworked, feeds should be back mid-Nov or sooner; also check on availability of "tomorrow" forecasts
     support other avi centers
         send integration email to not-yet-integrated avalanche organizations (ask about API -- strongly prefer consistently structured data!!!)
         provide a spec, or even an implementation, of a simple forecast publishing web service to the avalanche centers? or RSS format?
@@ -68,26 +68,39 @@ WebService
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
 Android
     create Android v1
-        UI design
-            swap top and bottom ribbons (action bar at top; with app icon?)
-            use hardware back button (not soft buttons)
-            use standard droid icons
-            support landscape mode
+        UI
+            lay out basic views
+            pull in graphic assets
+            wire up day selector
+            UI design
+                swap top and bottom ribbons (action bar at top; with app icon?)
+                use hardware back button (not soft buttons)
+                use standard droid icons
+                support landscape mode
+                make legend banner scalable -- patch 9 or separate into pieces?
         networking
             http://loopj.com/android-async-http/
                 in simulator json parsing is very slow (just getting plain response: 4sec; response in JSON: 33sec); even slower using Jackson lib; performance on actual hardware is fine (3sec to get response and parse)
+            activity indicator?
+            reload forecast data on app gaining focus
+            user feedback on network failure
         map view
             GoogleMapView
-            build project and virtual device against that SDK
-            get maps key
             overlays
+            zoom to user's position
+            color lookup
+            implement hit testing in polygon
         web view
             WebView; or invoke browser via URLIntent
+            nwac mobile site hack
+        danger scale view
         offline caching
             WebView has an answer, but not sure about offline for maps, or for direct data calls
         other
-            legal disclaimer
+            legal disclaimer (and settings storage)
+            flurry
             production map key
+            appirater equivalent?
 iOS
     v1.2
         map zoom level is different on iPhone 5 ... why? bug filed with apple (https://bugreport.apple.com/)
