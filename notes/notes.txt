@@ -82,13 +82,10 @@ Android
             http://loopj.com/android-async-http/
                 in simulator json parsing is very slow (just getting plain response: 4sec; response in JSON: 33sec); even slower using Jackson lib; performance on actual hardware is fine (3sec to get response and parse)
             activity indicator?
-            reload forecast data on app gaining focus
+            reload forecast data on app gaining focus -- seems to happen automatically (but reloads regions too...)
             user feedback on network failure
         map view
-            GoogleMapView
-            overlays
-            zoom to user's position
-            color lookup
+            blue dot and zoom to user's position -- seems to not work on first run, but works afterwards ??
             implement hit testing in polygon
         web view
             WebView; or invoke browser via URLIntent
@@ -99,8 +96,8 @@ Android
         other
             legal disclaimer (and settings storage)
             flurry
+            appirater (there are several, look at https://github.com/sbstrm/appirater-android)
             production map key
-            appirater equivalent?
 iOS
     v1.2
         map zoom level is different on iPhone 5 ... why? bug filed with apple (https://bugreport.apple.com/)
