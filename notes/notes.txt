@@ -37,7 +37,7 @@ WebService
             Glacier
             Missoula
         AK
-            Chugach (CNFAIC) -- got a message from a person there, he wants to get integrated
+            Chugach (CNFAIC) -- got a message from a person there (2012-Feb), he wants to get integrated
             Valdez
             Cordova
             Juneau
@@ -49,8 +49,8 @@ WebService
         Joseph OR
         Mount Washington NH
         Canada
-            WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration); NOTE this region is a subset of sea-to-sky!; but looks like they do their own forecast
-            CAC Yukon -- emailed CAC for region definition
+            WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration); NOTE this region is a subset of sea-to-sky! -- get updated region data; but looks like they do their own forecast
+            CAC Yukon -- emailed CAC for region definition (http://avalanche.ca/kmz/bulletinregions.kmz has what they have; Yukon not in there yet as of 2012-10-23, but they may add it)
             Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     fix use of config.js
@@ -78,15 +78,6 @@ Android
                 use standard droid icons
                 support landscape mode
                 make legend banner scalable -- patch 9 or separate into pieces?
-        networking
-            http://loopj.com/android-async-http/
-                in simulator json parsing is very slow (just getting plain response: 4sec; response in JSON: 33sec); even slower using Jackson lib; performance on actual hardware is fine (3sec to get response and parse)
-            activity indicator?
-            reload forecast data on app gaining focus -- seems to happen automatically (but reloads regions too...)
-            user feedback on network failure
-        map view
-            blue dot and zoom to user's position -- seems to not work on first run, but works afterwards ??
-            implement hit testing in polygon
         web view
             WebView; or invoke browser via URLIntent
             nwac mobile site hack
@@ -94,6 +85,10 @@ Android
         offline caching
             WebView has an answer, but not sure about offline for maps, or for direct data calls
         other
+            network activity indicator?
+            reload forecast data on app gaining focus -- seems to happen automatically (but reloads regions too...)??
+            user feedback on network failure
+            blue dot doesn't always show (even though map does position correctly)??
             legal disclaimer (and settings storage)
             flurry
             appirater (there are several, look at https://github.com/sbstrm/appirater-android)
