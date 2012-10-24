@@ -22,11 +22,9 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WebService
     existing avi center integrations
-        NWAC integration: switch to NWAC JSON api (if they can support pull); or revamp HTML parsing for new format (look at dev.nwac.us)
+        NWAC integration: switch to NWAC JSON api (look at dev.nwac.us)
         UAC integration: RSS feeds being reworked, feeds should be back mid-Nov or sooner; also check on availability of "tomorrow" forecasts
     support other avi centers
-        send integration email to not-yet-integrated avalanche organizations (ask about API -- strongly prefer consistently structured data!!!)
-        provide a spec, or even an implementation, of a simple forecast publishing web service to the avalanche centers? or RSS format?
         CA
             Sierra (SAC) -- talked with Andy Anderson; he will send KML; suggests parsing RSS for data; moving to CAAML eventually
             Eastern Sierra (ESAC) -- received KMZ; pinged Nate Greenberg regarding new data format
@@ -69,24 +67,21 @@ WebService
 Android
     create Android v1
         UI
-            lay out basic views
-            pull in graphic assets
-            wire up day selector
+            danger scale legend
             UI design
                 swap top and bottom ribbons (action bar at top; with app icon?)
-                use hardware back button (not soft buttons)
                 use standard droid icons
                 support landscape mode
                 make legend banner scalable -- patch 9 or separate into pieces?
-        web view
-            WebView; or invoke browser via URLIntent
-            nwac mobile site hack
         danger scale view
         offline caching
             WebView has an answer, but not sure about offline for maps, or for direct data calls
         other
+            webview transitions to external browser if you click a secondary link
+            nwac mobile site hack
             network activity indicator?
             reload forecast data on app gaining focus -- seems to happen automatically (but reloads regions too...)??
+            we are reloading everything on rotate -- don't
             user feedback on network failure
             blue dot doesn't always show (even though map does position correctly)??
             legal disclaimer (and settings storage)
