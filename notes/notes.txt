@@ -67,13 +67,12 @@ WebService
 Android
     create Android v1
         UI
-            danger scale legend
+            add danger scale view; link from danger scale legend
+            info link and contents
             UI design
                 swap top and bottom ribbons (action bar at top; with app icon?)
                 use standard droid icons
                 support landscape mode
-                make legend banner scalable -- patch 9 or separate into pieces?
-        danger scale view
         offline caching
             WebView has an answer, but not sure about offline for maps, or for direct data calls
         other
@@ -88,6 +87,10 @@ Android
             flurry
             appirater (there are several, look at https://github.com/sbstrm/appirater-android)
             production map key
+        launch
+            beta test
+            hook up App Annie
+            promote availability
 iOS
     v1.2
         map zoom level is different on iPhone 5 ... why? bug filed with apple (https://bugreport.apple.com/)
