@@ -65,31 +65,35 @@ WebService
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
 Android
-    create Android v1
+    v1
         UI
-            add danger scale view; link from danger scale legend
-            info link and contents
-            UI design
-                swap top and bottom ribbons (action bar at top; with app icon?)
-                use standard droid icons
-                support landscape mode
+            info link contents
         offline caching
             WebView has an answer, but not sure about offline for maps, or for direct data calls
-        other
-            webview transitions to external browser if you click a secondary link
-            nwac mobile site hack
-            network activity indicator?
-            reload forecast data on app gaining focus -- seems to happen automatically (but reloads regions too...)??
+        legal disclaimer (and settings storage)
+        appirater (there are several, look at https://github.com/sbstrm/appirater-android)
+        bugs and rough edges
+            test landscape mode
+            make legend scale out on edges (either via fill color, or via 9 patch image)
+            fix padding around legend graphic on new android
+            show menu in action bar on newer android
             we are reloading everything on rotate -- don't
+            reload forecast data on app gaining focus -- seems to happen automatically (but reloads regions too...)??
+            danger scale view -- zoomable/scrollable (check out https://github.com/sephiroth74/ImageViewZoom)
+            webview transitions to external browser if you click a secondary link
+            fix default zoom level of webview
+            nwac mobile site hack -- needed?
+            network activity indicator?
             user feedback on network failure
-            blue dot doesn't always show (even though map does position correctly)??
-            legal disclaimer (and settings storage)
-            flurry
-            appirater (there are several, look at https://github.com/sbstrm/appirater-android)
-            production map key
-        launch
+            blue dot doesn't always show (even though map does position correctly) on old android; ok on new android
+        launch activities
             beta test
-            hook up App Annie
+            production map key
+            enable Flurry
+            sign app
+            put into Google Play
+            hook up Flurry tracking
+            hook up App Annie tracking
             promote availability
 iOS
     v1.2
