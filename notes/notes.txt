@@ -22,7 +22,7 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WebService
     existing avi center integrations
-        NWAC integration: switch to NWAC JSON api (look at dev.nwac.us)
+        NWAC integration: switch to NWAC JSON api (look at dev.nwac.us) -- http://dev.nwac.us/api/v1/currentForecast/ZONE_ID/
         UAC integration: RSS feeds being reworked, feeds should be back mid-Nov or sooner; also check on availability of "tomorrow" forecasts
     support other avi centers
         CA
@@ -66,12 +66,9 @@ WebService
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
 Android
     v1
-        UI
-            info link contents
+        appirater (there are several, look at https://github.com/sbstrm/appirater-android -- but having integration issues)
         offline caching
             WebView has an answer, but not sure about offline for maps, or for direct data calls
-        legal disclaimer (and settings storage)
-        appirater (there are several, look at https://github.com/sbstrm/appirater-android)
         bugs and rough edges
             test landscape mode
             make legend scale out on edges (either via fill color, or via 9 patch image)
@@ -86,6 +83,7 @@ Android
             network activity indicator?
             user feedback on network failure
             blue dot doesn't always show (even though map does position correctly) on old android; ok on new android
+            put app version numbers in info text
         launch activities
             beta test
             production map key
