@@ -66,11 +66,10 @@ WebService
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
 Android
     v1
-        appirater (there are several, this one looks the best: https://github.com/sbstrm/appirater-android -- but having integration issues)
-        bugs and rough edges
+        bugs, gaps, and rough edges
             show menu in action bar on newer android (see http://developer.android.com/guide/topics/ui/actionbar.html)
             danger scale view -- zoomable/scrollable (check out https://github.com/sephiroth74/ImageViewZoom)
-            network activity indicator?
+            appirater (there are several, this one looks the best: https://github.com/sbstrm/appirater-android -- but having integration issues)
             user feedback on network failure
             do i need to do something to apply themes to dialogs?
             blue dot doesn't always show (even though map does position correctly) on old android; ok on new android
