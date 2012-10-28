@@ -67,7 +67,7 @@ WebService
 Android
     v1
         to implement
-            show menu in action bar on newer android (see http://developer.android.com/guide/topics/ui/actionbar.html)
+            make info more discoverable (put in line with date buttons? or custom titlebar, taller, with button?)
             appirater (there are several, this one looks the best: https://github.com/sbstrm/appirater-android -- but having integration issues)
         issues and rough edges
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
