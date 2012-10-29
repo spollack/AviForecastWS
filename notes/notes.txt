@@ -68,6 +68,7 @@ Android
     v1
         issues and rough edges
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
+            warn if no GPS available?
             in case of first time app use with no network, app must shut down to try again once there is network
         test
             screen orientation
