@@ -82,8 +82,9 @@ Android
                 web pages
         launch activities
             beta test
-            production map key
             sign app
+            production map key
+            fix version string
             put into Google Play
             hook up Flurry tracking website
             hook up App Annie tracking website
