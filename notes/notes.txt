@@ -66,7 +66,11 @@ WebService
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
 Android
     v1
-        issues and rough edges
+        issues, gaps, and rough edges
+            try light vs. dark themes again
+            info icon shows up differently on different android versions
+            consider making 3 buttons more group-like (via corners, margins, etc.)
+            detailed flurry event tracking
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
             warn if no GPS available?
             in case of first time app use with no network, app must shut down to try again once there is network
@@ -82,9 +86,10 @@ Android
                 web pages
         launch activities
             beta test
+                consider zubhium
             sign app
             production map key
-            fix version string
+            finalize version string
             put into Google Play
             hook up Flurry tracking website
             hook up App Annie tracking website
