@@ -67,6 +67,8 @@ WebService
 Android
     v1
         issues, gaps, and rough edges
+            map responsiveness?
+            make button text size smaller
             try light vs. dark themes again
             info icon shows up differently on different android versions
             consider making 3 buttons more group-like (via corners, margins, etc.)
@@ -86,9 +88,9 @@ Android
                 web pages
         launch activities
             beta test
+                be sure to build with production map key; and do signed export flow
+                tell folks: under Settings, Security and lock screen, make sure Unknown sources (Allow installation of non-Market apps) is checked
                 consider zubhium
-            sign app
-            production map key
             finalize version string
             put into Google Play
             hook up Flurry tracking website
