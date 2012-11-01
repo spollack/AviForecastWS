@@ -75,6 +75,7 @@ Android
             detailed flurry event tracking
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
             warn if no GPS available?
+            fall back to some other location strategy if GPS is off?
             in case of first time app use with no network, app must shut down to try again once there is network
         test
             screen orientation
@@ -89,7 +90,10 @@ Android
         launch activities
             beta test
                 be sure to build with production map key; and do signed export flow
-                tell folks: under Settings, Security and lock screen, make sure Unknown sources (Allow installation of non-Market apps) is checked
+                tell folks:
+                    Froyo/Gingerbread: under Settings, Applications,
+                    Ice Cream Sandwich: under Settings, Security and lock screen,
+                        make sure Unknown sources (Allow installation of non-Market apps) is checked
                 consider zubhium
             finalize version string
             put into Google Play
