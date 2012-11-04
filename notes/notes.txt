@@ -67,15 +67,13 @@ WebService
 Android
     v1
         issues, gaps, and rough edges
-            map responsiveness?
-            make button text size smaller
-            try light vs. dark themes again
-            info icon shows up differently on different android versions
-            consider making 3 buttons more group-like (via corners, margins, etc.)
+            switch timeframe buttons to be a segmented control (see https://github.com/makeramen/android-segmentedradiobutton)
             detailed flurry event tracking
+            info icon shows up differently on different android versions; so do app headers; weird...
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
+            map responsiveness?
             warn if no GPS available?
-            fall back to some other location strategy if GPS is off?
+            fall back to some other location strategy if GPS is turned off?
             in case of first time app use with no network, app must shut down to try again once there is network
         test
             screen orientation
@@ -89,13 +87,15 @@ Android
                 web pages
         launch activities
             beta test
-                be sure to build with production map key; and do signed export flow
+                for all external builds
+                    be sure to build with production map key for all external builds
+                    set version string appropriately
+                    do signed export flow
                 tell folks:
                     Froyo/Gingerbread: under Settings, Applications,
                     Ice Cream Sandwich: under Settings, Security and lock screen,
                         make sure Unknown sources (Allow installation of non-Market apps) is checked
                 consider zubhium
-            finalize version string
             put into Google Play
             hook up Flurry tracking website
             hook up App Annie tracking website
