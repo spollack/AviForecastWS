@@ -67,7 +67,10 @@ WebService
 Android
     v1
         issues, gaps, and rough edges
+            fix info icon within menu
             map responsiveness could be better (esp on older hardware)
+                compare to maps app for feel
+                profile (overlay drawing? hit testing? invalidates? etc.)
             detailed flurry event tracking
             title bar shows up in different colors on different android versions
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
