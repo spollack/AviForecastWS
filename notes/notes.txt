@@ -71,6 +71,8 @@ Android
             map responsiveness could be better (esp on older hardware)
                 compare to maps app for feel
                 profile (overlay drawing? hit testing? invalidates? etc.)
+            zoom danger scale view to screen by default
+
             detailed flurry event tracking
             title bar shows up in different colors on different android versions
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
