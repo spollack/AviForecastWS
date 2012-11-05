@@ -89,7 +89,6 @@ Android
                 set version string appropriately
                 be sure to build with production map key for all external builds
                 do signed export flow
-            consider zubhium
         launch
             put into Google Play
             hook up Flurry tracking website
