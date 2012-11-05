@@ -84,17 +84,17 @@ Android
                 map data
                 app data
                 web pages
-        launch activities
-            beta test
-                for all external builds
-                    be sure to build with production map key for all external builds
-                    set version string appropriately
-                    do signed export flow
-                tell folks:
-                    Froyo/Gingerbread: under Settings, Applications,
-                    Ice Cream Sandwich: under Settings, Security and lock screen,
-                        make sure Unknown sources (Allow installation of non-Market apps) is checked
-                consider zubhium
+        beta test
+            for all external builds
+                set version string appropriately
+                be sure to build with production map key for all external builds
+                do signed export flow
+            tell folks:
+                Froyo/Gingerbread: under Settings, Applications,
+                Ice Cream Sandwich: under Settings, Security and lock screen,
+                    make sure Unknown sources (Allow installation of non-Market apps) is checked
+            consider zubhium
+        launch
             put into Google Play
             hook up Flurry tracking website
             hook up App Annie tracking website
