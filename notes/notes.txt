@@ -67,13 +67,12 @@ WebService
 Android
     v1
         issues, gaps, and rough edges
-            switch timeframe buttons to be a segmented control (see https://github.com/makeramen/android-segmentedradiobutton)
+            map responsiveness could be better (esp on older hardware)
             detailed flurry event tracking
-            info icon shows up differently on different android versions; so do app headers; weird...
+            title bar shows up in different colors on different android versions
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
-            map responsiveness?
-            warn if no GPS available?
-            fall back to some other location strategy if GPS is turned off?
+            warn if no GPS available
+            fall back to some other location strategy if GPS is turned off
             in case of first time app use with no network, app must shut down to try again once there is network
         test
             screen orientation
