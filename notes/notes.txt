@@ -89,10 +89,6 @@ Android
                 set version string appropriately
                 be sure to build with production map key for all external builds
                 do signed export flow
-            tell folks:
-                Froyo/Gingerbread: under Settings, Applications,
-                Ice Cream Sandwich: under Settings, Security and lock screen,
-                    make sure Unknown sources (Allow installation of non-Market apps) is checked
             consider zubhium
         launch
             put into Google Play
@@ -199,12 +195,6 @@ Seth
 ps: A word on my motivations: i'm doing this project as a free service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Many of us (myself included) have lost friends to avalanches. Anything we can do to get the information out there, so that people are armed to make good decisions, feels important and valuable. Plus its a fun project!
 
 pps: if you'd like to chat, my cell is 206-553-9420.
-
-
-
-
-
-
 
 
 
