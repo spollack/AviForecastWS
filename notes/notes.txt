@@ -68,6 +68,7 @@ Android
     v1
         issues, gaps, and rough edges
             fix info icon within menu
+            map redraw flicker (at least on Jelly Bean)
             map responsiveness could be better (esp on older hardware)
                 compare to maps app for feel
                 profile (overlay drawing? hit testing? invalidates? etc.)
