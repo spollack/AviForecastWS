@@ -67,6 +67,8 @@ WebService
 Android
     v1
         issues, gaps, and rough edges
+            idea: momentarily highlight region that was tapped (SteveM feedback)
+            idea: indicate when you are getting offline data (SteveM feedback)
             fix info icon within menu
             map redraw flicker (at least on Jelly Bean)
             map responsiveness could be better (esp on older hardware)
