@@ -372,59 +372,24 @@ describe('parseForecast_caic', function(){
     })
 })
 
-describe('parseForecastIssuedDate_uac', function(){
-    it('should return the correct date', function(){
-        var forecastIssuedDate;
-
-        forecastIssuedDate = forecasts.parseForecastIssuedDate_uac('    [title] =&gt; Sunday, February 19th 2012',
-            forecasts.getRegionDetailsForRegionId('uac_slc'));
-        moment(forecastIssuedDate).format('YYYY-MM-DD').should.equal('2012-02-19');
-
-        forecastIssuedDate = forecasts.parseForecastIssuedDate_uac('    [title] =&gt; Sunday January 1st 2012',
-            forecasts.getRegionDetailsForRegionId('uac_slc'));
-        moment(forecastIssuedDate).format('YYYY-MM-DD').should.equal('2012-01-01');
-
-        forecastIssuedDate = forecasts.parseForecastIssuedDate_uac('[title] =&gt; Thursday Jan 10, 2012',
-            forecasts.getRegionDetailsForRegionId('uac_slc'));
-        moment(forecastIssuedDate).format('YYYY-MM-DD').should.equal('2012-01-10');
-    })
-})
-
 describe('parseForecast_uac', function(){
-    describe('file000.xml', function(){
+    describe('file000.html', function(){
         it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file000.xml','utf8'),
+            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file000.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('uac_slc'));
 
             should.not.exist(forecast);
         })
     })
-    describe('file001.xml', function(){
+    describe('file001.html', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file001.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('uac_logan'));
+            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('uac_slc'));
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-//            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2012-02-19');
-//            forecast[1].date.should.equal('2012-02-20');
-            forecast[0].aviLevel.should.equal(3);
-//            forecast[1].aviLevel.should.equal(3);
-        })
-    })
-    describe('file002.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file002.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('uac_moab'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-//            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2012-02-19');
-//            forecast[1].date.should.equal('2012-02-20');
+            forecast[0].date.should.equal('2012-11-09');
             forecast[0].aviLevel.should.equal(2);
-//            forecast[1].aviLevel.should.equal(2);
         })
     })
 })

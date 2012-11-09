@@ -18,6 +18,7 @@ var request = require('request');
 var moment = require('moment');
 var _ = require('underscore');
 var xml2js = require('xml2js');
+var cheerio = require('cheerio');
 
 
 // avi danger levels
@@ -655,13 +656,15 @@ forecasts.parseForecast_uac = function(body, regionDetails) {
 
     var forecast = null;
 
-    var forecastIssuedDate = forecasts.parseForecastIssuedDate_uac(body, regionDetails);
-    var aviLevels = forecasts.parseForecastValues_uac(body, regionDetails);
+    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
 
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_uac($, regionDetails);
+    var aviLevels = forecasts.parseForecastValues_uac($, regionDetails);
+
+    // NOTE uac currently issues forecasts morning of, for one day only
     if (forecastIssuedDate) {
         forecast = [];
         forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
-//        forecast[1] = {'date': moment(forecastIssuedDate).add('days',1).format('YYYY-MM-DD'), 'aviLevel': aviLevels[1]};
 
         for (var j = 0; j < forecast.length; j++) {
             winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
@@ -671,13 +674,15 @@ forecasts.parseForecast_uac = function(body, regionDetails) {
     return forecast;
 };
 
-forecasts.parseForecastIssuedDate_uac = function(body, regionDetails) {
+forecasts.parseForecastIssuedDate_uac = function($, regionDetails) {
 
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical string for uac: '    [title] =&gt; Sunday, February 19th 2012'
-    var timestampMatch = body.match(/\[title\]\s*=&gt;\s*\w+\s*,?\s*(\w+\s+\d+)\w*\s*,?\s+(\d+)/);
+    // NOTE typical html fragment for uac: '<td class="advisory-date">Issued by Drew Hardesty for November 9, 2012 - 11:19am</td>'
+    var textBlock = $('.advisory-date').text();
+
+    var timestampMatch = textBlock.match(/for\s+(\w+\s+\d+)\w*\s*,?\s+(\d+)/);
 
     // the capture groups from the regex will be in slots 1 and 2 in the array
     if (timestampMatch && timestampMatch.length > 2) {
@@ -693,25 +698,24 @@ forecasts.parseForecastIssuedDate_uac = function(body, regionDetails) {
     return forecastIssuedDate;
 };
 
-forecasts.parseForecastValues_uac = function(body, regionDetails) {
+forecasts.parseForecastValues_uac = function($, regionDetails) {
 
-    // uac forecasts two days at a time
+    // uac forecasts one days at a time
     var aviLevels = [];
-    for (var i = 0; i < 2; i++) {
-        aviLevels[i] = forecasts.AVI_LEVEL_UNKNOWN;
+    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
+
+    // NOTE typical html frament for uac: '<div id="upper-rating" class="rating-2"><span> <h2>2. Moderate</h2> Above 9,500 ft.</span> </div>'
+    var dangerRatingTextBlocks = [];
+    dangerRatingTextBlocks[0] = $('#upper-rating span h2').text();
+    dangerRatingTextBlocks[1] = $('#mid-rating span h2').text();
+    dangerRatingTextBlocks[2] = $('#lower-rating span h2').text();
+
+    var dangerRatings = [];
+    for (var i = 0; i < dangerRatingTextBlocks.length; i++) {
+        dangerRatings[i] = forecasts.findHighestAviLevelInString(dangerRatingTextBlocks[i]);
     }
 
-    // NOTE typical string for uac: '    [extendedforecast_rating_0] =&gt; Considerable'
-    var dangerRatingMatch0 = body.match(/\[extendedforecast_rating_0\]\s*=&gt;\s*(.\w+)/);
-    var dangerRatingMatch1 = body.match(/\[extendedforecast_rating_1\]\s*=&gt;\s*(.\w+)/);
-
-    // the capture groups from the regex will be in slot 1 in each array
-    if (dangerRatingMatch0 && dangerRatingMatch0.length > 1 && dangerRatingMatch1 && dangerRatingMatch1.length > 1) {
-        aviLevels[0] = forecasts.findHighestAviLevelInString(dangerRatingMatch0[1]);
-        aviLevels[1] = forecasts.findHighestAviLevelInString(dangerRatingMatch1[1]);
-    } else {
-        winston.warn('parse failure, danger levels not found; regionId: ' + regionDetails.regionId);
-    }
+    aviLevels[0] = _.max(dangerRatings);
 
     return aviLevels;
 };
