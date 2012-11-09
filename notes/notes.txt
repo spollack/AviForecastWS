@@ -22,8 +22,9 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WebService
     existing avi center integrations
+        UAC integration: switch to parsing HTML for now
         NWAC integration: verify as real data comes online, and add additional test cases
-        UAC integration: RSS feeds being reworked, feeds should be back mid-Nov or sooner; also check on availability of "tomorrow" forecasts
+        check all centers regularly as forecasts start to come online again
     support other avi centers
         CA
             Sierra (SAC) -- talked with Andy Anderson; he will send KML; suggests parsing RSS for data; moving to CAAML eventually
