@@ -99,7 +99,7 @@ forecasts.aggregateForecasts = function(regions) {
 
 forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay) {
 
-    // BUGBUG how do i deal with centers shutting down for the season???
+    // BUGBUG how do we deal with centers shutting down for the season???
 
     var validForecast = true;
 
