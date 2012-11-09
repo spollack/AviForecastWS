@@ -67,7 +67,7 @@ WebService
 Android
     v1
         issues, gaps, and rough edges
-            fix info icon within menu
+            fix info icon within menu (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
             map redraw flicker (at least on Jelly Bean)
             map responsiveness could be better (esp on older hardware)
                 compare to maps app for feel
