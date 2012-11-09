@@ -67,8 +67,6 @@ WebService
 Android
     v1
         issues, gaps, and rough edges
-            idea: momentarily highlight region that was tapped (SteveM feedback)
-            idea: indicate when you are getting offline data (SteveM feedback)
             fix info icon within menu
             map redraw flicker (at least on Jelly Bean)
             map responsiveness could be better (esp on older hardware)
@@ -82,6 +80,9 @@ Android
             warn if no GPS available
             fall back to some other location strategy if GPS is turned off
             in case of first time app use with no network, app must shut down to try again once there is network
+        improvements
+            idea: momentarily highlight region that was tapped (SteveM feedback)
+            idea: indicate when you are getting offline data (SteveM feedback)
         test
             screen orientation
             android versions
@@ -112,6 +113,8 @@ iOS
         sharing
             make it easy to share (virally) via facebook, twitter
         map zoom level is different on iPhone 5 ... why? bug filed with apple (https://bugreport.apple.com/)
+        usability
+            momentarily highlight region that was tapped
     v2
         status bar (or pop-ups of some sort?)
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
