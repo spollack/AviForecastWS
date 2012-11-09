@@ -197,7 +197,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
         winston.warn('invalid regionId: ' + regionId);
         onForecast(regionId, null);
     } else {
-        request({'url':regionDetails.dataURL, 'timeout': forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
+        request({url:regionDetails.dataURL, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
             function(error, response, body) {
                 if (!error && response.statusCode === 200) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
