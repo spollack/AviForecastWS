@@ -22,7 +22,7 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WebService
     existing avi center integrations
-        UAC integration: switch to parsing HTML for now
+        UAC integration: watch over several days to verify new approach, and add additional test cases
         NWAC integration: verify as real data comes online, and add additional test cases
         check all centers regularly as forecasts start to come online again
     support other avi centers
