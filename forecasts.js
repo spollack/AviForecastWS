@@ -398,16 +398,16 @@ forecasts.findAviLevelNumberInString = function(string) {
     return aviLevel;
 };
 
-// NWAC forecasts go at most 3 days out, but often are 2 days out; choose the max we want to look for
-var NUM_FORECAST_DAYS_NWAC = 3;
-
 forecasts.parseForecast_nwac = function(body, regionDetails) {
+
+    var forecast = null;
 
     // nwac forecasts  have a timestamp that says when the forecast was issued; and then present the forecast details
     // labelled only by textual day of week, e.g. "Thursday" or "Friday night and Saturday"; so to know exactly
     // which dates they are describing, we need to parse out both pieces and use them together
 
-    var forecast = null;
+    // nwac forecasts go at most 3 days out (issued on day 1, for day 2 and day 3)
+    var NUM_FORECAST_DAYS_NWAC = 3;
 
     try {
         // convert the JSON response to an object
@@ -437,15 +437,15 @@ forecasts.parseForecast_nwac = function(body, regionDetails) {
             // get the forecast details
             forecasts.parseForecastValues_nwac(bodyJson, regionDetails, forecastDays, aviLevels);
 
-            var daysActuallyForecast = NUM_FORECAST_DAYS_NWAC;
-            if (aviLevels[NUM_FORECAST_DAYS_NWAC - 1] === forecasts.AVI_LEVEL_UNKNOWN) {
-                // forecast was only for 2 days, not 3
-                daysActuallyForecast--;
+            if (aviLevels[0] === forecasts.AVI_LEVEL_UNKNOWN && aviLevels[1] !== forecasts.AVI_LEVEL_UNKNOWN) {
+                // NOTE since nwac forecasts are typically issued in the evening for the following two days,
+                // copy the forecast from that first forecast day into the forecast issued day too
+                aviLevels[0] = aviLevels[1];
             }
 
             // fill out the return object
             forecast = [];
-            for (var j = 0; j < daysActuallyForecast; j++) {
+            for (var j = 0; j < aviLevels.length; j++) {
                 forecast[j] = {'date':moment(forecastDates[j]).format('YYYY-MM-DD'), 'aviLevel':aviLevels[j]};
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
             }
@@ -467,7 +467,7 @@ forecasts.parseForecastValues_nwac = function(bodyJson, regionDetails, forecastD
 
         // find the first forecast label that contains the relevant day string
         // NOTE one-based index
-        for (var forecastIndex = 1; forecastIndex <+ NUM_FORECAST_DAYS_NWAC; forecastIndex++) {
+        for (var forecastIndex = 1; forecastIndex <= aviLevels.length; forecastIndex++) {
 
             var labelName = 'label_forecast_day' + forecastIndex;
             if (bodyJson[labelName].match(regExp)) {

@@ -185,7 +185,7 @@ describe('parseForecast_nwac', function(){
             forecast[0].date.should.equal('2012-11-02');
             forecast[1].date.should.equal('2012-11-03');
             forecast[2].date.should.equal('2012-11-04');
-            forecast[0].aviLevel.should.equal(0);
+            forecast[0].aviLevel.should.equal(1);
             forecast[1].aviLevel.should.equal(1);
             forecast[2].aviLevel.should.equal(1);
         })
@@ -200,7 +200,7 @@ describe('parseForecast_nwac', function(){
             forecast[0].date.should.equal('2012-10-25');
             forecast[1].date.should.equal('2012-10-26');
             forecast[2].date.should.equal('2012-10-27');
-            forecast[0].aviLevel.should.equal(0);
+            forecast[0].aviLevel.should.equal(2);
             forecast[1].aviLevel.should.equal(2);
             forecast[2].aviLevel.should.equal(2);
         })
