@@ -45560,9 +45560,9 @@
         ]
     },
     {
-        "regionId": "uac_slc",
+        "regionId": "uac_salt-lake",
         "displayName": "Salt Lake Region",
-        "URL": "http://utahavalanchecenter.org/advisory/slc",
+        "URL": "http://utahavalanchecenter.org/advisory/salt-lake",
         "points": [
             {
                 "lat": "40.9911",
