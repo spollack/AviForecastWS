@@ -25,9 +25,9 @@ WebService
         UAC integration: watch over several days to verify new approach, and add additional test cases
         NWAC integration: verify as real data comes online, and add additional test cases
         check all centers regularly as forecasts start to come online again
-    support other avi centers
+    support additional avi centers
         CA
-            Sierra (SAC) -- talked with Andy Anderson; he will send KML; suggests parsing RSS for data; moving to CAAML eventually
+            Sierra (SAC) -- talked with Andy Anderson; he will send KML; suggests parsing RSS for data
             Eastern Sierra (ESAC) -- received KMZ; pinged Nate Greenberg regarding new data format
             Mount Shasta -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
         Jackson WY (Bridger-Teton) (3 regions)
@@ -68,36 +68,24 @@ WebService
 Android
     v1
         issues, gaps, and rough edges
-            fix info icon within menu (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
             map redraw flicker (at least on Jelly Bean)
             map responsiveness could be better (esp on older hardware)
                 compare to maps app for feel
                 profile (overlay drawing? hit testing? invalidates? etc.)
+            momentarily highlight region that was tapped (SteveM feedback)
             zoom danger scale view to fit screen by default (based on orientation?)
             zoom web view to fit screen width by default
+            fix info icon within menu (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
             detailed flurry event tracking
             title bar shows up in different colors on different android versions
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
             warn if no GPS available
             fall back to some other location strategy if GPS is turned off
             in case of first time app use with no network, app must shut down to try again once there is network
-        improvements
-            idea: momentarily highlight region that was tapped (SteveM feedback)
-            idea: indicate when you are getting offline data (SteveM feedback)
-        test
-            screen orientation
-            android versions
-            screen size variations
-            lifecycle events
-            check all regions
-            offline scenarios
-                map data
-                app data
-                web pages
         beta test
             for all external builds
                 set version string appropriately
-                be sure to build with production map key for all external builds
+                be sure to build with production map key
                 do signed export flow
         launch
             put into Google Play
