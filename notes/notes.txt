@@ -67,27 +67,28 @@ WebService
         add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
 Android
     v1
-        issues, gaps, and rough edges
-            map redraw flicker (at least on Jelly Bean)
+        issues to address
             map responsiveness could be better (esp on older hardware)
                 compare to maps app for feel
                 profile (overlay drawing? hit testing? invalidates? etc.)
+            map redraw flicker (at least on Jelly Bean)
             momentarily highlight region that was tapped (SteveM feedback)
             zoom danger scale view to fit screen by default (based on orientation?)
             zoom web view to fit screen width by default
-            fix info icon within menu (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
             detailed flurry event tracking
-            title bar shows up in different colors on different android versions
-            blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS
             warn if no GPS available
             fall back to some other location strategy if GPS is turned off
-            in case of first time app use with no network, app must shut down to try again once there is network
-        beta test
+        issues we'll live with for now
+            title bar shows up in different colors on different android versions
+            fix info icon within menu to use explicit resource, vs. system resource that looks different on each platform
+                (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
+            blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS/JB
+            in case of first time app use with no network, app must be shut down to try again once there is network
+        launch
             for all external builds
                 set version string appropriately
                 be sure to build with production map key
                 do signed export flow
-        launch
             put into Google Play
             hook up Flurry tracking website
             hook up App Annie tracking website
