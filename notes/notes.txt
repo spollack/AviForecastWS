@@ -22,15 +22,23 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WebService
     existing avi center integrations
-        UAC integration: watch over several days to verify new approach, and add additional test cases
-        NWAC integration: verify as real data comes online, and add additional test cases
+        UAC integration
+            watch over several days to verify new approach, and add additional test cases
+            looks like map regions for Moab changed?
+        NWAC integration
+            verify as real data comes online, and add additional test cases
         check all centers regularly as forecasts start to come online again
     support additional avi centers
         CA
             Sierra (SAC) -- talked with Andy Anderson; he will send KML; suggests parsing RSS for data
             Eastern Sierra (ESAC) -- received KMZ; pinged Nate Greenberg regarding new data format
             Mount Shasta -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
+        WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
         Jackson WY (Bridger-Teton) (3 regions)
+        ID
+            Sun Valley
+            McCall
+            Panhandle
         MT
             Bozeman (Gallatin) (3 regions)
             Glacier
@@ -40,15 +48,10 @@ WebService
             Valdez
             Cordova
             Juneau
-        ID
-            McCall
-            Panhandle
-            Sun Valley
         Flagstaff AZ
         Joseph OR
         Mount Washington NH
         Canada
-            WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm (sent email for integration); NOTE this region is a subset of sea-to-sky! -- get updated region data; but looks like they do their own forecast
             CAC Yukon -- emailed CAC for region definition (http://avalanche.ca/kmz/bulletinregions.kmz has what they have; Yukon not in there yet as of 2012-10-23, but they may add it)
             Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
@@ -64,20 +67,21 @@ WebService
         have classes of validation (issued daily vs. irregularly, issued day before vs. morning of, etc.)
         on error, capture all inputs, and alert me
         also snapshot user URL vs. data URL vs. my forecast always, for later review
-        add automatic, ongoing checks of HTML vs. CAAML results for all api-based sites?
+        add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
     v1
         issues to address
-            map responsiveness could be better (esp on older hardware)
-                compare to maps app for feel
-                profile (overlay drawing? hit testing? invalidates? etc.)
-            map redraw flicker (at least on Jelly Bean)
-            momentarily highlight region that was tapped (SteveM feedback)
+            map responsiveness is sluggish
+                overlays are definitely causing the slowdown, due to the draw routine
+                MyLocationOverlay is also causing constant redraws
+            map redraw flicker (at least on Jelly Bean) -- including briefly drawing in different colors
             zoom danger scale view to fit screen by default (based on orientation?)
             zoom web view to fit screen width by default
             detailed flurry event tracking
             warn if no GPS available
-            fall back to some other location strategy if GPS is turned off
+            momentarily highlight region that was tapped (SteveM feedback)
+        test
+            try with GPS turned off
         issues we'll live with for now
             title bar shows up in different colors on different android versions
             fix info icon within menu to use explicit resource, vs. system resource that looks different on each platform
