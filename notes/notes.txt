@@ -73,6 +73,16 @@ Android
         issues to address
             map responsiveness is sluggish
                 overlays are definitely causing the slowdown, due to the draw routine
+                    in draw, avg of about 2.0ms for path calc, and 0.7ms to draw
+                    so... ideas
+                        reduce number of polygons to draw (only draw those that are onscreen)
+                        investigate rendering to bitmap (perhaps cached as long as zoom level is constant), and then just drawing that
+                        split up path calc per OSM approach
+                            http://stackoverflow.com/questions/6630868/android-map-drawing-performance-1k-drawings
+                            http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
+                        cache path and re-use if zoom and position the same (to handle MyLocationOverlay-caused redraws)
+                        simplify polygons (point thinning when zoomed out)
+                        consider creating my own overlay manager class, to unify top-level logic
                 MyLocationOverlay is also causing constant redraws
             map redraw flicker (at least on Jelly Bean) -- including briefly drawing in different colors
             zoom danger scale view to fit screen by default (based on orientation?)
