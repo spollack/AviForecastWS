@@ -86,7 +86,6 @@ Android
                 MyLocationOverlay is also causing constant redraws
             map redraw flicker (at least on Jelly Bean) -- including briefly drawing in different colors
             zoom danger scale view to fit screen by default (based on orientation?)
-            zoom web view to fit screen width by default
             detailed flurry event tracking
             warn if no GPS available
             momentarily highlight region that was tapped (SteveM feedback)
