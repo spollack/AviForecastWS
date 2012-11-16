@@ -70,38 +70,34 @@ WebService
         add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
     v1
-        issues to address
-            map responsiveness is sluggish
-                overlays are definitely causing the slowdown, due to the draw routine
-                    in draw, avg of about 2.0ms for path calc, and 0.7ms to draw
-                    so... ideas
-                        reduce number of polygons to draw (only draw those that are onscreen)
-                        investigate rendering to bitmap (perhaps cached as long as zoom level is constant), and then just drawing that
-                        split up path calc per OSM approach
-                            http://stackoverflow.com/questions/6630868/android-map-drawing-performance-1k-drawings
-                            http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
-                        cache path and re-use if zoom and position the same (to handle MyLocationOverlay-caused redraws)
-                        simplify polygons (point thinning when zoomed out)
-                        consider creating my own overlay manager class, to unify top-level logic
-                MyLocationOverlay is also causing constant redraws
-            map redraw flicker (at least on Jelly Bean) -- including briefly drawing in different colors
-            zoom danger scale view to fit screen by default (based on orientation?)
+        to address
             detailed flurry event tracking
-            warn if no GPS available
             momentarily highlight region that was tapped (SteveM feedback)
-        test
-            try with GPS turned off
+            show region name in title bar?
         issues we'll live with for now
+            danger scale view should zoom to fill screen by default (based on orientation)
             title bar shows up in different colors on different android versions
             fix info icon within menu to use explicit resource, vs. system resource that looks different on each platform
                 (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS/JB
             in case of first time app use with no network, app must be shut down to try again once there is network
+        further map performance tuning
+            investigate keeping path, and transforming via matrix to pan or scale
+            split up path calc per OSM approach
+                http://stackoverflow.com/questions/6630868/android-map-drawing-performance-1k-drawings
+                http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
+            simplify polygons (point thinning when zoomed out)
+            consider creating my own overlay manager class, to unify top-level logic
         launch
             for all external builds
                 set version string appropriately
                 be sure to build with production map key
                 do signed export flow
+            beta 4 release notes
+                reduce number of polygons to draw (only draw those that are onscreen)
+                cache path and re-use if zoom and position the same (to handle MyLocationOverlay-caused redraws)
+                warn if location services disabled
+                show web pages full width by default
             put into Google Play
             hook up Flurry tracking website
             hook up App Annie tracking website
