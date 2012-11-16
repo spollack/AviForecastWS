@@ -403,6 +403,17 @@ describe('parseForecast_uac', function(){
             forecast[0].aviLevel.should.equal(2);
         })
     })
+    describe('file003.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_uac(fs.readFileSync('test/data/uac/file003.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('uac_uintas'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2012-11-14');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
 })
 
 describe('parseForecastIssuedDate_viac', function(){
