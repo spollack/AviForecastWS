@@ -88,6 +88,7 @@ Android
             fix info icon within menu to use explicit resource, vs. system resource that looks different on each platform
                 (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS/JB
+                test again with my revised FixedMyLocationOverlay, that always does the drawing
             in case of first time app use with no network, app must be shut down to try again once there is network
         further map performance tuning (if needed)
             investigate keeping path, and transforming via matrix to pan or scale
