@@ -70,40 +70,38 @@ WebService
         add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
     v1
-        to address
-            detailed flurry event tracking
-            momentarily highlight region that was tapped (SteveM feedback)
-            show region name in title bar?
-        issues we'll live with for now
+        launch
+            for all external builds
+                set version string appropriately
+                be sure to build with production map key
+                do signed export flow
+            put into Google Play
+            hook up Flurry tracking website
+            hook up App Annie tracking website
+            promote availability
+    v1.1
+        new features
+            [see iOS list]
+        low pri issues
             danger scale view should zoom to fill screen by default (based on orientation)
             title bar shows up in different colors on different android versions
             fix info icon within menu to use explicit resource, vs. system resource that looks different on each platform
                 (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS/JB
             in case of first time app use with no network, app must be shut down to try again once there is network
-        further map performance tuning
+        further map performance tuning (if needed)
             investigate keeping path, and transforming via matrix to pan or scale
             split up path calc per OSM approach
                 http://stackoverflow.com/questions/6630868/android-map-drawing-performance-1k-drawings
                 http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
             simplify polygons (point thinning when zoomed out)
             consider creating my own overlay manager class, to unify top-level logic
-        launch
-            for all external builds
-                set version string appropriately
-                be sure to build with production map key
-                do signed export flow
-            beta 4 release notes
-                reduce number of polygons to draw (only draw those that are onscreen)
-                cache path and re-use if zoom and position the same (to handle MyLocationOverlay-caused redraws)
-                warn if location services disabled
-                show web pages full width by default
-            put into Google Play
-            hook up Flurry tracking website
-            hook up App Annie tracking website
-            promote availability
 iOS
     v1.3
+        usability
+            map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
+            momentarily highlight region that was tapped
+            put region name in title for detailed forecasts
         info section
             change info button to bring up a table of topics (master/detail), not a pop-up
             add link to webpage that shows all partners, etc.
@@ -111,9 +109,10 @@ iOS
             add info on human factors and decision making -- find good reference
         sharing
             make it easy to share (virally) via facebook, twitter
-        map zoom level is different on iPhone 5 ... why? bug filed with apple (https://bugreport.apple.com/)
-        usability
-            momentarily highlight region that was tapped
+        flurry
+            update sdk
+            add tracking for setting timeframe mode; for no location available
+            review set of events overall
     v2
         status bar (or pop-ups of some sort?)
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
