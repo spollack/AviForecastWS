@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xml:base="http://www.sierraavalanchecenter.org/danger-rating-rss.php" xmlns:media="http://search.yahoo.com/mrss/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Avalanche Danger Rating from the Sierra Avalanche Center</title>
+        <link>http://www.sierraavalanchecenter.org</link>
+        <description></description>
+        <item>
+            <title>Avalanche Danger Rating for Sun. November 18, 2012</title>
+            <link>http://www.sierraavalanchecenter.org/advisory</link>
+            <pubDate>Sun. November 18, 2012</pubDate>
+            <description>Today the avalanche danger is MODERATE</description>
+            <guid>1353250466</guid>
+        </item>
+    </channel>
+</rss>

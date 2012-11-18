@@ -253,6 +253,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.islandavalanchebulletin.com/';
                     parser = forecasts.parseForecast_viac;
                     break;
+                case 'sac':
+                    dataURL = 'http://www.sierraavalanchecenter.org/danger-rating-rss.xml';
+                    parser = forecasts.parseForecast_sac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -843,11 +847,35 @@ forecasts.parseForecastValues_viac = function(body, regionDetails) {
     return aviLevels;
 };
 
+forecasts.parseForecast_sac = function(body, regionDetails) {
 
+    var forecast = null;
 
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.channel.item.pubDate;
+            // NOTE typical date string: 'Sun. November 18, 2012'
+            var forecastIssuedDate = moment(forecastIssuedDateField, 'ddd. MMM DD YYYY').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
+            var aviLevel = forecasts.findHighestAviLevelInString(result.channel.item.description);
 
+            // NOTE sac issues single day forecasts
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
 
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
+};
 
 
 

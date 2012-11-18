@@ -486,6 +486,28 @@ describe('parseForecast_viac', function(){
     })
 })
 
+describe('parseForecast_sac', function(){
+    describe('file000.xml', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_sac(fs.readFileSync('test/data/sac/file000.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('sac_1'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_sac(fs.readFileSync('test/data/sac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('sac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2012-11-18');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+})
+
 
 
 

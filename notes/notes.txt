@@ -23,14 +23,13 @@ marketing
 WebService
     existing avi center integrations
         UAC integration
-            watch over several days to verify new approach, and add additional test cases
-            looks like map regions for Moab changed?
+            get updated map KML
         NWAC integration
             verify as real data comes online, and add additional test cases
+        Sierra (SAC) -- verify integration
         check all centers regularly as forecasts start to come online again
     support additional avi centers
         CA
-            Sierra (SAC) -- talked with Andy Anderson; he will send KML; suggests parsing RSS for data
             Eastern Sierra (ESAC) -- received KMZ; pinged Nate Greenberg regarding new data format
             Mount Shasta -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
         WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
