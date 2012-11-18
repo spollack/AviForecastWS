@@ -68,6 +68,9 @@ WebService
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
+    bugs
+        crash on region set change
+        fail to redraw to remove selection halo after viewing a detail page
     v1
         launch
             for all external builds
