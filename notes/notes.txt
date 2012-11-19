@@ -68,16 +68,15 @@ WebService
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
+    for all external builds
+        set version string appropriately
+        be sure to build with production map key
+        do signed export flow
     v1
-        launch
-            for all external builds
-                set version string appropriately
-                be sure to build with production map key
-                do signed export flow
-            put into Google Play
-            hook up Flurry tracking website
-            hook up App Annie tracking website
-            promote availability
+        put into Google Play -- verify
+        hook up Flurry tracking website
+        hook up App Annie tracking website
+        promote availability
     v1.1
         new features
             [see iOS list]
