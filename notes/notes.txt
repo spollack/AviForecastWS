@@ -22,11 +22,9 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WebService
     existing avi center integrations
-        UAC integration
-            get updated map KML
-        NWAC integration
-            verify as real data comes online, and add additional test cases
-        Sierra (SAC) -- verify integration
+        UAC integration -- get updated map KML
+        NWAC integration -- verify as real data comes online, and add additional test cases
+        Sierra (SAC) -- verify integration, and add additional test cases
         check all centers regularly as forecasts start to come online again
     support additional avi centers
         CA
