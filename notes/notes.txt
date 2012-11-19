@@ -74,6 +74,8 @@ Android
         do signed export flow
     v1
         put into Google Play -- verify
+        test update from my phone, from beta version
+        communicate with beta testers
         hook up Flurry tracking website
         hook up App Annie tracking website
         promote availability
