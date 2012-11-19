@@ -6,6 +6,8 @@ things to do as time allows:
 marketing
     app store reviews
         get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
+            iOS
+            Android
     sebnarware.com website
         add more app info
         make it look nicer
