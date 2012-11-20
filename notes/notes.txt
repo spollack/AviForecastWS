@@ -5,11 +5,9 @@ things to do as time allows:
 --------------------
 marketing
     app store reviews
-        get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
-            iOS
-            Android
+        iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
+        Android -- get folks to write app store reviews, and +1 the app
     sebnarware.com website
-        add more app info
         make it look nicer
         SEO
     social channels
@@ -73,11 +71,7 @@ Android
         be sure to build with production map key
         do signed export flow
     v1
-        put into Google Play -- verify
-        test update from my phone, from beta version
-        communicate with beta testers
-        hook up Flurry tracking website
-        hook up App Annie tracking website
+        put into Google Play -- verify formatting fix
         promote availability
     v1.1
         new features
