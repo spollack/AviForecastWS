@@ -4,6 +4,9 @@ things to do now:
 things to do as time allows:
 --------------------
 marketing
+    general
+        listing in Google Play -- verify formatting fix
+        promote availability of android version
     app store reviews
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, and +1 the app
@@ -20,7 +23,7 @@ marketing
         send to ski/snowboard/backcountry mags: Backcountry Magazine, Coast Mountain Culture, ...
         send to hiking/climbing orgs/mags: WTA, AAJ, Rock&Ice, Climbing, Alpinist, etc.
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
-WebService
+WS
     existing avi center integrations
         UAC integration -- get updated map KML
         NWAC integration -- verify as real data comes online, and add additional test cases
@@ -70,9 +73,6 @@ Android
         set version string appropriately
         be sure to build with production map key
         do signed export flow
-    v1
-        put into Google Play -- verify formatting fix
-        promote availability
     v1.1
         new features
             [see iOS list]
