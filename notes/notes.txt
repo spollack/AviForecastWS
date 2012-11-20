@@ -11,8 +11,11 @@ marketing
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, and +1 the app
     sebnarware.com website
+        optimize image sizes
         make it look nicer
+        favicon
         SEO
+        should i get an avalanche specific domain?
     social channels
         setup twitter, facebook, blog
         start pushing social content
