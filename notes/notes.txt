@@ -4,19 +4,22 @@ things to do now:
 things to do as time allows:
 --------------------
 marketing
-    general
-        listing in Google Play -- verify formatting fix
-        promote availability of android version
+    promote availability (highlight release of android version)
+        draft the message
+        HOLD to fix nwac integration before sending
+        to all existing avi centers / contacts
+        bwcc; waclist
     app store reviews
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, and +1 the app
     sebnarware.com website
+        add partners page
         make it look nicer
         SEO
-        should i get an avalanche specific domain?
     social channels
-        setup twitter, facebook, blog
-        start pushing social content
+        deliver facebook content
+        setup twitter, blog
+        use rivaliq ;-)
     review Uli's marketing guide for other steps to take
     direct outreach
         send to avalanche class instructors
@@ -97,6 +100,7 @@ iOS
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             momentarily highlight region that was tapped
             put region name in title for detailed forecasts
+            make launch screen say "Avalanche Forecasts" not "Avalanche", to match branding
         info section
             change info button to bring up a table of topics (master/detail), not a pop-up
             add link to webpage that shows all partners, etc.
