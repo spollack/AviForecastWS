@@ -5,15 +5,15 @@ things to do as time allows:
 --------------------
 marketing
     promote availability (highlight release of android version)
-        draft the message
-        to all existing avi centers / contacts
-        bwcc; waclist
     app store reviews
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, and +1 the app
     sebnarware.com website
-        make partners page look nicer
         SEO
+        partners page
+            make it look nicer
+            get missing logos
+            copy all image resources locally
     social channels
         deliver facebook content
         use rivaliq ;-)
@@ -75,6 +75,7 @@ Android
         do signed export flow
     v1.1
         reduce battery drain via turning off location services after we get a fix
+        allow "show my location" to be disabled? 
         new features
             [see iOS list]
         low pri issues
