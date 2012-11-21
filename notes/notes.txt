@@ -6,7 +6,6 @@ things to do as time allows:
 marketing
     promote availability (highlight release of android version)
         draft the message
-        HOLD to fix nwac integration before sending
         to all existing avi centers / contacts
         bwcc; waclist
     app store reviews
@@ -29,7 +28,7 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WS
     existing avi center integrations
-        NWAC integration -- BROKEN! verify as real data comes online, and add additional test cases
+        NWAC integration -- need a better solution for picking up dates for forecast days
         UAC integration -- get updated map KML
         check all centers regularly as forecasts start to come online again
     support additional avi centers
