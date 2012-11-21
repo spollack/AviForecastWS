@@ -12,12 +12,10 @@ marketing
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, and +1 the app
     sebnarware.com website
-        add partners page
-        make it look nicer
+        make partners page look nicer
         SEO
     social channels
         deliver facebook content
-        setup twitter, blog
         use rivaliq ;-)
     review Uli's marketing guide for other steps to take
     direct outreach
@@ -76,6 +74,7 @@ Android
         be sure to build with production map key
         do signed export flow
     v1.1
+        reduce battery drain via turning off location services after we get a fix
         new features
             [see iOS list]
         low pri issues
