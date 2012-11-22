@@ -4,7 +4,13 @@ things to do now:
 things to do as time allows:
 --------------------
 marketing
-    promote availability (highlight release of android version)
+    promote availability
+        get the integrated avalanche centers to share with their lists
+        send to avalanche class instructors
+        send to professional avalanche organizations (National Avalanche Center, etc.)
+        send to ski/snowboard/backcountry mags: Backcountry Magazine, Coast Mountain Culture, ...
+        send to hiking/climbing orgs/mags: WTA, AAJ, Rock&Ice, Climbing, Alpinist, etc.
+        find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
     app store reviews
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, and +1 the app
@@ -21,13 +27,6 @@ marketing
         deliver facebook content
         use rivaliq ;-)
     review Uli's marketing guide for other steps to take
-    direct outreach
-        get the integrated avalanche centers to share with their lists
-        send to avalanche class instructors
-        send to professional avalanche organizations (National Avalanche Center, etc.)
-        send to ski/snowboard/backcountry mags: Backcountry Magazine, Coast Mountain Culture, ...
-        send to hiking/climbing orgs/mags: WTA, AAJ, Rock&Ice, Climbing, Alpinist, etc.
-        find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
 WS
     existing avi center integrations
         NWAC integration -- need a better solution for picking up dates for forecast days
