@@ -10,10 +10,13 @@ marketing
         Android -- get folks to write app store reviews, and +1 the app
     sebnarware.com website
         SEO
+        main page
+            fix facebook button overrun
         partners page
             make it look nicer
             get missing logos
             copy all image resources locally
+            put some text about "these are the folks who make it happen"
     social channels
         deliver facebook content
         use rivaliq ;-)
