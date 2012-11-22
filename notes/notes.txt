@@ -19,7 +19,7 @@ marketing
         use rivaliq ;-)
     review Uli's marketing guide for other steps to take
     direct outreach
-        get integrated avalanche centers to share with their lists
+        get the integrated avalanche centers to share with their lists
         send to avalanche class instructors
         send to professional avalanche organizations (National Avalanche Center, etc.)
         send to ski/snowboard/backcountry mags: Backcountry Magazine, Coast Mountain Culture, ...
@@ -75,7 +75,8 @@ Android
         be sure to build with production map key
         do signed export flow
     v1.1
-        reduce battery drain via turning off location services after we get a fix
+        refresh forecasts after coming back from phone being asleep, but with app still in foreground (re-think what happens at what lifecycle phases)
+        reduce battery drain via turning off location services after we get a fix (verify via testing first)
         allow "show my location" to be disabled? 
         new features
             [see iOS list]
