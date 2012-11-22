@@ -80,6 +80,7 @@ Android
     v1.1
         refresh forecasts after coming back from phone being asleep, but with app still in foreground (re-think what happens at what lifecycle phases)
         reduce battery drain via turning off location services after we get a fix (verify via testing first)
+        test & improve offline caching
         allow "show my location" to be disabled? 
         new features
             [see iOS list]
