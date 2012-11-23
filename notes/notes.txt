@@ -22,6 +22,7 @@ marketing
         partners page
             make it look nicer
             get missing logos
+            PC "Mountain Safety"
             copy all image resources locally
             put some text about "these are the folks who make it happen"
         add a FAQ page
@@ -75,20 +76,22 @@ WS
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
-    for all external builds
-        set version string appropriately
-        be sure to build with production map key
-        do signed export flow
     v1.1
+        for all external builds
+            set version string appropriately
+            be sure to build with production map key
+            do signed export flow
         release notes
             fix handling of SSL sites with cert warnings, so that sites like CAIC render correctly
             when offline, serve cached content even cache-control headers say its expired
-        CAIC pages look messed up
-        refresh forecasts after coming back from phone being asleep, but with app still in foreground (re-think what happens at what lifecycle phases)
-        reduce battery drain via turning off location services after we get a fix (verify issue and solution via testing first)
+            refresh forecasts after coming back from phone being asleep
+        reduce battery drain via turning off location services after we get a fix
+            waiting on final test results from Adam; may be a non-issue
+    v1.2
         test & improve offline caching
             do longer term test of offline caching -- do things expire? 
-            problem caching CAIC pages (although other ones seem to work fine)
+            problem caching CAIC pages (other ones seem to work fine) -- cache-control:no-store is very likely the issue
+        on rotation, don't reload anything
         swap top and bottom bars?
         allow "show my location" to be disabled? 
         new features
@@ -110,6 +113,9 @@ Android
             consider creating my own overlay manager class, to unify top-level logic
 iOS
     v1.3
+        other
+            CAIC urls should be https at the top level, but this breaks offline caching -- figure out why and fix
+                test another https site and see if it is an https problem, or some more specific issue with CAIC
         usability
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             momentarily highlight region that was tapped
