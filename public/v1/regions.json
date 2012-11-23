@@ -36474,7 +36474,7 @@
     {
         "regionId": "caic_000",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
         "points": [
             {
                 "lat": "40.0135",
@@ -36769,7 +36769,7 @@
     {
         "regionId": "caic_001",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
         "points": [
             {
                 "lat": "40.4080",
@@ -37000,7 +37000,7 @@
     {
         "regionId": "caic_002",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
         "points": [
             {
                 "lat": "40.4427",
@@ -37235,7 +37235,7 @@
     {
         "regionId": "caic_003",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
         "points": [
             {
                 "lat": "40.8697",
@@ -37606,7 +37606,7 @@
     {
         "regionId": "caic_010",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
         "points": [
             {
                 "lat": "40.6334",
@@ -38533,7 +38533,7 @@
     {
         "regionId": "caic_012",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
         "points": [
             {
                 "lat": "38.5196",
@@ -38640,7 +38640,7 @@
     {
         "regionId": "caic_013",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
         "points": [
             {
                 "lat": "39.2743",
@@ -38775,7 +38775,7 @@
     {
         "regionId": "caic_014",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
         "points": [
             {
                 "lat": "39.3238",
@@ -38934,7 +38934,7 @@
     {
         "regionId": "caic_015",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
         "points": [
             {
                 "lat": "39.4490",
@@ -39049,7 +39049,7 @@
     {
         "regionId": "caic_020",
         "displayName": "Vail and Summit County",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=2",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=2",
         "points": [
             {
                 "lat": "39.8795",
@@ -40052,7 +40052,7 @@
     {
         "regionId": "caic_030",
         "displayName": "Sawatch",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=3",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=3",
         "points": [
             {
                 "lat": "39.3662",
@@ -40911,7 +40911,7 @@
     {
         "regionId": "caic_040",
         "displayName": "Aspen",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=4",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=4",
         "points": [
             {
                 "lat": "39.3925",
@@ -40994,7 +40994,7 @@
     {
         "regionId": "caic_042",
         "displayName": "Aspen",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=4",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=4",
         "points": [
             {
                 "lat": "39.5334",
@@ -41729,7 +41729,7 @@
     {
         "regionId": "caic_050",
         "displayName": "Gunnison",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=5",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=5",
         "points": [
             {
                 "lat": "38.9970",
@@ -42380,7 +42380,7 @@
     {
         "regionId": "caic_060",
         "displayName": "Grand Mesa",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=6",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=6",
         "points": [
             {
                 "lat": "39.4157",
@@ -42451,7 +42451,7 @@
     {
         "regionId": "caic_061",
         "displayName": "Grand Mesa",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=6",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=6",
         "points": [
             {
                 "lat": "39.0763",
@@ -42770,7 +42770,7 @@
     {
         "regionId": "caic_070",
         "displayName": "Northern San Juan",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=7",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=7",
         "points": [
             {
                 "lat": "37.6657",
@@ -43621,7 +43621,7 @@
     {
         "regionId": "caic_080",
         "displayName": "Southern San Juan",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=8",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=8",
         "points": [
             {
                 "lat": "37.6657",
@@ -44564,7 +44564,7 @@
     {
         "regionId": "caic_090",
         "displayName": "Sangre de Cristo",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=9",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=9",
         "points": [
             {
                 "lat": "37.3092",
@@ -44643,7 +44643,7 @@
     {
         "regionId": "caic_091",
         "displayName": "Sangre de Cristo",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=9",
+        "URL": "https://avalanche.state.co.us/pub_bc_avo.php?zone_id=9",
         "points": [
             {
                 "lat": "38.3232",
