@@ -80,6 +80,9 @@ Android
         be sure to build with production map key
         do signed export flow
     v1.1
+        release notes
+            fix handling of SSL sites with cert warnings, so that sites like CAIC render correctly
+            when offline, serve cached content even cache-control headers say its expired
         CAIC pages look messed up
         refresh forecasts after coming back from phone being asleep, but with app still in foreground (re-think what happens at what lifecycle phases)
         reduce battery drain via turning off location services after we get a fix (verify issue and solution via testing first)
