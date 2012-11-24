@@ -82,7 +82,7 @@ Android
             be sure to build with production map key
             do signed export flow
         release notes
-            fix handling of SSL sites with cert warnings, so that sites like CAIC render correctly
+            fixed handling of SSL sites with cert warnings, so that sites like CAIC render correctly
             when offline, serve cached content even cache-control headers say its expired
             refresh forecasts after coming back from phone being asleep
         reduce battery drain via turning off location services after we get a fix
