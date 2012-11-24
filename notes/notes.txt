@@ -84,16 +84,14 @@ Android
         release notes
             fixed handling of SSL sites with cert warnings, so that sites like CAIC render correctly
             when offline, serve cached content even cache-control headers say its expired
-            refresh forecasts after coming back from phone being asleep
-        reduce battery drain via turning off location services after we get a fix
-            waiting on final test results from Adam; may be a non-issue
     v1.2
-        test & improve offline caching
-            do longer term test of offline caching -- do things expire? 
+        bugs and cleanup
             problem caching CAIC pages (other ones seem to work fine) -- cache-control:no-store is very likely the issue
-        on rotation, don't reload anything
-        swap top and bottom bars?
-        allow "show my location" to be disabled? 
+            on rotation, don't reload anything
+            clean up what happens at what phase of lifecycle
+            refresh forecasts after coming back from phone being asleep (in a clean way ... don't create duplicate overlays, etc.)
+            swap top and bottom bars?
+            allow "show my location" to be disabled? 
         new features
             [see iOS list]
         low pri issues
