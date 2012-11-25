@@ -33,8 +33,11 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     existing avi center integrations
-        NWAC integration -- need a better solution for picking up dates for forecast days
-        UAC integration -- get updated map KML
+        issues
+            CAC -- CAAML feed down! (Nov 25)
+            CAIC -- problem caching their web pages on android -- cache-control:no-store is very likely the issue, asked for fix from CAIC
+            NWAC integration -- need a better solution for picking up dates for forecast days
+            UAC integration -- get updated map KML
         check all centers regularly as forecasts start to come online again
     support additional avi centers
         CA
@@ -78,13 +81,11 @@ WS
 Android
     v1.2
         bugs and cleanup
-            problem caching CAIC pages (other ones seem to work fine) -- cache-control:no-store is very likely the issue, asked for fix from CAIC
             lifecycle management
                 on rotation, don't reload anything
                 clean up what happens at what phase of lifecycle
-                refresh forecasts after coming back from phone being asleep (in a clean way ... don't create duplicate overlays, etc.)
+            remember last map position and zoom, and return to that on restart, instead of recentering?
             swap top and bottom bars?
-            allow "show my location" to be disabled? 
         new features
             [see iOS list]
         low pri issues
