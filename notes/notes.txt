@@ -16,17 +16,10 @@ marketing
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, and +1 the app
     sebnarware.com website
-        SEO
-        main page
-            fix facebook button overrun
-        partners page
-            make it look nicer
-            get missing logos
-            PC "Mountain Safety"
-            copy all image resources locally
-            put some text about "these are the folks who make it happen"
-        add a FAQ page
-        add nav bar
+        SEO (on-page)
+        get inbound links
+        add a FAQ page?
+        add nav bar?
     social channels
         deliver facebook content
         use rivaliq ;-)
@@ -84,7 +77,7 @@ Android
             lifecycle management
                 on rotation, don't reload anything
                 clean up what happens at what phase of lifecycle
-            remember last map position and zoom, and return to that on restart, instead of recentering?
+            remember last map position and zoom, and return to that on restart, instead of recentering? or add menu option to control this?
             swap top and bottom bars?
         new features
             [see iOS list]
