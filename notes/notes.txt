@@ -16,8 +16,8 @@ marketing
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, mark reviews as helpful, and +1 the app
     sebnarware.com website
-        SEO (on-page)
         get inbound links
+        SEO (on-page)
         add a FAQ page?
         add nav bar?
     social channels
@@ -28,9 +28,9 @@ WS
     existing avi center integrations
         issues
             CAC -- CAAML feed down! (Nov 25)
-            CAIC -- problem caching their web pages on android -- cache-control:no-store is very likely the issue, asked for fix from CAIC
-            NWAC integration -- need a better solution for picking up dates for forecast days
-            UAC integration -- get updated map KML
+            CAIC -- problem caching their web pages on android -- cache-control:no-store is very likely the issue, asked for fix from CAIC (Nov 24)
+            NWAC integration -- need a better solution for picking up dates for forecast days (Nov 21)
+            UAC integration -- get updated map KML (last pinged Nov 16)
         check all centers regularly as forecasts start to come online again
     support additional avi centers
         CA
