@@ -76,20 +76,13 @@ WS
         also snapshot user URL vs. data URL vs. my forecast always, for later review
         add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
-    v1.1
-        for all external builds
-            set version string appropriately
-            be sure to build with production map key
-            do signed export flow
-        release notes
-            fixed handling of SSL sites with cert warnings, so that sites like CAIC render correctly
-            when offline, serve cached content even cache-control headers say its expired
     v1.2
         bugs and cleanup
-            problem caching CAIC pages (other ones seem to work fine) -- cache-control:no-store is very likely the issue
-            on rotation, don't reload anything
-            clean up what happens at what phase of lifecycle
-            refresh forecasts after coming back from phone being asleep (in a clean way ... don't create duplicate overlays, etc.)
+            problem caching CAIC pages (other ones seem to work fine) -- cache-control:no-store is very likely the issue, asked for fix from CAIC
+            lifecycle management
+                on rotation, don't reload anything
+                clean up what happens at what phase of lifecycle
+                refresh forecasts after coming back from phone being asleep (in a clean way ... don't create duplicate overlays, etc.)
             swap top and bottom bars?
             allow "show my location" to be disabled? 
         new features
@@ -109,6 +102,10 @@ Android
                 http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
             simplify polygons (point thinning when zoomed out)
             consider creating my own overlay manager class, to unify top-level logic
+        for all external builds
+            set version string appropriately
+            be sure to build with production map key
+            do signed export flow
 iOS
     v1.3
         other
