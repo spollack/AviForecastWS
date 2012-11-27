@@ -78,7 +78,8 @@ Android
                 on rotation, don't reload anything
                 clean up what happens at what phase of lifecycle
             remember last map position and zoom, and return to that on restart, instead of recentering? or add menu option to control this?
-            swap top and bottom bars?
+            redo location services stuff to turn off gps after we have a first fix
+            swap top and bottom bars? or just leave it?
         new features
             [see iOS list]
         low pri issues
