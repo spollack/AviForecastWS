@@ -36,7 +36,7 @@ WS
         CA
             Eastern Sierra (ESAC) -- received KMZ; waiting on RSS/forecasts to start
             Mount Shasta -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
-        WhistlerBlackcomb -- http://www.whistlerblackcomb.com/weather/advisory/index.htm; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
+        WhistlerBlackcomb -- http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
         Jackson WY (Bridger-Teton) (3 regions)
         ID
             Sun Valley
