@@ -527,7 +527,7 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
     parser.parseString(body, function(err, result) {
         try {
             // NOTE cac uses xml namespace prefixes in their tags, which requires this byzantine lookup notation
-            var dayForecasts = result['caaml:observations']['caaml:Bulletin']['caaml:bulletinResultsOf']['caaml:BulletinMeasurements']['caaml:dangerRatings']['caaml:DangerRating'];
+            var dayForecasts = result['caaml:observations']['caaml:bulletinResultsOf']['caaml:BulletinMeasurements']['caaml:dangerRatings']['caaml:DangerRating'];
 
             // NOTE create an extra slot for the day before the first described day, as sometimes the forecast is issued
             // with the first described day as the following day; we want to show some forecast for the time until
@@ -541,12 +541,13 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
 
                 // NOTE cac organizes forecasts by multiple elevation zones within a given day;
                 // take the highest danger level listed for each day
+                // NOTE the text is something like "2 - MODERATE", so grab the first character and turn it into an int
                 var aviLevel = Math.max(
-                    forecasts.aviLevelFromName(dayForecasts[i]['caaml:dangerRatingAlpValue']),
-                    forecasts.aviLevelFromName(dayForecasts[i]['caaml:dangerRatingTlnValue']),
-                    forecasts.aviLevelFromName(dayForecasts[i]['caaml:dangerRatingBtlValue']));
+                    parseInt(dayForecasts[i]['caaml:dangerRatingAlpValue'][0]),
+                    parseInt(dayForecasts[i]['caaml:dangerRatingTlnValue'][0]),
+                    parseInt(dayForecasts[i]['caaml:dangerRatingBtlValue'][0]));
 
-                // NOTE copy the first described day's forcast to the day before (see note above)
+                // NOTE copy the first described day's forecast to the day before (see note above)
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before

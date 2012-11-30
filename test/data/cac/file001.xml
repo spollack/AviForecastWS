@@ -1,1 +1,195 @@
-<caaml:ObsCollection xsi:schemaLocation="http://www.avalanche.ca/caaml http://www.avisualanche.ca/caaml/schema/5.0-Development/caaml.xsd http://www.avalanche.ca/caisml http://www.avisualanche.ca/caaml/schema/5.0-Development/caisml.xsd" gml:id="obs7ea00b0c-82f3-4493-861c-ff8efba53d63" xmlns:caaml="http://www.avalanche.ca/caaml" xmlns:caisml="http://www.avalanche.ca/caisml" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><caaml:obsMetaDataProperty><caaml:ObsMetaData><caaml:caamlVersion/><caaml:srcRef xlink:href="CAC"/></caaml:ObsMetaData></caaml:obsMetaDataProperty><caaml:observations><caaml:Bulletin gml:id="bid_47407"><caaml:obsMetaDataProperty><caaml:ObsMetaData><caaml:observedBy><caaml:PersonString>swerner</caaml:PersonString></caaml:observedBy></caaml:ObsMetaData></caaml:obsMetaDataProperty><gml:validTime><gml:TimePeriod gml:id="tid_47407"><gml:beginPosition>2012-02-09T18:13:00</gml:beginPosition><gml:endPosition>2012-02-11T11:00:00</gml:endPosition></gml:TimePeriod></gml:validTime><caaml:bulletinResultsOf><caaml:BulletinMeasurements><caaml:bulletinConfidence><caaml:Components><caaml:confidenceLevel></caaml:confidenceLevel><caaml:comment>Fair - Intensity of incoming weather is uncertain on Friday</caaml:comment></caaml:Components></caaml:bulletinConfidence><caaml:backcountryAvalancheAdvisory>0</caaml:backcountryAvalancheAdvisory><caaml:dangerRatings><caaml:DangerRating><caaml:locRef xlink:href="Sea-to-Sky"/><gml:validTime><gml:TimeInstant gml:id="tid_3a0bbb3d-e8ba-4739-93d7-3e072f84bef2"><gml:timePosition>2012-02-10T18:13:00</gml:timePosition></gml:TimeInstant></gml:validTime><caaml:dangerRatingAlpValue>Considerable</caaml:dangerRatingAlpValue><caaml:dangerRatingTlnValue>Moderate</caaml:dangerRatingTlnValue><caaml:dangerRatingBtlValue>Low</caaml:dangerRatingBtlValue></caaml:DangerRating><caaml:DangerRating><caaml:locRef xlink:href="Sea-to-Sky"/><gml:validTime><gml:TimeInstant gml:id="tid_ad3a009f-e724-42b0-90fb-21ec1288075f"><gml:timePosition>2012-02-11T18:13:00</gml:timePosition></gml:TimeInstant></gml:validTime><caaml:dangerRatingAlpValue>Moderate</caaml:dangerRatingAlpValue><caaml:dangerRatingTlnValue>Low</caaml:dangerRatingTlnValue><caaml:dangerRatingBtlValue>Low</caaml:dangerRatingBtlValue></caaml:DangerRating><caaml:DangerRating><caaml:locRef xlink:href="Sea-to-Sky"/><gml:validTime><gml:TimeInstant gml:id="tid_40f8cecd-8733-4eeb-b450-fe84d3d00fc6"><gml:timePosition>2012-02-12T18:13:00</gml:timePosition></gml:TimeInstant></gml:validTime><caaml:dangerRatingAlpValue>Moderate</caaml:dangerRatingAlpValue><caaml:dangerRatingTlnValue>Low</caaml:dangerRatingTlnValue><caaml:dangerRatingBtlValue>Low</caaml:dangerRatingBtlValue></caaml:DangerRating></caaml:dangerRatings><caaml:wxSynopsisComment>Overnight Thursday: Snow amounts 5-10cms. Ridgetop winds 30-40km/hr from the SE. Friday: Snow amounts 2-5cm. Ridgetop winds 20km/hr from the South. Freezing levels near 1800m. Saturday/Sunday: A ridge will persist through the weekend. Bringing mainly cloudy skies, and accumulations 2-5cms. Freezing levels near 1100m accompanied by moderate SW winds. </caaml:wxSynopsisComment></caaml:BulletinMeasurements></caaml:bulletinResultsOf></caaml:Bulletin></caaml:observations></caaml:ObsCollection>
+<caaml:ObsCollection xsi:schemaLocation="http://www.avalanche.ca/caaml http://www.avisualanche.ca/caaml/schema/5.0-Development/caaml.xsd http://www.avalanche.ca/caisml http://www.avisualanche.ca/caaml/schema/5.0-Development/caisml.xsd" gml:id="obs50c2fd7c-d510-4f4a-8c3b-4fda12107ac0" xmlns:caaml="http://www.avalanche.ca/caaml" xmlns:caisml="http://www.avalanche.ca/caisml" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <caaml:obsMetaDataProperty>
+        <caaml:ObsMetaData>
+            <caaml:caamlVersion/>
+            <caaml:srcRef xlink:href="CAC"/>
+        </caaml:ObsMetaData>
+    </caaml:obsMetaDataProperty>
+    <caaml:observations>
+        <caaml:Bulletin gml:id="bid_52821">
+            <caaml:obsMetaDataProperty>
+                <caaml:ObsMetaData>
+                    <caaml:observedBy>
+                        <caaml:PersonString>mike.koppang</caaml:PersonString>
+                    </caaml:observedBy>
+                </caaml:ObsMetaData>
+            </caaml:obsMetaDataProperty>
+        </caaml:Bulletin>
+        <gml:validTime>
+            <gml:TimePeriod gml:id="tid_52821">
+                <gml:beginPosition>2012-11-29T16:36:00</gml:beginPosition>
+                <gml:endPosition>2012-11-30T22:00:00</gml:endPosition>
+            </gml:TimePeriod>
+        </gml:validTime>
+        <caaml:bulletinResultsOf>
+            <caaml:BulletinMeasurements>
+                <caaml:bulletinConfidence>
+                    <caaml:Components>
+                        <caaml:confidenceLevel>Fair - Intensity of incoming weather is uncertain on Friday</caaml:confidenceLevel>
+                        <caaml:comment>NA</caaml:comment>
+                    </caaml:Components>
+                </caaml:bulletinConfidence>
+                <caaml:backcountryAvalancheAdvisory/>
+                <caaml:dangerRatings>
+                    <caaml:DangerRating>
+                        <caaml:locRef xlink:href="Kananaskis Country"/>
+                        <gml:validTime>
+                            <gml:TimeInstant gml:id="tid_0a951f53-27c5-432c-8fff-a8ffdcc5f1ea">
+                                <gml:timePosition>2012-11-30T20:40:15.7480011-07:00</gml:timePosition>
+                            </gml:TimeInstant>
+                        </gml:validTime>
+                        <caaml:dangerRatingAlpValue>2 - MODERATE</caaml:dangerRatingAlpValue>
+                        <caaml:dangerRatingTlnValue>2 - MODERATE</caaml:dangerRatingTlnValue>
+                        <caaml:dangerRatingBtlValue>1 - LOW</caaml:dangerRatingBtlValue>
+                    </caaml:DangerRating>
+                    <caaml:DangerRating>
+                        <caaml:locRef xlink:href="Kananaskis Country"/>
+                        <gml:validTime>
+                            <gml:TimeInstant gml:id="tid_2142bdd2-9d49-415c-90b8-0b6d40b23d57">
+                                <gml:timePosition>2012-12-01T20:40:15.7480011-07:00</gml:timePosition>
+                            </gml:TimeInstant>
+                        </gml:validTime>
+                        <caaml:dangerRatingAlpValue>3 - CONSIDERABLE</caaml:dangerRatingAlpValue>
+                        <caaml:dangerRatingTlnValue>2 - MODERATE</caaml:dangerRatingTlnValue>
+                        <caaml:dangerRatingBtlValue>1 - LOW</caaml:dangerRatingBtlValue>
+                    </caaml:DangerRating>
+                    <caaml:DangerRating>
+                        <caaml:locRef xlink:href="Kananaskis Country"/>
+                        <gml:validTime>
+                            <gml:TimeInstant gml:id="tid_c455ef4e-5370-4e4d-bde1-66177d880769">
+                                <gml:timePosition>2012-12-02T20:40:15.7480011-07:00</gml:timePosition>
+                            </gml:TimeInstant>
+                        </gml:validTime>
+                        <caaml:dangerRatingAlpValue>3 - CONSIDERABLE</caaml:dangerRatingAlpValue>
+                        <caaml:dangerRatingTlnValue>2 - MODERATE</caaml:dangerRatingTlnValue>
+                        <caaml:dangerRatingBtlValue>1 - LOW</caaml:dangerRatingBtlValue>
+                    </caaml:DangerRating>
+                    <caaml:DangerRating>
+                        <caaml:locRef xlink:href="Kananaskis Country"/>
+                        <gml:validTime>
+                            <gml:TimeInstant gml:id="tid_a0f53092-3c4d-4047-8b8b-97fe1590dd9c">
+                                <gml:timePosition>2012-12-03T20:40:15.7480011-07:00</gml:timePosition>
+                            </gml:TimeInstant>
+                        </gml:validTime>
+                        <caaml:dangerRatingAlpValue>3 - CONSIDERABLE</caaml:dangerRatingAlpValue>
+                        <caaml:dangerRatingTlnValue>2 - MODERATE</caaml:dangerRatingTlnValue>
+                        <caaml:dangerRatingBtlValue>1 - LOW</caaml:dangerRatingBtlValue>
+                    </caaml:DangerRating>
+                </caaml:dangerRatings>
+                <caaml:avProblems>
+                    <caaml:avProblem>
+                        <caaml:type>Wind Slabs</caaml:type>
+                        <caaml:validAspect xlink:href="AspectRange_E"/>
+                        <caaml:validAspect xlink:href="AspectRange_N"/>
+                        <caaml:validAspect xlink:href="AspectRange_NE"/>
+                        <caaml:validAspect xlink:href="AspectRange_S"/>
+                        <caaml:validAspect xlink:href="AspectRange_SE"/>
+                        <caaml:validElevation xlink:href="ElevationLabel_Tln"/>
+                        <caaml:validElevation xlink:href="ElevationLabel_Alp"/>
+                        <caaml:expectedAvSize>
+                            <caaml:Values>
+                                <caaml:min>2</caaml:min>
+                                <caaml:max>5</caaml:max>
+                                <caaml:typical>4</caaml:typical>
+                            </caaml:Values>
+                        </caaml:expectedAvSize>
+                        <caaml:likelihoodOfTriggering>
+                            <caaml:Values>
+                                <caaml:min>1</caaml:min>
+                                <caaml:max>5</caaml:max>
+                                <caaml:typical>3</caaml:typical>
+                            </caaml:Values>
+                        </caaml:likelihoodOfTriggering>
+                        <caaml:travelAdvisoryComment>ToDo</caaml:travelAdvisoryComment>
+                        <caaml:comment>&lt;style type="text/css">.p_CC664AAA { margin: 0px 0px 12px 0px;text-align: left;text-indent: 0pt;padding: 0px 0px 0px 0px; } .s_AA239A9B { font-family: 'Arial';font-style: Normal;font-weight: normal;font-size: 13px;color: #000000; } &lt;/style>&lt;p class="p_CC664AAA">&lt;span class="s_AA239A9B">Pockets of wind slab are present in lee and cross loaded features in the alpine and isolated areas at tree line. NW winds over the past few days resulted in some loading onto S and SE aspects. A few cornice failures have also been observed.&lt;/span>&lt;/p></caaml:comment>
+                        <caaml:customData>ToDo</caaml:customData>
+                    </caaml:avProblem>
+                    <caaml:avProblem>
+                        <caaml:type>Persistent Slabs</caaml:type>
+                        <caaml:validAspect xlink:href="AspectRange_E"/>
+                        <caaml:validAspect xlink:href="AspectRange_N"/>
+                        <caaml:validAspect xlink:href="AspectRange_NE"/>
+                        <caaml:validAspect xlink:href="AspectRange_NW"/>
+                        <caaml:validAspect xlink:href="AspectRange_SE"/>
+                        <caaml:validElevation xlink:href="ElevationLabel_Tln"/>
+                        <caaml:validElevation xlink:href="ElevationLabel_Alp"/>
+                        <caaml:expectedAvSize>
+                            <caaml:Values>
+                                <caaml:min>3</caaml:min>
+                                <caaml:max>5</caaml:max>
+                                <caaml:typical>4</caaml:typical>
+                            </caaml:Values>
+                        </caaml:expectedAvSize>
+                        <caaml:likelihoodOfTriggering>
+                            <caaml:Values>
+                                <caaml:min>1</caaml:min>
+                                <caaml:max>4</caaml:max>
+                                <caaml:typical>2</caaml:typical>
+                            </caaml:Values>
+                        </caaml:likelihoodOfTriggering>
+                        <caaml:travelAdvisoryComment>ToDo</caaml:travelAdvisoryComment>
+                        <caaml:comment>&lt;style type="text/css">.p_CC664AAA { margin: 0px 0px 12px 0px;text-align: left;text-indent: 0pt;padding: 0px 0px 0px 0px; } .s_AA239A9B { font-family: 'Arial';font-style: Normal;font-weight: normal;font-size: 13px;color: #000000; } &lt;/style>&lt;p class="p_CC664AAA">&lt;span class="s_AA239A9B">The Nov rain crust persists about 30cm off the ground throughout the forecast area and is reactive to stability tests in the moderate range. Avalanches in the upper snowpack may step down to this weakness.&lt;/span>&lt;/p></caaml:comment>
+                        <caaml:customData>ToDo</caaml:customData>
+                    </caaml:avProblem>
+                    <caaml:avProblem>
+                        <caaml:type>Wind Slabs</caaml:type>
+                        <caaml:validAspect xlink:href="AspectRange_E"/>
+                        <caaml:validAspect xlink:href="AspectRange_N"/>
+                        <caaml:validAspect xlink:href="AspectRange_NE"/>
+                        <caaml:validAspect xlink:href="AspectRange_S"/>
+                        <caaml:validAspect xlink:href="AspectRange_SE"/>
+                        <caaml:validElevation xlink:href="ElevationLabel_Tln"/>
+                        <caaml:validElevation xlink:href="ElevationLabel_Alp"/>
+                        <caaml:expectedAvSize>
+                            <caaml:Values>
+                                <caaml:min>2</caaml:min>
+                                <caaml:max>5</caaml:max>
+                                <caaml:typical>4</caaml:typical>
+                            </caaml:Values>
+                        </caaml:expectedAvSize>
+                        <caaml:likelihoodOfTriggering>
+                            <caaml:Values>
+                                <caaml:min>1</caaml:min>
+                                <caaml:max>5</caaml:max>
+                                <caaml:typical>3</caaml:typical>
+                            </caaml:Values>
+                        </caaml:likelihoodOfTriggering>
+                        <caaml:travelAdvisoryComment>ToDo</caaml:travelAdvisoryComment>
+                        <caaml:comment>&lt;style type="text/css">.p_CC664AAA { margin: 0px 0px 12px 0px;text-align: left;text-indent: 0pt;padding: 0px 0px 0px 0px; } .s_AA239A9B { font-family: 'Arial';font-style: Normal;font-weight: normal;font-size: 13px;color: #000000; } &lt;/style>&lt;p class="p_CC664AAA">&lt;span class="s_AA239A9B">Pockets of wind slab are present in lee and cross loaded features in the alpine and isolated areas at tree line. NW winds over the past few days resulted in some loading onto S and SE aspects. A few cornice failures have also been observed.&lt;/span>&lt;/p></caaml:comment>
+                        <caaml:customData>ToDo</caaml:customData>
+                    </caaml:avProblem>
+                    <caaml:avProblem>
+                        <caaml:type>Persistent Slabs</caaml:type>
+                        <caaml:validAspect xlink:href="AspectRange_E"/>
+                        <caaml:validAspect xlink:href="AspectRange_N"/>
+                        <caaml:validAspect xlink:href="AspectRange_NE"/>
+                        <caaml:validAspect xlink:href="AspectRange_NW"/>
+                        <caaml:validAspect xlink:href="AspectRange_SE"/>
+                        <caaml:validElevation xlink:href="ElevationLabel_Tln"/>
+                        <caaml:validElevation xlink:href="ElevationLabel_Alp"/>
+                        <caaml:expectedAvSize>
+                            <caaml:Values>
+                                <caaml:min>3</caaml:min>
+                                <caaml:max>5</caaml:max>
+                                <caaml:typical>4</caaml:typical>
+                            </caaml:Values>
+                        </caaml:expectedAvSize>
+                        <caaml:likelihoodOfTriggering>
+                            <caaml:Values>
+                                <caaml:min>1</caaml:min>
+                                <caaml:max>4</caaml:max>
+                                <caaml:typical>2</caaml:typical>
+                            </caaml:Values>
+                        </caaml:likelihoodOfTriggering>
+                        <caaml:travelAdvisoryComment>ToDo</caaml:travelAdvisoryComment>
+                        <caaml:comment>&lt;style type="text/css">.p_CC664AAA { margin: 0px 0px 12px 0px;text-align: left;text-indent: 0pt;padding: 0px 0px 0px 0px; } .s_AA239A9B { font-family: 'Arial';font-style: Normal;font-weight: normal;font-size: 13px;color: #000000; } &lt;/style>&lt;p class="p_CC664AAA">&lt;span class="s_AA239A9B">The Nov rain crust persists about 30cm off the ground throughout the forecast area and is reactive to stability tests in the moderate range. Avalanches in the upper snowpack may step down to this weakness.&lt;/span>&lt;/p></caaml:comment>
+                        <caaml:customData>ToDo</caaml:customData>
+                    </caaml:avProblem>
+                </caaml:avProblems>
+                <caaml:wxSynopsisComment/>
+                <caaml:avActivityComment>&lt;style type="text/css">.p_CC664AAA { margin: 0px 0px 12px 0px;text-align: left;text-indent: 0pt;padding: 0px 0px 0px 0px; } .s_AA239A9B { font-family: 'Arial';font-style: Normal;font-weight: normal;font-size: 13px;color: #000000; } &lt;/style>&lt;p class="p_CC664AAA">&lt;span class="s_AA239A9B">No new observations&lt;/span>&lt;/p></caaml:avActivityComment>
+                <caaml:snowpackStructureComment>&lt;style type="text/css">.p_CC664AAA { margin: 0px 0px 12px 0px;text-align: left;text-indent: 0pt;padding: 0px 0px 0px 0px; } .s_AA239A9B { font-family: 'Arial';font-style: Normal;font-weight: normal;font-size: 13px;color: #000000; } &lt;/style>&lt;p class="p_CC664AAA">&lt;span class="s_AA239A9B">Yesterday's SH appears to be breaking down in specific locations. Windslabs still a concern in the upper snow pack. A variety of crusts near the bottom starting to breakdown in places. The Nov crust remains a significant concern at the moment.&lt;/span>&lt;/p></caaml:snowpackStructureComment>
+            </caaml:BulletinMeasurements>
+        </caaml:bulletinResultsOf>
+    </caaml:observations>
+</caaml:ObsCollection>
