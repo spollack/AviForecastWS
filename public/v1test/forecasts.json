@@ -872,5 +872,24 @@
                 "aviLevel": 3
             }
         ]
+    },
+    {
+        "regionId": "whistlerblackcomb_",
+        "forecast": [
+            {
+                "date": "2012-11-19",
+                "aviLevel": 3
+            },
+            {
+                "date": "2012-11-20",
+                "aviLevel": 4
+            },
+            {
+                "date": "2012-11-21",
+                "aviLevel": 2
+            }
+
+        ]
     }
+
 ]
