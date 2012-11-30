@@ -565,6 +565,7 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
              }
         } catch(e) {
             winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+            forecast = null;
         }
     });
 
