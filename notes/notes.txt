@@ -27,11 +27,10 @@ marketing
 WS
     existing avi center integrations
         issues
-            CAC -- CAAML feed down!
             CAIC -- problem caching their web pages on android -- cache-control:no-store is very likely the issue, asked for fix from CAIC
             NWAC integration -- need a better solution for picking up dates for forecast days
             UAC integration -- get updated map KML
-        check all centers regularly as forecasts start to come online again
+        check all centers regularly as forecasts start to come online again; add more test cases
     support additional avi centers
         CA
             Eastern Sierra (ESAC) -- received KMZ; waiting on RSS/forecasts to start
