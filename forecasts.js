@@ -337,7 +337,7 @@ forecasts.findHighestAviLevelInString = function(string) {
     // * not matching keywords showing up inside other words, like "high" in "highway"
     // * no whitespace, whitespace, or multiple whitespace
     // * multiple keywords, same or different, within the string
-    if (string) {
+    if (string && typeof(string) === 'string') {
         var levelMatch = string.match(/\b(low|moderate|considerable|high|extreme)\b/gi);
 
         if (levelMatch && levelMatch.length > 0) {
@@ -541,11 +541,12 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
 
                 // NOTE cac organizes forecasts by multiple elevation zones within a given day;
                 // take the highest danger level listed for each day
-                // NOTE the text is something like "2 - MODERATE", so grab the first character and turn it into an int
+                // NOTE the text is something like "2 - MODERATE"
+                // NOTE not all 3 fields (Alp/Tln/Btl) are necessarily present
                 var aviLevel = Math.max(
-                    parseInt(dayForecasts[i]['caaml:dangerRatingAlpValue'][0]),
-                    parseInt(dayForecasts[i]['caaml:dangerRatingTlnValue'][0]),
-                    parseInt(dayForecasts[i]['caaml:dangerRatingBtlValue'][0]));
+                    forecasts.findHighestAviLevelInString(dayForecasts[i]['caaml:dangerRatingAlpValue']),
+                    forecasts.findHighestAviLevelInString(dayForecasts[i]['caaml:dangerRatingTlnValue']),
+                    forecasts.findHighestAviLevelInString(dayForecasts[i]['caaml:dangerRatingBtlValue']));
 
                 // NOTE copy the first described day's forecast to the day before (see note above)
                 // NOTE this also assumes the days are listed in chronological order in the input data
