@@ -14,7 +14,7 @@ marketing
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
     app store reviews
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
-        Android -- get folks to write app store reviews, mark reviews as helpful, and +1 the app
+        Android -- get folks to write app store reviews, mark reviews as helpful, and to +1 the app
     sebnarware.com website
         get inbound links
         SEO (on-page)
