@@ -1,0 +1,86 @@
+<caaml:ObsCollection xsi:schemaLocation="http://www.avalanche.ca/caaml http://www.avisualanche.ca/caaml/schema/5.0-Development/caaml.xsd http://www.avalanche.ca/caisml http://www.avisualanche.ca/caaml/schema/5.0-Development/caisml.xsd" gml:id="obsbbbe8d7b-5fe1-411f-a8d8-2161f7b7f234" xmlns:caaml="http://www.avalanche.ca/caaml" xmlns:caisml="http://www.avalanche.ca/caisml" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <caaml:obsMetaDataProperty>
+        <caaml:ObsMetaData>
+            <caaml:caamlVersion/>
+            <caaml:srcRef xlink:href="CAC"/>
+        </caaml:ObsMetaData>
+    </caaml:obsMetaDataProperty>
+    <caaml:observations>
+        <caaml:Bulletin gml:id="bid_52829">
+            <caaml:obsMetaDataProperty>
+                <caaml:ObsMetaData>
+                    <caaml:observedBy>
+                        <caaml:PersonString>ccampbell</caaml:PersonString>
+                    </caaml:observedBy>
+                </caaml:ObsMetaData>
+            </caaml:obsMetaDataProperty>
+        </caaml:Bulletin>
+        <gml:validTime>
+            <gml:TimePeriod gml:id="tid_52829">
+                <gml:beginPosition>2012-11-29T17:38:00</gml:beginPosition>
+                <gml:endPosition>2012-11-30T22:00:00</gml:endPosition>
+            </gml:TimePeriod>
+        </gml:validTime>
+        <caaml:bulletinResultsOf>
+            <caaml:BulletinMeasurements>
+                <caaml:bulletinConfidence>
+                    <caaml:Components>
+                        <caaml:confidenceLevel>Fair - Due to limited field observations for the entire period</caaml:confidenceLevel>
+                        <caaml:comment>NA</caaml:comment>
+                    </caaml:Components>
+                </caaml:bulletinConfidence>
+                <caaml:backcountryAvalancheAdvisory/>
+                <caaml:dangerRatings>
+                    <caaml:DangerRating>
+                        <caaml:locRef xlink:href="North Shore"/>
+                        <gml:validTime>
+                            <gml:TimeInstant gml:id="tid_df3179e8-a620-4957-8217-13d912166f44">
+                                <gml:timePosition>2012-11-30T22:24:18.012315-07:00</gml:timePosition>
+                            </gml:TimeInstant>
+                        </gml:validTime>
+                        <caaml:dangerRatingAlpValue/>
+                        <caaml:dangerRatingTlnValue>1 - LOW</caaml:dangerRatingTlnValue>
+                        <caaml:dangerRatingBtlValue>1 - LOW</caaml:dangerRatingBtlValue>
+                    </caaml:DangerRating>
+                    <caaml:DangerRating>
+                        <caaml:locRef xlink:href="North Shore"/>
+                        <gml:validTime>
+                            <gml:TimeInstant gml:id="tid_8f40289a-dc5b-4089-a767-1acbddc033d1">
+                                <gml:timePosition>2012-12-01T22:24:18.012315-07:00</gml:timePosition>
+                            </gml:TimeInstant>
+                        </gml:validTime>
+                        <caaml:dangerRatingAlpValue/>
+                        <caaml:dangerRatingTlnValue>1 - LOW</caaml:dangerRatingTlnValue>
+                        <caaml:dangerRatingBtlValue>1 - LOW</caaml:dangerRatingBtlValue>
+                    </caaml:DangerRating>
+                    <caaml:DangerRating>
+                        <caaml:locRef xlink:href="North Shore"/>
+                        <gml:validTime>
+                            <gml:TimeInstant gml:id="tid_413ee836-cf72-465e-9391-9b101d817545">
+                                <gml:timePosition>2012-12-02T22:24:18.012315-07:00</gml:timePosition>
+                            </gml:TimeInstant>
+                        </gml:validTime>
+                        <caaml:dangerRatingAlpValue/>
+                        <caaml:dangerRatingTlnValue>1 - LOW</caaml:dangerRatingTlnValue>
+                        <caaml:dangerRatingBtlValue>1 - LOW</caaml:dangerRatingBtlValue>
+                    </caaml:DangerRating>
+                    <caaml:DangerRating>
+                        <caaml:locRef xlink:href="North Shore"/>
+                        <gml:validTime>
+                            <gml:TimeInstant gml:id="tid_6cd80f32-ee8e-46bc-ade0-ef914d005c8f">
+                                <gml:timePosition>2012-12-03T22:24:18.012315-07:00</gml:timePosition>
+                            </gml:TimeInstant>
+                        </gml:validTime>
+                        <caaml:dangerRatingAlpValue/>
+                        <caaml:dangerRatingTlnValue>1 - LOW</caaml:dangerRatingTlnValue>
+                        <caaml:dangerRatingBtlValue>1 - LOW</caaml:dangerRatingBtlValue>
+                    </caaml:DangerRating>
+                </caaml:dangerRatings>
+                <caaml:avProblems/>
+                <caaml:wxSynopsisComment/>
+                <caaml:avActivityComment>&lt;style type="text/css">.p_CC664AAA { margin: 0px 0px 12px 0px;text-align: left;text-indent: 0pt;padding: 0px 0px 0px 0px; } .s_AA239A9B { font-family: 'Arial';font-style: Normal;font-weight: normal;font-size: 13px;color: #000000; } &lt;/style>&lt;p class="p_CC664AAA">&lt;span class="s_AA239A9B">No avalanche activity is expected for the forecast period.&lt;/span>&lt;/p></caaml:avActivityComment>
+                <caaml:snowpackStructureComment>&lt;style type="text/css">.p_CC664AAA { margin: 0px 0px 12px 0px;text-align: left;text-indent: 0pt;padding: 0px 0px 0px 0px; } .s_AA239A9B { font-family: 'Arial';font-style: Normal;font-weight: normal;font-size: 13px;color: #000000; } &lt;/style>&lt;p class="p_CC664AAA">&lt;span class="s_AA239A9B">Rain has washed away much of the snowpack. Total depths are probably now below threshold for avalanches.&lt;/span>&lt;/p></caaml:snowpackStructureComment>
+            </caaml:BulletinMeasurements>
+        </caaml:bulletinResultsOf>
+    </caaml:observations>
+</caaml:ObsCollection>

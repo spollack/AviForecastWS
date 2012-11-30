@@ -234,7 +234,7 @@ describe('parseForecast_cac', function(){
     describe('file001.xml', function(){
         it('should return the correct forecast details', function(){
             var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file001.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('cac_sea-to-sky'));
+                forecasts.getRegionDetailsForRegionId('cac_kananaskis'));
 
             should.exist(forecast);
             forecast.length.should.equal(5);
@@ -247,7 +247,26 @@ describe('parseForecast_cac', function(){
             forecast[1].aviLevel.should.equal(2);
             forecast[2].aviLevel.should.equal(3);
             forecast[3].aviLevel.should.equal(3);
-            forecast[3].aviLevel.should.equal(3);
+            forecast[4].aviLevel.should.equal(3);
+        })
+    })
+    describe('file002.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('cac_north-shore'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(5);
+            forecast[0].date.should.equal('2012-11-29');
+            forecast[1].date.should.equal('2012-11-30');
+            forecast[2].date.should.equal('2012-12-01');
+            forecast[3].date.should.equal('2012-12-02');
+            forecast[4].date.should.equal('2012-12-03');
+            forecast[0].aviLevel.should.equal(1);
+            forecast[1].aviLevel.should.equal(1);
+            forecast[2].aviLevel.should.equal(1);
+            forecast[3].aviLevel.should.equal(1);
+            forecast[4].aviLevel.should.equal(1);
         })
     })
 })
