@@ -1,7 +1,4 @@
-things to do now:
---------------------
-
-things to do as time allows:
+things to do:
 --------------------
 marketing
     promote availability
@@ -31,7 +28,7 @@ marketing
 WS
     existing avi center integrations
         issues
-            CAIC -- problem caching their web pages on android -- cache-control:no-store is very likely the issue, asked for fix from CAIC
+            CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (fallback could be proxing their webpages?)
             NWAC integration -- need a better solution for picking up dates for forecast days
             UAC integration -- get updated map KML
         check all centers regularly as forecasts start to come online again; add more test cases
@@ -61,26 +58,28 @@ WS
             CAC Yukon -- emailed CAC for region definition (http://avalanche.ca/kmz/bulletinregions.kmz has what they have; Yukon not in there yet as of 2012-10-23, but they may add it)
             Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
-    fix use of config.js
-    use HTML parsing library (cheerio) as opposed by regexs
-    update to current semantics (0.2.x not 0.1.x) with xml2js
-    create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
-    set up real (remote) git
-    auto-validation: check and refine results
-    capture all generated forecasts (for example, in S3)?
-    further auto-validation of each generated forecast
-        validate by time of day (e.g. forecast should be issued by 8am or whatever)
-        have classes of validation (issued daily vs. irregularly, issued day before vs. morning of, etc.)
-        on error, capture all inputs, and alert me
-        also snapshot user URL vs. data URL vs. my forecast always, for later review
-        add automatic, ongoing checks of HTML vs. API results for all api-based sites?
+    internal
+        investigate using fewer digits of precision, and see effect on compressed file size and on precision
+        fix use of config.js
+        use HTML parsing library (cheerio) as opposed by regexs
+        update to current semantics (0.2.x not 0.1.x) with xml2js
+        create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
+        set up real (remote) git
+        auto-validation: check and refine results
+        capture all generated forecasts (for example, in S3)?
+        further auto-validation of each generated forecast
+            validate by time of day (e.g. forecast should be issued by 8am or whatever)
+            have classes of validation (issued daily vs. irregularly, issued day before vs. morning of, etc.)
+            on error, capture all inputs, and alert me
+            also snapshot user URL vs. data URL vs. my forecast always, for later review
+            add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
     v1.2
         bugs and cleanup
             lifecycle management
                 on rotation, don't reload anything
                 clean up what happens at what phase of lifecycle
-            remember last map position and zoom, and return to that on restart, instead of recentering? or add menu option to control this?
+            remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             redo location services stuff to turn off gps after we have a first fix
             swap top and bottom bars? or just leave it?
         new features
@@ -107,16 +106,18 @@ Android
 iOS
     v1.3
         other
-            CAIC urls should be https at the top level, but this breaks offline caching -- figure out why and fix
+            CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
         usability
+            remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
+            add more prominent loading spinner for when loading regions/forecasts
             momentarily highlight region that was tapped
             put region name in title for detailed forecasts
             make launch screen say "Avalanche Forecasts" not "Avalanche", to match branding
         info section
             change info button to bring up a table of topics (master/detail), not a pop-up
-            add link to webpage that shows all partners, etc.
+            add link to parnters webpage
             add more usage info, in terms of what "no rating" means, using your brain out there, etc.
             add info on human factors and decision making -- find good reference
         sharing
@@ -130,7 +131,6 @@ iOS
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
                 need to think through how to handle multiple messages, no messages, etc.
             add alert/feedback if there are no avalanche forecast regions near your current position
-            add more prominent loading spinner for when loading regions/forecasts
             add forecasts last fetched time (need to pull from cache or persist, for offline case) (System Font size 13; label height 18)?
         offline mode improvements
             say when cached data is being used
