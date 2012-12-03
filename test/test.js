@@ -269,6 +269,25 @@ describe('parseForecast_cac', function(){
             forecast[4].aviLevel.should.equal(1);
         })
     })
+    describe('file003.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file003.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('cac_sea-to-sky'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(5);
+            forecast[0].date.should.equal('2012-12-02');
+            forecast[1].date.should.equal('2012-12-03');
+            forecast[2].date.should.equal('2012-12-04');
+            forecast[3].date.should.equal('2012-12-05');
+            forecast[4].date.should.equal('2012-12-06');
+            forecast[0].aviLevel.should.equal(4);
+            forecast[1].aviLevel.should.equal(4);
+            forecast[2].aviLevel.should.equal(4);
+            forecast[3].aviLevel.should.equal(4);
+            forecast[4].aviLevel.should.equal(4);
+        })
+    })
 })
 
 describe('parseForecast_pc', function(){
