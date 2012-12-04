@@ -527,7 +527,7 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
     parser.parseString(body, function(err, result) {
         try {
             // NOTE cac uses xml namespace prefixes in their tags, which requires this byzantine lookup notation
-            var dayForecasts = result['caaml:observations']['caaml:bulletinResultsOf']['caaml:BulletinMeasurements']['caaml:dangerRatings']['caaml:DangerRating'];
+            var dayForecasts = result['caaml:observations']['caaml:Bulletin']['caaml:bulletinResultsOf']['caaml:BulletinMeasurements']['caaml:dangerRatings']['caaml:DangerRating'];
 
             // NOTE create an extra slot for the day before the first described day, as sometimes the forecast is issued
             // with the first described day as the following day; we want to show some forecast for the time until
@@ -541,7 +541,6 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
 
                 // NOTE cac organizes forecasts by multiple elevation zones within a given day;
                 // take the highest danger level listed for each day
-                // NOTE the text is something like "2 - MODERATE"
                 // NOTE not all 3 fields (Alp/Tln/Btl) are necessarily present
                 var aviLevel = Math.max(
                     forecasts.findHighestAviLevelInString(dayForecasts[i]['caaml:dangerRatingAlpValue']),
