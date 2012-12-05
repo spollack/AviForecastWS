@@ -6,25 +6,32 @@ marketing
             NWAC: asked Libby, she is talking to Benj
             SAC: done
             VIAC: done
-        ski areas
+            CAC:
+            PC:
+            UAC:
+            CAIC:
+        send to ski areas
         send to avalanche class instructors
         send to professional avalanche organizations
-            National Avalanche Center
+            http://www.fsavalanche.org/
             http://www.americanavalancheassociation.org/publications.php
             http://www.americanavalancheinstitute.com/aai2/resources.php
             etc.
         send to ski/snowboard/backcountry mags/sites: 
-            Backcountry Magazine
-            Coast Mountain Culture
+            http://www.backcountrymagazine.com/
+            http://coastmountainculture.com/
             www.wildsnow.com
             www.backcountryskiingcanada.com
             www.straightchuter.com
             www.notesfromtheneve.com
             www.biglines.com
             www.alpinist.com
-            https://www.facebook.com/pages/Ski-Washington/282794856579  [FB page]
+            http://www.skiwashington.com/   https://www.facebook.com/pages/Ski-Washington/282794856579  [FB page]
+            http://www.wta.org/
+            http://americanalpineclub.org/
+            http://www.rockandice.com/
+            http://www.climbing.com/
             etc.
-        send to hiking/climbing orgs/mags: WTA, AAJ, Rock&Ice, Climbing, Alpinist, etc.
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
     app store reviews
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
@@ -41,7 +48,7 @@ marketing
 WS
     existing avi center integrations
         issues
-            CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (fallback could be proxing their webpages?)
+            CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (fallback could be proxying their webpages?)
             NWAC integration -- need a better solution for picking up dates for forecast days
             UAC integration -- get updated map KML
         check all centers regularly as forecasts start to come online again; add more test cases
