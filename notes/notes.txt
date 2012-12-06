@@ -6,7 +6,7 @@ marketing
             NWAC: asked Libby, she is talking to Benj
             SAC: done
             VIAC: done
-            UAC: asked Bruce
+            UAC: Bruce doing a blog post
             CAC:
             PC:
             CAIC:
@@ -129,6 +129,8 @@ iOS
             CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
         usability
+            allow detailed forecast pages to be rotated horizontal (feedback from Bruce T)
+            draw "?" on no rating regions? or flag the detailed forecast page if the forecast is a day or more out of date? (feedback from Bruce T)
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             add more prominent loading spinner for when loading regions/forecasts
