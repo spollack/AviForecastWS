@@ -6,9 +6,9 @@ marketing
             NWAC: asked Libby, she is talking to Benj
             SAC: done
             VIAC: done
+            UAC: asked Bruce
             CAC:
             PC:
-            UAC:
             CAIC:
         send to ski areas
         send to avalanche class instructors
