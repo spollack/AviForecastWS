@@ -51,6 +51,7 @@ WS
         issues
             CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (fallback could be proxying their webpages?)
             NWAC integration -- need a better solution for picking up dates for forecast days
+            UAC -- would like to incorporate tomorrow forecast info too
         check all centers regularly as forecasts start to come online again; add more test cases
     support additional avi centers
         CA
