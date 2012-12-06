@@ -135,7 +135,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always return forecasts without danger level ratings; others
                 // // are only issued periodically (e.g. once a week), not daily
-                if (regionId === 'caic_090' || regionId === 'caic_091' || regionId === 'uac_moab' || regionId === 'uac_skyline') {
+                if (regionId === 'caic_090' || regionId === 'caic_091' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
@@ -155,6 +155,8 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
 };
 
 forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
+    
+    // BUGBUG when run early in the morning, some centers haven't issued their forecasts for the day yet...
 
     var validForecast = false;
 
@@ -177,7 +179,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
-            if (regionId === 'uac_moab' || regionId === 'uac_skyline') {
+            if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
