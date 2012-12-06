@@ -50,7 +50,6 @@ WS
         issues
             CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (fallback could be proxying their webpages?)
             NWAC integration -- need a better solution for picking up dates for forecast days
-            UAC integration -- get updated map KML
         check all centers regularly as forecasts start to come online again; add more test cases
     support additional avi centers
         CA
@@ -79,7 +78,6 @@ WS
             Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     internal
-        investigate using fewer digits of precision, and see effect on compressed file size and on precision
         fix use of config.js
         use HTML parsing library (cheerio) as opposed by regexs
         update to current semantics (0.2.x not 0.1.x) with xml2js
