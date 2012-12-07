@@ -58,7 +58,7 @@ WS
             Eastern Sierra (ESAC) -- received KMZ; waiting on RSS/forecasts to start
             Mount Shasta -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
         WhistlerBlackcomb -- http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
-        Jackson WY (Bridger-Teton) (3 regions)
+        Jackson WY (Bridger-Teton) (3 regions) -- sent integration request
         ID
             Sun Valley
             McCall
@@ -196,24 +196,25 @@ avalanche forecast center intro/integration blurb:
 
 Hello,
 
-I recently have developed free iPhone and Android mobile apps that display avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
+I recently developed a free avalanche forecasts mobile app, and I'd like to get your forecast center integrated.
 
-I currently have it integrated with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), SAC (Sierras), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (51 forecast regions total so far). I'd like to eventually include all the avalanche forecasting centers across North America.
+The app, which is available for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
-You can read more about the application, see screenshots, read reviews, and download it via this information website i pulled together: http://avalancheforecasts.com/
+I currently have it integrated with the NWAC, CAIC, UAC, SAC, CAC, VIAC, and Parks Canada forecasting centers (51 forecast regions total so far). I'd like to eventually include all the avalanche forecasting centers across North America.
 
-I'd like to get your forecast center integrated. Would you please connect me with your technical point of contact?
+You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/
 
-In order to integrate technically, there are two elements i'll need:
+In order to integrate technically, there are two elements i'll need. Usually this is a very small amount of work for you. 
 1) forecast region definitions: do you happen to have a KMZ file (or any similar geographic data file) that describes the borders of each of your forecast regions in terms of latitude/longitude coordinate paths? If not, i can work with you to create this.
-2) forecast data: do you have a CAAML feed or other API that i can use to pull forecast information? Alternatively I can extract the forecast information by parsing your web pages, but a structured data feed is the much more robust approach.
+2) forecast data: do you have a CAAML feed or other data API that i can use to pull forecast information? Alternatively I can extract the forecast information by parsing your web pages, but a structured data feed is the much more robust approach.
+Would you please connect me with your technical point of contact? 
 
 Thanks for your help!
 
 Seth
 206-553-9420
 
-ps: A word on my motivations: i'm doing this project as a pro bono service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Many of us (myself included) have lost friends to avalanches. Anything we can do to get the information out there, so that people are armed to make good decisions, feels important and valuable. Plus its a fun project!
+ps: A word on my motivations: i'm doing this project as a pro bono service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Plus its a fun project!
 
 
 
