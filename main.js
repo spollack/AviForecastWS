@@ -9,6 +9,7 @@
 var fs = require('fs');
 var winston = require('winston');
 var express = require('express');
+var request = require('request');
 var gzippo = require('gzippo');
 var config = require('./config.js');
 var forecasts = require('./forecasts.js');
@@ -68,6 +69,30 @@ function startHTTPServer() {
         }
     };
     app.use(express.logger({stream:winstonStream}));
+    
+    // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
+    // proxy their content to avoid these headers being sent to the client
+    // working with CAIC to address in a better way
+    app.get('/proxy/:regionId', function(req, res) {
+        var regionId = req.params.regionId;
+        if (!(regionId && regionId.length >= 7 && (regionId.slice(0,4) === 'caic'))) {
+            res.send(404);
+        } else {
+            var zone = regionId.charAt(6);
+            request({url:'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + zone, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
+                function(error, response, body) {
+                    if (!error && response.statusCode === 200) {
+                        winston.info('successful proxy response');
+                        res.send(body);
+                    } else {
+                        winston.warn('failed proxy response; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
+                        res.send(503);
+                    }
+                }
+            );
+        }
+    });
+
     // serve static content, compressed
     app.use(gzippo.staticGzip(forecasts.STATIC_FILES_DIR_PATH, {clientMaxAge:(forecasts.CACHE_MAX_AGE_SECONDS * 1000)}));
     // handle errors gracefully
