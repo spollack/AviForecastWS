@@ -36474,7 +36474,7 @@
     {
         "regionId": "caic_000",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://aviforecast-staging.herokuapp.com/proxy/caic_000",
+        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
         "points": [
             {
                 "lat": "40.0135",

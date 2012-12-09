@@ -70,28 +70,31 @@ function startHTTPServer() {
     };
     app.use(express.logger({stream:winstonStream}));
     
+    //
+    // BEGIN HACK
+    //
+    
     // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
     // working with CAIC to address in a better way
-    app.get('/proxy/:regionId', function(req, res) {
-        var regionId = req.params.regionId;
-        if (!(regionId && regionId.length >= 7 && (regionId.slice(0,4) === 'caic'))) {
-            res.send(404);
-        } else {
-            var zone = regionId.charAt(6);
-            request({url:'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + zone, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
-                function(error, response, body) {
-                    if (!error && response.statusCode === 200) {
-                        winston.info('successful proxy response');
-                        res.send(body);
-                    } else {
-                        winston.warn('failed proxy response; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
-                        res.send(503);
-                    }
+    app.get('/proxy/:zone', function(req, res) {
+        var zone = req.params.zone;
+        request({url:'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + zone, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
+            function(error, response, body) {
+                if (!error && response.statusCode === 200) {
+                    winston.info('successful proxy response; zone: ' + zone);
+                    res.send(body);
+                } else {
+                    winston.warn('failed proxy response; zone: ' + zone + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
+                    res.send(503);
                 }
-            );
-        }
+            }
+        );
     });
+
+    //
+    // END HACK
+    //
 
     // serve static content, compressed
     app.use(gzippo.staticGzip(forecasts.STATIC_FILES_DIR_PATH, {clientMaxAge:(forecasts.CACHE_MAX_AGE_SECONDS * 1000)}));
