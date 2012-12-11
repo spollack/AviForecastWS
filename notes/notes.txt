@@ -39,6 +39,7 @@ marketing
         iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
         Android -- get folks to write app store reviews, mark reviews as helpful, and to +1 the app
     sebnarware.com website
+        add rel canonical for partners page
         get inbound links
         SEO (on-page)
         add a FAQ page?
@@ -50,8 +51,9 @@ marketing
 WS
     existing avi center integrations
         issues
-            CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
         improvements
+            CAIC -- don't copy forecast to tomorrow?
+            CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
             NWAC integration -- need a better solution for picking up dates for forecast days
             UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
     support additional avi centers
