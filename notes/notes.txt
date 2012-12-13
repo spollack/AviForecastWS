@@ -67,7 +67,7 @@ WS
             McCall
             Panhandle
         MT
-            Bozeman (Gallatin) (3 regions)
+            Bozeman (Gallatin) (GNFAC) (5? regions) http://www.mtavalanche.com/
             Glacier
             Missoula
         AK
@@ -88,6 +88,7 @@ WS
         update to current semantics (0.2.x not 0.1.x) with xml2js
         create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         set up real (remote) git
+        deal with timezones in a rigorous way
         auto-validation: check and refine results
         capture all generated forecasts (for example, in S3)?
         further auto-validation of each generated forecast
