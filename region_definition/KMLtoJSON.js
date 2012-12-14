@@ -5,10 +5,11 @@
 var fs = require('fs');
 
 
-KMLFileToJSONFile('gnfac/GNFAC.kml','gnfac/gnfac.json','gnfac','http://www.mtavalanche.com/current');
-//KMLFileToJSONFile('snfac/Advisory Region Map 2011 - zones.kml','snfac/snfac.json','snfac','http://www.sawtoothavalanche.com/adv_current.php');
-//KMLFileToJSONFile('sac/SACForecastArea.kml','sac/sac.json','sac','http://www.sierraavalanchecenter.org/advisory');
-//KMLFileToJSONFile('uac/uac.kml','uac/uac.json','uac','http://utahavalanchecenter.org/advisory/');
+KMLFileToJSONFile('btac/JHAFC_Zones.kml','btac/btac.json','btac','http://jhavalanche.org/viewOther?area=');
+// KMLFileToJSONFile('gnfac/GNFAC.kml','gnfac/gnfac.json','gnfac','http://www.mtavalanche.com/current');
+// KMLFileToJSONFile('snfac/Advisory Region Map 2011 - zones.kml','snfac/snfac.json','snfac','http://www.sawtoothavalanche.com/adv_current.php');
+// KMLFileToJSONFile('sac/SACForecastArea.kml','sac/sac.json','sac','http://www.sierraavalanchecenter.org/advisory');
+// KMLFileToJSONFile('uac/uac.kml','uac/uac.json','uac','http://utahavalanchecenter.org/advisory/');
 // KMLFileToJSONFile('nwac_regions.kml','test_nwac_regions.json','nwac','http://www.nwac.us/forecast/avalanche/current/zone/');
 // KMLFileToJSONFile('canada_regions.kml','canada_regions.json','canada','');
 
