@@ -179,7 +179,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
-            if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline') {
+            if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
@@ -245,7 +245,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'caic':
                     dataURL = forecasts.getDataURL_caic(components[1]);
-                    parser = forecasts.parseForecast_caic;
+                    parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'uac':
                     dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1] + '/rss';
@@ -258,6 +258,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'sac':
                     dataURL = 'http://www.sierraavalanchecenter.org/danger-rating-rss.xml';
                     parser = forecasts.parseForecast_sac;
+                    break;
+                case 'btac':
+                    dataURL = 'http://www.jhavalanche.org/media/xml/' + components[1] + '_Avalanche_Forecast.xml';
+                    parser = forecasts.parseForecast_simple_caaml;
                     break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
@@ -623,7 +627,7 @@ forecasts.parseForecast_pc = function(body, regionDetails) {
     return forecast;
 };
 
-forecasts.parseForecast_caic = function(body, regionDetails) {
+forecasts.parseForecast_simple_caaml = function(body, regionDetails) {
 
     var forecast = null;
 
@@ -638,11 +642,9 @@ forecasts.parseForecast_caic = function(body, regionDetails) {
 
             var aviLevel = forecasts.findAviLevelNumberInString(result.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRatingSingle.mainValue);
 
-            // NOTE caic issues avalanche forcasts for 24 hours at a time (issued in the morning, for that day and the next
-            // early morning, so spanning two days)
+            // NOTE these sites issue avalanche forecasts for one day at a time
             forecast = [];
             forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
-            forecast[1] = {'date': forecastValidThroughDate, 'aviLevel': aviLevel};
 
             for (var j = 0; j < forecast.length; j++) {
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));

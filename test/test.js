@@ -119,7 +119,7 @@ describe('validateForecast', function(){
                 forecasts.getRegionDetailsForRegionId('cac_sea-to-sky')), false).should.be.true;
 
             forecasts.validateForecast('caic_080',
-                forecasts.parseForecast_caic(fs.readFileSync('test/data/caic/file002.xml','utf8'),
+                forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file002.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('caic_080')), false).should.be.true;
         })
     })
@@ -354,10 +354,10 @@ describe('parseForecast_pc', function(){
     })
 })
 
-describe('parseForecast_caic', function(){
+describe('parseForecast_simple_caaml caic', function(){
     describe('file000.xml', function(){
         it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_caic(fs.readFileSync('test/data/caic/file000.xml','utf8'),
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file000.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('caic_000'));
 
             should.not.exist(forecast);
@@ -365,28 +365,38 @@ describe('parseForecast_caic', function(){
     })
     describe('file001.xml', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_caic(fs.readFileSync('test/data/caic/file001.xml','utf8'),
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file001.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('caic_040'));
 
             should.exist(forecast);
-            forecast.length.should.equal(2);
+            forecast.length.should.equal(1);
             forecast[0].date.should.equal('2012-02-13');
-            forecast[1].date.should.equal('2012-02-14');
             forecast[0].aviLevel.should.equal(3);
-            forecast[1].aviLevel.should.equal(3);
         })
     })
     describe('file002.xml', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_caic(fs.readFileSync('test/data/caic/file002.xml','utf8'),
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file002.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('caic_080'));
 
             should.exist(forecast);
-            forecast.length.should.equal(2);
+            forecast.length.should.equal(1);
             forecast[0].date.should.equal('2012-02-13');
-            forecast[1].date.should.equal('2012-02-14');
             forecast[0].aviLevel.should.equal(4);
-            forecast[1].aviLevel.should.equal(4);
+        })
+    })
+})
+
+describe('parseForecast_simple_caaml btac', function(){
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/btac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('btac_teton'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2012-12-14');
+            forecast[0].aviLevel.should.equal(2);
         })
     })
 })
