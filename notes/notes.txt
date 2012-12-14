@@ -105,7 +105,10 @@ Android
                 clean up what happens at what phase of lifecycle
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             redo location services stuff to turn off gps after we have a first fix
-            swap top and bottom bars? or just leave it?
+            swap top and bottom bars? 
+            increase the usage before appirater prompt
+            bug to look at:
+                ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
         new features
             [see iOS list]
         low pri issues
@@ -160,7 +163,7 @@ iOS
             add forecasts last fetched time (need to pull from cache or persist, for offline case) (System Font size 13; label height 18)?
         offline mode improvements
             say when cached data is being used
-            offline: give message if detailed view unavailable for a region?
+            offline: give message if detailed view unavailable for a region
             really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
             say when data was cached, for every page?
     v3
