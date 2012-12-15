@@ -131,18 +131,18 @@ Android
             do signed export flow
 iOS
     v1.3
-        other
-            CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
-                test another https site and see if it is an https problem, or some more specific issue with CAIC
+        release notes
+            detailed forecasts can now be viewed in landscape mode (phone rotated on side)
         usability
-            allow detailed forecast pages to be rotated horizontal (feedback from Bruce T)
-            draw "?" on no rating regions? or flag the detailed forecast page if the forecast is a day or more out of date? (feedback from Bruce T)
-            remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
-            map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
-            add more prominent loading spinner for when loading regions/forecasts
             momentarily highlight region that was tapped
             put region name in title for detailed forecasts
             make launch screen say "Avalanche Forecasts" not "Avalanche", to match branding
+            remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
+            map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
+            add more prominent loading spinner for when loading regions/forecasts
+        other
+            CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
+                test another https site and see if it is an https problem, or some more specific issue with CAIC
         info section
             change info button to bring up a table of topics (master/detail), not a pop-up
             add link to parnters webpage
@@ -163,7 +163,9 @@ iOS
         offline mode improvements
             say when cached data is being used
             offline: give message if detailed view unavailable for a region
-            really stale detailed forecast content can stay in persistent cache... address by not showing content if forecasts for that region is already out of date?
+            really stale detailed forecast content can stay in persistent cache... 
+                address by not showing content if forecasts for that region is already out of date?
+                flag the detailed forecast page if the forecast is a day or more out of date? (from discussion from Bruce T)
             say when data was cached, for every page?
     v3
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
