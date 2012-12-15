@@ -38,9 +38,8 @@ marketing
             http://www.climbing.com/
             etc.
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
-    app store reviews
-        iOS -- get folks to write app store reviews, update their own reviews, and to mark reviews as helpful
-        Android -- get folks to write app store reviews, mark reviews as helpful, and to +1 the app
+    app store pages
+        add screenshots showing US Rockies integrations
     sebnarware.com website
         add rel canonical for partners page
         get inbound links
