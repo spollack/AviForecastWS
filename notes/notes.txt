@@ -36,9 +36,6 @@ marketing
             http://www.climbing.com/
             etc.
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
-    FB page
-        invite all avalanche contacts to like the page
-        deliver content
     app store pages
         add screenshots showing US Rockies integrations
     sebnarware.com website
@@ -46,6 +43,8 @@ marketing
         SEO (on-page)
         add a FAQ page?
         add nav bar?
+    FB page
+        deliver content
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
