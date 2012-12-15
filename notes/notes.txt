@@ -4,15 +4,16 @@ marketing
     promote availability
         FB page
             invite all avalanche contacts to like the page
+            deliver content
         get the integrated avalanche centers to share with their lists
             NWAC: asked Libby, she is talking to Benj; reposted Bruce's blog post
-            SAC: done
-            VIAC: done
-            UAC: Bruce did a blog post
-            CAC: asked about reposting Bruce's blog post
-            PC: asked about reposting Bruce's blog post
+            SAC: communicated
+            UAC: Bruce did a blog post; listed on website
             CAIC: reposted Bruce's blog post
             BTAC: asked about doing a mention
+            VIAC: communicated; listed on website
+            CAC: asked about reposting Bruce's blog post, no response
+            PC: asked about reposting Bruce's blog post, no response
         send to ski areas
         send to avalanche class instructors
         send to professional avalanche organizations
@@ -41,13 +42,10 @@ marketing
     app store pages
         add screenshots showing US Rockies integrations
     sebnarware.com website
-        add rel canonical for partners page
         get inbound links
         SEO (on-page)
         add a FAQ page?
         add nav bar?
-    social channels
-        deliver facebook content
         use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
