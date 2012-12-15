@@ -2,9 +2,6 @@ things to do:
 --------------------
 marketing
     promote availability
-        FB page
-            invite all avalanche contacts to like the page
-            deliver content
         get the integrated avalanche centers to share with their lists
             NWAC: asked Libby, she is talking to Benj; reposted Bruce's blog post
             SAC: communicated
@@ -39,6 +36,9 @@ marketing
             http://www.climbing.com/
             etc.
         find groups in other areas (BC, Canadian Rockies, Colorado, Utah, etc.) to send info to
+    FB page
+        invite all avalanche contacts to like the page
+        deliver content
     app store pages
         add screenshots showing US Rockies integrations
     sebnarware.com website
@@ -46,7 +46,7 @@ marketing
         SEO (on-page)
         add a FAQ page?
         add nav bar?
-        use rivaliq ;-)
+    use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
     existing avi center integrations
@@ -145,7 +145,7 @@ iOS
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
         info section
             change info button to bring up a table of topics (master/detail), not a pop-up
-            add link to parnters webpage
+            add link to partners web page
             add more usage info, in terms of what "no rating" means, using your brain out there, etc.
             add info on human factors and decision making -- find good reference
         sharing
