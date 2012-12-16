@@ -125,10 +125,10 @@ iOS
     v1.3
         release notes
             detailed forecasts can now be viewed in landscape mode (phone rotated on side)
+            consistent product naming ("Avalanche Forecasts" not "Avalanche")
         usability
             momentarily highlight region that was tapped
             put region name in title for detailed forecasts
-            make launch screen say "Avalanche Forecasts" not "Avalanche", to match branding
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             add more prominent loading spinner for when loading regions/forecasts
