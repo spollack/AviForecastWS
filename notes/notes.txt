@@ -178,6 +178,7 @@ iOS
             OR... use a software update style model instead? (never block user waiting for download...
                 although investigate what happens to network ops if the app loses focus
             reload regions.json periodically in app (for case where people don't restart the app/phone regularly)
+        full height launch screen for iPhone5 (no black bars)
         feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
         add a "help your avalanche center" feature to take you to donation pages?
         add more avi reference info?
