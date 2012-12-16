@@ -7,7 +7,7 @@ marketing
             SAC: communicated
             UAC: Bruce did a blog post; listed on website
             CAIC: reposted Bruce's blog post
-            BTAC: asked about doing a mention
+            BTAC: Carol talking to Bob about where/how to put on website
             VIAC: communicated; listed on website
             CAC: asked about reposting Bruce's blog post, no response
             PC: asked about reposting Bruce's blog post, no response
