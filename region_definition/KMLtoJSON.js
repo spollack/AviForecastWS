@@ -5,8 +5,8 @@
 var fs = require('fs');
 
 
-KMLFileToJSONFile('btac/JHAFC_Zones.kml','btac/btac.json','btac','http://jhavalanche.org/viewOther?area=');
-// KMLFileToJSONFile('gnfac/GNFAC.kml','gnfac/gnfac.json','gnfac','http://www.mtavalanche.com/current');
+// KMLFileToJSONFile('btac/JHAFC_Zones.kml','btac/btac.json','btac','http://jhavalanche.org/viewOther?area=');
+KMLFileToJSONFile('gnfac/GNFAC.kml','gnfac/gnfac.json','gnfac','http://www.mtavalanche.com/current');
 // KMLFileToJSONFile('snfac/Advisory Region Map 2011 - zones.kml','snfac/snfac.json','snfac','http://www.sawtoothavalanche.com/adv_current.php');
 // KMLFileToJSONFile('sac/SACForecastArea.kml','sac/sac.json','sac','http://www.sierraavalanchecenter.org/advisory');
 // KMLFileToJSONFile('uac/uac.kml','uac/uac.json','uac','http://utahavalanchecenter.org/advisory/');
@@ -26,7 +26,7 @@ function KMLStringToJSONString(KML, regionPrefix, URLPrefix) {
     var JSONString = null;
 
     // grab all the placemarks from the KML
-    var placemarkBlocks = KML.match(/<Placemark>[\S\s]*?<\/Placemark>/g);
+    var placemarkBlocks = KML.match(/<Placemark[^>]*>[\S\s]*?<\/Placemark>/g);
     if (placemarkBlocks) {
 
         var data = [placemarkBlocks.length];
