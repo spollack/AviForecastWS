@@ -124,7 +124,6 @@ Android
             do signed export flow
 iOS
     v1.3
-        test under older simulators
         waiting for review
     v1.4
         release notes
