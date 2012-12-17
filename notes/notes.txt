@@ -98,6 +98,7 @@ Android
             redo location services stuff to turn off gps after we have a first fix
             swap top and bottom bars? 
             increase the usage before appirater prompt
+            update the usage text, from iOS version
             bug to look at:
                 ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
         new features
@@ -123,25 +124,24 @@ Android
             do signed export flow
 iOS
     v1.3
+        test under older simulators
+        waiting for review
+    v1.4
         release notes
-            detailed forecasts can now be viewed in landscape mode (phone rotated on side)
-            consistent product naming ("Avalanche Forecasts" not "Avalanche")
+            more prominent loading spinner for when loading regions/forecasts
         usability
-            momentarily highlight region that was tapped
-            put region name in title for detailed forecasts
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
-            add more prominent loading spinner for when loading regions/forecasts
         other
             CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
         info section
             change info button to bring up a table of topics (master/detail), not a pop-up
             add link to partners web page
-            add more usage info, in terms of what "no rating" means, using your brain out there, etc.
-            add info on human factors and decision making -- find good reference
+            add info on human factors and decision making, using your brain -- find good reference
         sharing
             make it easy to share (virally) via facebook, twitter
+            make it easy to start following Avalanche Forecasts on facebook
         flurry
             update sdk
             add tracking for setting timeframe mode; for no location available
