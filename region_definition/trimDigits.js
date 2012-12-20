@@ -1,7 +1,6 @@
 //
 // required packages
 //
-
 var fs = require('fs');
 
 trimDigitsInRegionsJSONFile('../public/v1/regions.json', '../public/v1/regions.json', 3);
