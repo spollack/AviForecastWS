@@ -220,6 +220,21 @@ describe('parseForecast_nwac', function(){
             forecast[2].aviLevel.should.equal(2);
         })
     })
+    describe('file005.json', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file005.json','utf8'),
+                forecasts.getRegionDetailsForRegionId('nwac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2012-12-18');
+            forecast[1].date.should.equal('2012-12-19');
+            forecast[2].date.should.equal('2012-12-20');
+            forecast[0].aviLevel.should.equal(4);
+            forecast[1].aviLevel.should.equal(4);
+            forecast[2].aviLevel.should.equal(4);
+        })
+    })
 })
 
 describe('parseForecast_cac', function(){

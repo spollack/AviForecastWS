@@ -97,11 +97,18 @@ Android
                 clean up what happens at what phase of lifecycle
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             redo location services stuff to turn off gps after we have a first fix
-            swap top and bottom bars? 
+            swap top and bottom bars
             increase the usage before appirater prompt
             update the usage text, from iOS version
             bug to look at:
                 ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
+        further map performance tuning
+            investigate keeping path, and transforming via matrix to pan or scale
+            split up path calc per OSM approach
+                http://stackoverflow.com/questions/6630868/android-map-drawing-performance-1k-drawings
+                http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
+            simplify polygons (point thinning when zoomed out) ... or pre-calc and put simplified polygons in region definition
+            consider creating my own overlay manager class, to unify top-level logic
         new features
             [see iOS list]
         low pri issues
@@ -112,13 +119,6 @@ Android
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS/JB
                 test again with my revised FixedMyLocationOverlay, that always does the drawing
             in case of first time app use with no network, app must be shut down to try again once there is network
-        further map performance tuning (if needed)
-            investigate keeping path, and transforming via matrix to pan or scale
-            split up path calc per OSM approach
-                http://stackoverflow.com/questions/6630868/android-map-drawing-performance-1k-drawings
-                http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
-            simplify polygons (point thinning when zoomed out)
-            consider creating my own overlay manager class, to unify top-level logic
         for all external builds
             set version string appropriately
             be sure to build with production map key
