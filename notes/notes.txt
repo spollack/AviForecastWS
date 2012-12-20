@@ -36,6 +36,8 @@ marketing
             http://www.rockandice.com/
             http://www.climbing.com/
             etc.
+        other folks to send to
+            http://www.alaskasnow.org/ (once i've integrated Alaska sites)
     app store pages
         add screenshots showing US Rockies integrations
     sebnarware.com website
@@ -61,14 +63,16 @@ WS
         WhistlerBlackcomb -- http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
     support additional avi centers
         Mount Shasta, CA -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
-        McCall, ID
+        McCall, ID *
         Panhandle, ID
-        Glacier, MT
-        Missoula, MT
-        Chugach, AK (CNFAIC) -- got a message from a person there (2012-Feb), he wants to get integrated
-        Valdez, AK
+        Glacier, MT *
+        Missoula, MT *
+        Chugach, AK * (CNFAIC) / Turnagain -- got a message from a person there (2012-Feb), he wants to get integrated
+        Valdez, AK *
         Cordova, AK
-        Juneau, AK
+        Juneau, AK *
+        Haines, AK
+        Hatcher Pass, AK
         Flagstaff, AZ
         Joseph, OR
         Mount Washington, NH
