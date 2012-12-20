@@ -97,7 +97,6 @@ WS
 Android
     v1.2
         bugs and cleanup
-            try to repro web page caching not working (on older versions of android; use simulator? try 2.3.x first; pinged Adam to test)
             lifecycle management
                 on rotation, don't reload anything
                 clean up what happens at what phase of lifecycle
