@@ -49,7 +49,7 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     existing avi center integrations -- improvements
-        NWAC integration -- start using new timestamps to pick up forecast dates
+        NWAC integration -- start using new timestamps to pick up forecast dates, once they get the bugs fixed
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations
@@ -91,14 +91,14 @@ WS
 Android
     v1.2
         bugs and cleanup
-            try to repro web page caching not working (on older versions of android; use simulator? try 2.3.x first)
+            try to repro web page caching not working (on older versions of android; use simulator? try 2.3.x first; pinged Adam to test)
             lifecycle management
                 on rotation, don't reload anything
                 clean up what happens at what phase of lifecycle
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             redo location services stuff to turn off gps after we have a first fix
             swap top and bottom bars
-            increase the usage before appirater prompt
+            check/increase the usage time before appirater prompt?
             update the usage text, from iOS version
             bug to look at:
                 ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
