@@ -107,6 +107,7 @@ Android
             update the usage text, from iOS version
             bug to look at:
                 ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
+            offline caching not working in all cases? (tests out fine on my phone and Adam's phone...)
         further map performance tuning
             investigate keeping path, and transforming via matrix to pan or scale
             split up path calc per OSM approach
