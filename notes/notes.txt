@@ -133,8 +133,7 @@ Android
             be sure to build with production map key
             do signed export flow
 iOS
-    v1.3
-        waiting for review
+    flurry analytics seem potentially whacked... wtf?
     v1.4
         release notes
             more prominent loading spinner for when loading regions/forecasts
