@@ -140,6 +140,7 @@ iOS
         usability
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
+            set a max zoom level
         other
             CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
@@ -251,15 +252,19 @@ ps: A word on my motivations: i'm doing this project as a pro bono service to th
 
 
 
+postgis shape simplification
+--------------------
 
 
+SELECT ST_NPoints(ST_SimplifyPreserveTopology(ST_GeomFromKML('
+
+		'), 0.01));
+		
 
 
+SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
 
-
-
-
-
+		'), 0.01));
 
 
 
