@@ -264,7 +264,7 @@ SELECT ST_NPoints(ST_SimplifyPreserveTopology(ST_GeomFromKML('
 
 SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
 
-		'), 0.01));
+		'), 0.01), 3);
 
 
 
