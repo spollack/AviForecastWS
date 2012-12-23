@@ -12945,7 +12945,7 @@
     {
         "regionId": "cac_north-rockies",
         "displayName": "North Rockies",
-        "URL":"",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/north-rockies",
         "points": [
             {
                 "lat": "53.07679252379724",
@@ -24367,7 +24367,7 @@
     {
         "regionId": "cac_bighorn",
         "displayName": "Bighorn",
-        "URL":"",
+        "URL":"http://www.avalanche.ca/cac/bulletins/latest/bighorn",
         "points": [
             {
                 "lat": "52.38550681898611",
