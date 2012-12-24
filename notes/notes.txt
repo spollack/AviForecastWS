@@ -187,6 +187,7 @@ iOS
             OR... use a software update style model instead? (never block user waiting for download...
                 although investigate what happens to network ops if the app loses focus
             reload regions.json periodically in app (for case where people don't restart the app/phone regularly)
+        make iPad experience better (user request)
         full height launch screen for iPhone5 (no black bars)
         feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
         add a "help your avalanche center" feature to take you to donation pages?
@@ -196,7 +197,6 @@ iOS
         show previous days, for history? allow selecting further into the future?
         add push notifications?
         get app rotation working in all views (or at least danger scale definition view)?
-        make iPad experience better?
 
 
 avalanche forecast center intro/integration blurb:
@@ -255,15 +255,14 @@ ps: A word on my motivations: i'm doing this project as a pro bono service to th
 postgis shape simplification
 --------------------
 
-
+check number of points output:
 SELECT ST_NPoints(ST_SimplifyPreserveTopology(ST_GeomFromKML('
-
+KML_pologon_here
 		'), 0.01));
 		
-
-
+get KML:
 SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
-
+KML_pologon_here
 		'), 0.01), 3);
 
 
