@@ -133,7 +133,7 @@ Android
             be sure to build with production map key
             do signed export flow
 iOS
-    flurry analytics seem potentially whacked... wtf?
+    flurry analytics numbers seem whacked... wtf? emailing with them
     v1.4
         release notes
             more prominent loading spinner for when loading regions/forecasts
@@ -199,6 +199,20 @@ iOS
         get app rotation working in all views (or at least danger scale definition view)?
 
 
+postgis shape simplification
+--------------------
+
+check number of points output:
+SELECT ST_NPoints(ST_SimplifyPreserveTopology(ST_GeomFromKML('
+KML_pologon_here
+		'), 0.01));
+		
+get KML:
+SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
+KML_pologon_here
+		'), 0.01), 3);
+
+
 avalanche forecast center intro/integration blurb:
 --------------------
 [Avalanche Forecasts mobile app integration]
@@ -249,21 +263,6 @@ ps: A word on my motivations: i'm doing this project as a pro bono service to th
 
 
 
-
-
-
-postgis shape simplification
---------------------
-
-check number of points output:
-SELECT ST_NPoints(ST_SimplifyPreserveTopology(ST_GeomFromKML('
-KML_pologon_here
-		'), 0.01));
-		
-get KML:
-SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
-KML_pologon_here
-		'), 0.01), 3);
 
 
 
