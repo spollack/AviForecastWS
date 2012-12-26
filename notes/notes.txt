@@ -204,12 +204,12 @@ postgis shape simplification
 
 check number of points output:
 SELECT ST_NPoints(ST_SimplifyPreserveTopology(ST_GeomFromKML('
-KML_pologon_here
+KML_fragment_here
 		'), 0.01));
 		
 get KML:
 SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
-KML_pologon_here
+KML_fragment_here
 		'), 0.01));
 
 
