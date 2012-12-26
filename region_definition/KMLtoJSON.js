@@ -51,7 +51,7 @@ function KMLStringToJSONString(KML, regionPrefix, URLPrefix) {
                 for (var j = 0; j < coordinates.length; j++) {
                     //console.log('coordinates[' + j + ']: ' + coordinates[j]);
 
-                    var components = coordinates[j].match(/[-+]?[0-9]*\.[0-9]*/g);
+                    var components = coordinates[j].match(/[-+]?\d+(?:\.\d*)?/g);
                     if (components && components.length >= 2) {
                         // NOTE latitude comes after longitude in KML ... weird
                         var lat = components[1];
