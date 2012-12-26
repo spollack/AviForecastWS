@@ -22,89 +22,7 @@
 		<Placemark id="ID_00000">
 			<name>Mammoth Lakes Region</name>
 			<Snippet maxLines="0"></Snippet>
-			<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
-
-<head>
-
-<META http-equiv="Content-Type" content="text/html">
-
-</head>
-
-<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
-
-<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
-
-<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
-
-<td>Mammoth Lakes Region</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
-
-<tr>
-
-<td>FID</td>
-
-<td>0</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>Id</td>
-
-<td>0</td>
-
-</tr>
-
-<tr>
-
-<td>NAME</td>
-
-<td>Mammoth Lakes Region</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>REGION</td>
-
-<td>Mammoth Lakes Region</td>
-
-</tr>
-
-<tr>
-
-<td>TYPE</td>
-
-<td>Region</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>Shape_Leng</td>
-
-<td>389966.738205</td>
-
-</tr>
-
-</table>
-
-</td>
-
-</tr>
-
-</table>
-
-</body>
-
-</html>]]></description>
+			<description></description>
 			<styleUrl>#PolyStyle00</styleUrl>
 			<MultiGeometry>
 				<Polygon>
@@ -121,89 +39,7 @@
 		<Placemark id="ID_00001">
 			<name>Southern Region</name>
 			<Snippet maxLines="0"></Snippet>
-			<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
-
-<head>
-
-<META http-equiv="Content-Type" content="text/html">
-
-</head>
-
-<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
-
-<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
-
-<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
-
-<td>Southern Region</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
-
-<tr>
-
-<td>FID</td>
-
-<td>1</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>Id</td>
-
-<td>0</td>
-
-</tr>
-
-<tr>
-
-<td>NAME</td>
-
-<td>Southern Region</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>REGION</td>
-
-<td>Southern Region</td>
-
-</tr>
-
-<tr>
-
-<td>TYPE</td>
-
-<td>Region</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>Shape_Leng</td>
-
-<td>266755.79815</td>
-
-</tr>
-
-</table>
-
-</td>
-
-</tr>
-
-</table>
-
-</body>
-
-</html>]]></description>
+			<description></description>
 			<styleUrl>#PolyStyle00</styleUrl>
 			<MultiGeometry>
 				<Polygon>
@@ -220,89 +56,7 @@
 		<Placemark id="ID_00002">
 			<name>Northern Region</name>
 			<Snippet maxLines="0"></Snippet>
-			<description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
-
-<head>
-
-<META http-equiv="Content-Type" content="text/html">
-
-</head>
-
-<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
-
-<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
-
-<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
-
-<td>Northern Region</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
-
-<tr>
-
-<td>FID</td>
-
-<td>2</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>Id</td>
-
-<td>0</td>
-
-</tr>
-
-<tr>
-
-<td>NAME</td>
-
-<td>Northern Region</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>REGION</td>
-
-<td>Northern Region</td>
-
-</tr>
-
-<tr>
-
-<td>TYPE</td>
-
-<td>Region</td>
-
-</tr>
-
-<tr bgcolor="#D4E4F3">
-
-<td>Shape_Leng</td>
-
-<td>259115.749188</td>
-
-</tr>
-
-</table>
-
-</td>
-
-</tr>
-
-</table>
-
-</body>
-
-</html>]]></description>
+			<description></description>
 			<styleUrl>#PolyStyle00</styleUrl>
 			<MultiGeometry>
 				<Polygon>
@@ -313,18 +67,6 @@
 							</coordinates>
 						</LinearRing>
 					</outerBoundaryIs>
-					<innerBoundaryIs>
-						<LinearRing>
-							<coordinates>
-								-119.209761,37.879087,0 -119.20969,37.879395,0 -119.209684,37.879417,0 -119.209762,37.879079,0 -119.209761,37.879087,0 
-							</coordinates>
-						</LinearRing>
-						<LinearRing>
-							<coordinates>
-								-119.210655,37.877439,0 -119.210608,37.877454,0 -119.210685,37.877405,0 -119.210655,37.877439,0 
-							</coordinates>
-						</LinearRing>
-					</innerBoundaryIs>
 				</Polygon>
 			</MultiGeometry>
 		</Placemark>
