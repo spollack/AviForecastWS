@@ -54,7 +54,7 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     thin number of points in region file to improve performance!
-        look at PostGIS to do this
+        test and roll out
     existing avi center integrations -- improvements
         NWAC integration -- start using new timestamps to pick up forecast dates, once they get the bugs fixed
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
