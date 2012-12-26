@@ -4,6 +4,8 @@
 var fs = require('fs');
 var _ = require('underscore');
 
+// NOTE use this tool to compare the non-point metadata of two regions.json files
+
 normalizeRegionSetInRegionsJSONFile('../public/v1test/regions.json', './output0.json');
 normalizeRegionSetInRegionsJSONFile('../public/v1/regions.json', './output1.json');
 
