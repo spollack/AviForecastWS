@@ -9361,7 +9361,7 @@
     {
         "regionId": "caic_000",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
+        "URL": "http://aviforecast.herokuapp.com/proxy/0",
         "points": [
             {
                 "lat": "40.013",
@@ -9484,7 +9484,7 @@
     {
         "regionId": "caic_001",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
+        "URL": "http://aviforecast.herokuapp.com/proxy/0",
         "points": [
             {
                 "lat": "40.408",
@@ -9591,7 +9591,7 @@
     {
         "regionId": "caic_002",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
+        "URL": "http://aviforecast.herokuapp.com/proxy/0",
         "points": [
             {
                 "lat": "40.443",
@@ -9670,7 +9670,7 @@
     {
         "regionId": "caic_003",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=0",
+        "URL": "http://aviforecast.herokuapp.com/proxy/0",
         "points": [
             {
                 "lat": "40.870",
@@ -9837,7 +9837,7 @@
     {
         "regionId": "caic_010",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "http://aviforecast.herokuapp.com/proxy/1",
         "points": [
             {
                 "lat": "40.633",
@@ -10208,7 +10208,7 @@
     {
         "regionId": "caic_012",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "http://aviforecast.herokuapp.com/proxy/1",
         "points": [
             {
                 "lat": "38.520",
@@ -10275,7 +10275,7 @@
     {
         "regionId": "caic_013",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "http://aviforecast.herokuapp.com/proxy/1",
         "points": [
             {
                 "lat": "39.274",
@@ -10342,7 +10342,7 @@
     {
         "regionId": "caic_014",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "http://aviforecast.herokuapp.com/proxy/1",
         "points": [
             {
                 "lat": "39.324",
@@ -10389,7 +10389,7 @@
     {
         "regionId": "caic_015",
         "displayName": "Front Range",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=1",
+        "URL": "http://aviforecast.herokuapp.com/proxy/1",
         "points": [
             {
                 "lat": "39.449",
@@ -10436,7 +10436,7 @@
     {
         "regionId": "caic_020",
         "displayName": "Vail and Summit County",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=2",
+        "URL": "http://aviforecast.herokuapp.com/proxy/2",
         "points": [
             {
                 "lat": "39.880",
@@ -10755,7 +10755,7 @@
     {
         "regionId": "caic_030",
         "displayName": "Sawatch",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=3",
+        "URL": "http://aviforecast.herokuapp.com/proxy/3",
         "points": [
             {
                 "lat": "39.366",
@@ -11114,7 +11114,7 @@
     {
         "regionId": "caic_040",
         "displayName": "Aspen",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=4",
+        "URL": "http://aviforecast.herokuapp.com/proxy/4",
         "points": [
             {
                 "lat": "39.392",
@@ -11145,7 +11145,7 @@
     {
         "regionId": "caic_042",
         "displayName": "Aspen",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=4",
+        "URL": "http://aviforecast.herokuapp.com/proxy/4",
         "points": [
             {
                 "lat": "39.533",
@@ -11356,7 +11356,7 @@
     {
         "regionId": "caic_050",
         "displayName": "Gunnison",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=5",
+        "URL": "http://aviforecast.herokuapp.com/proxy/5",
         "points": [
             {
                 "lat": "38.997",
@@ -11631,7 +11631,7 @@
     {
         "regionId": "caic_060",
         "displayName": "Grand Mesa",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=6",
+        "URL": "http://aviforecast.herokuapp.com/proxy/6",
         "points": [
             {
                 "lat": "39.416",
@@ -11670,7 +11670,7 @@
     {
         "regionId": "caic_061",
         "displayName": "Grand Mesa",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=6",
+        "URL": "http://aviforecast.herokuapp.com/proxy/6",
         "points": [
             {
                 "lat": "39.076",
@@ -11813,7 +11813,7 @@
     {
         "regionId": "caic_070",
         "displayName": "Northern San Juan",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=7",
+        "URL": "http://aviforecast.herokuapp.com/proxy/7",
         "points": [
             {
                 "lat": "37.666",
@@ -12196,7 +12196,7 @@
     {
         "regionId": "caic_080",
         "displayName": "Southern San Juan",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=8",
+        "URL": "http://aviforecast.herokuapp.com/proxy/8",
         "points": [
             {
                 "lat": "37.666",
@@ -12539,7 +12539,7 @@
     {
         "regionId": "caic_090",
         "displayName": "Sangre de Cristo",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=9",
+        "URL": "http://aviforecast.herokuapp.com/proxy/9",
         "points": [
             {
                 "lat": "37.309",
@@ -12586,7 +12586,7 @@
     {
         "regionId": "caic_091",
         "displayName": "Sangre de Cristo",
-        "URL": "http://avalanche.state.co.us/pub_bc_avo.php?zone_id=9",
+        "URL": "http://aviforecast.herokuapp.com/proxy/9",
         "points": [
             {
                 "lat": "38.323",
