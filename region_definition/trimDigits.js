@@ -8,7 +8,8 @@ var fs = require('fs');
 // trimDigitsInRegionsJSONFile('btac/btac_simplified.json', 'btac/btac_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('sac/sac_simplified.json', 'sac/sac_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('uac/uac_simplified.json', 'uac/uac_simplified.json', 3);
-trimDigitsInRegionsJSONFile('caic/caic_simplified.json', 'caic/caic_simplified.json', 3);
+// trimDigitsInRegionsJSONFile('caic/caic_simplified.json', 'caic/caic_simplified.json', 3);
+trimDigitsInRegionsJSONFile('esac/esac_simplified.json', 'esac/esac_simplified.json', 3);
 
 
 function trimDigitsInRegionsJSONFile(inputFilePath, outputFilePath, digits) {
