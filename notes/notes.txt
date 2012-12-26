@@ -53,8 +53,6 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
-    thin number of points in region file to improve performance!
-        test and roll out
     existing avi center integrations -- improvements
         SAC -- handle two day forecasts, per discussion with Andy
         NWAC -- start using new timestamps to pick up forecast dates, once they get the bugs fixed
@@ -117,7 +115,7 @@ Android
             split up path calc per OSM approach
                 http://stackoverflow.com/questions/6630868/android-map-drawing-performance-1k-drawings
                 http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
-            simplify polygons (point thinning when zoomed out) ... or pre-calc and put simplified polygons in region definition
+            simplify polygons (point thinning when zoomed out)
             consider creating my own overlay manager class, to unify top-level logic
         new features
             [see iOS list]
