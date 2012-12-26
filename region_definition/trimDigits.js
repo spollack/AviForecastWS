@@ -5,7 +5,9 @@ var fs = require('fs');
 
 // trimDigitsInRegionsJSONFile('../public/v1/regions.json', '../public/v1/regions.json', 3);
 // trimDigitsInRegionsJSONFile('Canada_all/canada_regions_simplified.json', 'Canada_all/canada_regions_simplified.json', 3);
-trimDigitsInRegionsJSONFile('btac/btac_simplified.json', 'btac/btac_simplified.json', 3);
+// trimDigitsInRegionsJSONFile('btac/btac_simplified.json', 'btac/btac_simplified.json', 3);
+trimDigitsInRegionsJSONFile('sac/sac_simplified.json', 'sac/sac_simplified.json', 3);
+
 
 function trimDigitsInRegionsJSONFile(inputFilePath, outputFilePath, digits) {
     var input = fs.readFileSync(inputFilePath, 'utf8');
