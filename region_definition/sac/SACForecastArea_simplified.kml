@@ -1,7 +1,7 @@
 xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://earth.google.com/kml/2.2">
     <Document>
-        <name>SAC Forecast Area</name>
+        <name>Central Sierras</name>
         <description><![CDATA[]]></description>
         <Style id="style1">
             <LineStyle>
