@@ -210,7 +210,7 @@ KML_pologon_here
 get KML:
 SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
 KML_pologon_here
-		'), 0.01), 3);
+		'), 0.01));
 
 
 avalanche forecast center intro/integration blurb:
