@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bulletin  xmlns="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS"  xmlns:gml="http://www.opengis.net/gml"  xmlns:xlink="http://www.w3.org/1999/xlink"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS    http://caaml.org/Schemas/V5.0/Profiles/BulletinUS/CAAMLv5_BulletinUS.xsd"  gml:id="BulletinID01">
+  <metaDataProperty>
+    <MetaData>
+      <dateTimeReport>2012-12-14T13:43:00</dateTimeReport>
+      <srcRef>
+        <Operation gml:id="BTAC">
+          <name>Bridger Teton Avalanche Center</name>
+        </Operation>
+      </srcRef>
+      <srcURL>http://jhavalanche.org/viewTeton</srcURL>
+    </MetaData>
+  </metaDataProperty>
+  <validTime>
+    <TimePeriod>
+      <beginPosition>2012-12-14T13:26:00</beginPosition>
+      <endPosition>2012-12-15T06:59:00</endPosition>
+    </TimePeriod>
+  </validTime>
+  <bulletinResultsOf>
+    <BulletinMeasurements>
+      <customData>
+        <Media>
+          <uRL>http://jhavalanche.org/media</uRL>
+          <description>Some text for the media</description>
+        </Media>
+      </customData>
+      <bulletinType>Bulletin</bulletinType>
+      <dangerRatings>
+        <DangerRatingSingle>
+          <mainValue>2</mainValue>
+          <comment>Backcountry skiers and riders could trigger surface slabs in steep wind loaded terrain today at the high elevations.  In isolated areas above 9000', a slight chance persists to trigger large slides involving weak snow near the base of the snowpack. At mid elevations isolated pockets of shallow surface slabs could be triggered and avalanches are unlikely in the shallow snowpack at low elevations today.</comment>
+        </DangerRatingSingle>
+      </dangerRatings>
+      <avSnowComment>Backcountry skiers and riders could trigger surface slabs in steep wind loaded terrain today at the high elevations.  In isolated areas above 9000', a slight chance persists to trigger large slides involving weak snow near the base of the snowpack. At mid elevations isolated pockets of shallow surface slabs could be triggered and avalanches are unlikely in the shallow snowpack at low elevations today.</avSnowComment>
+    </BulletinMeasurements>
+  </bulletinResultsOf>
+  <Region gml:id="1">
+    <regionSubType>Forecast Zone</regionSubType>
+  </Region>
+  <locRef xlink:href="ForecastRegionID1"/>
+</Bulletin>
