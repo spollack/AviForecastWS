@@ -56,7 +56,8 @@ WS
     thin number of points in region file to improve performance!
         test and roll out
     existing avi center integrations -- improvements
-        NWAC integration -- start using new timestamps to pick up forecast dates, once they get the bugs fixed
+        SAC -- handle two day forecasts, per discussion with Andy
+        NWAC -- start using new timestamps to pick up forecast dates, once they get the bugs fixed
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations
