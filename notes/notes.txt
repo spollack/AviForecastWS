@@ -56,13 +56,13 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     existing avi center integrations -- improvements
+        ESAC -- validate and improve
         SAC -- handle two day forecasts (BEFORE new years!), per discussion with Andy
         NWAC -- start using new timestamps to pick up forecast dates
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations
         Sun Valley Sawtooth (SNFAC) http://www.sawtoothavalanche.com/ (4 regions)
-        Eastern Sierra (ESAC) -- received KMZ; waiting on RSS/forecasts to start
         WhistlerBlackcomb -- http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
     support additional avi centers
         Mount Shasta, CA -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
