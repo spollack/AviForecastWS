@@ -46,6 +46,7 @@ marketing
     app store pages
         add screenshots showing US Rockies integrations
     sebnarware.com website
+        fix bottom bar on top of content on narrow screen for partners page (set margin-bottom on container-fluid)
         get inbound links
         SEO (on-page)
         add a FAQ page?
