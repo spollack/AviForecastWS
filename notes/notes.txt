@@ -72,12 +72,12 @@ WS
         Missoula, MT *
         Chugach, AK * (CNFAIC) / Turnagain -- got a message from a person there (2012-Feb), he wants to get integrated
         Valdez, AK *
-        Cordova, AK
         Juneau, AK *
+        Cordova, AK
         Haines, AK
         Hatcher Pass, AK
-        Flagstaff, AZ
         Joseph, OR
+        Flagstaff, AZ
         Mount Washington, NH
         CAC Yukon -- emailed CAC for region definition (http://avalanche.ca/kmz/bulletinregions.kmz has what they have; Yukon not in there yet as of 2012-10-23, but they may add it)
         Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
