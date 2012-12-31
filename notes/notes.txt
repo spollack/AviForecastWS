@@ -56,7 +56,7 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     existing avi center integrations -- improvements
-        ESAC -- validate and improve
+        ESAC -- validate and improve; finish integration
         NWAC -- start using new timestamps to pick up forecast dates
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
