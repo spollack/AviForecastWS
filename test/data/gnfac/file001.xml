@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bulletin  xmlns="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS"  xmlns:gml="http://www.opengis.net/gml"  xmlns:xlink="http://www.w3.org/1999/xlink"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS    http://caaml.org/Schemas/V5.0/Profiles/BulletinUS/CAAMLv5_BulletinUS.xsd"  gml:id="BulletinID01">
+  <metaDataProperty>
+    <MetaData>
+      <dateTimeReport>2012-12-30T07:14:41-07:00</dateTimeReport>
+      <srcRef>
+        <Operation gml:id="GNFAC">
+          <name>Gallatin National Forest Avalanche Center</name>
+        </Operation>
+      </srcRef>
+      <srcURL>http://www.mtavalanche.com/current</srcURL>
+      <comment>Complete Avalanche Forecast for Gallatin NF Advisory Regions</comment>
+    </MetaData>
+  </metaDataProperty>
+  <validTime>
+    <TimePeriod>
+      <beginPosition>2012-12-30T07:12:00-07:00</beginPosition>
+      <endPosition>2012-12-31T16:12:00-07:00</endPosition>
+    </TimePeriod>
+  </validTime>
+  <bulletinResultsOf>
+    <BulletinMeasurements>
+      <customData>
+        <Media>
+          <uRL>http://www.mtavalanche.com/sites/default/files/images/Cooke Crown.midsize.jpg</uRL>
+          <description><![CDATA[Cooke City Crown <p>&nbsp;This slide was triggered in an area where the snowpack was under a meter deep. &nbsp;The weak layer collapsed and propagated across the slope into a deeper snowpack. &nbsp;Photo GNFAC</p>]]></description>
+        </Media>
+      </customData>
+      <customData>
+        <Media>
+          <uRL>http://www.mtavalanche.com/sites/default/files/images/Cooke Slide.midsize.jpg</uRL>
+          <description><![CDATA[Avalanche - Cooke City <p>&nbsp;Isolated slopes around Cooke City have unstable snow. &nbsp;This slide was human triggered and failed on a layer of facets near the ground. &nbsp;The slope was SW facing around 9500 ft. &nbsp;Photo GNFAC</p>]]></description>
+        </Media>
+      </customData>
+      <bulletinType>Bulletin</bulletinType>
+      <dangerRatings>
+        <DangerRatingSingle>
+          <mainValue>2</mainValue>
+          <comment></comment>
+        </DangerRatingSingle>
+      </dangerRatings>
+      <avSnowComment><![CDATA[<p>&nbsp;</p>
+<p><span style="font-size: 14pt; background-color: rgb(207, 222, 245); padding: 4px;"><u>Bridger Range</u></span>&nbsp;&nbsp; <span style="font-size: 14pt; background-color: rgb(207, 222, 245); padding: 4px;"><u>Madison Range</u></span>&nbsp;&nbsp; <span style="font-size: 14pt; background-color: rgb(207, 222, 245); padding: 4px;"><u>Gallatin Range</u></span> &nbsp;&nbsp;</p>
+<p><span style="font-size: 14pt; background-color: rgb(207, 222, 245); padding: 4px;"><u>Lionhead area near West Yellowstone</u></span> &nbsp;&nbsp;<span style="font-size: 14pt; background-color: rgb(207, 222, 245); padding: 4px;"><u>Cooke City</u></span></p>
+<p>Skiers and riders have been observing a generally strong snowpack throughout our forecast area.&nbsp; A large holiday crowd has been pushing the envelope with little activity to report.&nbsp; The problem with this situation is that the more avalanche terrain people cover, the higher the probability becomes of someone triggering a slide (<a href="http://www.mtavalanche.com/images/12/cooke-city-crown">photo</a>, <a href="http://www.mtavalanche.com/images/12/avalanche-cooke-city">photo</a>, <a href="http://www.youtube.com/watch?v=B-svxlpO490&amp;list=PLXu5151nmAvT7gHqdNajDBGfGY4u5XMSL&amp;index=1">video</a>). &nbsp;</p>
+<p>The second problem is people are becoming less focused on safe backcountry travel. Over the past week I’ve observed numerous situations where multiple people are riding a slope at the same time.&nbsp; This type of behavior increases the chance of an unfavorable outcome if an avalanche is triggered.&nbsp; Whether skinning up, skiing down or pushing the throttle, safe backcountry protocol is essential.</p>
+<p>Today, triggering an avalanche will require finding the right spot on the right slope.&nbsp; In many cases, multiple skiers or riders can hit a slope before someone impacts a buried weak layer.&nbsp; Steep, rocky terrain, specifically where the snowpack is less than 3 feet deep will be areas susceptible to producing an avalanche.&nbsp; Taking time to assess the snowpack and terrain before committing to steep slopes is a good habit to get into.&nbsp;</p>
+<p><b>NEW WEAK LAYERS FORMED</b></p>
+<p>Periods of cold, clear weather have turned the top few inches of snow into weaker, small grained facets. These near surface instabilities do not exist on all slopes, but have been observed throughout our forecast area. This layer is now capped by a few inches of new snow. It is not deep enough to be a major avalanche concern yet, but it’s something to look for since these layers tend to persist.&nbsp;</p>
+<p>Today, human triggered avalanches are possible and the avalanche danger is rated <b>MODERATE</b>.&nbsp;</p>
+<p>I will issue the next advisory tomorrow morning at 7:30 a.m. If you have any snowpack or avalanche observations drop us a line at <a href="mailto:mtavalanche@gmail.com">mtavalanche@gmail.com</a>&nbsp;or call us at 587-6984.</p>
+<hr>
+<p>&nbsp;<b><u><a href="http://www.mtavalanche.com/education">EDUCATION</a></u></b></p>
+<p>Thursday, January 3, 6:00 p.m., 1-hour Avalanche Awareness lecture at 406 Brewing Company, Bozeman.</p>
+<p>Tuesday, January 8, 7:00 p.m., 1-hour Avalanche Awareness at Big Timber High School.</p>
+<p>Wednesday, January 9, 6:30 p.m., 1-hour Avalanche Awareness at REI, Bozeman.</p>
+<p>Thursday and Saturday, January 10 and 12, Rescue Clinic. Thursday at 6:00 p.m. at REI, Bozeman and Saturday at 10 a.m. in the field, location TBD.&nbsp; For more info and to register go <a href="http://www.rei.com/event/47692/session/64126" target="_blank">http://www.rei.com/event/47692/session/64126</a></p>
+<p>Saturday and Sunday, January 12 and 13, Snowmobiler Introduction to Avalanches with Field Course.&nbsp; For more information and to sign up: <a href="https://www.ticketriver.com/event/4979-snowmobiler-introduction-to-avalanches-w-field">https://www.ticketriver.com/event/4979-snowmobiler-introduction-to-avalanches-w-field</a></p>
+<p>&nbsp;</p>]]></avSnowComment>
+    </BulletinMeasurements>
+  </bulletinResultsOf>
+  <Region gml:id="0">
+    <name>Bridgers</name>
+    <regionSubType>Forecast Zone</regionSubType>
+  </Region>
+  <locRef xlink:href="ForecastRegionID0"/>
+</Bulletin>

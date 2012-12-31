@@ -133,9 +133,8 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // aviLevel should not be AVI_LEVEL_UNKNOWN
         for (i = 0; i < forecast.length; i++) {
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
-                // NOTE known exceptions: certain regions always return forecasts without danger level ratings; others
-                // // are only issued periodically (e.g. once a week), not daily
-                if (regionId === 'caic_090' || regionId === 'caic_091' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline') {
+                // NOTE known exceptions: certain regions always return forecasts without danger level ratings
+                if (regionId === 'caic_090' || regionId === 'caic_091') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
@@ -179,7 +178,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
-            if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas') {
+            if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
@@ -222,9 +221,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
     var regionDetails = null;
 
     if (regionId) {
-        var components = regionId.split('_');
-
-        if (components && components.length > 0) {
+        // NOTE split the regionId at the first underscore, into two pieces
+        var index = regionId.indexOf('_');
+        if (index !== -1) {
+            var components = [regionId.slice(0, index), regionId.slice(index + 1)];
 
             // NOTE the URLs used here by the server for pull data may be different than the URLs for users viewing the
             // corresponding forecast as a web page
@@ -244,11 +244,14 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_pc;
                     break;
                 case 'caic':
+                    // NOTE look up the data url (because of the more complex mapping)
                     dataURL = forecasts.getDataURL_caic(components[1]);
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'uac':
-                    dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1];
+                    // NOTE take only the first part of the subregion
+                    var subregion = components[1].split('_')[0];
+                    dataURL = 'http://utahavalanchecenter.org/advisory/' + subregion;
                     parser = forecasts.parseForecast_uac;
                     break;
                 case 'viac':
@@ -261,6 +264,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'btac':
                     dataURL = 'http://www.jhavalanche.org/media/xml/' + components[1] + '_Avalanche_Forecast.xml';
+                    parser = forecasts.parseForecast_simple_caaml;
+                    break;
+                case 'gnfac':
+                    dataURL = 'http://www.mtavalanche.com/sites/default/files/xml/' + components[1] + '_Forecast.xml';
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 default:

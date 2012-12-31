@@ -1,6 +1,6 @@
 [
     {
-        "regionId": "gnfac_1",
+        "regionId": "gnfac_Bridgers",
         "displayName": "Bridger Range",
         "URL": "http://www.mtavalanche.com/current",
         "points": [
@@ -51,7 +51,7 @@
         ]
     },
     {
-        "regionId": "gnfac_2",
+        "regionId": "gnfac_Northern_Madison",
         "displayName": "Northern Madison Range",
         "URL": "http://www.mtavalanche.com/current",
         "points": [
@@ -130,7 +130,7 @@
         ]
     },
     {
-        "regionId": "gnfac_3",
+        "regionId": "gnfac_Northern_Gallatin",
         "displayName": "Northern Gallatin Range",
         "URL": "http://www.mtavalanche.com/current",
         "points": [
@@ -213,7 +213,7 @@
         ]
     },
     {
-        "regionId": "gnfac_4",
+        "regionId": "gnfac_Lionhead_Area",
         "displayName": "Lionhead Area",
         "URL": "http://www.mtavalanche.com/current",
         "points": [
@@ -268,7 +268,7 @@
         ]
     },
     {
-        "regionId": "gnfac_5",
+        "regionId": "gnfac_Cooke_City",
         "displayName": "Cooke City",
         "URL": "http://www.mtavalanche.com/current",
         "points": [
@@ -311,7 +311,7 @@
         ]
     },
     {
-        "regionId": "gnfac_6",
+        "regionId": "gnfac_Southern_Madison",
         "displayName": "Southern Madison Range",
         "URL": "http://www.mtavalanche.com/current",
         "points": [
@@ -386,7 +386,7 @@
         ]
     },
     {
-        "regionId": "gnfac_7",
+        "regionId": "gnfac_Southern_Gallatin",
         "displayName": "Southern Gallatin Range",
         "URL": "http://www.mtavalanche.com/current",
         "points": [
