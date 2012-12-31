@@ -9,7 +9,7 @@ marketing
             UAC: Bruce did a blog post; listed on website
             CAIC: reposted Bruce's blog post
             BTAC: Carol talking to Bob about where/how to put on website
-            GNFAC: made request
+            GNFAC: posted on their facebook page
             VIAC: communicated; listed on website
             CAC: asked about reposting Bruce's blog post, no response
             PC: Grant said they will repost Bruce's blog post
@@ -57,7 +57,6 @@ marketing
 WS
     existing avi center integrations -- improvements
         ESAC -- validate and improve
-        SAC -- handle two day forecasts (BEFORE new years!), per discussion with Andy
         NWAC -- start using new timestamps to pick up forecast dates
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
