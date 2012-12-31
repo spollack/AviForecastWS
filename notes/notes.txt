@@ -8,6 +8,7 @@ marketing
             UAC: Bruce did a blog post; listed on website
             CAIC: reposted Bruce's blog post
             BTAC: Carol talking to Bob about where/how to put on website
+            GNFAC: made request
             VIAC: communicated; listed on website
             CAC: asked about reposting Bruce's blog post, no response
             PC: Grant said they will repost Bruce's blog post
@@ -221,7 +222,7 @@ I recently developed a free avalanche forecasts mobile app, and I'd like to get 
 
 The app, which is available for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
-I currently have it integrated with the NWAC, CAIC, UAC, BTAC, SAC, CAC, VIAC, and Parks Canada forecasting centers. I'd like to eventually include all the avalanche forecasting centers across North America.
+I currently have it integrated with the NWAC, CAIC, UAC, BTAC, GNFAC, SAC, CAC, VIAC, and Parks Canada forecasting centers. I'd like to eventually include all the avalanche forecasting centers across North America.
 
 You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/
 
@@ -247,7 +248,7 @@ I recently developed a free avalanche forecasts mobile app, and I'd like to spre
 
 The app, which is available for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
-I currently have integrated with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), BTAC (Jackson Hole), SAC (Sierras), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (over 60 forecast regions total). My goals over time are to eventually include all the avalanche forecasting centers across North America.
+I currently have integrated with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), BTAC (Jackson Hole), GNFAC (Bozeman), SAC (central Sierras), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (over 60 forecast regions total). My goals over time are to eventually include all the avalanche forecasting centers across North America.
 
 You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/
 
