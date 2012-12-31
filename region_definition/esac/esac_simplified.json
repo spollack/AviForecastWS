@@ -1,7 +1,7 @@
 [
     {
         "regionId": "esac_mammoth",
-        "displayName": "Mammoth Lakes Region",
+        "displayName": "Eastern Sierra - Mammoth Lakes",
         "URL": "http://esavalanche.org/advisory",
         "points": [
             {
@@ -112,7 +112,7 @@
     },
     {
         "regionId": "esac_south",
-        "displayName": "Southern Region",
+        "displayName": "Eastern Sierra - Southern",
         "URL": "http://esavalanche.org/advisory",
         "points": [
             {
@@ -259,7 +259,7 @@
     },
     {
         "regionId": "esac_north",
-        "displayName": "Northern Region",
+        "displayName": "Eastern Sierra - Northern",
         "URL": "http://esavalanche.org/advisory",
         "points": [
             {

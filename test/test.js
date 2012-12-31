@@ -547,6 +547,27 @@ describe('parseForecast_sac', function(){
     })
 })
 
+describe('parseForecast_esac', function(){
+    describe('file000.html', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file000.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('esac_north'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('esac_north'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2012-12-30');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+})
 
 
 

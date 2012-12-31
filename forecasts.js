@@ -270,6 +270,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.mtavalanche.com/sites/default/files/xml/' + components[1] + '_Forecast.xml';
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
+                case 'esac':
+                    dataURL = 'http://esavalanche.org/advisory';
+                    parser = forecasts.parseForecast_esac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -697,9 +701,9 @@ forecasts.parseForecastIssuedDate_uac = function($, regionDetails) {
 
     // capture the forecast timestamp
     // NOTE typical html fragment for uac: '<td class="advisory-date">Issued by Drew Hardesty for November 9, 2012 - 11:19am</td>'
-    var textBlock = $('.advisory-date').text();
+    var timestampTextBlock = $('.advisory-date').text();
 
-    var timestampMatch = textBlock.match(/for\s+(\w+\s+\d+)\w*\s*,?\s+(\d+)/);
+    var timestampMatch = timestampTextBlock.match(/for\s+(\w+\s+\d+)\w*\s*,?\s+(\d+)/);
 
     // the capture groups from the regex will be in slots 1 and 2 in the array
     if (timestampMatch && timestampMatch.length > 2) {
@@ -721,7 +725,7 @@ forecasts.parseForecastValues_uac = function($, regionDetails) {
     var aviLevels = [];
     aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
 
-    // NOTE typical html frament for uac: '<div id="upper-rating" class="rating-2"><span> <h2>2. Moderate</h2> Above 9,500 ft.</span> </div>'
+    // NOTE typical html fragment for uac: '<div id="upper-rating" class="rating-2"><span> <h2>2. Moderate</h2> Above 9,500 ft.</span> </div>'
     var dangerRatingTextBlocks = [];
     dangerRatingTextBlocks[0] = $('#upper-rating span h2').text();
     dangerRatingTextBlocks[1] = $('#mid-rating span h2').text();
@@ -889,9 +893,65 @@ forecasts.parseForecast_sac = function(body, regionDetails) {
     return forecast;
 };
 
+forecasts.parseForecast_esac = function(body, regionDetails) {
 
+    var forecast = null;
 
+    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
 
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_esac($, regionDetails);
+    var aviLevels = forecasts.parseForecastValues_esac($, regionDetails);
+
+    // NOTE esac currently issues forecasts morning of, for one day only
+    if (forecastIssuedDate) {
+        forecast = [];
+        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    }
+
+    return forecast;
+};
+
+forecasts.parseForecastIssuedDate_esac = function($, regionDetails) {
+
+    var forecastIssuedDate = null;
+
+    // capture the forecast timestamp
+    // NOTE typical html fragment for esac: '<div class="forecast-advisory">Posted <strong>December 30, 2012</strong> by <strong>Sue Burak</strong>'
+    var timestampTextBlock = $('.forecast-advisory').text();
+
+    var timestampMatch = timestampTextBlock.match(/Posted\s+(\w+\s+\d+)\w*\s*,?\s+(\d+)/i);
+
+    // the capture groups from the regex will be in slots 1 and 2 in the array
+    if (timestampMatch && timestampMatch.length > 2) {
+
+        // capture group 1 has the month and day, capture group 2 has the year
+        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
+        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+    } else {
+        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return forecastIssuedDate;
+};
+
+forecasts.parseForecastValues_esac = function($, regionDetails) {
+
+    // esac forecasts one days at a time
+    var aviLevels = [];
+    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
+
+    // NOTE typical html fragment for esac has a div of class forecast-advisory, containing a table, containing a p with the forecast description
+    var dangerRatingTextBlock = $('.forecast-advisory table p').text();
+
+    aviLevels[0] = forecasts.findHighestAviLevelInString(dangerRatingTextBlock);
+
+    return aviLevels;
+};
 
 
 
