@@ -424,85 +424,43 @@ forecasts.parseForecast_nwac = function(body, regionDetails) {
 
     var forecast = null;
 
-    // nwac forecasts  have a timestamp that says when the forecast was issued; and then present the forecast details
-    // labelled only by textual day of week, e.g. "Thursday" or "Friday night and Saturday"; so to know exactly
-    // which dates they are describing, we need to parse out both pieces and use them together
-
-    // nwac forecasts go at most 3 days out (issued on day 1, for day 2 and day 3)
-    var NUM_FORECAST_DAYS_NWAC = 3;
-
     try {
         // convert the JSON response to an object
         var bodyJson = JSON.parse(body);
 
-        // get the forecast issued date
-        var forecastIssuedDate = moment(bodyJson.published_date, 'YYYY-MM-DD HH-mm-ss');
+        // nwac forecasts go 2 days out; typically they are issued the evening before, for the following two days, 
+        // although sometimes they are issued the same day
 
-        if (forecastIssuedDate) {
+        var NUM_FORECAST_DAYS_NWAC = 2;
 
-            // using forecast issued date to anchor things, set up our forecast dates and days
-            // start with the day the forecast was issued, and increment forward from there
-            var forecastDates = [];
-            var forecastDays = [];
-            var aviLevels = [];
-
-            for (var i = 0; i < NUM_FORECAST_DAYS_NWAC; i++) {
-                // copy the value of the forecast issued date, and then offset by the appropriate number of days
-                forecastDates[i] = moment(forecastIssuedDate).clone().add('days', i);
-
-                // get the day name for that date
-                forecastDays[i] = moment(forecastDates[i]).format('dddd');
-
-                aviLevels[i] = forecasts.AVI_LEVEL_UNKNOWN;
-            }
-
-            // get the forecast details
-            forecasts.parseForecastValues_nwac(bodyJson, regionDetails, forecastDays, aviLevels);
-
-            if (aviLevels[0] === forecasts.AVI_LEVEL_UNKNOWN && aviLevels[1] !== forecasts.AVI_LEVEL_UNKNOWN) {
-                // NOTE since nwac forecasts are typically issued in the evening for the following two days,
-                // copy the forecast from that first forecast day into the forecast issued day too
-                aviLevels[0] = aviLevels[1];
-            }
-
-            // fill out the return object
-            forecast = [];
-            for (var j = 0; j < aviLevels.length; j++) {
-                forecast[j] = {'date':moment(forecastDates[j]).format('YYYY-MM-DD'), 'aviLevel':aviLevels[j]};
-                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-            }
+        forecast = [];
+        for (var i = 0; i < NUM_FORECAST_DAYS_NWAC; i++) {
+            // NOTE one-based index
+            var forecastIndex = i + 1;
+            var forecastTimestampLabel = 'forecast_day' + forecastIndex + '_timestamp';
+            var forecastDate = moment(bodyJson[forecastTimestampLabel], 'YYYY-MM-DD HH-mm-ss').format('YYYY-MM-DD');
+            var aviLevel = forecasts.getAviLevelForForecastDayIndex_nwac(bodyJson, regionDetails, forecastIndex);
+            forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
         }
 
+        // if the forecast was issued the day before the first forecast day, copy the forecast from that 
+        // first forecast day into the forecast issued day too
+        var forecastIssuedDate = moment(bodyJson.published_date, 'YYYY-MM-DD HH-mm-ss');
+        var dayAfterForecastIssuedDate = moment(forecastIssuedDate).clone().add('days', 1).format('YYYY-MM-DD');
+        if (dayAfterForecastIssuedDate === forecast[0].date) {
+            // create an entry at the front of the forecast array for the forecast issued date, with the aviLevel of the following day
+            var issuedDateForecast = {'date':moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel':forecast[0].aviLevel};
+            forecast.unshift(issuedDateForecast);
+        }
+
+        for (var j = 0; j < aviLevels.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
     } catch (e) {
         winston.warn('failure parsing NWAC forecast; error: ' + JSON.stringify(e));
     }
 
     return forecast;
-};
-
-forecasts.parseForecastValues_nwac = function(bodyJson, regionDetails, forecastDays, aviLevels) {
-
-    for (var day = 0; day < forecastDays.length; day++) {
-
-        // look for the day name, case insensitive
-        var regExp = new RegExp(forecastDays[day], 'i');
-
-        // find the first forecast label that contains the relevant day string
-        // NOTE one-based index
-        for (var forecastIndex = 1; forecastIndex <= aviLevels.length; forecastIndex++) {
-
-            var labelName = 'label_forecast_day' + forecastIndex;
-            if (bodyJson[labelName].match(regExp)) {
-
-                // go get the corresponding forecast
-                aviLevels[day] = forecasts.getAviLevelForForecastDayIndex_nwac(bodyJson, regionDetails, forecastIndex);
-                winston.verbose('parsing forecast values; regionId: ' + regionDetails.regionId + '; day: ' + day + '; day name: ' +
-                    forecastDays[day] + '; block: ' + forecastIndex + '; aviLevel: ' + aviLevels[day]);
-
-                break;
-            }
-        }
-    }
 };
 
 forecasts.getAviLevelForForecastDayIndex_nwac = function(bodyJson, regionDetails, forecastIndex) {
@@ -568,7 +526,7 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before
-                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract('days',1);
+                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract('days', 1);
                     forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
@@ -619,7 +577,7 @@ forecasts.parseForecast_pc = function(body, regionDetails) {
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before
-                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract('days',1);
+                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract('days', 1);
                     forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
@@ -778,7 +736,7 @@ forecasts.parseFirstForecastedDate_viac = function(body, regionDetails) {
 
         for (var i = 0; i < 2; i++) {
             // copy the value of the forecast issued date, offset by the appropriate number of days, and get the day of week
-            daysOfWeek[i] = moment(forecastIssuedDate).clone().add('days',i);
+            daysOfWeek[i] = moment(forecastIssuedDate).clone().add('days', i);
 
             if (moment(daysOfWeek[i]).format('dddd').toLowerCase() === firstForecastedDayOfWeek.toLowerCase()) {
                 firstForecastedDate = daysOfWeek[i];

@@ -59,7 +59,6 @@ WS
     existing avi center integrations -- improvements
         GNFAC -- broken as of Jan 1 (rejecting user agent; stale CAAML)
         ESAC -- validate and improve; finish integration (RSS? longer valid forecasts?); tell the world
-        NWAC -- start using new timestamps to pick up forecast dates
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations

@@ -182,57 +182,27 @@ describe('parseForecast_nwac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2012-11-02');
-            forecast[1].date.should.equal('2012-11-03');
-            forecast[2].date.should.equal('2012-11-04');
-            forecast[0].aviLevel.should.equal(1);
-            forecast[1].aviLevel.should.equal(1);
-            forecast[2].aviLevel.should.equal(1);
-        })
-    })
-    describe('file002.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file002.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_12'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2012-10-25');
-            forecast[1].date.should.equal('2012-10-26');
-            forecast[2].date.should.equal('2012-10-27');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].aviLevel.should.equal(2);
-            forecast[2].aviLevel.should.equal(2);
-        })
-    })
-    describe('file003.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file003.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_5'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2012-11-20');
-            forecast[1].date.should.equal('2012-11-21');
-            forecast[2].date.should.equal('2012-11-22');
-            forecast[0].aviLevel.should.equal(3);
-            forecast[1].aviLevel.should.equal(3);
-            forecast[2].aviLevel.should.equal(2);
-        })
-    })
-    describe('file005.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file005.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
             forecast[0].date.should.equal('2012-12-18');
             forecast[1].date.should.equal('2012-12-19');
             forecast[2].date.should.equal('2012-12-20');
             forecast[0].aviLevel.should.equal(4);
             forecast[1].aviLevel.should.equal(4);
             forecast[2].aviLevel.should.equal(4);
+        })
+    })
+    describe('file002.json', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file002.json','utf8'),
+                forecasts.getRegionDetailsForRegionId('nwac_5'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2012-12-31');
+            forecast[1].date.should.equal('2013-01-01');
+            forecast[2].date.should.equal('2013-01-02');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
         })
     })
 })
