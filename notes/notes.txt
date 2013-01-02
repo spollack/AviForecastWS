@@ -57,7 +57,6 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     existing avi center integrations
-        GNFAC -- broken as of Jan 1 (rejecting user agent)
         ESAC -- validate and improve; finish integration (switch to RSS); tell the world
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
@@ -108,7 +107,7 @@ Android
             swap top and bottom bars
             check/increase the usage time before appirater prompt?
             update the usage text, from iOS version
-            change user agent to something Mod_Security2 is ok with
+            drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
             bug to look at:
                 ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
             offline caching not working in all cases? (tests out fine on my phone and Adam's phone...)
@@ -143,7 +142,7 @@ iOS
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             set a max zoom level
         other
-            change user agent to something Mod_Security2 is ok with
+            drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
             CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
         info section
