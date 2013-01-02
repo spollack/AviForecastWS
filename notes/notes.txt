@@ -56,7 +56,7 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
-    existing avi center integrations -- improvements
+    existing avi center integrations
         GNFAC -- broken as of Jan 1 (rejecting user agent)
         ESAC -- validate and improve; finish integration (switch to RSS); tell the world
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
