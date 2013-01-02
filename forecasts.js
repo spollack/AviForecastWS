@@ -860,10 +860,11 @@ forecasts.parseForecast_esac = function(body, regionDetails) {
     var forecastIssuedDate = forecasts.parseForecastIssuedDate_esac($, regionDetails);
     var aviLevels = forecasts.parseForecastValues_esac($, regionDetails);
 
-    // NOTE esac currently issues forecasts morning of, for one day only
+    // NOTE per request of Nate Greenberg (2013-01-01), make all esac forecasts valid for two days, unless replaced by a newer one
     if (forecastIssuedDate) {
         forecast = [];
         forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+        forecast[1] = {'date': moment(forecastIssuedDate).clone().add('days', 1).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
 
         for (var j = 0; j < forecast.length; j++) {
             winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));

@@ -532,9 +532,11 @@ describe('parseForecast_esac', function(){
                 forecasts.getRegionDetailsForRegionId('esac_north'));
 
             should.exist(forecast);
-            forecast.length.should.equal(1);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2012-12-30');
+            forecast[1].date.should.equal('2012-12-31');
             forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
         })
     })
 })
