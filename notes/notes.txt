@@ -108,6 +108,7 @@ Android
             swap top and bottom bars
             check/increase the usage time before appirater prompt?
             update the usage text, from iOS version
+            change user agent to something Mod_Security2 is ok with
             bug to look at:
                 ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
             offline caching not working in all cases? (tests out fine on my phone and Adam's phone...)
@@ -142,6 +143,7 @@ iOS
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             set a max zoom level
         other
+            change user agent to something Mod_Security2 is ok with
             CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
         info section
