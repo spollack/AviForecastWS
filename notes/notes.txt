@@ -69,7 +69,7 @@ WS
         Panhandle, ID
         Glacier, MT *
         Missoula, MT *
-        Chugach, AK * (CNFAIC) / Turnagain -- got a message from a person there (2012-Feb), he wants to get integrated
+        Chugach, AK * (CNFAIC) / Turnagain -- got a message from a person there (2013-01-02), he wants to get integrated
         Valdez, AK *
         Juneau, AK *
         Cordova, AK
