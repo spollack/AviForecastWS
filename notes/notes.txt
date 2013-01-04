@@ -87,7 +87,7 @@ WS
         use HTML parsing library (cheerio) as opposed by regexs
         update to current semantics (0.2.x not 0.1.x) with xml2js
         create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
-        deal with timezones in a rigorous way
+        deal with timezones in a rigorous way (forecasts expiring at a given time, etc.)
         auto-validation: check and refine results
         capture all generated forecasts (for example, in S3)?
         further auto-validation of each generated forecast
@@ -105,7 +105,6 @@ Android
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             redo location services stuff to turn off gps after we have a first fix
             swap top and bottom bars
-            check/increase the usage time before appirater prompt?
             update the usage text, from iOS version
             drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
             bug to look at:
@@ -143,6 +142,7 @@ iOS
             set a max zoom level
         other
             drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
+            decrease the usage time before appirater prompt?
             CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
         info section
