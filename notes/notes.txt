@@ -70,10 +70,10 @@ WS
         Chugach, AK * (CNFAIC) / Turnagain -- got a message from a person there (2013-01-02), he wants to get integrated
         Mount Shasta, CA -- want to integrate, but tech guy is swamped (as of 2012-10-15); circle back in a while
     support additional avi centers
-        McCall, ID *
-        Panhandle, ID
         Glacier, MT *
         Missoula, MT *
+        McCall, ID *
+        Panhandle, ID
         Valdez, AK *
         Juneau, AK *
         Cordova, AK
