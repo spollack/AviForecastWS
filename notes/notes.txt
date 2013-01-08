@@ -67,8 +67,8 @@ WS
         ESAC -- validate and improve; finish integration (switch to RSS); tell the world
         Sun Valley / Sawtooth (SNFAC) http://www.sawtoothavalanche.com/
         WhistlerBlackcomb -- http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
-        Chugach, AK * (CNFAIC) / Turnagain -- got a message from the director there (2013-01-02), he wants to get integrated
-        Mount Shasta, CA -- want to integrate, but tech guy is swamped (as of 2012-10-15); pinged again 2013-01-04
+        Chugach, AK (CNFAIC) / Turnagain -- got a message from the director there (2013-01-02), he wants to get integrated
+        Mount Shasta, CA -- want to integrate, but tech guy is swamped; ping again in February
         Missoula, MT (WCMAC) -- they are interested in integration
         Glacier, MT -- pinged them regarding integration
     support additional avi centers
