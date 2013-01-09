@@ -233,7 +233,7 @@ I currently have it integrated with the NWAC, CAIC, UAC, BTAC, GNFAC, SAC, CAC, 
 You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/
 
 In order to integrate technically, there are two elements i'll need. Usually this is a small amount of work for you. 
-1) forecast region definitions: do you happen to have a KMZ file (or any similar geographic data file) that describes the borders of each of your forecast regions in terms of latitude/longitude coordinate paths? If not, i can work with you to create this.
+1) forecast region definitions: do you have a KMZ file (or any similar geographic data file) that describes the borders of each of your forecast regions in terms of latitude/longitude coordinate paths? If not, i can work with you to create this.
 2) forecast data: do you have a CAAML feed or other data API (or even RSS) that i can use to pull forecast information? Alternatively I can extract the forecast information by parsing your web pages, but a structured data feed is the much more robust approach.
 Would you please connect me with your technical point of contact? 
 
