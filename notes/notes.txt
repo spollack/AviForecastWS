@@ -207,6 +207,9 @@ iOS
 postgis shape simplification
 --------------------
 
+first, in the "testgis" database:
+set search_path to public;
+
 check number of points output:
 SELECT ST_NPoints(ST_SimplifyPreserveTopology(ST_GeomFromKML('
 KML_fragment_here
