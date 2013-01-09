@@ -3,9 +3,9 @@
 //
 var fs = require('fs');
 
-countPointsInRegionsJSONFile('wcmaf/wcmaf_simplified.json');
+// countPointsInRegionsJSONFile('wcmaf/wcmaf_simplified.json');
 // countPointsInRegionsJSONFile('Canada_all/canada_regions_simplified.json');
-// countPointsInRegionsJSONFile('../public/v1/regions.json');
+countPointsInRegionsJSONFile('../public/v1/regions.json');
 
 function countPointsInRegionsJSONFile(inputFilePath) {
     var input = fs.readFileSync(inputFilePath, 'utf8');
