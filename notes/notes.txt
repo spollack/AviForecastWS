@@ -79,9 +79,9 @@ WS
         Cordova, AK
         Haines, AK
         Hatcher Pass, AK
+        Mount Washington, NH
         Joseph, OR
         Flagstaff, AZ
-        Mount Washington, NH
         CAC Yukon -- emailed CAC for region definition (http://avalanche.ca/kmz/bulletinregions.kmz has what they have; Yukon not in there yet as of 2012-10-23, but they may add it)
         Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
