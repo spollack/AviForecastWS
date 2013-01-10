@@ -88,6 +88,7 @@ forecasts.aggregateForecasts = function(regions) {
                             fs.rename(forecasts.FORECASTS_DATA_TEMP_PATH, forecasts.FORECASTS_DATA_PATH,
                                 function() {
                                     winston.info('aggregateForecasts: forecast data file updated; path: ' + forecasts.FORECASTS_DATA_PATH);
+                                    console.log(require('moment').utc('Thu, 10 Jan 2013 01:37:02 +0000', 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', 7).format('YYYY-MM-DD HH:mm:ss'));
                                 }
                             );
                         }
@@ -612,8 +613,6 @@ forecasts.parseForecast_simple_caaml = function(body, regionDetails) {
         try {
             var forecastIssuedDate = forecasts.dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.beginPosition);
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-
-            var forecastValidThroughDate = forecasts.dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.endPosition);
 
             var aviLevel = forecasts.findAviLevelNumberInString(result.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRatingSingle.mainValue);
 
