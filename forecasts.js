@@ -928,7 +928,7 @@ forecasts.parseForecast_wcmac = function(body, regionDetails) {
         try {
             var forecastIssuedDateField = result.channel.item[0].pubDate;
             // NOTE typical date string: 'Thu, 10 Jan 2013 01:37:02 +0000'
-            // NOTE dates are UTC! need to convert to mountain standard time to get the actual publish day
+            // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
             var mstOffsetHours = 7;
             var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
