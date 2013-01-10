@@ -1,6 +1,6 @@
 [
     {
-        "regionId": "wcmaf_north",
+        "regionId": "wcmac_north",
         "displayName": "West Central Montana - Northern",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [
@@ -87,7 +87,7 @@
         ]
     },
     {
-        "regionId": "wcmaf_south",
+        "regionId": "wcmac_south",
         "displayName": "West Central Montana - Southern",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [

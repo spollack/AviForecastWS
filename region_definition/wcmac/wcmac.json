@@ -1,6 +1,6 @@
 [
     {
-        "regionId": "wcmaf_1",
+        "regionId": "wcmac_1",
         "displayName": "Northern Coverage Area",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [
@@ -99,7 +99,7 @@
         ]
     },
     {
-        "regionId": "wcmaf_2",
+        "regionId": "wcmac_2",
         "displayName": "Southern Coverage Area",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [

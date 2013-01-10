@@ -3,7 +3,7 @@
 //
 var fs = require('fs');
 
-// countPointsInRegionsJSONFile('wcmaf/wcmaf_simplified.json');
+// countPointsInRegionsJSONFile('wcmac/wcmac_simplified.json');
 // countPointsInRegionsJSONFile('Canada_all/canada_regions_simplified.json');
 countPointsInRegionsJSONFile('../public/v1/regions.json');
 

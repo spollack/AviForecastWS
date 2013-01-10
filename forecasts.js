@@ -275,6 +275,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://esavalanche.org/advisory';
                     parser = forecasts.parseForecast_esac;
                     break;
+                case 'wcmac':
+                    dataURL = 'http://www.missoulaavalanche.org/feed/';
+                    parser = forecasts.parseForecast_wcmac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
