@@ -163,7 +163,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
     if (forecast) {
         // get the current date
         // NOTE timezones are tricky... first offset by the timezone that the environment is in to get back to UTC time,
-        // then offset to get to PST, which is what we use for our checking
+        // then offset to get to PST, which is what we use for our checking (close enough for now)
         var timezoneOffsetMinutes = moment().zone();
         var pstOffsetMinutes = 8 * 60;
         var currentPSTDate = moment().add('minutes', timezoneOffsetMinutes).subtract('minutes', pstOffsetMinutes).format('YYYY-MM-DD');
@@ -179,7 +179,8 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
-            if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan') {
+            if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
+                || regionId === 'wcmac_north' || regionId === 'wcmac_south') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
