@@ -135,7 +135,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but 
                 // without danger level ratings
-                if (regionId === 'caic_090' || regionId === 'caic_091' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2') {
+                if (regionId === 'caic_090' || regionId === 'caic_091'|| regionId === 'uac_skyline' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
@@ -917,7 +917,46 @@ forecasts.parseForecastValues_esac = function($, regionDetails) {
     return aviLevels;
 };
 
+forecasts.parseForecast_wcmac = function(body, regionDetails) {
 
+    var forecast = null;
+
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.channel.item[0].pubDate;
+            // NOTE typical date string: 'Thu, 10 Jan 2013 01:37:02 +0000'
+            // NOTE dates are UTC! need to convert to mountain standard time to get the actual publish day
+            var mstOffsetHours = 7;
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+            // NOTE parse the special rating html field out of the content field
+            // typical special rating html field: <div id="rating">high</div>
+            var contentField = result.channel.item[0]['content:encoded'];
+            var ratingMatch = contentField.match(/<div id=\"rating\">(\w+)<\/div>/i);
+            
+            // the capture groups from the regex will be in slot 1 in the array
+            if (ratingMatch && ratingMatch.length === 2) {
+                var aviLevelString = ratingMatch[1];
+                var aviLevel = forecasts.findHighestAviLevelInString(aviLevelString);
+
+                // NOTE wcmac issues single day forecasts (although not every day)
+                forecast = [];
+                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+    
+                for (var j = 0; j < forecast.length; j++) {
+                    winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+                }
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
+};
 
 
 

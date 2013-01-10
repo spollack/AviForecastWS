@@ -541,6 +541,28 @@ describe('parseForecast_esac', function(){
     })
 })
 
+describe('parseForecast_wcmac', function(){
+    describe('file000.html', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_wcmac(fs.readFileSync('test/data/wcmac/file000.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('wcmac_north'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_wcmac(fs.readFileSync('test/data/wcmac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('wcmac_north'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-01-09');
+            forecast[0].aviLevel.should.equal(4);
+        })
+    })
+})
+
 
 
 
