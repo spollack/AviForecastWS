@@ -910,8 +910,11 @@ forecasts.parseForecastValues_esac = function($, regionDetails) {
 
     // NOTE typical html fragment for esac has a div of class forecast-advisory, containing a table, containing a p with the forecast description
     var dangerRatingTextBlock = $('.forecast-advisory table p').text();
+    
+    // NOTE hack -- take just the first sentence
+    var firstSentence = dangerRatingTextBlock.split('.')[0];
 
-    aviLevels[0] = forecasts.findHighestAviLevelInString(dangerRatingTextBlock);
+    aviLevels[0] = forecasts.findHighestAviLevelInString(firstSentence);
 
     return aviLevels;
 };
