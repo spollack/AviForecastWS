@@ -911,10 +911,11 @@ forecasts.parseForecastValues_esac = function($, regionDetails) {
     // NOTE typical html fragment for esac has a div of class forecast-advisory, containing a table, containing a p with the forecast description
     var dangerRatingTextBlock = $('.forecast-advisory table p').text();
     
-    // NOTE hack -- take just the first sentence
-    var firstSentence = dangerRatingTextBlock.split('.')[0];
-
-    aviLevels[0] = forecasts.findHighestAviLevelInString(firstSentence);
+    // NOTE esac puts the hazard levels in all caps, so pull out just the all caps words, to avoid accidentally matching other words
+    var capitalizedWordMatches = dangerRatingTextBlock.match(/\b[A-Z]{2,}\b/g);
+    var capitalizedWords = (capitalizedWordMatches ? capitalizedWordMatches.join(' ') : '');
+    
+    aviLevels[0] = forecasts.findHighestAviLevelInString(capitalizedWords);
 
     return aviLevels;
 };
