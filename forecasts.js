@@ -908,14 +908,18 @@ forecasts.parseForecastValues_esac = function($, regionDetails) {
     var aviLevels = [];
     aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
 
-    // NOTE typical html fragment for esac has a div of class forecast-advisory, containing a table, containing a p with the forecast description
-    var dangerRatingTextBlock = $('.forecast-advisory table p').text();
+    // NOTE esac forecasts show the bottom line based on an image bar that is specific to one of the 5 danger levels, so
+    // go pull that out by looking for an img tag in the forecast-advisory section with a source attribute ending in 'Bar.png'
+    // typical example:
+    // <img src="http://www.esavalanche.org/files/stock/LowBar.png">
+    // NOTE parsing the highest danger level from the text description doesn't always give the same result
+    var suffixString = 'Bar.png';
+    var forecastAdvisoryImgTag = $('.forecast-advisory img[src$="' + suffixString + '"]');
+    var srcPath = (forecastAdvisoryImgTag && forecastAdvisoryImgTag.length > 0 ? forecastAdvisoryImgTag[0].attribs.src : '');
+    var lastPathElement = srcPath.split('/').pop();
+    var hazardString = lastPathElement.slice(0, - suffixString.length);
     
-    // NOTE esac puts the hazard levels in all caps, so pull out just the all caps words, to avoid accidentally matching other words
-    var capitalizedWordMatches = dangerRatingTextBlock.match(/\b[A-Z]{2,}\b/g);
-    var capitalizedWords = (capitalizedWordMatches ? capitalizedWordMatches.join(' ') : '');
-    
-    aviLevels[0] = forecasts.findHighestAviLevelInString(capitalizedWords);
+    aviLevels[0] = forecasts.findHighestAviLevelInString(hazardString);
 
     return aviLevels;
 };
