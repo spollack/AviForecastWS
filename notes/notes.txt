@@ -26,7 +26,7 @@ marketing
             Powder Magazine (http://www.powdermag.com/) -- sent email to John Stifter, editor, 2012-12-20
             http://www.backcountrymagazine.com/
             http://coastmountainculture.com/
-            www.wildsnow.com
+            www.wildsnow.com -- emailed 2013-01-13
             www.backcountryskiingcanada.com
             www.straightchuter.com
             www.notesfromtheneve.com
@@ -69,8 +69,8 @@ WS
         WhistlerBlackcomb -- http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
         Sun Valley / Sawtooth (SNFAC) http://www.sawtoothavalanche.com/
         Chugach, AK (CNFAIC) / Turnagain -- got a message from the director there (2013-01-02), he wants to get integrated
-        Mount Shasta, CA -- want to integrate, but tech guy is swamped; ping again in February
-        Glacier, MT -- pinged them regarding integration
+        Mount Shasta, CA (MSAC) -- want to integrate, but tech guy is swamped; ping again in February
+        Glacier, MT (FAC) -- pinged them regarding integration
     support additional avi centers
         McCall, ID *
         Panhandle, ID
@@ -254,13 +254,13 @@ get the word out blurb:
 --------------------
 [Avalanche Forecasts mobile app]
 
-I recently developed a free avalanche forecasts mobile app, and I'd like to spread the word more broadly about this app within the community. If you can help by XXX, that would be great.
+I recently developed a free avalanche forecasts mobile app as a pro bono project, and I'd like to ask your help to spread the word more broadly about this app within the backcountry community. 
 
-The app, which is available for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
+The app, which is available free for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. Bottom-line danger levels are shown color-coded for each forecast region on a map. Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains. 
 
-I currently have integrated with the NWAC (Northwest US), CAIC (Colorado), UAC (Utah), BTAC (Jackson Hole), GNFAC (Bozeman), WCMAC (Missoula), SAC (central Sierras), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers (over 70 forecast regions total). My goals over time are to eventually include all the avalanche forecasting centers across North America.
+I currently have integrated with the CAIC (Colorado), UAC (Utah), NWAC (Northwest US), BTAC (Jackson Hole), GNFAC (Bozeman), WCMAC (Missoula), SAC (central Sierras), CAC (Canada), VIAC (Vancouver Island), and Parks Canada forecasting centers. My goal over time is to eventually include all the avalanche forecasting centers across North America.
 
-You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/
+You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/  
 
 Thanks for your help!
 
