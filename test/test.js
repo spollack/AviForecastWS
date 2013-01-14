@@ -170,7 +170,7 @@ describe('parseForecast_nwac', function(){
     describe('file000.json', function(){
         it('should fail gracefully on bad input', function(){
             var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file000.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_0'));
+                forecasts.getRegionDetailsForRegionId('nwac_2'));
 
             should.not.exist(forecast);
         })
@@ -200,6 +200,21 @@ describe('parseForecast_nwac', function(){
             forecast[0].date.should.equal('2012-12-31');
             forecast[1].date.should.equal('2013-01-01');
             forecast[2].date.should.equal('2013-01-02');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
+        })
+    })
+    describe('file003.json', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file003.json','utf8'),
+                forecasts.getRegionDetailsForRegionId('nwac_5'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2013-01-13');
+            forecast[1].date.should.equal('2013-01-14');
+            forecast[2].date.should.equal('2013-01-15');
             forecast[0].aviLevel.should.equal(2);
             forecast[1].aviLevel.should.equal(2);
             forecast[2].aviLevel.should.equal(2);
