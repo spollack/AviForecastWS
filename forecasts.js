@@ -459,7 +459,7 @@ forecasts.parseForecast_nwac = function(body, regionDetails) {
             forecast.unshift(issuedDateForecast);
         }
 
-        for (var j = 0; j < aviLevels.length; j++) {
+        for (var j = 0; j < forecast.length; j++) {
             winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
         }
     } catch (e) {
