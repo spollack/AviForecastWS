@@ -33,7 +33,7 @@ forecasts.AVI_LEVEL_EXTREME = 5;
 // NOTE to ensure forecasts get generated, ensure FORECAST_GEN_INTERVAL_SECONDS >> DATA_REQUEST_TIMEOUT_SECONDS
 // NOTE the total delay that a client might see from forecast issued to available at client is the sum
 // of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
-forecasts.DATA_REQUEST_TIMEOUT_SECONDS = 15;
+forecasts.DATA_REQUEST_TIMEOUT_SECONDS = 30;
 forecasts.FORECAST_GEN_INTERVAL_SECONDS = 300;
 forecasts.CACHE_MAX_AGE_SECONDS = 60;
 
@@ -42,6 +42,11 @@ forecasts.STATIC_FILES_DIR_PATH  = __dirname + '/public';
 forecasts.REGIONS_PATH = __dirname + '/public/v1/regions.json';
 forecasts.FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
 forecasts.FORECASTS_DATA_TEMP_PATH = __dirname + '/public/v1/forecasts_TEMP.json';
+
+// NOTE we override the nodejs default maxSockets so that we can get more requests in parallel 
+// (5 is the default value); this must be done separately for http and https
+require('http').globalAgent.maxSockets = 10;
+require('https').globalAgent.maxSockets = 10;
 
 
 forecasts.aggregateForecasts = function(regions) {
