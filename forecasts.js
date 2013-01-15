@@ -43,13 +43,9 @@ forecasts.REGIONS_PATH = __dirname + '/public/v1/regions.json';
 forecasts.FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
 forecasts.FORECASTS_DATA_TEMP_PATH = __dirname + '/public/v1/forecasts_TEMP.json';
 
-// NOTE we override the nodejs default maxSockets so that we can get more requests in parallel 
-// (5 is the default value); this must be done separately for http and https
-require('http').globalAgent.maxSockets = 10;
-require('https').globalAgent.maxSockets = 10;
-
 
 forecasts.aggregateForecasts = function(regions) {
+    var startTime = new Date();
     winston.info('aggregateForecasts: initiated');
 
     var forecastsStatistics = {'count':regions.length, 'remainingCount':regions.length, 'invalidCount':0};
@@ -75,7 +71,9 @@ forecasts.aggregateForecasts = function(regions) {
 
                 forecastsStatistics.remainingCount--;
                 if (forecastsStatistics.remainingCount === 0) {
-                    winston.info('aggregateForecasts: all forecasts processed, region count: ' + forecastsStatistics.count);
+                    var endTime = new Date();
+                    var elapsedTime = endTime.getTime() - startTime.getTime();
+                    winston.info('aggregateForecasts: all forecasts processed, region count: ' + forecastsStatistics.count + '; elapsed time (ms): ' + elapsedTime);
                     if (forecastsStatistics.invalidCount > 0) {
                         winston.warn('there were invalid forecasts; invalid forecast count: ' + forecastsStatistics.invalidCount);
                     } else {
