@@ -61,8 +61,10 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
+    bugs
+        seeing periods where 5 minute forecast gen timer doesn't run... why?
     existing integrations: problems
-        UAC -- ETIMEDOUT problem
+        UAC -- ETIMEDOUT problem; worked around for now by only checking every 15 minutes
     existing integrations: enhancements
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
