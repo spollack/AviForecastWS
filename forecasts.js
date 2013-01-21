@@ -44,6 +44,12 @@ forecasts.FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
 forecasts.FORECASTS_DATA_TEMP_PATH = __dirname + '/public/v1/forecasts_TEMP.json';
 
 
+// generated forecast tracking
+// NOTE these are only kept for the life of a single process, not across process restarts
+forecasts.forecastGenerationCount = 0;
+forecasts.mostRecentForecasts = [];
+
+
 forecasts.aggregateForecasts = function(regions) {
     var startTime = new Date();
     winston.info('aggregateForecasts: initiated');
@@ -91,6 +97,7 @@ forecasts.aggregateForecasts = function(regions) {
                             fs.rename(forecasts.FORECASTS_DATA_TEMP_PATH, forecasts.FORECASTS_DATA_PATH,
                                 function() {
                                     winston.info('aggregateForecasts: forecast data file updated; path: ' + forecasts.FORECASTS_DATA_PATH);
+                                    forecasts.forecastGenerationCount++;
                                 }
                             );
                         }
@@ -202,7 +209,13 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
 
     if (!regionDetails) {
         winston.warn('invalid regionId: ' + regionId);
-        onForecast(regionId, null);
+        process.nextTick(function() { onForecast(regionId, null); } );
+    } else if (regionDetails.provider === 'uac' && forecasts.forecastGenerationCount % 3 !== 0) {
+        // HACK for uac issue where they are blocking our fetches accidentally if they happen too often; so only actually
+        // fetch it every N times
+        var forecast = forecasts.mostRecentForecasts[regionId];
+        winston.info('using cached value for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+        process.nextTick(function() { onForecast(regionId, forecast); } );
     } else {
         request({url:regionDetails.dataURL, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
             function(error, response, body) {
@@ -210,6 +223,8 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
                         '; dataURL: ' + regionDetails.dataURL);
                     var forecast = regionDetails.parser(body, regionDetails);
+                    // cache the result
+                    forecasts.mostRecentForecasts[regionId] = forecast;
                     onForecast(regionId, forecast);
                 } else {
                     winston.warn('failed dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
