@@ -213,7 +213,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
     } else if (regionDetails.provider === 'uac' && forecasts.forecastGenerationCount % 3 !== 0) {
         // HACK for uac issue where they are blocking our fetches accidentally if they happen too often; so only actually
         // fetch it every N times
-        var forecast = forecasts.mostRecentForecasts[regionId];
+        var forecast = (forecasts.mostRecentForecasts[regionId] ? forecasts.mostRecentForecasts[regionId] : null);
         winston.info('using cached value for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
         process.nextTick(function() { onForecast(regionId, forecast); } );
     } else {
@@ -223,8 +223,10 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
                         '; dataURL: ' + regionDetails.dataURL);
                     var forecast = regionDetails.parser(body, regionDetails);
-                    // cache the result
-                    forecasts.mostRecentForecasts[regionId] = forecast;
+                    if (forecast) {
+                        // cache the result
+                        forecasts.mostRecentForecasts[regionId] = forecast;
+                    }
                     onForecast(regionId, forecast);
                 } else {
                     winston.warn('failed dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
