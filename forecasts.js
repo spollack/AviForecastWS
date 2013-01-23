@@ -145,7 +145,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but 
                 // without danger level ratings
-                if (regionId === 'caic_090' || regionId === 'caic_091'|| regionId === 'uac_skyline' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2') {
+                if (regionId === 'caic_090' || regionId === 'caic_091'|| regionId === 'uac_skyline' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId ==='snfac_4') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
