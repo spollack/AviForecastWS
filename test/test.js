@@ -426,6 +426,31 @@ describe('parseForecast_simple_caaml gnfac', function(){
     })
 })
 
+describe('parseForecast_simple_caaml snfac', function(){
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/snfac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('snfac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-01-22');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+    describe('file002.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/snfac/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('snfac_4'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-01-22');
+            forecast[0].aviLevel.should.equal(0);
+        })
+    })
+})
+
 describe('parseForecast_uac', function(){
     describe('file000.html', function(){
         it('should fail gracefully on bad input', function(){

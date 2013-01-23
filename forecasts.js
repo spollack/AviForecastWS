@@ -314,6 +314,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.missoulaavalanche.org/feed/';
                     parser = forecasts.parseForecast_wcmac;
                     break;
+                case 'snfac':
+                    dataURL = 'http://sawtoothavalanche.com/caaml/SNFAC' + components[1] + '_Avalanche_Forecast.xml';
+                    parser = forecasts.parseForecast_simple_caaml;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bulletin  xmlns="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS"  xmlns:gml="http://www.opengis.net/gml"  xmlns:xlink="http://www.w3.org/1999/xlink"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS  http://caaml.org/Schemas/V5.0/Profiles/BulletinUS/CAAMLv5_BulletinUS.xsd"  gml:id="BulletinID01">
+  <metaDataProperty>
+    <MetaData>
+      <dateTimeReport>2013-01-22T16:37:00</dateTimeReport>
+      <srcRef>
+        <Operation gml:id="SNFAC">
+          <name>Sawtooth National Forest Avalanche Center</name>
+        </Operation>
+      </srcRef>
+      <srcURL>http://www.sawtoothavalanche.com/adv_current.php</srcURL>
+    </MetaData>
+  </metaDataProperty>
+  <validTime>
+    <TimePeriod>
+      <beginPosition>2013-01-22T07:30:00-07:00</beginPosition>
+      <endPosition>2013-01-23T07:30:00-07:00</endPosition>
+    </TimePeriod>
+  </validTime>
+  <bulletinResultsOf>
+    <BulletinMeasurements>
+      <bulletinType>Bulletin</bulletinType>
+      <dangerRatings>
+        <DangerRatingSingle>
+          <mainValue>0</mainValue>
+          <comment>We provide the Bottom Line for the Soldier Mountains on Friday, Saturday, and Sundays at 7:30am. Please continue to read the full advisory as the information may be applicable to this region.
+</comment>
+        </DangerRatingSingle>
+      </dangerRatings>
+      <avSnowComment>We provide the Bottom Line for the Soldier Mountains on Friday, Saturday, and Sundays at 7:30am. Please continue to read the full advisory as the information may be applicable to this region.
+</avSnowComment>
+    </BulletinMeasurements>
+  </bulletinResultsOf>
+  <Region gml:id="4">
+    <name>Soldier Mountains</name>
+    <regionSubType>Forecast Zone</regionSubType>
+  </Region>
+  <locRef xlink:href="ForecastRegionID"/>
+</Bulletin>
