@@ -206,15 +206,20 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 forecasts.forecastForRegionId = function(regionId, onForecast) {
 
     var regionDetails = forecasts.getRegionDetailsForRegionId(regionId);
+    var forecast = null;
 
     if (!regionDetails) {
         winston.warn('invalid regionId: ' + regionId);
         process.nextTick(function() { onForecast(regionId, null); } );
-    } else if (regionDetails.provider === 'uac' && forecasts.forecastGenerationCount % 3 !== 0) {
+    } else if (regionDetails.provider === 'uac' && forecasts.forecastGenerationCount % 6 !== 0) {
         // HACK for uac issue where they are blocking our fetches accidentally if they happen too often; so only actually
         // fetch it every N times
-        var forecast = (forecasts.mostRecentForecasts[regionId] ? forecasts.mostRecentForecasts[regionId] : null);
-        winston.info('using cached value for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+        
+        if (forecasts.mostRecentForecasts[regionId]) {
+            forecast = forecasts.mostRecentForecasts[regionId];
+            winston.info('using cached value for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+        }
+        
         process.nextTick(function() { onForecast(regionId, forecast); } );
     } else {
         request({url:regionDetails.dataURL, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
@@ -222,16 +227,25 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
                 if (!error && response.statusCode === 200) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
                         '; dataURL: ' + regionDetails.dataURL);
-                    var forecast = regionDetails.parser(body, regionDetails);
+                    forecast = regionDetails.parser(body, regionDetails);
+                    
                     if (forecast) {
                         // cache the result
                         forecasts.mostRecentForecasts[regionId] = forecast;
                     }
+                    
                     onForecast(regionId, forecast);
                 } else {
                     winston.warn('failed dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
                         regionDetails.dataURL + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
-                    onForecast(regionId, null);
+                    
+                    // if there is a cached forecast for this region, fall back to that
+                    if (forecasts.mostRecentForecasts[regionId]) {
+                        forecast = forecasts.mostRecentForecasts[regionId];
+                        winston.info('using cached value, due to error, for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                    }
+                    
+                    onForecast(regionId, forecast);
                 }
             }
         );
