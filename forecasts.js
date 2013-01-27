@@ -54,16 +54,23 @@ forecasts.aggregateForecasts = function(regions) {
     var startTime = new Date();
     winston.info('aggregateForecasts: initiated');
 
-    var forecastsStatistics = {'count':regions.length, 'remainingCount':regions.length, 'invalidCount':0};
+    var forecastsStatistics = {
+        count:regions.length, 
+        remainingCount:regions.length, 
+        invalidCount:0
+    };
     var forecastsArray = [];
 
     for (var i = 0; i < regions.length; i++) {
 
         var regionId = regions[i].regionId;
-        winston.verbose('generating forecast for regionId: ' + regionId);
+        winston.info('generating forecast for regionId: ' + regionId);
 
         forecasts.forecastForRegionId(regionId,
             function(regionId, forecast) {
+                forecastsStatistics.remainingCount--;
+
+                winston.info('generated forecast for regionId: ' + regionId + '; remaining count: ' + forecastsStatistics.remainingCount);
 
                 var valid = forecasts.validateForecast(regionId, forecast, true);
                 if (!valid) {
@@ -75,7 +82,6 @@ forecasts.aggregateForecasts = function(regions) {
                 // order in the array
                 forecastsArray.push({'regionId':regionId, 'forecast':forecast});
 
-                forecastsStatistics.remainingCount--;
                 if (forecastsStatistics.remainingCount === 0) {
                     var endTime = new Date();
                     var elapsedTime = endTime.getTime() - startTime.getTime();
