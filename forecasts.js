@@ -33,7 +33,7 @@ forecasts.AVI_LEVEL_EXTREME = 5;
 // NOTE to ensure forecasts get generated, ensure FORECAST_GEN_INTERVAL_SECONDS >> DATA_REQUEST_TIMEOUT_SECONDS
 // NOTE the total delay that a client might see from forecast issued to available at client is the sum
 // of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
-forecasts.DATA_REQUEST_TIMEOUT_SECONDS = 120;
+forecasts.DATA_REQUEST_TIMEOUT_SECONDS = 15;
 forecasts.FORECAST_GEN_INTERVAL_SECONDS = 300;
 forecasts.CACHE_MAX_AGE_SECONDS = 60;
 
