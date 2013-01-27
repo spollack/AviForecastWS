@@ -62,6 +62,9 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
+    internal bugs:
+        seeing periods where 5 minute forecast gen timer doesn't run... why? 
+        seeing cases where not all forecast regions get requested/generated... why?
     existing integrations: problems
         UAC -- ETIMEDOUT problem; trying workaround for now by only checking every N times -- but it starts failing eventually
     existing integrations: enhancements
@@ -89,7 +92,6 @@ WS
         Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     internal
-        seeing periods where 5 minute forecast gen timer doesn't run... why?
         figure out way to get usage stats per forecast center / region
         set up real (remote) git
         fix use of config.js
