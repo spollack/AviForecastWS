@@ -17,6 +17,7 @@ var winston = require('winston');
 var request = require('request');
 var moment = require('moment');
 var _ = require('underscore');
+var async = require('async');
 var xml2js = require('xml2js');
 var cheerio = require('cheerio');
 
@@ -33,6 +34,7 @@ forecasts.AVI_LEVEL_EXTREME = 5;
 // NOTE to ensure forecasts get generated, ensure FORECAST_GEN_INTERVAL_SECONDS >> DATA_REQUEST_TIMEOUT_SECONDS
 // NOTE the total delay that a client might see from forecast issued to available at client is the sum
 // of FORECAST_GEN_INTERVAL_SECONDS + CACHE_MAX_AGE_SECONDS
+forecasts.DATA_REQUESTS_IN_PARALLEL = 10;
 forecasts.DATA_REQUEST_TIMEOUT_SECONDS = 15;
 forecasts.FORECAST_GEN_INTERVAL_SECONDS = 300;
 forecasts.CACHE_MAX_AGE_SECONDS = 60;
@@ -51,67 +53,67 @@ forecasts.mostRecentForecasts = [];
 
 
 forecasts.aggregateForecasts = function(regions) {
-    var startTime = new Date();
+
     winston.info('aggregateForecasts: initiated');
 
-    var forecastsStatistics = {
-        count:regions.length, 
-        remainingCount:regions.length, 
-        invalidCount:0
-    };
+    var startTime = new Date();
     var forecastsArray = [];
+    var invalidCount = 0;
 
-    for (var i = 0; i < regions.length; i++) {
+    async.forEachLimit(
+        regions,
+        forecasts.DATA_REQUESTS_IN_PARALLEL,
+        function(region, callback) {
+            var regionId = region.regionId;
+            forecasts.forecastForRegionId(regionId, function(forecast) {
 
-        var regionId = regions[i].regionId;
-        winston.info('generating forecast for regionId: ' + regionId);
-
-        forecasts.forecastForRegionId(regionId,
-            function(regionId, forecast) {
-                forecastsStatistics.remainingCount--;
-
-                winston.info('generated forecast for regionId: ' + regionId + '; remaining count: ' + forecastsStatistics.remainingCount);
-
+                // sanity check the forecast
                 var valid = forecasts.validateForecast(regionId, forecast, true);
                 if (!valid) {
-                    forecastsStatistics.invalidCount++;
+                    invalidCount++;
                 }
-
+                
                 // add the forecast to the forecasts array
                 // NOTE the order of forecast generation completion is not deterministic, so they may end up in any
                 // order in the array
-                forecastsArray.push({'regionId':regionId, 'forecast':forecast});
+                forecastsArray.push({regionId:regionId, forecast:forecast});
 
-                if (forecastsStatistics.remainingCount === 0) {
-                    var endTime = new Date();
-                    var elapsedTime = endTime.getTime() - startTime.getTime();
-                    winston.info('aggregateForecasts: all forecasts processed, region count: ' + forecastsStatistics.count + '; elapsed time (ms): ' + elapsedTime);
-                    if (forecastsStatistics.invalidCount > 0) {
-                        winston.warn('there were invalid forecasts; invalid forecast count: ' + forecastsStatistics.invalidCount);
-                    } else {
-                        winston.info('all forecasts valid');
-                    }
-                    winston.verbose(JSON.stringify(forecasts, null, 4));
+                winston.info('generated forecast for regionId: ' + regionId + '; count generated so far: ' + forecastsArray.length);
+                
+                // continue even on error
+                callback(null);
+            });
+        },
+        function() {
+            var endTime = new Date();
+            var elapsedTime = endTime.getTime() - startTime.getTime();
+            if (regions.length !== forecastsArray.length) {
+                winston.warn('aggregateForecasts: forecast generation error, expected count of forecasts: ' + regions.length + '; actual: ' + forecastsArray.length);
+            }
+            winston.info('aggregateForecasts: all forecasts processed, region count: ' + forecastsArray.length + '; elapsed time (ms): ' + elapsedTime);
+            if (invalidCount > 0) {
+                winston.warn('aggregateForecasts: there were invalid forecasts; invalid forecast count: ' + invalidCount);
+            } else {
+                winston.info('aggregateForecasts: all forecasts valid');
+            }
 
-                    // write the forecasts out to a static json file, that can be served by the HTTP server
+            // write the forecasts out to a static json file, that can be served by the HTTP server
 
-                    // NOTE to ensure atomicity at the filesystem level, we write out to a temporary file, and
-                    // then move it into place, overwriting the old file
+            // NOTE to ensure atomicity at the filesystem level, we write out to a temporary file, and
+            // then move it into place, overwriting the old file
 
-                    fs.writeFile(forecasts.FORECASTS_DATA_TEMP_PATH, JSON.stringify(forecastsArray, null, 4), 'utf8',
+            fs.writeFile(forecasts.FORECASTS_DATA_TEMP_PATH, JSON.stringify(forecastsArray, null, 4), 'utf8',
+                function() {
+                    fs.rename(forecasts.FORECASTS_DATA_TEMP_PATH, forecasts.FORECASTS_DATA_PATH,
                         function() {
-                            fs.rename(forecasts.FORECASTS_DATA_TEMP_PATH, forecasts.FORECASTS_DATA_PATH,
-                                function() {
-                                    winston.info('aggregateForecasts: forecast data file updated; path: ' + forecasts.FORECASTS_DATA_PATH);
-                                    forecasts.forecastGenerationCount++;
-                                }
-                            );
+                            winston.info('aggregateForecasts: forecast data file updated; path: ' + forecasts.FORECASTS_DATA_PATH);
+                            forecasts.forecastGenerationCount++;
                         }
                     );
                 }
-            }
-        );
-    }
+            );
+        }
+    );
 };
 
 forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay) {
@@ -216,7 +218,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
 
     if (!regionDetails) {
         winston.warn('invalid regionId: ' + regionId);
-        process.nextTick(function() { onForecast(regionId, null); } );
+        process.nextTick(function() { onForecast(null); } );
     } else if (regionDetails.provider === 'uac' && forecasts.forecastGenerationCount % 6 !== 0) {
         // HACK for uac issue where they are blocking our fetches accidentally if they happen too often; so only actually
         // fetch it every N times
@@ -226,7 +228,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
             winston.info('using cached value for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
         }
         
-        process.nextTick(function() { onForecast(regionId, forecast); } );
+        process.nextTick(function() { onForecast(forecast); } );
     } else {
         request({url:regionDetails.dataURL, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
             function(error, response, body) {
@@ -240,7 +242,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
                         forecasts.mostRecentForecasts[regionId] = forecast;
                     }
                     
-                    onForecast(regionId, forecast);
+                    onForecast(forecast);
                 } else {
                     winston.warn('failed dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
                         regionDetails.dataURL + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
@@ -251,7 +253,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
                         winston.info('using cached value, due to error, for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
                     }
                     
-                    onForecast(regionId, forecast);
+                    onForecast(forecast);
                 }
             }
         );
