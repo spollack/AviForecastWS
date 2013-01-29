@@ -63,10 +63,12 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     internal bugs:
-        seeing periods where 5 minute forecast gen timer doesn't run... why? 
-        logs are getting dropped (not all present in logentries) -- following up with them; is this the cause of the periods where the timer appears not to run?
+        logs are getting dropped (not all present in logentries) -- following up with them; likely that this the cause of the periods where the timer appeared not to run
     existing integrations: problems
-        UAC -- ETIMEDOUT problem; trying workaround for now by only checking every N times -- but it starts failing eventually
+        UAC -- ETIMEDOUT problem
+            trying workaround for now by only checking every N times -- but it starts failing eventually
+            also workaround only works if we get a new IP address on dyno start
+            need a better solution
     existing integrations: enhancements
         SNFAC -- would be great to deep link to expand section of page appropriate to the tapped region
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
