@@ -64,8 +64,7 @@ marketing
 WS
     internal bugs:
         seeing periods where 5 minute forecast gen timer doesn't run... why? 
-        seeing cases where not all forecast regions get requested/generated... why?
-        logs are getting dropped (not all present in logentries) -- following up with them
+        logs are getting dropped (not all present in logentries) -- following up with them; is this the cause of the periods where the timer appears not to run?
     existing integrations: problems
         UAC -- ETIMEDOUT problem; trying workaround for now by only checking every N times -- but it starts failing eventually
     existing integrations: enhancements
