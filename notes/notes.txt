@@ -74,7 +74,7 @@ WS
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations
-        ESAC -- switch to RSS when they are ready; finish integration
+        ESAC -- switch to new website parsing when they are ready; finish integration
         WhistlerBlackcomb -- http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx; NOTE this region is a subset of sea-to-sky, make sure polygons work in both clients
         Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ
         Mount Shasta, CA (MSAC) -- waiting on cycles from them; ping again in February
