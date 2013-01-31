@@ -63,7 +63,7 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     internal bugs:
-        logs are getting dropped (not all present in logentries) -- following up with them; likely that this the cause of the periods where the timer appeared not to run
+        logs are getting dropped (not all present in logentries) -- following up with them; seems likely that this is a Heroku logplex issue
     existing integrations: problems
         UAC -- ETIMEDOUT problem
             trying workaround for now by only checking every N times -- but it starts failing eventually
