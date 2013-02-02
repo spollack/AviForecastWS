@@ -16,6 +16,7 @@ marketing
             WCMAC: posted on facebook
             SNFAC: made request
             ESAC: made request
+        set up @aviforecast twitter
         send to ski areas
         send to avalanche class instructors
         send to professional avalanche organizations
