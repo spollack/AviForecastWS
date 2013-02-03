@@ -15921,5 +15921,64 @@
                 "lon": "-114.905"
             }
         ]
+    },
+    {
+        "regionId": "whistlerblackcomb_",
+        "displayName": "Whistler-Blackcomb Backcountry",
+        "URL": "http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx",
+        "points": [
+            {
+                "lat": "50.093",
+                "lon": "-122.780"
+            },
+            {
+                "lat": "50.155",
+                "lon": "-122.905"
+            },
+            {
+                "lat": "50.144",
+                "lon": "-122.942"
+            },
+            {
+                "lat": "50.111",
+                "lon": "-122.961"
+            },
+            {
+                "lat": "50.090",
+                "lon": "-122.998"
+            },
+            {
+                "lat": "50.084",
+                "lon": "-123.054"
+            },
+            {
+                "lat": "50.048",
+                "lon": "-123.024"
+            },
+            {
+                "lat": "50.020",
+                "lon": "-122.933"
+            },
+            {
+                "lat": "49.991",
+                "lon": "-122.891"
+            },
+            {
+                "lat": "49.980",
+                "lon": "-122.787"
+            },
+            {
+                "lat": "50.002",
+                "lon": "-122.749"
+            },
+            {
+                "lat": "50.071",
+                "lon": "-122.725"
+            },
+            {
+                "lat": "50.093",
+                "lon": "-122.780"
+            }
+        ]
     }
 ]
