@@ -146,7 +146,7 @@ Android
             be sure to build with production map key
             do signed export flow
 iOS
-    flurry analytics numbers seem whacked... wtf? emailing with them
+    flurry analytics numbers seem whacked... wtf? emailing with them, very slow responses
     v1.4
         release notes
             more prominent loading spinner for when loading regions/forecasts
