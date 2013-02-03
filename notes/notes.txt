@@ -81,8 +81,8 @@ WS
         Mount Shasta, CA (MSAC) -- waiting on cycles from them; ping again in February
         Glacier, MT (FAC) -- waiting for response
         McCall, ID (PAC) -- waiting for response
+        Panhandle, ID (IPAC) -- waiting for response
     support additional avi centers
-        Panhandle, ID
         Valdez, AK *
         Juneau, AK *
         Cordova, AK
