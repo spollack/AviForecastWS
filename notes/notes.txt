@@ -72,7 +72,7 @@ WS
             UAC website very flaky right now in general
     existing integrations: enhancements
         ESAC -- switch to new website parsing when they are ready
-        SNFAC -- would be great to deep link to expand section of page appropriate to the tapped region
+        SNFAC -- would like to deep link to expand section of page appropriate to the tapped region, once they lauch their new website
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations
@@ -80,8 +80,8 @@ WS
         Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ
         Mount Shasta, CA (MSAC) -- waiting on cycles from them; ping again in February
         Glacier, MT (FAC) -- waiting for response
+        McCall, ID (PAC) -- waiting for response
     support additional avi centers
-        McCall, ID *
         Panhandle, ID
         Valdez, AK *
         Juneau, AK *
@@ -247,7 +247,7 @@ You can view screenshots, etc. and download the app here: http://avalancheforeca
 
 In order to integrate technically, there are two elements i'll need. Usually this is a small amount of work for you. 
 1) forecast region definitions: do you have a KMZ file (or any similar geographic data file) that describes the borders of each of your forecast regions in terms of latitude/longitude coordinate paths? If not, i can work with you to create this.
-2) forecast data: do you have a CAAML feed or other data API (or even RSS) that i can use to pull forecast information? Alternatively I can extract the forecast information by parsing your web pages, but a structured data feed is the much more robust approach.
+2) forecast data: do you have a CAAML feed or other data API (or even RSS) that i can use to pull forecast information? Alternatively I can extract the forecast information by parsing your web pages, but a structured data feed is the more robust approach.
 Would you please connect me with your technical point of contact? 
 
 Thanks for your help!
