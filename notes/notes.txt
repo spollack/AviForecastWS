@@ -64,13 +64,12 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
-    internal bugs:
-        logs are getting dropped (not all present in logentries) -- following up with them; seems likely that this is a Heroku logplex issue
     existing integrations: problems
         UAC -- ETIMEDOUT problem
             trying workaround for now by only checking every N times -- but it starts failing eventually
             also workaround only works if we get a new IP address on dyno start
             need a better solution
+            UAC website very flaky right now in general
     existing integrations: enhancements
         ESAC -- switch to new website parsing when they are ready
         SNFAC -- would be great to deep link to expand section of page appropriate to the tapped region
