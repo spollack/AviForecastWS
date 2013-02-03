@@ -5,7 +5,7 @@ var fs = require('fs');
 
 
 // KMLFileToJSONFile('nwac/nwac_regions.kml','nwac/nwac_regions.json','nwac','http://www.nwac.us/forecast/avalanche/current/zone/');
-// KMLFileToJSONFile('Canada_all/canada_regions_simplified.kml','Canada_all/canada_regions_simplified.json','canada','');
+KMLFileToJSONFile('Canada_all/canada_regions_wb_fix_simplified.kml','Canada_all/canada_regions_wb_fix_simplified.json','canada','');
 // KMLFileToJSONFile('caic/caic_simplified.kml','caic/caic_simplified.json','caic','http://avalanche.state.co.us/pub_bc_avo.php?zone_id=');
 // KMLFileToJSONFile('uac/uac_simplified.kml','uac/uac_simplified.json','uac','http://utahavalanchecenter.org/advisory/');
 // KMLFileToJSONFile('sac/SACForecastArea_simplified.kml','sac/sac_simplified.json','sac','http://www.sierraavalanchecenter.org/advisory');
@@ -13,7 +13,7 @@ var fs = require('fs');
 // KMLFileToJSONFile('esac/ESACRegions_simplified.kml','esac/esac_simplified.json','esac','http://esavalanche.org/advisory');
 // KMLFileToJSONFile('gnfac/GNFAC_simplified.kml','gnfac/gnfac_simplified.json','gnfac','http://www.mtavalanche.com/current');
 // KMLFileToJSONFile('snfac/snfac_simplified.kml','snfac/snfac_simplified.json','snfac','http://www.sawtoothavalanche.com/adv_current.php');
-KMLFileToJSONFile('wcmac/wcmac_simplified.kml','wcmac/wcmac_simplified.json','wcmac','http://www.missoulaavalanche.org/current-advisory/');
+// KMLFileToJSONFile('wcmac/wcmac_simplified.kml','wcmac/wcmac_simplified.json','wcmac','http://www.missoulaavalanche.org/current-advisory/');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {
