@@ -326,6 +326,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://sawtoothavalanche.com/caaml/SNFAC' + components[1] + '_Avalanche_Forecast.xml';
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
+                case 'wb':
+                    dataURL = 'http://movement.whistlerblackcomb.com/avi.php';
+                    parser = forecasts.parseForecast_wb;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -756,7 +760,6 @@ forecasts.parseForecast_viac = function(body, regionDetails) {
     var firstForecastedDate = forecasts.parseFirstForecastedDate_viac(body, regionDetails);
     var aviLevels = forecasts.parseForecastValues_viac(body, regionDetails);
 
-
     if (firstForecastedDate && aviLevels) {
         forecast = [];
         for (var i = 0; i < aviLevels.length; i++) {
@@ -1009,6 +1012,76 @@ forecasts.parseForecast_wcmac = function(body, regionDetails) {
     });
 
     return forecast;
+};
+
+forecasts.parseForecast_wb = function(body, regionDetails) {
+
+    var forecast = null;
+
+    var firstForecastedDate = forecasts.parseFirstForecastedDate_wb(body, regionDetails);
+    var aviLevels = forecasts.parseForecastValues_wb(body, regionDetails);
+
+    if (firstForecastedDate && aviLevels) {
+        forecast = [];
+        for (var i = 0; i < aviLevels.length; i++) {
+            forecast[i] = {'date': moment(firstForecastedDate).clone().add('days', i).format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
+        }
+
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    }
+
+    return forecast;
+};
+
+forecasts.parseFirstForecastedDate_wb = function(body, regionDetails) {
+
+    var firstForecastedDate = null;
+
+    // NOTE wb can issue forecasts the day before or the day of the first forecasted day; we need to correlate the
+    // forecast issued date with the days of week that are described in the forecast
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_wb(body, regionDetails);
+    var firstForecastedDayOfWeek = forecasts.parseFirstForecastedDayOfWeek_wb(body, regionDetails);
+
+    if (forecastIssuedDate && firstForecastedDayOfWeek) {
+
+        var daysOfWeek = [];
+
+        for (var i = 0; i < 2; i++) {
+            // copy the value of the forecast issued date, offset by the appropriate number of days, and get the day of week
+            daysOfWeek[i] = moment(forecastIssuedDate).clone().add('days', i);
+
+            if (moment(daysOfWeek[i]).format('dddd').toLowerCase() === firstForecastedDayOfWeek.toLowerCase()) {
+                firstForecastedDate = daysOfWeek[i];
+                break;
+            }
+        }
+    }
+
+    return firstForecastedDate;
+};
+
+forecasts.parseForecastIssuedDate_wb = function(body, regionDetails) {
+
+    var forecastIssuedDate = null;
+
+    // capture the forecast timestamp
+    // NOTE typical string for wb: 'Date Issued </span>February 24, 2012 at 11:19AM</div>'
+    var timestampMatch = body.match(/Date Issued\s*<\/span>\s*(\w+\s+\d+)\w*\s*,?\s*(\d+)/i);
+
+    // the capture groups from the regex will be in slots 1 and 2 in the array
+    if (timestampMatch && timestampMatch.length > 2) {
+
+        // capture group 1 has the month and day, capture group 2 has the year
+        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
+        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+    } else {
+        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return forecastIssuedDate;
 };
 
 
