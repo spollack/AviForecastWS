@@ -656,7 +656,7 @@ describe('parseForecast_wcmac', function(){
 describe('parseForecast_wb', function(){
     describe('file000.html', function(){
         it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/wb/file000.html','utf8'),
+            var forecast = forecasts.parseForecast_wb(fs.readFileSync('test/data/wb/file000.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('wb_'));
 
             should.not.exist(forecast);
@@ -664,7 +664,7 @@ describe('parseForecast_wb', function(){
     })
     describe('file001.html', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/wb/file001.html','utf8'),
+            var forecast = forecasts.parseForecast_wb(fs.readFileSync('test/data/wb/file001.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('wb_'));
 
             should.exist(forecast);
@@ -677,14 +677,14 @@ describe('parseForecast_wb', function(){
             forecast[2].aviLevel.should.equal(3);
         })
     })
-    describe('file001.html', function(){
+    describe('file002.html', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/wb/file001.html','utf8'),
+            var forecast = forecasts.parseForecast_wb(fs.readFileSync('test/data/wb/file002.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('wb_'));
 
             should.exist(forecast);
             forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2013-02-04');
+            forecast[0].date.should.equal('2013-02-05');
             forecast[1].date.should.equal('2013-02-06');
             forecast[2].date.should.equal('2013-02-07');
             forecast[0].aviLevel.should.equal(3);

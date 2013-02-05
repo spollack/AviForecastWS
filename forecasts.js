@@ -1039,8 +1039,7 @@ forecasts.parseFirstForecastedDate_wb = function(body, regionDetails) {
 
     var firstForecastedDate = null;
 
-    // NOTE wb can issue forecasts the day before or the day of the first forecasted day; we need to correlate the
-    // forecast issued date with the days of week that are described in the forecast
+    // NOTE we need to correlate the forecast issued date with the days of week that are described in the forecast
     var forecastIssuedDate = forecasts.parseForecastIssuedDate_wb(body, regionDetails);
     var firstForecastedDayOfWeek = forecasts.parseFirstForecastedDayOfWeek_wb(body, regionDetails);
 
@@ -1067,8 +1066,8 @@ forecasts.parseForecastIssuedDate_wb = function(body, regionDetails) {
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical string for wb: 'Date Issued </span>February 24, 2012 at 11:19AM</div>'
-    var timestampMatch = body.match(/Date Issued\s*<\/span>\s*(\w+\s+\d+)\w*\s*,?\s*(\d+)/i);
+    // NOTE typical string for wb: '<p class="dstamp">Last updated: Sunday, February 03, 2013 7:20 AM</p>'
+    var timestampMatch = body.match(/Last updated:\s*\w+\s*,?\s*(\w+\s+\d+)\w*\s*,?\s*(\d+)/i);
 
     // the capture groups from the regex will be in slots 1 and 2 in the array
     if (timestampMatch && timestampMatch.length > 2) {
@@ -1084,10 +1083,54 @@ forecasts.parseForecastIssuedDate_wb = function(body, regionDetails) {
     return forecastIssuedDate;
 };
 
+forecasts.parseFirstForecastedDayOfWeek_wb = function(body, regionDetails) {
 
+    var firstForecastedDayOfWeek = null;
 
+    // capture the first forecasted day of week
+    // NOTE typical string for wb: '<td><span class="title">Sunday</span></td><td><span class="title">Monday</span></td><td><span class="title">Tuesday</span></td>'
+    var timestampMatch = body.match(/<td><span class=\"title\">(\w+)<\/span>/i);
 
+    // the capture groups from the regex will be in slot 1 in the array
+    if (timestampMatch && timestampMatch.length === 2) {
+        firstForecastedDayOfWeek = timestampMatch[1];
+        winston.verbose('found first forecasted day of week; regionId: ' + regionDetails.regionId + '; firstForecastedDayOfWeek: ' + firstForecastedDayOfWeek);
+    } else {
+        winston.warn('parse failure, first forecasted day of week not found; regionId: ' + regionDetails.regionId);
+    }
 
+    return firstForecastedDayOfWeek;
+};
+
+forecasts.parseForecastValues_wb = function(body, regionDetails) {
+
+    // wb forecasts three days at a time
+    var aviLevels = [];
+    for (var i = 0; i < 3; i++) {
+        aviLevels[i] = forecasts.AVI_LEVEL_UNKNOWN;
+    }
+
+    // NOTE typical string for wb:
+    //    <tr>
+    //    <td><span class="title2">Alpine</span></td>
+    //    <td><img src="./file001_files/Low.jpg" alt="Sunday Alpine is Low" title="Sunday Alpine is Low"></td>
+    //    <td><img src="./file001_files/Low.jpg" alt="Monday Alpine is Low" title="Monday Alpine is Low"></td>
+    //    <td><img src="./file001_files/Considerable.jpg" alt="Tuesday Alpine is Considerable" title="Tuesday Alpine is Considerable"></td>
+    //    </tr>
+
+    var dangerRatingMatch = body.match(/<td>.*Alpine.*<\/td>\s*\n(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)/i);
+
+    // the capture groups will be in slots 1, 2, 3
+    if (dangerRatingMatch && dangerRatingMatch.length === 4) {
+        for (var j = 0; j < aviLevels.length; j++) {
+            aviLevels[j] = forecasts.findHighestAviLevelInString(dangerRatingMatch[j+1]);
+        }
+    } else {
+        winston.warn('parse failure, danger levels not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return aviLevels;
+};
 
 
 
