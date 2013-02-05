@@ -1088,8 +1088,9 @@ forecasts.parseFirstForecastedDayOfWeek_wb = function(body, regionDetails) {
     var firstForecastedDayOfWeek = null;
 
     // capture the first forecasted day of week
-    // NOTE typical string for wb: '<td><span class="title">Sunday</span></td><td><span class="title">Monday</span></td><td><span class="title">Tuesday</span></td>'
-    var timestampMatch = body.match(/<td><span class=\"title\">(\w+)<\/span>/i);
+    // NOTE typical string for wb: '<td><span class="title">Tuesday</span></td><td><span class="title">Wednesday</span></td><td><span class="title">Thursday</span></td>'
+    // NOTE we sometimes get single quotes, sometimes double quotes, so match either
+    var timestampMatch = body.match(/<td>\s*<span\s+class=.title.>(\w+)<\/span>/i);
 
     // the capture groups from the regex will be in slot 1 in the array
     if (timestampMatch && timestampMatch.length === 2) {
