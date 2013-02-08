@@ -124,6 +124,7 @@ Android
             drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
             bug to look at:
                 ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
+                check developer portal for more details
             offline caching not working in all cases? (tests out fine on my phone and Adam's phone...)
         further map performance tuning
             investigate keeping path, and transforming via matrix to pan or scale
@@ -147,17 +148,14 @@ Android
             be sure to build with production map key
             do signed export flow
 iOS
-    flurry analytics numbers seem whacked... wtf? emailing with them, very slow responses
-    v1.4
-        release notes
-            more prominent loading spinner for when loading regions/forecasts
-        usability
+    flurry analytics numbers seem whacked... updating to new SDK and new API key in v1.4, we'll see if that fixes it
+    v1.5
+        map usability
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             set a max zoom level
         other
             drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
-            decrease the usage time before appirater prompt?
             CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
         info section
@@ -167,10 +165,6 @@ iOS
         sharing
             make it easy to share (virally) via facebook, twitter
             make it easy to start following Avalanche Forecasts on facebook
-        flurry
-            update sdk
-            add tracking for setting timeframe mode; for no location available
-            review set of events overall
     v2
         status bar (or pop-ups of some sort?)
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
