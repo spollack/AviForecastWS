@@ -155,6 +155,7 @@ iOS
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             set a max zoom level
         other
+            add loading spinner for detailed forecasts too
             drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
             CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
                 test another https site and see if it is an https problem, or some more specific issue with CAIC
