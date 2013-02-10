@@ -16,8 +16,7 @@ marketing
             WCMAC: posted on facebook
             SNFAC: made request
             ESAC: made request
-            WB: requested help getting the word out
-        set up @aviforecast twitter, link to it
+            WB: made request
         send to ski areas
         send to avalanche class instructors
         send to professional avalanche organizations
@@ -48,9 +47,13 @@ marketing
             etc.
         other folks to send to
             http://www.alaskasnow.org/ (once i've integrated Alaska sites)
-    app store pages
-        add screenshots showing US Rockies integrations and other newer areas
+    Twitter
+        deliver content
+        do some posts mentioning included centers handlers
+    Facebook
+        deliver content
     sebnarware.com website
+        add @aviforecast link
         phone layout
             fix bottom bar on top of content on narrow screen for partners page (set margin-bottom on container-fluid)
             fix title text size
@@ -60,8 +63,8 @@ marketing
             check search results rankings in google, bing
         add a FAQ page?
         add nav bar?
-    FB page
-        deliver content
+    app store pages
+        add screenshots showing US Rockies integrations and other newer areas
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
@@ -77,7 +80,6 @@ WS
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations
-        WhistlerBlackcomb -- finish integration
         Panhandle, ID (IPAC) -- waiting on KMZ file to be sent to me
         Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ creation
         Mount Shasta, CA (MSAC) -- waiting on cycles from them
