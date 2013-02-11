@@ -932,17 +932,10 @@ forecasts.parseForecastIssuedDate_esac = function($, regionDetails) {
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical html fragment for esac: '<div class="forecast-advisory">Posted <strong>December 30, 2012</strong> by <strong>Sue Burak</strong>'
-    var timestampTextBlock = $('.forecast-advisory').text();
-
-    var timestampMatch = timestampTextBlock.match(/Posted\s+(\w+\s+\d+)\w*\s*,?\s+(\d+)/i);
-
-    // the capture groups from the regex will be in slots 1 and 2 in the array
-    if (timestampMatch && timestampMatch.length > 2) {
-
-        // capture group 1 has the month and day, capture group 2 has the year
-        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
-        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
+    // NOTE typical html fragment for esac: '<span class="month">Feb</span> <span class="day">10</span> <span class="year">2013</span>'
+    var timestampString = [$('span.month').text(), $('span.day').text(), $('span.year').text()].join(' ').trim();
+    if (timestampString.length > 0) {
+        forecastIssuedDate = moment(timestampString, 'MMM DD YYYY');
         winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
     } else {
         winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
@@ -958,17 +951,17 @@ forecasts.parseForecastValues_esac = function($, regionDetails) {
     aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
 
     // NOTE esac forecasts show the bottom line based on an image bar that is specific to one of the 5 danger levels, so
-    // go pull that out by looking for an img tag in the forecast-advisory section with a source attribute ending in 'Bar.png'
+    // go grab that img tag and look at the source link to get the danger level
     // typical example:
-    // <img src="http://www.esavalanche.org/files/stock/LowBar.png">
+    // <img class="avyrating_large" src="./file006_files/1.png" height="60" width="640">
     // NOTE parsing the highest danger level from the text description doesn't always give the same result
-    var suffixString = 'Bar.png';
-    var forecastAdvisoryImgTag = $('.forecast-advisory img[src$="' + suffixString + '"]');
+    var forecastAdvisoryImgTag = $('img.avyrating_large');
     var srcPath = (forecastAdvisoryImgTag && forecastAdvisoryImgTag.length > 0 ? forecastAdvisoryImgTag[0].attribs.src : '');
     var lastPathElement = srcPath.split('/').pop();
-    var hazardString = lastPathElement.slice(0, - suffixString.length);
+    var suffixString = '.png';
+    var dangerLevel = parseInt(lastPathElement.slice(0, - suffixString.length));
     
-    aviLevels[0] = forecasts.findHighestAviLevelInString(hazardString);
+    aviLevels[0] = dangerLevel;
 
     return aviLevels;
 };
