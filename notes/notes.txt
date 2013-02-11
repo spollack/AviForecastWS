@@ -81,11 +81,12 @@ WS
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations
         Panhandle, ID (IPAC) -- got map file, do the integration
+    waiting on center
         Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ creation
         Mount Shasta, CA (MSAC) -- waiting on cycles from them
         Glacier, MT (FAC) -- waiting for response
         McCall, ID (PAC) -- waiting for response
-    support additional avi centers
+    contact additional avi centers
         Valdez, AK *
         Juneau, AK *
         Cordova, AK
