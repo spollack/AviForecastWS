@@ -566,9 +566,9 @@ describe('parseForecast_esac', function(){
             should.not.exist(forecast);
         })
     })
-    describe('file006.html', function(){
+    describe('file001.html', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file006.html','utf8'),
+            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file001.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('esac_mammoth'));
 
             should.exist(forecast);
