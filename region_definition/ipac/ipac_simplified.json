@@ -2,7 +2,7 @@
     {
         "regionId": "ipac_1",
         "displayName": "Selkirks",
-        "URL": "http://www.idahopanhandleavalanche.org/",
+        "URL": "http://www.idahopanhandleavalanche.org/selkirk--cabinets.html",
         "points": [
             {
                 "lat": "48.300",
@@ -133,7 +133,7 @@
     {
         "regionId": "ipac_2",
         "displayName": "Cabinets",
-        "URL": "http://www.idahopanhandleavalanche.org/",
+        "URL": "http://www.idahopanhandleavalanche.org/selkirk--cabinets.html",
         "points": [
             {
                 "lat": "48.459",
@@ -236,7 +236,7 @@
     {
         "regionId": "ipac_3",
         "displayName": "St. Regis/ Silver Valley",
-        "URL": "http://www.idahopanhandleavalanche.org/",
+        "URL": "http://www.idahopanhandleavalanche.org/st-regis-basin--silver-valley.html",
         "points": [
             {
                 "lat": "47.538",
@@ -366,8 +366,8 @@
     },
     {
         "regionId": "ipac_4",
-        "displayName": "St. Joe&#39;s",
-        "URL": "http://www.idahopanhandleavalanche.org/",
+        "displayName": "St. Joe's",
+        "URL": "http://www.idahopanhandleavalanche.org/st-regis-basin--silver-valley.html",
         "points": [
             {
                 "lat": "47.252",
