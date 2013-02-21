@@ -1157,17 +1157,12 @@ forecasts.parseForecastIssuedDate_ipac = function($, regionDetails) {
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical html fragment for ipac: '<td class="advisory-date">Issued by Drew Hardesty for November 9, 2012 - 11:19am</td>'
-    var timestampTextBlock = $('.advisory-date').text();
+    // NOTE typical html fragment for ipac: '<span class="date-text">02/15/2013</span>'
+    var timestampTextBlock = $('span.date-text').first().text();
 
-    var timestampMatch = timestampTextBlock.match(/for\s+(\w+\s+\d+)\w*\s*,?\s+(\d+)/);
+    if (timestampTextBlock.length > 0) {
 
-    // the capture groups from the regex will be in slots 1 and 2 in the array
-    if (timestampMatch && timestampMatch.length > 2) {
-
-        // capture group 1 has the month and day, capture group 2 has the year
-        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
-        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
+        forecastIssuedDate = moment(timestampTextBlock, 'MM/DD/YYYY');
         winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
     } else {
         winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
