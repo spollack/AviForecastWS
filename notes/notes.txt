@@ -80,7 +80,10 @@ WS
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
         CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
     in-flight integrations
-        Panhandle, ID (IPAC) -- got map file, do the integration
+        Panhandle, ID (IPAC)
+            offline caching not working on Android
+            map region overlap with WCMAC
+            test further when new forecasts are issued Feb 22nd
     waiting on center
         Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ creation
         Mount Shasta, CA (MSAC) -- waiting on cycles from them
