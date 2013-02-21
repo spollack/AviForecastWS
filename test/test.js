@@ -668,6 +668,50 @@ describe('parseForecast_wb', function(){
     })
 })
 
+describe('parseForecast_ipac', function(){
+    describe('file000.html', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_ipac(fs.readFileSync('test/data/ipac/file000.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('ipac_4'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_ipac(fs.readFileSync('test/data/ipac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('ipac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-02-08');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+    describe('file002.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_ipac(fs.readFileSync('test/data/ipac/file002.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('ipac_2'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-02-15');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+    describe('file003.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_ipac(fs.readFileSync('test/data/ipac/file003.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('ipac_3'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-02-15');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+})
+
 
 
 

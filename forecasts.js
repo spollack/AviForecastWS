@@ -330,6 +330,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://movement.whistlerblackcomb.com/avi.php';
                     parser = forecasts.parseForecast_wb;
                     break;
+                case 'ipac':
+                    dataURL = 'http://www.idahopanhandleavalanche.org/' + (components[1] === '1' || components[1] === '2' ? 'selkirk--cabinets' : 'st-regis-basin--silver-valley') + '.html';
+                    parser = forecasts.parseForecast_ipac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -1126,13 +1130,73 @@ forecasts.parseForecastValues_wb = function(body, regionDetails) {
     return aviLevels;
 };
 
+forecasts.parseForecast_ipac = function(body, regionDetails) {
 
+    var forecast = null;
 
+    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
 
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_ipac($, regionDetails);
+    var aviLevels = forecasts.parseForecastValues_ipac($, regionDetails);
 
+    // NOTE ipac currently issues forecasts morning of, for one day only
+    if (forecastIssuedDate) {
+        forecast = [];
+        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
 
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    }
 
+    return forecast;
+};
 
+forecasts.parseForecastIssuedDate_ipac = function($, regionDetails) {
+
+    var forecastIssuedDate = null;
+
+    // capture the forecast timestamp
+    // NOTE typical html fragment for ipac: '<td class="advisory-date">Issued by Drew Hardesty for November 9, 2012 - 11:19am</td>'
+    var timestampTextBlock = $('.advisory-date').text();
+
+    var timestampMatch = timestampTextBlock.match(/for\s+(\w+\s+\d+)\w*\s*,?\s+(\d+)/);
+
+    // the capture groups from the regex will be in slots 1 and 2 in the array
+    if (timestampMatch && timestampMatch.length > 2) {
+
+        // capture group 1 has the month and day, capture group 2 has the year
+        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
+        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+    } else {
+        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return forecastIssuedDate;
+};
+
+forecasts.parseForecastValues_ipac = function($, regionDetails) {
+
+    // ipac forecasts one days at a time
+    var aviLevels = [];
+    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
+
+    // NOTE typical html fragment for ipac: '<div id="upper-rating" class="rating-2"><span> <h2>2. Moderate</h2> Above 9,500 ft.</span> </div>'
+    var dangerRatingTextBlocks = [];
+    dangerRatingTextBlocks[0] = $('#upper-rating span h2').text();
+    dangerRatingTextBlocks[1] = $('#mid-rating span h2').text();
+    dangerRatingTextBlocks[2] = $('#lower-rating span h2').text();
+
+    var dangerRatings = [];
+    for (var i = 0; i < dangerRatingTextBlocks.length; i++) {
+        dangerRatings[i] = forecasts.findHighestAviLevelInString(dangerRatingTextBlocks[i]);
+    }
+
+    aviLevels[0] = _.max(dangerRatings);
+
+    return aviLevels;
+};
 
 
 
