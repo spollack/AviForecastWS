@@ -198,7 +198,8 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
             if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
-                || regionId === 'wcmac_north' || regionId === 'wcmac_south' || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth') {
+                || regionId === 'wcmac_north' || regionId === 'wcmac_south' || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
+                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3' || regionId === 'ipac_4') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
