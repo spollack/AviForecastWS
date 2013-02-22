@@ -1178,10 +1178,10 @@ forecasts.parseForecastValues_ipac = function($, regionDetails) {
     var aviLevels = [];
     aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
 
-    // NOTE ipac danger ratings are in all caps, within a <strong> tag, possibly with other text there too
+    // NOTE ipac danger ratings are within a <strong> tag (the last one in the section), possibly with other text there too
     // typical html for ipac: 
-    //      <strong>MODERATE, with isolated pockets </strong>
-    var dangerRatingTextBlock = $('div#wsite-content').children().first().find('strong').filter(function() { return $(this).text().search(/[A-Z]{3,}/) !== -1}).text();
+    //      <strong>Considerable, with isolated pockets </strong>
+    var dangerRatingTextBlock = $('div#wsite-content').children().first().find('strong').last().text();
 
     aviLevels[0] = forecasts.findHighestAviLevelInString(dangerRatingTextBlock);
 
