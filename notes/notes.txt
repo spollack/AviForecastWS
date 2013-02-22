@@ -82,7 +82,7 @@ WS
     in-flight integrations
         Panhandle, ID (IPAC)
             offline caching not working on Android
-            map region overlap with WCMAC
+            map region overlap with WCMAC -- pull back WCMAC region
             test further when new forecasts are issued Feb 22nd
     waiting on center
         Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ creation
