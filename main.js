@@ -73,25 +73,43 @@ function startHTTPServer() {
     //
     // BEGIN HACK
     //
-    
+
+    // BUGBUG hack to get around problem caching IPAC web pages on android due to cache-control:no-store header; 
+    // proxy their content to avoid these headers being sent to the client
+    app.get('/proxy/ipac/:zone', function(req, res) {
+        var url = 'http://www.idahopanhandleavalanche.org/' + req.params.zone + '.html'
+        proxy(url, res);
+    });
+
     // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
-    // working with CAIC to address in a better way
+    app.get('/proxy/caic/:zone', function(req, res) {
+        var url = 'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + req.params.zone;
+        proxy(url, res);
+    });
+
+    // BUGBUG legacy route ... to be replaced by the /proxy/caic/... one above after we give some time for people to download the new regions.json file (published 2013-02-22)
+    // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
+    // proxy their content to avoid these headers being sent to the client
     app.get('/proxy/:zone', function(req, res) {
-        var zone = req.params.zone;
-        request({url:'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + zone, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
+        var url = 'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + req.params.zone;
+        proxy(url, res);
+    });
+
+    function proxy(url, res) {
+        request({url:url, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
             function(error, response, body) {
                 if (!error && response.statusCode === 200) {
-                    winston.info('successful proxy response; zone: ' + zone);
+                    winston.info('successful proxy response; url: ' + url);
                     res.send(body);
                 } else {
-                    winston.warn('failed proxy response; zone: ' + zone + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
+                    winston.warn('failed proxy response; url: ' + url + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
                     res.send(503);
                 }
             }
         );
-    });
-
+    }
+    
     //
     // END HACK
     //
