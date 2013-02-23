@@ -76,9 +76,10 @@ WS
             need a better solution
             UAC website very flaky right now in general
     existing integrations: enhancements
-        SNFAC -- would like to deep link to expand section of page appropriate to the tapped region, once they lauch their new website
+        SNFAC -- would like to deep link to expand section of page appropriate to the tapped region, once they launch their new website
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
-        CAIC -- problem caching their web pages on android due to cache-control:no-store; working with CAIC to address (for now, proxying their webpages)
+        CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
+        WCMAC/IPAC -- get more accurate map regions
     in-flight integrations
         Panhandle, ID (IPAC)
             offline caching not working on Android
