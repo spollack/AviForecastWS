@@ -75,6 +75,7 @@ WS
             also workaround only works if we get a new IP address on dyno start
             need a better solution
             UAC website very flaky right now in general
+        IPAC -- whole detailed page not loading due to relative paths in their HTML
     existing integrations: enhancements
         SNFAC -- would like to deep link to expand section of page appropriate to the tapped region, once they launch their new website
         UAC -- would like to incorporate tomorrow forecast info too; need to get it from them on a single page per region
