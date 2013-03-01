@@ -1,51 +1,34 @@
 [
     {
+        "regionId": "nwac_3",
+        "forecast": [
+            {
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
         "regionId": "nwac_1",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-27",
+                "date": "2013-02-28",
                 "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "nwac_4",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 4
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-27",
+                "date": "2013-03-01",
                 "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "nwac_5",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 4
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-27",
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
@@ -54,41 +37,49 @@
         "regionId": "nwac_2",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 4
+                "date": "2013-02-28",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 4
+                "date": "2013-03-01",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-27",
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
     },
     {
-        "regionId": "nwac_3",
+        "regionId": "nwac_5",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 4
+                "date": "2013-02-28",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 4
+                "date": "2013-03-01",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-27",
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
     },
     {
-        "regionId": "caic_002",
+        "regionId": "nwac_4",
         "forecast": [
             {
-                "date": "2012-12-26",
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
@@ -97,24 +88,15 @@
         "regionId": "nwac_6",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-27",
+                "date": "2013-02-28",
                 "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_003",
-        "forecast": [
+            },
             {
-                "date": "2012-12-26",
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
@@ -123,67 +105,15 @@
         "regionId": "nwac_7",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_012",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "nwac_8",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 4
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_013",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "nwac_10",
-        "forecast": [
-            {
-                "date": "2012-12-25",
+                "date": "2013-02-28",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-26",
+                "date": "2013-03-01",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-27",
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
@@ -192,25 +122,16 @@
         "regionId": "nwac_9",
         "forecast": [
             {
-                "date": "2012-12-25",
+                "date": "2013-02-28",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-26",
+                "date": "2013-03-01",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-27",
+                "date": "2013-03-02",
                 "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_014",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
             }
         ]
     },
@@ -218,15 +139,15 @@
         "regionId": "nwac_11",
         "forecast": [
             {
-                "date": "2012-12-25",
+                "date": "2013-02-28",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-26",
+                "date": "2013-03-01",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-27",
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
@@ -235,33 +156,49 @@
         "regionId": "nwac_12",
         "forecast": [
             {
-                "date": "2012-12-25",
+                "date": "2013-02-28",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-26",
+                "date": "2013-03-01",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-27",
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
     },
     {
-        "regionId": "caic_015",
+        "regionId": "nwac_10",
         "forecast": [
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 3
             }
         ]
     },
     {
-        "regionId": "caic_020",
+        "regionId": "nwac_8",
         "forecast": [
             {
-                "date": "2012-12-26",
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
                 "aviLevel": 3
             }
         ]
@@ -270,239 +207,36 @@
         "regionId": "nwac_13",
         "forecast": [
             {
-                "date": "2012-12-25",
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "cac_northwest-coastal",
+        "forecast": [
+            {
+                "date": "2013-02-28",
                 "aviLevel": 4
             },
             {
-                "date": "2012-12-26",
+                "date": "2013-03-01",
                 "aviLevel": 4
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_030",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_040",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_042",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_050",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_001",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_060",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_061",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_070",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_080",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_090",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 0
-            }
-        ]
-    },
-    {
-        "regionId": "caic_010",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "caic_000",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "caic_091",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 0
-            }
-        ]
-    },
-    {
-        "regionId": "btac_teton",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "btac_grey",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "btac_tog",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "viac_",
-        "forecast": [
-            {
-                "date": "2012-12-24",
+                "date": "2013-03-02",
                 "aviLevel": 3
             },
             {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "pc_3",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-28",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "cac_sea-to-sky",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-28",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "cac_northwest-inland",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-28",
+                "date": "2013-03-03",
                 "aviLevel": 3
             }
         ]
@@ -511,83 +245,62 @@
         "regionId": "cac_south-columbia",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 2
+                "date": "2013-02-28",
+                "aviLevel": 5
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-03-01",
+                "aviLevel": 5
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-28",
+                "date": "2013-03-03",
+                "aviLevel": 4
+            }
+        ]
+    },
+    {
+        "regionId": "cac_northwest-inland",
+        "forecast": [
+            {
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-03",
                 "aviLevel": 2
             }
         ]
     },
     {
-        "regionId": "cac_north-shore",
+        "regionId": "cac_sea-to-sky",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 3
+                "date": "2013-02-28",
+                "aviLevel": 5
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 3
+                "date": "2013-03-01",
+                "aviLevel": 5
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-28",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "cac_northwest-coastal",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-28",
-                "aviLevel": 3
-            }
-        ]
-    },
-    {
-        "regionId": "cac_south-coast",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-28",
-                "aviLevel": 2
+                "date": "2013-03-03",
+                "aviLevel": 4
             }
         ]
     },
@@ -596,32 +309,65 @@
         "forecast": null
     },
     {
-        "regionId": "cac_purcells",
+        "regionId": "cac_north-shore",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 2
+                "date": "2013-02-28",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-03-01",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-28",
-                "aviLevel": 2
+                "date": "2013-03-03",
+                "aviLevel": 3
             }
         ]
     },
     {
-        "regionId": "uac_skyline",
+        "regionId": "cac_cariboos",
         "forecast": [
             {
-                "date": "2012-12-26",
-                "aviLevel": 3
+                "date": "2013-02-28",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-03",
+                "aviLevel": 4
+            }
+        ]
+    },
+    {
+        "regionId": "cac_south-coast",
+        "forecast": [
+            {
+                "date": "2013-02-28",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-03",
+                "aviLevel": 4
             }
         ]
     },
@@ -629,20 +375,41 @@
         "regionId": "cac_monashees-selkirks",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 2
+                "date": "2013-02-28",
+                "aviLevel": 5
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-03-01",
+                "aviLevel": 5
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-28",
-                "aviLevel": 2
+                "date": "2013-03-03",
+                "aviLevel": 4
+            }
+        ]
+    },
+    {
+        "regionId": "cac_purcells",
+        "forecast": [
+            {
+                "date": "2013-02-28",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-03",
+                "aviLevel": 3
             }
         ]
     },
@@ -651,104 +418,23 @@
         "forecast": null
     },
     {
-        "regionId": "cac_cariboos",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-28",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "uac_salt-lake",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "uac_provo",
-        "forecast": [
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
         "regionId": "cac_kootenay-boundary",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 2
+                "date": "2013-02-28",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-03-01",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-28",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "cac_south-rockies",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-28",
-                "aviLevel": 2
-            }
-        ]
-    },
-    {
-        "regionId": "cac_lizardrange",
-        "forecast": [
-            {
-                "date": "2012-12-25",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-26",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-27",
-                "aviLevel": 2
-            },
-            {
-                "date": "2012-12-28",
-                "aviLevel": 2
+                "date": "2013-03-03",
+                "aviLevel": 3
             }
         ]
     },
@@ -756,19 +442,205 @@
         "regionId": "cac_kananaskis",
         "forecast": [
             {
-                "date": "2012-12-24",
-                "aviLevel": 2
+                "date": "2013-02-28",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-25",
-                "aviLevel": 2
+                "date": "2013-03-01",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-27",
+                "date": "2013-03-03",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "cac_south-rockies",
+        "forecast": [
+            {
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-03",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "cac_lizardrange",
+        "forecast": [
+            {
+                "date": "2013-02-28",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-03",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_000",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_001",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_002",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_003",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_010",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_012",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_013",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_014",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_015",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_020",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_030",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_040",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_042",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_050",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            }
+        ]
+    },
+    {
+        "regionId": "caic_061",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "caic_060",
+        "forecast": [
+            {
+                "date": "2013-03-01",
                 "aviLevel": 2
             }
         ]
@@ -777,17 +649,26 @@
         "regionId": "uac_uintas",
         "forecast": [
             {
-                "date": "2012-12-26",
+                "date": "2013-02-27",
                 "aviLevel": 3
             }
         ]
     },
     {
-        "regionId": "sac_1",
+        "regionId": "uac_salt-lake",
         "forecast": [
             {
-                "date": "2012-12-26",
-                "aviLevel": 3
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "uac_provo",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
             }
         ]
     },
@@ -795,7 +676,25 @@
         "regionId": "uac_ogden",
         "forecast": [
             {
-                "date": "2012-12-26",
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "uac_skyline",
+        "forecast": [
+            {
+                "date": "2013-02-27",
+                "aviLevel": 0
+            }
+        ]
+    },
+    {
+        "regionId": "uac_logan",
+        "forecast": [
+            {
+                "date": "2013-03-01",
                 "aviLevel": 2
             }
         ]
@@ -804,8 +703,8 @@
         "regionId": "uac_moab_1",
         "forecast": [
             {
-                "date": "2012-12-24",
-                "aviLevel": 3
+                "date": "2013-02-28",
+                "aviLevel": 2
             }
         ]
     },
@@ -813,38 +712,306 @@
         "regionId": "uac_moab_2",
         "forecast": [
             {
-                "date": "2012-12-24",
+                "date": "2013-02-28",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "caic_070",
+        "forecast": [
+            {
+                "date": "2013-03-01",
                 "aviLevel": 3
             }
         ]
     },
     {
-        "regionId": "uac_logan",
+        "regionId": "caic_080",
         "forecast": [
             {
-                "date": "2012-12-26",
-                "aviLevel": 3
+                "date": "2013-03-01",
+                "aviLevel": 2
             }
         ]
     },
     {
-        "regionId": "pc_2",
+        "regionId": "btac_teton",
         "forecast": [
             {
-                "date": "2012-12-25",
+                "date": "2013-03-01",
                 "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "caic_091",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 0
+            }
+        ]
+    },
+    {
+        "regionId": "caic_090",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 0
+            }
+        ]
+    },
+    {
+        "regionId": "gnfac_Bridgers",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "gnfac_Northern_Madison",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "gnfac_Northern_Gallatin",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "btac_tog",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "gnfac_Lionhead_Area",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "btac_grey",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "gnfac_Southern_Madison",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "gnfac_Southern_Gallatin",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "gnfac_Cooke_City",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "sac_1",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 1
+            }
+        ]
+    },
+    {
+        "regionId": "wcmac_north",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "wcmac_south",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "snfac_1",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "snfac_2",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "esac_mammoth",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 1
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 1
+            }
+        ]
+    },
+    {
+        "regionId": "esac_north",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 1
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 1
+            }
+        ]
+    },
+    {
+        "regionId": "esac_south",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 1
             },
             {
-                "date": "2012-12-28",
+                "date": "2013-03-02",
+                "aviLevel": 1
+            }
+        ]
+    },
+    {
+        "regionId": "snfac_3",
+        "forecast": [
+            {
+                "date": "2013-03-01",
                 "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "snfac_4",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "wb_",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-03",
+                "aviLevel": 4
+            }
+        ]
+    },
+    {
+        "regionId": "ipac_2",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "ipac_1",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "ipac_4",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "ipac_3",
+        "forecast": [
+            {
+                "date": "2013-03-01",
+                "aviLevel": 2
+            }
+        ]
+    },
+    {
+        "regionId": "viac_",
+        "forecast": [
+            {
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 4
             }
         ]
     },
@@ -852,20 +1019,62 @@
         "regionId": "pc_1",
         "forecast": [
             {
-                "date": "2012-12-25",
-                "aviLevel": 2
+                "date": "2013-02-28",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-03-01",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 4
             },
             {
-                "date": "2012-12-28",
-                "aviLevel": 2
+                "date": "2013-03-03",
+                "aviLevel": 4
+            }
+        ]
+    },
+    {
+        "regionId": "pc_3",
+        "forecast": [
+            {
+                "date": "2013-02-27",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 4
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 4
+            }
+        ]
+    },
+    {
+        "regionId": "pc_2",
+        "forecast": [
+            {
+                "date": "2013-02-28",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-01",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-02",
+                "aviLevel": 3
+            },
+            {
+                "date": "2013-03-03",
+                "aviLevel": 3
             }
         ]
     },
@@ -873,20 +1082,20 @@
         "regionId": "pc_4",
         "forecast": [
             {
-                "date": "2012-12-24",
+                "date": "2013-02-28",
                 "aviLevel": 2
             },
             {
-                "date": "2012-12-25",
+                "date": "2013-03-01",
                 "aviLevel": 2
             },
             {
-                "date": "2012-12-26",
-                "aviLevel": 2
+                "date": "2013-03-02",
+                "aviLevel": 3
             },
             {
-                "date": "2012-12-27",
-                "aviLevel": 2
+                "date": "2013-03-03",
+                "aviLevel": 3
             }
         ]
     }
