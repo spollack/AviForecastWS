@@ -82,10 +82,7 @@ WS
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         WCMAC/IPAC -- get more accurate map regions
     in-flight integrations
-        Panhandle, ID (IPAC)
-            offline caching not working on Android
-            map region overlap with WCMAC -- pull back WCMAC region
-            test further when new forecasts are issued Feb 22nd
+        Panhandle, ID (IPAC) -- announce/finish
     waiting on center
         Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ creation
         Mount Shasta, CA (MSAC) -- waiting on cycles from them
@@ -169,8 +166,7 @@ iOS
         other
             add loading spinner for detailed forecasts too
             drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
-            CAIC urls should be https at the top level, but this breaks iOS offline caching -- figure out why and fix
-                test another https site and see if it is an https problem, or some more specific issue with CAIC
+            CAIC urls should be https at the top level, but RNCache only supports HTTP, investigate if its easy/hard to add HTTPS support too
         info section
             change info button to bring up a table of topics (master/detail), not a pop-up
             add link to partners web page
