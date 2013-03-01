@@ -17,6 +17,7 @@ marketing
             SNFAC: made request
             ESAC: made request
             WB: made request
+            IPAC: made request
         send to ski areas
         send to avalanche class instructors
         send to professional avalanche organizations
@@ -82,7 +83,7 @@ WS
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         WCMAC/IPAC -- get more accurate map regions
     in-flight integrations
-        Panhandle, ID (IPAC) -- announce/finish
+        [none]
     waiting on center
         Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ creation
         Mount Shasta, CA (MSAC) -- waiting on cycles from them
