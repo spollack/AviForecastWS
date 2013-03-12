@@ -1,5 +1,5 @@
 //
-// NOTE adpated from: http://ronderksen.nl/2012/05/03/debugging-mocha-tests-in-webstorm/
+// NOTE adapted from: http://ronderksen.nl/2012/05/03/debugging-mocha-tests-in-webstorm/
 //
 
 
@@ -22,7 +22,7 @@ fs.readdir(testDir, function (err, files) {
         return;
     }
     files.forEach(function (file) {
-        if (path.extname(file) === '.js') {
+        if (path.extname(file) === '.js' || path.extname(file) === '._js') {
             console.log('adding test file: %s', file);
             mocha.addFile(testDir + file);
         }
@@ -30,13 +30,27 @@ fs.readdir(testDir, function (err, files) {
 
     var runner = mocha.run(function () {
         console.log('finished');
+        process.exit();
     });
 
+
     runner.on('pass', function (test) {
-        console.log('... %s passed', test.title);
+        console.log('... %s passed', getTitle(test));
+        console.log('');
     });
 
     runner.on('fail', function (test) {
-        console.log('... %s failed', test.title);
+        console.log('... %s failed', getTitle(test));
+        console.log('');
     });
+
+    function getTitle(test) {
+        var title = '';
+        var currentNode = test;
+        while (currentNode) {
+            title = currentNode.title + ': ' + title;
+            currentNode = currentNode.parent;
+        }
+        return title;
+    }
 });
