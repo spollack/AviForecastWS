@@ -81,9 +81,8 @@ WS
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         WCMAC/IPAC -- get more accurate map regions
     in-flight integrations
-        [none]
+        Chugach, AK (CNFAIC) / Turnagain -- ready to integrate
     waiting on center
-        Chugach, AK (CNFAIC) / Turnagain -- waiting on KMZ creation
         Mount Shasta, CA (MSAC) -- waiting on cycles from them
         Glacier, MT (FAC) -- waiting for response
         McCall, ID (PAC) -- waiting for response
