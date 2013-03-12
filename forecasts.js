@@ -231,7 +231,14 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
         
         process.nextTick(function() { onForecast(forecast); } );
     } else {
-        request({url:regionDetails.dataURL, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
+        var requestOptions = {
+            url:regionDetails.dataURL,
+//            headers:{'User-Agent':'avalancheforecasts.com'},
+            jar:false, 
+            timeout:(forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000)
+        };
+
+        request(requestOptions,
             function(error, response, body) {
                 if (!error && response.statusCode === 200) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
@@ -1178,10 +1185,10 @@ forecasts.parseForecastValues_ipac = function($, regionDetails) {
     var aviLevels = [];
     aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
 
-    // NOTE ipac danger ratings are within a <strong> tag (the last one in the section), possibly with other text there too
+    // NOTE ipac danger ratings are within a <strong> tag in all caps, possibly with other text there too
     // typical html for ipac: 
-    //      <strong>Considerable, with isolated pockets </strong>
-    var dangerRatingTextBlock = $('div#wsite-content').children().first().find('strong').last().text();
+    //      <strong>MODERATE, with isolated pockets </strong>
+    var dangerRatingTextBlock = $('div#wsite-content').children().first().find('strong').filter(function() { return $(this).text().search(/[A-Z]{3,}/) !== -1}).text();
 
     aviLevels[0] = forecasts.findHighestAviLevelInString(dangerRatingTextBlock);
 

@@ -713,7 +713,7 @@ describe('parseForecast_ipac', function(){
     describe('file004.html', function(){
         it('should return the correct forecast details', function(){
             var forecast = forecasts.parseForecast_ipac(fs.readFileSync('test/data/ipac/file004.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('ipac_2'));
+                forecasts.getRegionDetailsForRegionId('ipac_4'));
 
             should.exist(forecast);
             forecast.length.should.equal(1);
@@ -724,17 +724,6 @@ describe('parseForecast_ipac', function(){
     describe('file005.html', function(){
         it('should return the correct forecast details', function(){
             var forecast = forecasts.parseForecast_ipac(fs.readFileSync('test/data/ipac/file005.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('ipac_4'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2013-02-22');
-            forecast[0].aviLevel.should.equal(3);
-        })
-    })
-    describe('file006.html', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_ipac(fs.readFileSync('test/data/ipac/file006.html','utf8'),
                 forecasts.getRegionDetailsForRegionId('ipac_1'));
 
             should.exist(forecast);
