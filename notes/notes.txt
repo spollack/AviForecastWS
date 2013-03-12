@@ -72,8 +72,7 @@ marketing
 WS
     existing integrations: problems
         UAC -- ETIMEDOUT problem
-            trying workaround for now by only checking every N times -- but it starts failing eventually; also workaround only works if we get a new IP address on dyno start
-            talking to them now to figure out a better solution
+            move to JSON api!
         IPAC -- whole detailed page not loading due to relative paths in their HTML
         IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests)
     existing integrations: enhancements
