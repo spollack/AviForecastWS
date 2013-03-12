@@ -76,9 +76,8 @@ WS
         IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests)
     existing integrations: enhancements
         SNFAC -- would like to deep link to expand section of page appropriate to the tapped region, once they launch their new website
-        UAC -- 
-            would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region; 
-            add a time-sensitive pull schedule?
+        UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region; 
+        UAC -- add a time-sensitive pull schedule?
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         WCMAC/IPAC -- get more accurate map regions
     in-flight integrations
