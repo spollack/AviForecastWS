@@ -233,7 +233,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
     } else {
         var requestOptions = {
             url:regionDetails.dataURL,
-//            headers:{'User-Agent':'avalancheforecasts.com'},
+            headers:{'User-Agent':'avalancheforecasts.com'},
             jar:false, 
             timeout:(forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000)
         };
