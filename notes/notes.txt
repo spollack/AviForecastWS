@@ -71,9 +71,7 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     existing integrations: problems
-        UAC -- 
-            ETIMEDOUT problem -- verify fix
-            move to JSON api
+        UAC -- ETIMEDOUT problem -- verify fix
         IPAC -- whole detailed page not loading due to relative paths in their HTML
         IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests)
     existing integrations: enhancements

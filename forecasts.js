@@ -303,7 +303,11 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'uac':
                     // NOTE take only the first part of the subregion
                     var subregion = components[1].split('_')[0];
-                    dataURL = 'http://utahavalanchecenter.org/advisory/' + subregion;
+                    
+                    // BUGBUG temp!!!!
+                    dataURL = 'http://sandbox.utahavalanchecenter.org/advisory/' + subregion + '/json';
+                    
+//                    dataURL = 'http://utahavalanchecenter.org/advisory/' + subregion + '/json';
                     parser = forecasts.parseForecast_uac;
                     break;
                 case 'viac':
@@ -701,68 +705,31 @@ forecasts.parseForecast_uac = function(body, regionDetails) {
 
     var forecast = null;
 
-    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
+    try {
+        // convert the JSON response to an object
+        var bodyJson = JSON.parse(body);
 
-    var forecastIssuedDate = forecasts.parseForecastIssuedDate_uac($, regionDetails);
-    var aviLevels = forecasts.parseForecastValues_uac($, regionDetails);
+        // NOTE uac currently issues forecasts morning of, for one day only
 
-    // NOTE uac currently issues forecasts morning of, for one day only
-    if (forecastIssuedDate) {
+        var NUM_FORECAST_DAYS_UAC = 1;
+
         forecast = [];
-        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+        for (var i = 0; i < NUM_FORECAST_DAYS_UAC; i++) {
+            // NOTE the timestamp is UTC, but we want the date in mountain time zone, so subtract 7 hours
+            var mstOffsetHours = 7;
+            var forecastDate = moment.unix(bodyJson.advisories[0].advisory.date_issued_timestamp).utc().subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
+            var aviLevel = forecasts.findHighestAviLevelInString(bodyJson.advisories[0].advisory.overall_danger_rating);
+            forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
+        }
 
         for (var j = 0; j < forecast.length; j++) {
             winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
         }
+    } catch (e) {
+        winston.warn('failure parsing UAC forecast; error: ' + JSON.stringify(e));
     }
 
     return forecast;
-};
-
-forecasts.parseForecastIssuedDate_uac = function($, regionDetails) {
-
-    var forecastIssuedDate = null;
-
-    // capture the forecast timestamp
-    // NOTE typical html fragment for uac: '<td class="advisory-date">Issued by Drew Hardesty for November 9, 2012 - 11:19am</td>'
-    var timestampTextBlock = $('.advisory-date').text();
-
-    var timestampMatch = timestampTextBlock.match(/for\s+(\w+\s+\d+)\w*\s*,?\s+(\d+)/);
-
-    // the capture groups from the regex will be in slots 1 and 2 in the array
-    if (timestampMatch && timestampMatch.length > 2) {
-
-        // capture group 1 has the month and day, capture group 2 has the year
-        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
-        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
-        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-    } else {
-        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
-    }
-
-    return forecastIssuedDate;
-};
-
-forecasts.parseForecastValues_uac = function($, regionDetails) {
-
-    // uac forecasts one days at a time
-    var aviLevels = [];
-    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
-
-    // NOTE typical html fragment for uac: '<div id="upper-rating" class="rating-2"><span> <h2>2. Moderate</h2> Above 9,500 ft.</span> </div>'
-    var dangerRatingTextBlocks = [];
-    dangerRatingTextBlocks[0] = $('#upper-rating span h2').text();
-    dangerRatingTextBlocks[1] = $('#mid-rating span h2').text();
-    dangerRatingTextBlocks[2] = $('#lower-rating span h2').text();
-
-    var dangerRatings = [];
-    for (var i = 0; i < dangerRatingTextBlocks.length; i++) {
-        dangerRatings[i] = forecasts.findHighestAviLevelInString(dangerRatingTextBlocks[i]);
-    }
-
-    aviLevels[0] = _.max(dangerRatings);
-
-    return aviLevels;
 };
 
 forecasts.parseForecast_viac = function(body, regionDetails) {
