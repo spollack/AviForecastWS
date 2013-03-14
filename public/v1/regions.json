@@ -15569,7 +15569,7 @@
     {
         "regionId": "snfac_1",
         "displayName": "Smoky and Boulder Mountains",
-        "URL": "http://www.sawtoothavalanche.com/adv_current.php",
+        "URL": "http://www.sawtoothavalanche.com/adv-smoky-boulder.php",
         "points": [
             {
                 "lat": "43.945",
@@ -15648,7 +15648,7 @@
     {
         "regionId": "snfac_2",
         "displayName": "Wood River Valley",
-        "URL": "http://www.sawtoothavalanche.com/adv_current.php",
+        "URL": "http://www.sawtoothavalanche.com/adv-wood-river.php",
         "points": [
             {
                 "lat": "43.792",
@@ -15771,7 +15771,7 @@
     {
         "regionId": "snfac_3",
         "displayName": "Sawtooth Mountains",
-        "URL": "http://www.sawtoothavalanche.com/adv_current.php",
+        "URL": "http://www.sawtoothavalanche.com/adv-sawtooth.php",
         "points": [
             {
                 "lat": "44.241",
@@ -15838,7 +15838,7 @@
     {
         "regionId": "snfac_4",
         "displayName": "Soldier Mountains",
-        "URL": "http://www.sawtoothavalanche.com/adv_current.php",
+        "URL": "http://www.sawtoothavalanche.com/adv-soldier.php",
         "points": [
             {
                 "lat": "43.694",
