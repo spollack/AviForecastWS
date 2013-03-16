@@ -149,9 +149,6 @@ Android
             be sure to build with production map key
             do signed export flow
 iOS
-    flurry analytics numbers are whacked... 
-        likely interaction with HTTP caching -- testing fix
-        updated to new SDK and new API key
     v1.5
         map usability
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
