@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- generator="FeedCreator 1.7.2" -->
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="http://www.cnfaic.org/">
+        <title>CNFAIC Avalanche Advisory (Turnagain Pass Area)</title>
+        <description>Chugach National Forest Avalanche Advisory</description>
+        <link>http://www.cnfaic.org/advisories/current.php</link>
+        <image rdf:resource="http://www.cnfaic.org/img/220x84_nav_logo.gif" />
+       <dc:date>2013-03-16T10:22:28+01:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="http://www.cnfaic.org/advisories/current.php?id=290"/>
+                <rdf:li rdf:resource="http://www.cnfaic.org/advisories/current.php?id=289"/>
+                <rdf:li rdf:resource="http://www.cnfaic.org/advisories/current.php?id=288"/>
+                <rdf:li rdf:resource="http://www.cnfaic.org/advisories/current.php?id=287"/>
+                <rdf:li rdf:resource="http://www.cnfaic.org/advisories/current.php?id=286"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="http://www.cnfaic.org/img/220x84_nav_logo.gif">
+        <title>cnfaic.org logo</title>
+        <link>http://www.cnfaic.org</link>
+        <url>http://www.cnfaic.org/img/220x84_nav_logo.gif</url>
+    </image>
+    <item rdf:about="http://www.cnfaic.org/advisories/current.php?id=290">
+        <dc:format>text/html</dc:format>
+        <dc:date>2013-03-16T10:00:00+01:00</dc:date>
+        <dc:source>http://www.cnfaic.org</dc:source>
+        <dc:creator>Kevin Wright</dc:creator>
+        <title>Saturday, March 16th 2013    Turnagain Area Avalanche Advisory</title>
+        <link>http://www.cnfaic.org/advisories/current.php?id=290</link>
+        <description>Low</description>
+    </item>
+    <item rdf:about="http://www.cnfaic.org/advisories/current.php?id=289">
+        <dc:format>text/html</dc:format>
+        <dc:date>2013-03-15T10:00:00+01:00</dc:date>
+        <dc:source>http://www.cnfaic.org</dc:source>
+        <dc:creator>John Fitzgerald</dc:creator>
+        <title>Friday, March 15th 2013    Turnagain Area Avalanche Advisory</title>
+        <link>http://www.cnfaic.org/advisories/current.php?id=289</link>
+        <description>Moderate</description>
+    </item>
+    <item rdf:about="http://www.cnfaic.org/advisories/current.php?id=288">
+        <dc:format>text/html</dc:format>
+        <dc:date>2013-03-14T10:00:00+01:00</dc:date>
+        <dc:source>http://www.cnfaic.org</dc:source>
+        <dc:creator>Graham Predeger</dc:creator>
+        <title>Thursday, March 14th 2013    Turnagain Area Avalanche Advisory</title>
+        <link>http://www.cnfaic.org/advisories/current.php?id=288</link>
+        <description>Moderate</description>
+    </item>
+    <item rdf:about="http://www.cnfaic.org/advisories/current.php?id=287">
+        <dc:format>text/html</dc:format>
+        <dc:date>2013-03-13T10:00:00+01:00</dc:date>
+        <dc:source>http://www.cnfaic.org</dc:source>
+        <dc:creator>Kevin Wright</dc:creator>
+        <title>Wednesday, March 13th 2013    Turnagain Area Avalanche Advisory</title>
+        <link>http://www.cnfaic.org/advisories/current.php?id=287</link>
+        <description>Low</description>
+    </item>
+    <item rdf:about="http://www.cnfaic.org/advisories/current.php?id=286">
+        <dc:format>text/html</dc:format>
+        <dc:date>2013-03-12T10:00:00+01:00</dc:date>
+        <dc:source>http://www.cnfaic.org</dc:source>
+        <dc:creator>Wendy Wagner</dc:creator>
+        <title>Tuesday, March 12th 2013    Turnagain Area Avalanche Advisory</title>
+        <link>http://www.cnfaic.org/advisories/current.php?id=286</link>
+        <description>Moderate</description>
+    </item>
+</rdf:RDF>
