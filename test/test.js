@@ -734,6 +734,47 @@ describe('parseForecast_ipac', function(){
     })
 })
 
+describe('parseForecast_cnfaic', function(){
+    describe('file000.xml', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_cnfaic(fs.readFileSync('test/data/cnfaic/file000.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('cnfaic_turnagain'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_cnfaic(fs.readFileSync('test/data/cnfaic/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('cnfaic_turnagain'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-03-16');
+            forecast[0].aviLevel.should.equal(1);
+        })
+    })
+    describe('file001.xml other region', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_cnfaic(fs.readFileSync('test/data/cnfaic/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('cnfaic_summit'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file002.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_cnfaic(fs.readFileSync('test/data/cnfaic/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('cnfaic_turnagain'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-03-17');
+            forecast[0].aviLevel.should.equal(1);
+        })
+    })
+})
+
 
 
 

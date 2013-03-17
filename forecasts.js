@@ -346,6 +346,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.idahopanhandleavalanche.org/' + (components[1] === '1' || components[1] === '2' ? 'selkirk--cabinets' : 'st-regis-basin--silver-valley') + '.html';
                     parser = forecasts.parseForecast_ipac;
                     break;
+                case 'cnfaic':
+                    dataURL = 'http://www.cnfaic.org/library/rssfeed_map.php';
+                    parser = forecasts.parseForecast_ipac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -1162,6 +1166,41 @@ forecasts.parseForecastValues_ipac = function($, regionDetails) {
     return aviLevels;
 };
 
+forecasts.parseForecast_cnfaic = function(body, regionDetails) {
+
+    // NOTE cnfaic only does real forecasts for the turnagain region, not the summit region
+    if (regionDetails.subregion === 'summit') {
+        return null;
+    }
+
+    var forecast = null;
+
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.item[0]['dc:date'];
+            // NOTE typical date string: '2013-03-16T10:00:00+01:00'
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+            var ratingField = result.item[0].description;
+            var aviLevel = forecasts.findHighestAviLevelInString(ratingField);
+
+            // NOTE cnfaic issues single day forecasts
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
+};
 
 
 
