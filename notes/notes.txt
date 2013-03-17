@@ -78,7 +78,7 @@ WS
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
         UAC -- add a time-sensitive pull schedule?
     in-flight integrations
-        Chugach, AK (CNFAIC) / Turnagain -- ready to integrate (see http://www.cnfaic.org/library/rssfeed_map.php)
+        Chugach, AK (CNFAIC) / Turnagain -- complete integration
     waiting on center
         Mount Shasta, CA (MSAC) -- waiting on cycles from them
         Glacier, MT (FAC) -- waiting for response
