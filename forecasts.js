@@ -126,7 +126,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // check for null forecast
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
-        if (regionId === 'cac_bighorn' || regionId === 'cac_north-rockies') {
+        if (regionId === 'cac_bighorn' || regionId === 'cac_north-rockies' || regionId === 'cnfaic_summit') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
@@ -199,7 +199,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
             if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
                 || regionId === 'wcmac_north' || regionId === 'wcmac_south' || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
-                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3' || regionId === 'ipac_4' || regionId === 'cnfaic_summit') {
+                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3' || regionId === 'ipac_4') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
@@ -348,7 +348,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'cnfaic':
                     dataURL = 'http://www.cnfaic.org/library/rssfeed_map.php';
-                    parser = forecasts.parseForecast_ipac;
+                    parser = forecasts.parseForecast_cnfaic;
                     break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
