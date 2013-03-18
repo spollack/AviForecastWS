@@ -18,6 +18,7 @@ marketing
             ESAC: made request
             WB: made request
             IPAC: made request
+            CNFAIC: made request
         send to ski areas
         send to avalanche class instructors
         send to professional avalanche organizations
