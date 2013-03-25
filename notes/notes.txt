@@ -71,8 +71,6 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
-    bugs
-        crash in xml2js parsing -- wrap parsing in try/catch everywhere
     existing integrations: enhancements
         IPAC -- whole detailed page not loading due to relative paths in their HTML
         IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now
@@ -99,6 +97,7 @@ WS
         Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     internal
+        wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         figure out way to get usage stats per forecast center / region
         set up real (remote) git
         fix use of config.js
