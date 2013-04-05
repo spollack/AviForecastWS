@@ -79,17 +79,11 @@ WS
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
         UAC -- add a time-sensitive pull schedule?
     in-flight integrations
-        [none]
+        Glacier, MT (FAC)
+        Anchorage, AK (AAC)
     waiting on center
-        Mount Shasta, CA (MSAC) -- waiting on cycles from them
-        Glacier, MT (FAC) -- waiting for response
-        McCall, ID (PAC) -- waiting for response
+        [see Excel sheet]
     contact additional avi centers
-        Valdez, AK *
-        Juneau, AK *
-        Cordova, AK
-        Haines, AK
-        Hatcher Pass, AK
         Mount Washington, NH
         Joseph, OR
         Flagstaff, AZ
