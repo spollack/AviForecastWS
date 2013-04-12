@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+    <Document>
+        <name>Anchorage Avalanche Center.kml</name>
+        <Style id="s_ylw-pushpin">
+            <IconStyle>
+                <scale>1.1</scale>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+                </Icon>
+                <hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+            </IconStyle>
+        </Style>
+        <Style id="s_ylw-pushpin_hl">
+            <IconStyle>
+                <scale>1.3</scale>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+                </Icon>
+                <hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+            </IconStyle>
+        </Style>
+        <StyleMap id="m_ylw-pushpin">
+            <Pair>
+                <key>normal</key>
+                <styleUrl>#s_ylw-pushpin</styleUrl>
+            </Pair>
+            <Pair>
+                <key>highlight</key>
+                <styleUrl>#s_ylw-pushpin_hl</styleUrl>
+            </Pair>
+        </StyleMap>
+        <Placemark>
+            <name>Anchorage Avalanche Center</name>
+            <styleUrl>#m_ylw-pushpin</styleUrl>
+            <Polygon><outerBoundaryIs><LinearRing><coordinates>-149.516094931797795,61.00667191595074,0 -149.513809214497286,60.986502181883573,0 -149.512133272227288,60.99035948520347,0 -149.514452439181213,60.996518997789977,0 -149.516233179712401,60.999326224909822,0 -149.51509563217391,61.001912737631073,0 -149.515183980558106,61.005263832247543,0 -149.514086413172009,61.007860843930288,0 -149.512160353451492,61.01241719787479,0 -149.511965357745197,61.016442191616242,0 -149.479148554028512,61.099099962142333,0 -149.426814945267893,61.170510404818081,0 -149.320362085291407,61.201471799608022,0 -149.287648074409901,61.228672606716898,0 -149.252004573669012,61.294563571227087,0 -149.387848874404114,61.383027073250517,0 -149.446279104172504,61.388616683885601,0 -149.556304094136607,61.342966386340379,0 -149.6012047775356,61.30547317494694,0 -149.678251765734586,61.207131531653843,0 -149.746300603207999,61.041930168162622,0 -149.745487052725309,61.014364640992113,0 -149.589937959850886,60.978783087678117,0 -149.521823679745012,60.984494867449897,0 -149.517954006345406,60.986837124788579,0 -149.512692543190099,60.989072393518001,0 -149.510188705475997,60.991535984017332,0 -149.507770478038708,60.99400761685397,0 -149.506540807595087,60.997242792766542,0 -149.516094931797795,61.00667191595074,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+        </Placemark>
+    </Document>
+</kml>
