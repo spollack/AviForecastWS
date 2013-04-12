@@ -350,6 +350,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.cnfaic.org/library/rssfeed_map.php';
                     parser = forecasts.parseForecast_cnfaic;
                     break;
+                case 'aac':
+                    dataURL = 'http://www.anchorageavalanchecenter.org/';
+                    parser = forecasts.parseForecast_aac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -1207,6 +1211,11 @@ forecasts.parseForecast_cnfaic = function(body, regionDetails) {
     return forecast;
 };
 
+forecasts.parseForecast_aac = function($, regionDetails) {
+
+    // BUGBUG not yet implemented
+    return null;
+};
 
 
 
