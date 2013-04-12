@@ -866,8 +866,8 @@ forecasts.parseForecast_sac = function(body, regionDetails) {
     parser.parseString(body, function(err, result) {
         try {
             var forecastIssuedDateField = result.channel.item.pubDate;
-            // NOTE typical date string: 'Sun. November 18, 2012'
-            var forecastIssuedDate = moment(forecastIssuedDateField, 'ddd. MMM DD YYYY').format('YYYY-MM-DD');
+            // NOTE typical date string: 'Thu, 04/11/2013 - 07:00'
+            var forecastIssuedDate = moment(forecastIssuedDateField, 'ddd, MM/DD/YYYY').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
             var aviLevel = forecasts.findHighestAviLevelInString(result.channel.item.description);

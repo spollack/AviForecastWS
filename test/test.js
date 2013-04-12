@@ -540,7 +540,7 @@ describe('parseForecast_sac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2012-11-18');
+            forecast[0].date.should.equal('2013-04-11');
             forecast[0].aviLevel.should.equal(2);
         })
     })
