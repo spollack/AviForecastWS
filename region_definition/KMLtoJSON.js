@@ -15,7 +15,8 @@ var fs = require('fs');
 // KMLFileToJSONFile('snfac/snfac_simplified.kml','snfac/snfac_simplified.json','snfac','http://www.sawtoothavalanche.com/adv_current.php');
 // KMLFileToJSONFile('wcmac/wcmac_simplified_ipac_fix.kml','wcmac/wcmac_simplified_ipac_fix.json','wcmac','http://www.missoulaavalanche.org/current-advisory/');
 // KMLFileToJSONFile('ipac/ipac_simplified.kml','ipac/ipac_simplified.json','ipac','http://www.idahopanhandleavalanche.org/');
-KMLFileToJSONFile('cnfaic/cnfaic_simplified.kml','cnfaic/cnfaic_simplified.json','cnfaic','http://www.cnfaic.org/advisories/');
+// KMLFileToJSONFile('cnfaic/cnfaic_simplified.kml','cnfaic/cnfaic_simplified.json','cnfaic','http://www.cnfaic.org/advisories/');
+KMLFileToJSONFile('aac/aac_simplified.kml','aac/aac_simplified.json','aac','http://www.anchorageavalanchecenter.org/');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {
