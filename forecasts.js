@@ -362,6 +362,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.anchorageavalanchecenter.org/';
                     parser = forecasts.parseForecast_aac;
                     break;
+                case 'jac':
+                    dataURL = 'http://juneau.org/avalanche/';
+                    parser = forecasts.parseForecast_jac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -1222,6 +1226,12 @@ forecasts.parseForecast_cnfaic = function(body, regionDetails) {
 };
 
 forecasts.parseForecast_aac = function($, regionDetails) {
+
+    // BUGBUG not yet implemented
+    return null;
+};
+
+forecasts.parseForecast_jac = function($, regionDetails) {
 
     // BUGBUG not yet implemented
     return null;
