@@ -581,6 +581,19 @@ describe('parseForecast_esac', function(){
             forecast[1].aviLevel.should.equal(1);
         })
     })
+    describe('file003.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file003.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('esac_south'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(2);
+            forecast[0].date.should.equal('2013-04-21');
+            forecast[1].date.should.equal('2013-04-22');
+            forecast[0].aviLevel.should.equal(0); // BUGBUG they didn't follow their normal format, so we should fail cleanly
+            forecast[1].aviLevel.should.equal(0);
+        })
+    })
 })
 
 describe('parseForecast_wcmac', function(){

@@ -943,12 +943,14 @@ forecasts.parseForecastValues_esac = function($, regionDetails) {
     // <img class="avyrating_large" src="./file006_files/1.png" height="60" width="640">
     // NOTE parsing the highest danger level from the text description doesn't always give the same result
     var forecastAdvisoryImgTag = $('img.avyrating_large');
-    var srcPath = (forecastAdvisoryImgTag && forecastAdvisoryImgTag.length > 0 ? forecastAdvisoryImgTag[0].attribs.src : '');
-    var lastPathElement = srcPath.split('/').pop();
-    var suffixString = '.png';
-    var dangerLevel = parseInt(lastPathElement.slice(0, - suffixString.length));
-    
-    aviLevels[0] = dangerLevel;
+    if (forecastAdvisoryImgTag && forecastAdvisoryImgTag.length > 0) {
+        var srcPath = forecastAdvisoryImgTag[0].attribs.src;
+        var lastPathElement = srcPath.split('/').pop();
+        var suffixString = '.png';
+        var dangerLevel = parseInt(lastPathElement.slice(0, - suffixString.length));
+
+        aviLevels[0] = dangerLevel;
+    }
 
     return aviLevels;
 };
