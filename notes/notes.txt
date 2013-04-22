@@ -153,6 +153,7 @@ iOS
             add loading spinner for detailed forecasts too
             drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
             CAIC urls should be https at the top level, but RNCache only supports HTTP, investigate if its easy/hard to add HTTPS support too
+            protect against null values for aviLevel in a forecast (even though this should never happen)
         info section
             change info button to bring up a table of topics (master/detail), not a pop-up
             add link to partners web page
