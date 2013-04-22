@@ -79,6 +79,7 @@ WS
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
     in-flight integrations
         Anchorage, AK (AAC) -- map is in, but still need to do forecast parsing; will parse HTML, need to figure out what to check exactly
+        Juneau, AK (JAC) -- have KML, will parse HTML/RSS, need to figure out what to check exactly
         Glacier, MT (FAC) -- have KML, will parse HTML/RSS, need to figure out what to check exactly
     waiting on center
         [see Excel sheet]
