@@ -148,6 +148,14 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             }
         }
 
+        // aviLevel should never be null
+        for (i = 0; i < forecast.length; i++) {
+            if (forecast[i].aviLevel === null) {
+                winston.warn('forecast validation: UNEXPECTED BUG!!! got aviLevel null in forecast; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                break;
+            }
+        }
+
         // aviLevel should not be AVI_LEVEL_UNKNOWN
         for (i = 0; i < forecast.length; i++) {
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
