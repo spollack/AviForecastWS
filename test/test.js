@@ -788,6 +788,54 @@ describe('parseForecast_cnfaic', function(){
     })
 })
 
+describe('parseForecast_jac', function(){
+    describe('file000.html', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_jac(fs.readFileSync('test/data/jac/file000.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('jac_'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_jac(fs.readFileSync('test/data/jac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('jac_'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-04-19');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
+    describe('file002.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_jac(fs.readFileSync('test/data/jac/file002.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('jac_'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-04-21');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+    describe('file003.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_jac(fs.readFileSync('test/data/jac/file003.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('jac_'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2013-04-21');
+            forecast[1].date.should.equal('2013-04-22');
+            forecast[2].date.should.equal('2013-04-23');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
+        })
+    })
+})
+
 
 
 
