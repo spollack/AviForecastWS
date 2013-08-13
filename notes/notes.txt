@@ -93,6 +93,7 @@ WS
         Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     internal
+        MUST UPDATE FLURRY SDK for iOS7!!!
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         figure out way to get usage stats per forecast center / region
         set up real (remote) git
