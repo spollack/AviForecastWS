@@ -150,9 +150,10 @@ Android
             do signed export flow
 iOS
     v1.5
-        iOS7
-            MAP TAPS BROKEN for iOS7!!!
-                http://stackoverflow.com/questions/18477443/detecting-tap-on-mkpolygonview-in-mkmapview-on-ios7
+        [updated all libs, including flurry]
+        [fixed map taps on iOS7]
+        test!!!
+        release
     v1.6
         map usability
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
