@@ -95,6 +95,7 @@ WS
     internal
         MAP TAPS BROKEN for iOS7!!!
         MUST UPDATE FLURRY SDK for iOS7!!!
+        NWAC api changes
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         figure out way to get usage stats per forecast center / region
         set up real (remote) git
