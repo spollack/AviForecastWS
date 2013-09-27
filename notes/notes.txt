@@ -71,6 +71,8 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
+    changes for the new season
+        NWAC api changes
     political
         figure out how to handle centers that don't meet industry standards...
     existing integrations: enhancements
@@ -93,9 +95,6 @@ WS
         Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
         Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     internal
-        MAP TAPS BROKEN for iOS7!!!
-        MUST UPDATE FLURRY SDK for iOS7!!!
-        NWAC api changes
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         figure out way to get usage stats per forecast center / region
         set up real (remote) git
@@ -151,6 +150,10 @@ Android
             do signed export flow
 iOS
     v1.5
+        iOS7
+            MAP TAPS BROKEN for iOS7!!!
+                http://stackoverflow.com/questions/18477443/detecting-tap-on-mkpolygonview-in-mkmapview-on-ios7
+    v1.6
         map usability
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
