@@ -248,7 +248,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
 
         request(requestOptions,
             function(error, response, body) {
-                if (!error && response.statusCode === 200) {
+                if (!error && response.statusCode >= 200 && response.statusCode <= 299) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
                         '; dataURL: ' + regionDetails.dataURL);
                     forecast = regionDetails.parser(body, regionDetails);
