@@ -82,7 +82,7 @@ WS
         WCMAC/IPAC -- get more accurate map regions
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
     in-flight integrations
-        Haines, AK (HAIC) -- waiting on KML, will do site link only, not forecast
+        Haines, AK (HAIC) -- ready to integrate; got KML, will do site link only, not forecast
         Anchorage, AK (AAC) -- map is in, but still need to do forecast parsing; will parse HTML, need to figure out what to check exactly
         Juneau, AK (JAC) -- map is in, but still need to do forecast parsing; will parse HTML, need to figure out what to check exactly
         Glacier, MT (FAC) -- have KML, will parse HTML/RSS, need to figure out what to check exactly
