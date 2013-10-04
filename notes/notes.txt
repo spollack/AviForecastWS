@@ -151,12 +151,7 @@ Android
             do signed export flow
 iOS
     v1.5
-        [updated all libs, including flurry]
-        [fixed map taps on iOS7]
-        [fixed status bar overlap on iOS7 (http://stackoverflow.com/questions/18775874/ios-7-status-bar-overlaps-the-view)]
-        [fixed colors on iOS7]
-        test!!!
-        release
+        waiting for review
     v1.6
         map usability
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
