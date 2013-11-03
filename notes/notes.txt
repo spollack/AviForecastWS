@@ -150,8 +150,6 @@ Android
             be sure to build with production map key
             do signed export flow
 iOS
-    v1.5
-        waiting for review
     v1.6
         map usability
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
