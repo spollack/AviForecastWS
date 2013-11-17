@@ -102,7 +102,7 @@ WS
         fix use of config.js
         use HTML parsing library (cheerio) as opposed by regexs
         update to current semantics (0.2.x not 0.1.x) with xml2js
-        update libraries
+        update libraries (express)
         create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         deal with timezones in a rigorous way (forecasts expiring at a given time, etc.)
         auto-validation: check and refine results
@@ -123,7 +123,7 @@ Android
             redo location services stuff to turn off gps after we have a first fix
             swap top and bottom bars
             update the usage text, from iOS version
-            drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
+            drop custom user agent string (test with NWAC and all other sites)
             bug to look at:
                 ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
                 check developer portal for more details
@@ -157,7 +157,7 @@ iOS
             set a max zoom level
         other
             add loading spinner for detailed forecasts too
-            drop custom user agent string (assuming we can make NWAC work ok; validate with all sites)
+            drop custom user agent string (test with NWAC and all other sites)
             CAIC urls should be https at the top level, but RNCache only supports HTTP, investigate if its easy/hard to add HTTPS support too
             protect against null values for aviLevel in a forecast (even though this should never happen)
         info section
