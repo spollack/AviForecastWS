@@ -14,10 +14,10 @@
         "async":"0.2.9",
         "underscore":"1.5.2",
         "xml2js": "0.2.8",
-        "cheerio":"0.12.3"
+        "cheerio":"0.12.4"
     },
     "devDependencies": {
-        "mocha":"1.13.0",
-        "should":"2.0.2"
+        "mocha":"1.14.0",
+        "should":"2.1.0"
     }
 }
