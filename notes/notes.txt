@@ -75,9 +75,10 @@ WS
         NWAC api changes
     political
         figure out how to handle centers that don't meet industry standards...
-    existing integrations: enhancements
+    existing integrations: major issues
         IPAC -- whole detailed page not loading due to relative paths in their HTML
         IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now
+    existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         WCMAC/IPAC -- get more accurate map regions
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
@@ -280,11 +281,23 @@ ps: A word on my motivations: i'm doing this project as a pro bono service to th
 
 
 
+Avalanche Forecasts mobile app: preseason check-in
 
+Hi XXX, 
 
+I hope you had a great summer. The snow is beginning to fly, so i'm reaching out to re-connect in preparation for the upcoming avalanche forecasting season. 
 
+I'd like to check if you are making any changes to your region definitions or your forecast format, or if there is anything else that i should be aware of so that our integration operates smoothly. 
 
+Looking forward to working together again this winter. 
 
+Thanks!
+Seth
+
+Avalanche Forecasts app:
+Website: http://avalancheforecasts.com/
+Facebook: http://www.facebook.com/AvalancheForecasts
+Twitter: @aviforecast
 
 
 
