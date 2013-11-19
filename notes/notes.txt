@@ -57,6 +57,8 @@ marketing
         deliver content
     sebnarware.com website
         add @aviforecast link
+        partners page -- bottom bar sits on top of content
+        add new VIACS logo
         phone layout
             fix bottom bar on top of content on narrow screen for partners page (set margin-bottom on container-fluid)
             fix title text size
@@ -74,7 +76,7 @@ WS
     changes for the new season
         NWAC api changes
     political
-        figure out how to handle centers that don't meet industry standards...
+        review which centers are accredited or not, and handle appropriately
     existing integrations: major issues
         IPAC -- whole detailed page not loading due to relative paths in their HTML
         IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now
