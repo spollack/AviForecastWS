@@ -79,8 +79,10 @@ WS
         review which centers are accredited or not, and handle appropriately
     existing integrations: major issues
         IPAC -- whole detailed page not loading due to relative paths in their HTML
-        IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now
-        IPAC -- changing map polygons
+            asked them to fix the path for the header
+        IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now 
+            they are moving to new icons, Eric will send me the new naming and an example of use
+        IPAC -- remove southern-most polygon from my map files
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         WCMAC/IPAC -- get more accurate map regions
