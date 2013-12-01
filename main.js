@@ -77,21 +77,13 @@ function startHTTPServer() {
     // BUGBUG hack to get around problem caching IPAC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
     app.get('/proxy/ipac/:zone', function(req, res) {
-        var url = 'http://www.idahopanhandleavalanche.org/' + req.params.zone + '.html'
+        var url = 'http://www.idahopanhandleavalanche.org/' + req.params.zone + '.html';
         proxy(url, res);
     });
 
     // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
     app.get('/proxy/caic/:zone', function(req, res) {
-        var url = 'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + req.params.zone;
-        proxy(url, res);
-    });
-
-    // BUGBUG legacy route ... to be replaced by the /proxy/caic/... one above after we give some time for people to download the new regions.json file (published 2013-02-22)
-    // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
-    // proxy their content to avoid these headers being sent to the client
-    app.get('/proxy/:zone', function(req, res) {
         var url = 'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + req.params.zone;
         proxy(url, res);
     });
