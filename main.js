@@ -58,7 +58,7 @@ function initializeForecastProcessing() {
 
 function startHTTPServer() {
 
-    var app = express.createServer();
+    var app = express();
 
     // set up the express middleware, in the order we want it to execute
 
@@ -71,7 +71,7 @@ function startHTTPServer() {
     app.use(express.logger({stream:winstonStream}));
     
     //
-    // BEGIN HACK
+    // BEGIN PROXYING HACK
     //
 
     // BUGBUG hack to get around problem caching IPAC web pages on android due to cache-control:no-store header; 
@@ -103,7 +103,7 @@ function startHTTPServer() {
     }
     
     //
-    // END HACK
+    // END PROXYING HACK
     //
 
     // serve static content, compressed
