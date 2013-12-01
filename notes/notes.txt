@@ -95,13 +95,12 @@ WS
         review which centers are accredited or not, and handle appropriately
         Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     internal
-        wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         figure out way to get usage stats per forecast center / region
         set up real (remote) git
+        wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
+        update to current semantics (not 0.1.x) with xml2js
         fix use of config.js
         use HTML parsing library (cheerio) as opposed by regexs
-        update to current semantics (0.2.x not 0.1.x) with xml2js
-        update libraries (express)
         create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         deal with timezones in a rigorous way (forecasts expiring at a given time, etc.)
         auto-validation: check and refine results
