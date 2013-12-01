@@ -1,6 +1,7 @@
 things to do:
 --------------------
 marketing
+    get iOS app reviews (new/updated) of latest version
     promote availability
         invite all forecast center pages to like my FB page
         get the integrated avalanche centers to share with their communities
@@ -51,7 +52,7 @@ marketing
             http://www.alaskasnow.org/ (once i've integrated Alaska sites)
     Twitter
         deliver content
-        do some posts mentioning included centers handlers
+        do some posts mentioning included centers handles
         figure out hashtags to use
     Facebook
         deliver content
@@ -75,31 +76,23 @@ marketing
 WS
     changes for the new season
         NWAC api changes
-    political
-        review which centers are accredited or not, and handle appropriately
-    existing integrations: major issues
-        IPAC -- whole detailed page not loading due to relative paths in their HTML
-            asked them to fix the path for the header
-        IPAC -- need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now 
+        ESAC overhaul
+        CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
+        IPAC
+            remove southern-most polygon from my map files
+            whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
+            need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now;
             they are moving to new icons, Eric will send me the new naming and an example of use
-        IPAC -- remove southern-most polygon from my map files
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
-        WCMAC/IPAC -- get more accurate map regions
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
     in-flight integrations
         Haines, AK (HAIC) -- ready to integrate; got KML, will do site link only, not forecast
-        Anchorage, AK (AAC) -- map is in, but still need to do forecast parsing; will parse HTML, need to figure out what to check exactly
-        Juneau, AK (JAC) -- map is in, but still need to do forecast parsing; will parse HTML, need to figure out what to check exactly
         Glacier, MT (FAC) -- have KML, will parse HTML/RSS, need to figure out what to check exactly
-    waiting on center
+    waiting on or need to contact center
         [see Excel sheet]
-    contact additional avi centers
-        Mount Washington, NH
-        Joseph, OR
-        Flagstaff, AZ
-        CAC Yukon -- emailed CAC for region definition (http://avalanche.ca/kmz/bulletinregions.kmz has what they have; Yukon not in there yet as of 2012-10-23, but they may add it)
-        Haute Gaspesie -- emailed CAC for region definition; http://www.centreavalanche.qc.ca/bulletins/bulletin_en.php
+    political
+        review which centers are accredited or not, and handle appropriately
         Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     internal
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
