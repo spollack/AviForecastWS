@@ -79,20 +79,22 @@ WS
             see http://dev2.nwac.us/api/v2/zone/?format=json for zone id to new (slug) name mappings
             example url (dev): http://dev2.nwac.us/api/v2/avalanche-region-forecast/?format=json&limit=1&zone=mt-hood
         ESAC overhaul
-        CAC region changes (get new KMZ; dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
+            waiting on details from Andy
+        CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
+            need new KMZ
         IPAC
             remove southern-most polygon from my map files
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
             need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now;
             they are moving to new icons, Eric will send me the new naming and an example of use
-    existing integrations: minor issues / enhancements
-        CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
-        UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
     in-flight integrations
         Haines, AK (HAIC) -- ready to integrate; got KML, will do site link only, not forecast
         Glacier, MT (FAC) -- have KML, will parse HTML/RSS, need to figure out what to check exactly
     waiting on or need to contact center
         [see Excel sheet]
+    existing integrations: minor issues / enhancements
+        CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
+        UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
     political
         review which centers are accredited or not, and handle appropriately
         Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now

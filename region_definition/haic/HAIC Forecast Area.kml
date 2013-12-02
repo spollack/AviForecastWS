@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>HAIC Forecast Area.kmz</name>
+	<open>1</open>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin5</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin35</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin35">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff7f55ff</color>
+		</LineStyle>
+		<PolyStyle>
+			<color>7f7f55ff</color>
+		</PolyStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin5">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff7f55ff</color>
+		</LineStyle>
+		<PolyStyle>
+			<color>7f7f55ff</color>
+		</PolyStyle>
+	</Style>
+	<Placemark>
+		<name>HAIC Forecast Area</name>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-135.4711517477467,59.08799076356193,0 -135.2779671823158,59.0893049228429,0 -135.4982386869108,59.38978124756122,0 -135.6784101401625,59.40924345129658,0 -135.8645773868012,59.50920335746907,0 -136.2352961879905,59.51667789984504,0 -136.3450744514934,59.6121650566953,0 -136.4425257165738,59.74345181351922,0 -136.7604823803857,59.74672425662755,0 -136.7041184785703,59.56184225532546,0 -136.3535143774308,59.38049580162706,0 -136.3556272694718,59.363571198486,0 -136.135439185313,59.27062814595153,0 -135.7813046416378,59.24116818158442,0 -135.6490665758196,59.19546007395753,0 -135.5715581556396,59.17815729013769,0 -135.5133264035076,59.14894511748676,0 -135.4711517477467,59.08799076356193,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>
