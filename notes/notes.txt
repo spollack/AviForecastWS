@@ -114,6 +114,7 @@ WS
 Android
     v1.2
         bugs and cleanup
+            change to grey, instead of white, for the "no rating" color
             lifecycle management
                 on rotation, don't reload anything
                 clean up what happens at what phase of lifecycle
@@ -154,6 +155,7 @@ iOS
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             set a max zoom level
         other
+            change to grey, instead of white, for the "no rating" color
             add loading spinner for detailed forecasts too
             drop custom user agent string (test with NWAC and all other sites)
             CAIC urls should be https at the top level, but RNCache only supports HTTP, investigate if its easy/hard to add HTTPS support too
