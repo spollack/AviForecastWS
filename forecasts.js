@@ -366,6 +366,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://juneau.org/avalanche/';
                     parser = forecasts.parseForecast_jac;
                     break;
+                case 'haic':
+                    dataURL = 'http://alaskasnow.org/haines/conditions.html';
+                    parser = forecasts.parseForecast_haic;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -1232,6 +1236,12 @@ forecasts.parseForecast_aac = function($, regionDetails) {
 };
 
 forecasts.parseForecast_jac = function($, regionDetails) {
+
+    // BUGBUG not yet implemented
+    return null;
+};
+
+forecasts.parseForecast_haic = function($, regionDetails) {
 
     // BUGBUG not yet implemented
     return null;

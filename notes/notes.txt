@@ -88,7 +88,7 @@ WS
             need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now;
             they are moving to new icons, Eric will send me the new naming and an example of use
     in-flight integrations
-        Haines, AK (HAIC) -- ready to integrate; got KML, will do site link only, not forecast
+        Haines, AK (HAIC) -- their webpage is not loading in the app -- user agent??
         Glacier, MT (FAC) -- have KML, will parse HTML/RSS, need to figure out what to check exactly
     waiting on or need to contact center
         [see Excel sheet]
