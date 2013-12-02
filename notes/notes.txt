@@ -76,6 +76,8 @@ marketing
 WS
     changes for the new season
         NWAC api changes
+            see http://dev2.nwac.us/api/v2/zone/?format=json for zone id to new (slug) name mappings
+            example url (dev): http://dev2.nwac.us/api/v2/avalanche-region-forecast/?format=json&limit=1&zone=mt-hood
         ESAC overhaul
         CAC region changes (get new KMZ; dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         IPAC
