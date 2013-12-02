@@ -77,7 +77,7 @@ WS
     changes for the new season
         NWAC api changes
         ESAC overhaul
-        CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
+        CAC region changes (get new KMZ; dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         IPAC
             remove southern-most polygon from my map files
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
