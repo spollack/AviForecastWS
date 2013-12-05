@@ -78,10 +78,9 @@ WS
         NWAC api changes
             see http://dev2.nwac.us/api/v2/zone/?format=json for zone id to new (slug) name mappings
             example url (dev): http://dev2.nwac.us/api/v2/avalanche-region-forecast/?format=json&limit=1&zone=mt-hood
+        CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         ESAC overhaul
             waiting on details from Andy
-        CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
-            need new KMZ
         IPAC
             remove southern-most polygon from my map files
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
