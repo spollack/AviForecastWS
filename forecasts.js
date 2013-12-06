@@ -292,7 +292,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
             var parser = null;
             switch (components[0]) {
                 case 'nwac':
-                    dataURL = 'http://www.nwac.us/api/v1/currentForecast/' + components[1] + '/';
+                    dataURL = 'http://www.nwac.us/api/v2/avalanche-region-forecast/?format=json&limit=1&zone=' + components[1];
                     parser = forecasts.parseForecast_nwac;
                     break;
                 case 'cac':
@@ -522,30 +522,33 @@ forecasts.parseForecast_nwac = function(body, regionDetails) {
 
     try {
         // convert the JSON response to an object
-        var bodyJson = JSON.parse(body);
+        // NOTE the most recent forecast is is .objects[0]
+        var bodyJson = JSON.parse(body).objects[0];
 
         // nwac forecasts go 2 days out; typically they are issued the evening before, for the following two days, 
         // although sometimes they are issued the same day
 
         var NUM_FORECAST_DAYS_NWAC = 2;
 
+        var forecastDateDay1 = moment(bodyJson['day1_date'], 'YYYY-MM-DD').format('YYYY-MM-DD');
+
+
         forecast = [];
         for (var i = 0; i < NUM_FORECAST_DAYS_NWAC; i++) {
             // NOTE one-based index
             var forecastIndex = i + 1;
-            var forecastTimestampLabel = 'forecast_day' + forecastIndex + '_timestamp';
-            var forecastDate = moment(bodyJson[forecastTimestampLabel], 'YYYY-MM-DD HH-mm-ss').format('YYYY-MM-DD');
+            var forecastDate = moment(forecastDateDay1).clone().add('days', i).format('YYYY-MM-DD');
             var aviLevel = forecasts.getAviLevelForForecastDayIndex_nwac(bodyJson, regionDetails, forecastIndex);
             forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
         }
 
         // if the forecast was issued the day before the first forecast day, copy the forecast from that 
         // first forecast day into the forecast issued day too
-        var forecastIssuedDate = moment(bodyJson.published_date, 'YYYY-MM-DD HH-mm-ss');
+        var forecastIssuedDate = moment(bodyJson.publish_date, 'YYYY-MM-DD HH-mm-ss');
         var dayAfterForecastIssuedDate = moment(forecastIssuedDate).clone().add('days', 1).format('YYYY-MM-DD');
         if (dayAfterForecastIssuedDate === forecast[0].date) {
             // create an entry at the front of the forecast array for the forecast issued date, with the aviLevel of the following day
-            var issuedDateForecast = {'date':moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel':forecast[0].aviLevel};
+            var issuedDateForecast = {date: moment(forecastIssuedDate).format('YYYY-MM-DD'), aviLevel: forecast[0].aviLevel};
             forecast.unshift(issuedDateForecast);
         }
 
@@ -561,32 +564,10 @@ forecasts.parseForecast_nwac = function(body, regionDetails) {
 
 forecasts.getAviLevelForForecastDayIndex_nwac = function(bodyJson, regionDetails, forecastIndex) {
 
-    var aviLevel = forecasts.AVI_LEVEL_UNKNOWN;
-
-    if (bodyJson.danger_roses) {
-
-        // find the appropriate forecast data
-        var dangerRoseData = null;
-        for (var i = 0; i < bodyJson.danger_roses.length; i++) {
-            if (bodyJson.danger_roses[i].day_number === forecastIndex) {
-                dangerRoseData = bodyJson.danger_roses[i];
-                break;
-            }
-        }
-
-        if (dangerRoseData) {
-            // strip out unwanted fields, to leave just the danger level fields
-            var filteredDangerRoseData = _.omit(dangerRoseData, 'day_number',  'trend', 'warning', 'preview');
-
-            // get the highest danger level from the danger rose
-            var dangerLevels = _.map(filteredDangerRoseData, function(value) {
-                return forecasts.findHighestAviLevelInString(value);
-            });
-            aviLevel = _.max(dangerLevels);
-        }
-    }
-
-    return aviLevel;
+    return Math.max(
+        forecasts.findHighestAviLevelInString(bodyJson['day' + forecastIndex + '_danger_elev_high']),
+        forecasts.findHighestAviLevelInString(bodyJson['day' + forecastIndex + '_danger_elev_middle']),
+        forecasts.findHighestAviLevelInString(bodyJson['day' + forecastIndex + '_danger_elev_low']));
 };
 
 forecasts.parseForecast_cac = function(body, regionDetails) {
