@@ -76,8 +76,7 @@ marketing
 WS
     changes for the new season
         NWAC api changes
-            example new data url (dev): http://dev2.nwac.us/api/v2/avalanche-region-forecast/?format=json&limit=1&zone=mt-hood
-            fix tests
+            have made changes locally, need to further test and deploy once NWAC deploys their changes
         CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         IPAC
             remove southern-most polygon from my map files
