@@ -1,16 +1,16 @@
 [
     {
-        "regionId": "nwac_1",
+        "regionId": "nwac_olympics",
         "displayName": "Olympics",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/1/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/olympics/",
         "points": [
             {
                 "lat": "47.806",
-                "lon": "-123.888"
+                "lon": "-123.887"
             },
             {
                 "lat": "47.698",
-                "lon": "-123.785"
+                "lon": "-123.786"
             },
             {
                 "lat": "47.558",
@@ -54,14 +54,14 @@
             },
             {
                 "lat": "47.806",
-                "lon": "-123.888"
+                "lon": "-123.887"
             }
         ]
     },
     {
-        "regionId": "nwac_2",
+        "regionId": "nwac_cascade-west-stevens-pass",
         "displayName": "Stevens Pass",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/2/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-stevens-pass/",
         "points": [
             {
                 "lat": "47.627",
@@ -94,9 +94,9 @@
         ]
     },
     {
-        "regionId": "nwac_3",
+        "regionId": "nwac_cascade-west-snoqualmie-pass",
         "displayName": "Snoqualmie Pass",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/3/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-snoqualmie-pass/",
         "points": [
             {
                 "lat": "47.312",
@@ -133,9 +133,9 @@
         ]
     },
     {
-        "regionId": "nwac_4",
+        "regionId": "nwac_cascade-west-white-pass",
         "displayName": "White Pass",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/4/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-white-pass/",
         "points": [
             {
                 "lat": "46.611",
@@ -167,7 +167,7 @@
             },
             {
                 "lat": "46.666",
-                "lon": "-121.493"
+                "lon": "-121.492"
             },
             {
                 "lat": "46.611",
@@ -176,9 +176,9 @@
         ]
     },
     {
-        "regionId": "nwac_5",
-        "displayName": "WA Cascades West, North",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/5/",
+        "regionId": "nwac_cascade-west-stevens-pass-north",
+        "displayName": "Cascade West - Stevens Pass N",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-stevens-pass-north/",
         "points": [
             {
                 "lat": "48.703",
@@ -202,7 +202,7 @@
             },
             {
                 "lat": "47.711",
-                "lon": "-121.370"
+                "lon": "-121.369"
             },
             {
                 "lat": "47.717",
@@ -225,7 +225,7 @@
                 "lon": "-120.895"
             },
             {
-                "lat": "48.321",
+                "lat": "48.320",
                 "lon": "-121.044"
             },
             {
@@ -234,7 +234,7 @@
             },
             {
                 "lat": "48.502",
-                "lon": "-120.706"
+                "lon": "-120.705"
             },
             {
                 "lat": "49.000",
@@ -251,9 +251,9 @@
         ]
     },
     {
-        "regionId": "nwac_6",
-        "displayName": "WA Cascades West, North-Central",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/6/",
+        "regionId": "nwac_cascade-west-stevens-to-snoqualmie",
+        "displayName": "Cascade West - Stevens to Snoq",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-stevens-to-snoqualmie/",
         "points": [
             {
                 "lat": "47.519",
@@ -310,9 +310,9 @@
         ]
     },
     {
-        "regionId": "nwac_7",
-        "displayName": "WA Cascades West, South-Central",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/7/",
+        "regionId": "nwac_cascade-west-snoqualmie-to-white-pass",
+        "displayName": "Cascade West - Snoq to White",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-snoqualmie-to-white-pass/",
         "points": [
             {
                 "lat": "47.188",
@@ -320,7 +320,7 @@
             },
             {
                 "lat": "46.843",
-                "lon": "-122.335"
+                "lon": "-122.334"
             },
             {
                 "lat": "46.536",
@@ -385,9 +385,9 @@
         ]
     },
     {
-        "regionId": "nwac_8",
-        "displayName": "WA Cascades West, South",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/8/",
+        "regionId": "nwac_cascade-west-white-pass-south",
+        "displayName": "Cascade West - White Pass S",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-white-pass-south/",
         "points": [
             {
                 "lat": "45.961",
@@ -406,7 +406,7 @@
                 "lon": "-121.524"
             },
             {
-                "lat": "46.389",
+                "lat": "46.388",
                 "lon": "-121.523"
             },
             {
@@ -456,9 +456,9 @@
         ]
     },
     {
-        "regionId": "nwac_9",
-        "displayName": "WA Cascades East, North",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/9/",
+        "regionId": "nwac_cascade-east-stevens-pass-north",
+        "displayName": "Cascade East - Stevens Pass N",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-east-stevens-pass-north/",
         "points": [
             {
                 "lat": "48.503",
@@ -519,9 +519,9 @@
         ]
     },
     {
-        "regionId": "nwac_10",
-        "displayName": "WA Cascades East, North-Central",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/10/",
+        "regionId": "nwac_cascade-east-stevens-to-snoqualmie",
+        "displayName": "Cascade East - Stevens to Snoq",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-east-stevens-to-snoqualmie/",
         "points": [
             {
                 "lat": "47.658",
@@ -590,9 +590,9 @@
         ]
     },
     {
-        "regionId": "nwac_11",
-        "displayName": "WA Cascades East, South-Central",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/11/",
+        "regionId": "nwac_cascade-east-snoqualmie-to-white-pass",
+        "displayName": "Cascade East - Snoq to White",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-east-snoqualmie-to-white-pass/",
         "points": [
             {
                 "lat": "47.263",
@@ -607,7 +607,7 @@
                 "lon": "-121.514"
             },
             {
-                "lat": "46.697",
+                "lat": "46.696",
                 "lon": "-121.334"
             },
             {
@@ -649,9 +649,9 @@
         ]
     },
     {
-        "regionId": "nwac_12",
-        "displayName": "WA Cascades East, South",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/12/",
+        "regionId": "nwac_cascade-east-white-pass-south",
+        "displayName": "Cascade East - White Pass S",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-east-white-pass-south/",
         "points": [
             {
                 "lat": "46.597",
@@ -724,9 +724,9 @@
         ]
     },
     {
-        "regionId": "nwac_13",
+        "regionId": "nwac_mt-hood",
         "displayName": "Mt Hood",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/13/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/mt-hood/",
         "points": [
             {
                 "lat": "45.319",
