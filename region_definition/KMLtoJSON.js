@@ -17,8 +17,9 @@ var fs = require('fs');
 // KMLFileToJSONFile('ipac/ipac_simplified.kml','ipac/ipac_simplified.json','ipac','http://www.idahopanhandleavalanche.org/');
 // KMLFileToJSONFile('cnfaic/cnfaic_simplified.kml','cnfaic/cnfaic_simplified.json','cnfaic','http://www.cnfaic.org/advisories/');
 // KMLFileToJSONFile('aac/aac_simplified.kml','aac/aac_simplified.json','aac','http://www.anchorageavalanchecenter.org/');
-//KMLFileToJSONFile('jac/Forecast Area.kml','jac/jac_simplified.json','jac','http://juneau.org/avalanche/');
-KMLFileToJSONFile('haic/haic_simplified.kml','haic/haic_simplified.json','haic','http://alaskasnow.org/haines/conditions.html');
+// KMLFileToJSONFile('jac/Forecast Area.kml','jac/jac_simplified.json','jac','http://juneau.org/avalanche/');
+// KMLFileToJSONFile('haic/haic_simplified.kml','haic/haic_simplified.json','haic','http://alaskasnow.org/haines/conditions.html');
+KMLFileToJSONFile('fac/fac_simplified.kml','fac/fac_simplified.json','fac','http://www.flatheadavalanche.org/category/advisories/');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {
