@@ -16217,7 +16217,7 @@
     },
     {
         "regionId": "ipac_3",
-        "displayName": "St. Regis/ Silver Valley",
+        "displayName": "St. Regis / Silver Valley",
         "URL": "http://aviforecast.herokuapp.com/proxy/ipac/st-regis-basin--silver-valley",
         "points": [
             {
@@ -16343,49 +16343,6 @@
             {
                 "lat": "47.538",
                 "lon": "-116.357"
-            }
-        ]
-    },
-    {
-        "regionId": "ipac_4",
-        "displayName": "St. Joe's",
-        "URL": "http://aviforecast.herokuapp.com/proxy/ipac/st-regis-basin--silver-valley",
-        "points": [
-            {
-                "lat": "47.252",
-                "lon": "-115.849"
-            },
-            {
-                "lat": "47.192",
-                "lon": "-115.845"
-            },
-            {
-                "lat": "47.140",
-                "lon": "-115.874"
-            },
-            {
-                "lat": "47.106",
-                "lon": "-115.860"
-            },
-            {
-                "lat": "47.126",
-                "lon": "-115.728"
-            },
-            {
-                "lat": "47.095",
-                "lon": "-115.610"
-            },
-            {
-                "lat": "47.187",
-                "lon": "-115.487"
-            },
-            {
-                "lat": "47.227",
-                "lon": "-115.583"
-            },
-            {
-                "lat": "47.252",
-                "lon": "-115.849"
             }
         ]
     },
