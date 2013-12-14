@@ -78,15 +78,15 @@ WS
         FAC (new integration)
         CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         WCMAC region changes
-        IPAC
-            whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
-            need a more consistent place to look to extract hazard level (then fix code and tests); very fragile right now;
-                they are moving to new icons, Eric will send me the new naming and an example of use
         ESAC overhaul
             waiting on details from Andy
-        Haines, AK (HAIC) -- complete integration
     waiting on or need to contact center
         [see Excel sheet]
+    existing integrations: issues
+        IPAC
+            whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
+            need a more consistent place to look to extract hazard level, via image links (then fix code and tests); very fragile right now;
+                they are moving to new icons, Eric will send me the new naming and an example of use
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
