@@ -103,9 +103,10 @@ WS
         use HTML parsing library (cheerio) as opposed by regexs
         create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         deal with timezones in a rigorous way (forecasts expiring at a given time, etc.)
-        auto-validation: check and refine results
         capture all generated forecasts (for example, in S3)?
         further auto-validation of each generated forecast
+            check and refine all current results
+            add notion of class that is map only, no forecast parsing
             validate by time of day (e.g. forecast should be issued by 8am or whatever)
             have classes of validation (issued daily vs. irregularly, issued day before vs. morning of, etc.)
             on error, capture all inputs, and alert me
