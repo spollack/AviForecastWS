@@ -1,7 +1,7 @@
 [
     {
         "regionId": "wcmac_north",
-        "displayName": "Northern Coverage Area",
+        "displayName": "WCMAC Northern Coverage Area",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [
             {
@@ -96,7 +96,7 @@
     },
     {
         "regionId": "wcmac_central",
-        "displayName": "Central Coverage Area",
+        "displayName": "WCMAC Central Coverage Area",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [
             {
@@ -207,7 +207,7 @@
     },
     {
         "regionId": "wcmac_south",
-        "displayName": "Southern Coverage Area",
+        "displayName": "WCMAC Southern Coverage Area",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [
             {
