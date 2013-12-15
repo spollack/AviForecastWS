@@ -75,11 +75,11 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     changes for the new season
+        CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         FAC
             2 other western polygons? 
             polygon name? 
             market -- add to partners, update text everywhere, twitter/facebook, etc. 
-        CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         GNFAC page load broken due to user-agent issue -- requested fix from them
         ESAC overhaul
             waiting on details from Andy
