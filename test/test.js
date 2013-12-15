@@ -789,6 +789,50 @@ describe('parseForecast_cnfaic', function(){
     })
 })
 
+describe('parseForecast_fac', function(){
+    describe('file000.xml', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file000.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('fac_1'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('fac_3'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-12-11');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
+    describe('file002.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('fac_2'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-12-14');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
+    describe('file003.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file003.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('fac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-12-15');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
+})
+
 
 
 

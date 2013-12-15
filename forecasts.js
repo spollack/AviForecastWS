@@ -358,17 +358,21 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.cnfaic.org/library/rssfeed_map.php';
                     parser = forecasts.parseForecast_cnfaic;
                     break;
+                case 'fac':
+                    dataURL = 'http://www.flatheadavalanche.org/feed/';
+                    parser = forecasts.parseForecast_fac;
+                    break;
                 case 'aac':
                     dataURL = 'http://www.anchorageavalanchecenter.org/';
-                    parser = forecasts.parseForecast_aac;
+                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'jac':
                     dataURL = 'http://juneau.org/avalanche/';
-                    parser = forecasts.parseForecast_jac;
+                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'haic':
                     dataURL = 'http://alaskasnow.org/haines/conditions.html';
-                    parser = forecasts.parseForecast_haic;
+                    parser = forecasts.parseForecast_noop;
                     break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
@@ -1210,21 +1214,44 @@ forecasts.parseForecast_cnfaic = function(body, regionDetails) {
     return forecast;
 };
 
-forecasts.parseForecast_aac = function($, regionDetails) {
+forecasts.parseForecast_fac = function(body, regionDetails) {
 
-    // BUGBUG not yet implemented
-    return null;
+    var forecast = null;
+
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.channel.item[0].pubDate;
+            // NOTE typical date string: 'Sun, 15 Dec 2013 13:52:47 +0000'
+            // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
+            var mstOffsetHours = 7;
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+            // NOTE parse the rating html value(s) out of the content field; these are hazard strings in all caps
+            var contentField = result.channel.item[0]['content:encoded'];
+            var allCapsMatches = contentField.match(/[A-Z]{3,}/g);
+            var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
+            var aviLevel = forecasts.findHighestAviLevelInString(allCapsText);
+
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
 };
 
-forecasts.parseForecast_jac = function($, regionDetails) {
+forecasts.parseForecast_noop = function($, regionDetails) {
 
-    // BUGBUG not yet implemented
-    return null;
-};
-
-forecasts.parseForecast_haic = function($, regionDetails) {
-
-    // BUGBUG not yet implemented
     return null;
 };
 
