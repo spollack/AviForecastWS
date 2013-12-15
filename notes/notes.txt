@@ -78,7 +78,7 @@ WS
         FAC (new integration)
         CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         WCMAC region changes
-        GNFAC page load broken due to user-agent issue
+        GNFAC page load broken due to user-agent issue -- requested fix from them
         ESAC overhaul
             waiting on details from Andy
     waiting on or need to contact center
