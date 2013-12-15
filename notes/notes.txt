@@ -80,7 +80,6 @@ WS
             polygon name? 
             market -- add to partners, update text everywhere, twitter/facebook, etc. 
         CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
-        WCMAC region changes
         GNFAC page load broken due to user-agent issue -- requested fix from them
         ESAC overhaul
             waiting on details from Andy
