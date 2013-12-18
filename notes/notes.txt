@@ -79,7 +79,6 @@ WS
         CAIC changes
             waiting on details from Ethan
         FAC
-            add 2 other western polygons 
             market -- add to partners, update text everywhere, twitter/facebook, etc. 
         IPAC
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
