@@ -57,11 +57,7 @@ marketing
     Facebook
         deliver content
     sebnarware.com website
-        add @aviforecast link
-        partners page -- bottom bar sits on top of content
-        add new VIACS logo
         phone layout
-            fix bottom bar on top of content on narrow screen for partners page (set margin-bottom on container-fluid)
             fix title text size
         SEO
             on-page
@@ -79,7 +75,7 @@ WS
         CAIC changes
             waiting on details from Ethan
         FAC
-            market -- add to partners, update text everywhere, twitter/facebook, etc. 
+            announce/market -- add to partners, update text everywhere, twitter/facebook, etc. 
         IPAC
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
             need a more consistent place to look to extract hazard level, via image links (then fix code and tests); very fragile right now;
