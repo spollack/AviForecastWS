@@ -1245,17 +1245,22 @@ forecasts.parseForecast_fac = function(body, regionDetails) {
                     var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
                     winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
-                    // NOTE parse the rating html value(s) out of the content field; these are hazard strings in all caps
+                    // NOTE parse the rating out of the content field; these are hazard strings with either all caps or 
+                    // leading caps, soon after the text "BOTTOM LINE"
                     var contentField = result.channel.item[index]['content:encoded'];
-                    var allCapsMatches = contentField.match(/[A-Z]{3,}/g);
-                    var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
-                    var aviLevel = forecasts.findHighestAviLevelInString(allCapsText);
 
-                    forecast = [];
-                    forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+                    var ratingMatch = contentField.match(/BOTTOM\sLINE[\s\S]+?(LOW|MODERATE|CONSIDERABLE|HIGH|EXTREME|Low|Moderate|Considerable|High|Extreme)/);
 
-                    for (var j = 0; j < forecast.length; j++) {
-                        winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+                    // the capture groups from the regex will be in slot 1 in the array
+                    if (ratingMatch && ratingMatch.length === 2) {
+                        var aviLevel = forecasts.findHighestAviLevelInString(ratingMatch[1]);
+
+                        forecast = [];
+                        forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+                        for (var j = 0; j < forecast.length; j++) {
+                            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+                        }
                     }
                 }
                 
