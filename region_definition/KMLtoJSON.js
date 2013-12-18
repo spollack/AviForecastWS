@@ -13,13 +13,13 @@ var fs = require('fs');
 // KMLFileToJSONFile('esac/ESACRegions_simplified.kml','esac/esac_simplified.json','esac','http://esavalanche.org/advisory');
 // KMLFileToJSONFile('gnfac/GNFAC_simplified.kml','gnfac/gnfac_simplified.json','gnfac','http://www.mtavalanche.com/current');
 // KMLFileToJSONFile('snfac/snfac_simplified.kml','snfac/snfac_simplified.json','snfac','http://www.sawtoothavalanche.com/adv_current.php');
- KMLFileToJSONFile('wcmac/wcmac_simplified.kml','wcmac/wcmac_simplified.json','wcmac','http://www.missoulaavalanche.org/current-advisory/');
+// KMLFileToJSONFile('wcmac/wcmac_simplified.kml','wcmac/wcmac_simplified.json','wcmac','http://www.missoulaavalanche.org/current-advisory/');
 // KMLFileToJSONFile('ipac/ipac_simplified.kml','ipac/ipac_simplified.json','ipac','http://www.idahopanhandleavalanche.org/');
 // KMLFileToJSONFile('cnfaic/cnfaic_simplified.kml','cnfaic/cnfaic_simplified.json','cnfaic','http://www.cnfaic.org/advisories/');
 // KMLFileToJSONFile('aac/aac_simplified.kml','aac/aac_simplified.json','aac','http://www.anchorageavalanchecenter.org/');
 // KMLFileToJSONFile('jac/Forecast Area.kml','jac/jac_simplified.json','jac','http://juneau.org/avalanche/');
 // KMLFileToJSONFile('haic/haic_simplified.kml','haic/haic_simplified.json','haic','http://alaskasnow.org/haines/conditions.html');
-// KMLFileToJSONFile('fac/fac_simplified.kml','fac/fac_simplified.json','fac','http://www.flatheadavalanche.org/category/advisories/');
+KMLFileToJSONFile('fac/fac_simplified.kml','fac/fac_simplified.json','fac','http://www.flatheadavalanche.org/category/advisories/');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {

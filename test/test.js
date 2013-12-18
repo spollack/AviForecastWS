@@ -831,6 +831,14 @@ describe('parseForecast_fac', function(){
             forecast[0].aviLevel.should.equal(3);
         })
     })
+    describe('file004.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file004.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('fac_1'));
+
+            should.not.exist(forecast);
+        })
+    })
 })
 
 

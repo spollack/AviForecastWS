@@ -81,16 +81,15 @@ WS
         FAC
             add 2 other western polygons 
             market -- add to partners, update text everywhere, twitter/facebook, etc. 
+        IPAC
+            whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
+            need a more consistent place to look to extract hazard level, via image links (then fix code and tests); very fragile right now;
+                they are moving to new icons, Eric will send me the new naming and an example of use
         GNFAC page load broken due to user-agent issue -- requested fix from them
         ESAC overhaul
             waiting on details from Andy
     waiting on or need to contact center
         [see Excel sheet]
-    existing integrations: issues
-        IPAC
-            whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
-            need a more consistent place to look to extract hazard level, via image links (then fix code and tests); very fragile right now;
-                they are moving to new icons, Eric will send me the new naming and an example of use
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region

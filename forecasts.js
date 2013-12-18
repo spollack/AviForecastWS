@@ -948,9 +948,7 @@ forecasts.parseForecastValues_esac = function($, regionDetails) {
         var srcPath = forecastAdvisoryImgTag[0].attribs.src;
         var lastPathElement = srcPath.split('/').pop();
         var suffixString = '.png';
-        var dangerLevel = parseInt(lastPathElement.slice(0, - suffixString.length));
-
-        aviLevels[0] = dangerLevel;
+        aviLevels[0] = parseInt(lastPathElement.slice(0, - suffixString.length));
     }
 
     return aviLevels;
@@ -1217,40 +1215,60 @@ forecasts.parseForecast_cnfaic = function(body, regionDetails) {
 forecasts.parseForecast_fac = function(body, regionDetails) {
 
     var forecast = null;
+    
+    // NOTE FAC issues hazard levels for regions 1, 2, 3 (Flathead areas), but wishes regions 4, 5 (Kootenai areas) to 
+    // always show as No Rating, per Erich Peitzsch
+    var regionNumber = parseInt(regionDetails.subregion);
+    if (regionNumber && regionNumber >= 1 && regionNumber <= 3) {
+        
+        var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+        // NOTE this block is called synchronously with parsing, even though it looks async
+        parser.parseString(body, function(err, result) {
+            try {
+                // NOTE FAC publishes many types of items in their RSS feed, so find the first item in the feed of
+                // the correct type
+                var index = 0;
+                var found = false;
+                while (index < result.channel.item.length) {
+                    if (result.channel.item[index].category === 'Advisories') {
+                        found = true;
+                        break;
+                    }
+                    index++;
+                }
 
-    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
-    // NOTE this block is called synchronously with parsing, even though it looks async
-    parser.parseString(body, function(err, result) {
-        try {
-            var forecastIssuedDateField = result.channel.item[0].pubDate;
-            // NOTE typical date string: 'Sun, 15 Dec 2013 13:52:47 +0000'
-            // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
-            var mstOffsetHours = 7;
-            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
-            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+                if (found) {
+                    var forecastIssuedDateField = result.channel.item[index].pubDate;
+                    // NOTE typical date string: 'Sun, 15 Dec 2013 13:52:47 +0000'
+                    // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
+                    var mstOffsetHours = 7;
+                    var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
+                    winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
-            // NOTE parse the rating html value(s) out of the content field; these are hazard strings in all caps
-            var contentField = result.channel.item[0]['content:encoded'];
-            var allCapsMatches = contentField.match(/[A-Z]{3,}/g);
-            var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
-            var aviLevel = forecasts.findHighestAviLevelInString(allCapsText);
+                    // NOTE parse the rating html value(s) out of the content field; these are hazard strings in all caps
+                    var contentField = result.channel.item[index]['content:encoded'];
+                    var allCapsMatches = contentField.match(/[A-Z]{3,}/g);
+                    var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
+                    var aviLevel = forecasts.findHighestAviLevelInString(allCapsText);
 
-            forecast = [];
-            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+                    forecast = [];
+                    forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
 
-            for (var j = 0; j < forecast.length; j++) {
-                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+                    for (var j = 0; j < forecast.length; j++) {
+                        winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+                    }
+                }
+                
+            } catch(e) {
+                winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
             }
-
-        } catch(e) {
-            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
-        }
-    });
+        });
+    }
 
     return forecast;
 };
 
-forecasts.parseForecast_noop = function($, regionDetails) {
+forecasts.parseForecast_noop = function() {
 
     return null;
 };
