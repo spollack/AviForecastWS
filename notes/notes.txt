@@ -75,7 +75,7 @@ WS
         CAIC changes
             waiting on details from Ethan
         FAC
-            announce/market -- add to partners, update text everywhere, twitter/facebook, etc. 
+            announce/market -- update text in app descriptions (x2), facebook description, etc. 
         IPAC
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
             need a more consistent place to look to extract hazard level, via image links (then fix code and tests); very fragile right now;
