@@ -16956,7 +16956,7 @@
     {
         "regionId": "haic_1",
         "displayName": "HAIC Forecast Area",
-        "URL": "http://alaskasnow.org/haines/conditions.html",
+        "URL": "http://alaskasnow.org/haines/conditions.php",
         "points": [
             {
                 "lat": "59.088",
