@@ -71,11 +71,10 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     changes for the new season
+        update app description in itunesconnect once it reopens Dec 28th
         CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         CAIC changes
             waiting on details from Ethan/Marty
-        FAC
-            announce/market -- update text in app descriptions (x2), facebook description, etc.
         JAC
             add forecast parsing
         IPAC
@@ -265,7 +264,7 @@ I recently developed a free avalanche forecasts mobile app as a pro bono project
 
 The app, which is available free for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. Bottom-line danger levels are shown color-coded for each forecast region on a map. Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains. 
 
-I currently have integrated with the NWAC (Northwest US), SAC (central Sierras), ESAC (Eastern Sierras), CAIC (Colorado), UAC (Utah), BTAC (Jackson Hole), GNFAC (Bozeman), WCMAC (Missoula), SNFAC (Sun Valley), IPAC (Idaho Panhandle), CNFAIC (Chugach), CAC (Canada), Parks Canada, WhistlerBlackcomb, and VIAC (Vancouver Island) forecasting centers. My goal over time is to eventually include all the avalanche forecasting centers across North America.
+I currently have integrated with the NWAC (Northwest US), SAC (central Sierras), ESAC (Eastern Sierras), CAIC (Colorado), UAC (Utah), BTAC (Jackson Hole), GNFAC (Bozeman), WCMAC (Missoula), FAC (Kalispell), SNFAC (Sun Valley), IPAC (Idaho Panhandle), CNFAIC (Chugach), JAC (Juneau), AAC (Anchorage), HAIC (Haines), CAC (Canada), Parks Canada, WhistlerBlackcomb, and VIAC (Vancouver Island) forecasting centers. My goal over time is to eventually include all the avalanche forecasting centers across North America.
 
 You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/  
 
