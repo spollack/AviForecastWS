@@ -73,13 +73,14 @@ WS
     changes for the new season
         CAC region changes (dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread)
         CAIC changes
-            waiting on details from Ethan
+            waiting on details from Ethan/Marty
         FAC
-            announce/market -- update text in app descriptions (x2), facebook description, etc. 
+            announce/market -- update text in app descriptions (x2), facebook description, etc.
+        JAC
+            add forecast parsing
         IPAC
+            change to extract hazard level via image links (then fix code and tests)
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
-            need a more consistent place to look to extract hazard level, via image links (then fix code and tests); very fragile right now;
-                they are moving to new icons, Eric will send me the new naming and an example of use
         GNFAC page load broken due to user-agent issue -- requested fix from them
         ESAC overhaul
             waiting on details from Andy
