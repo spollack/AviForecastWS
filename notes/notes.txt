@@ -73,7 +73,7 @@ WS
     changes for the new season
         update app description in itunesconnect once it reopens Dec 28th
         CAC region changes
-            dropped Bighorn, added Yukon and Haute Gaspesie; other name and boundary changes; see email thread
+            North Rockies is a special case (cacb); so is hg
             fix up region names, urls, etc.
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
                 need to test in iPhone/Android

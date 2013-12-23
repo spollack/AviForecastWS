@@ -1,8 +1,8 @@
 [
     {
-        "regionId": "canada_1",
+        "regionId": "cac_yukon",
         "displayName": "Yukon - Klondike",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/yukon",
         "points": [
             {
                 "lat": "60.306",
@@ -167,9 +167,9 @@
         ]
     },
     {
-        "regionId": "canada_2",
+        "regionId": "cac_northwest-coastal",
         "displayName": "Northwest - Coastal",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/northwest-coastal",
         "points": [
             {
                 "lat": "55.119",
@@ -1790,9 +1790,9 @@
         ]
     },
     {
-        "regionId": "canada_3",
+        "regionId": "cac_northwest-inland",
         "displayName": "Northwest - Inland",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/northwest-inland",
         "points": [
             {
                 "lat": "58.044",
@@ -2405,9 +2405,9 @@
         ]
     },
     {
-        "regionId": "canada_4",
+        "regionId": "cac_sea-to-sky",
         "displayName": "Sea to Sky",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/sea-to-sky",
         "points": [
             {
                 "lat": "49.328",
@@ -3644,9 +3644,9 @@
         ]
     },
     {
-        "regionId": "canada_5",
+        "regionId": "cac_south-coast",
         "displayName": "South Coast - Inland",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/south-coast",
         "points": [
             {
                 "lat": "50.309",
@@ -4107,9 +4107,9 @@
         ]
     },
     {
-        "regionId": "canada_6",
+        "regionId": "cac_north-shore",
         "displayName": "North Shore",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/north-shore",
         "points": [
             {
                 "lat": "49.416",
@@ -4194,9 +4194,9 @@
         ]
     },
     {
-        "regionId": "canada_7",
+        "regionId": "cacb_northrockies",
         "displayName": "North Rockies",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://blogs.avalanche.ca/category/northrockies/",
         "points": [
             {
                 "lat": "53.077",
@@ -5013,9 +5013,9 @@
         ]
     },
     {
-        "regionId": "canada_8",
+        "regionId": "cac_cariboos",
         "displayName": "Cariboos",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/cariboos",
         "points": [
             {
                 "lat": "52.370",
@@ -5396,9 +5396,9 @@
         ]
     },
     {
-        "regionId": "canada_9",
+        "regionId": "cac_monashees-selkirks",
         "displayName": "North Columbia",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/monashees-selkirks",
         "points": [
             {
                 "lat": "51.176",
@@ -5819,9 +5819,9 @@
         ]
     },
     {
-        "regionId": "canada_10",
+        "regionId": "cac_south-columbia",
         "displayName": "South Columbia",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/south-columbia",
         "points": [
             {
                 "lat": "51.183",
@@ -6266,9 +6266,9 @@
         ]
     },
     {
-        "regionId": "canada_11",
+        "regionId": "cac_purcells",
         "displayName": "Purcells",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/purcells",
         "points": [
             {
                 "lat": "51.109",
@@ -6617,9 +6617,9 @@
         ]
     },
     {
-        "regionId": "canada_12",
+        "regionId": "cac_kootenay-boundary",
         "displayName": "Kootenay - Boundary",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/kootenay-boundary",
         "points": [
             {
                 "lat": "49.763",
@@ -6928,9 +6928,9 @@
         ]
     },
     {
-        "regionId": "canada_13",
+        "regionId": "cac_south-rockies",
         "displayName": "South Rockies",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/south-rockies",
         "points": [
             {
                 "lat": "49.424",
@@ -7319,9 +7319,9 @@
         ]
     },
     {
-        "regionId": "canada_14",
+        "regionId": "cac_lizardrange",
         "displayName": "Fernie - Lizard Range",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/lizardrange",
         "points": [
             {
                 "lat": "49.585",
@@ -7410,9 +7410,9 @@
         ]
     },
     {
-        "regionId": "canada_15",
+        "regionId": "viac_",
         "displayName": "Vancouver Island",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.islandavalanchebulletin.com/",
         "points": [
             {
                 "lat": "49.670",
@@ -7617,9 +7617,9 @@
         ]
     },
     {
-        "regionId": "canada_16",
-        "displayName": "Whistler - Blackcomb",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "regionId": "wb_",
+        "displayName": "Whistler-Blackcomb Backcountry",
+        "URL": "http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx",
         "points": [
             {
                 "lat": "50.093",
@@ -7692,9 +7692,9 @@
         ]
     },
     {
-        "regionId": "canada_17",
-        "displayName": "Glacier",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "regionId": "pc_3",
+        "displayName": "Glacier National Park",
+        "URL": "http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=3",
         "points": [
             {
                 "lat": "51.091",
@@ -7967,9 +7967,9 @@
         ]
     },
     {
-        "regionId": "canada_18",
-        "displayName": "Jasper",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "regionId": "pc_2",
+        "displayName": "Jasper National Park",
+        "URL": "http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=2",
         "points": [
             {
                 "lat": "51.953",
@@ -8282,9 +8282,9 @@
         ]
     },
     {
-        "regionId": "canada_19",
-        "displayName": "Banff Yoho Kootenay",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "regionId": "pc_1",
+        "displayName": "Banff, Yoho, Kootenay National Parks",
+        "URL": "http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=1",
         "points": [
             {
                 "lat": "51.210",
@@ -8441,9 +8441,9 @@
         ]
     },
     {
-        "regionId": "canada_20",
+        "regionId": "cac_kananaskis",
         "displayName": "Kananaskis Country",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.avalanche.ca/cac/bulletins/latest/kananaskis",
         "points": [
             {
                 "lat": "51.040",
@@ -8584,9 +8584,9 @@
         ]
     },
     {
-        "regionId": "canada_21",
-        "displayName": "Waterton",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "regionId": "pc_4",
+        "displayName": "Waterton Lakes National Park",
+        "URL": "http://avalanche.pc.gc.ca/mobile/bulletin-eng.aspx?d=TODAY&r=4",
         "points": [
             {
                 "lat": "49.179",
@@ -8671,9 +8671,9 @@
         ]
     },
     {
-        "regionId": "canada_22",
+        "regionId": "hg_",
         "displayName": "Chic-Chocs",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/",
+        "URL": "http://www.centreavalanche.qc.ca/info.php",
         "points": [
             {
                 "lat": "49.041",
