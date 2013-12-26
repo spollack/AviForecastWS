@@ -79,6 +79,8 @@ WS
             data feed currently broken... waiting on fix
             moving to 2 day forecasts
             region definitions changed... waiting on new kmz from Ethan
+        ESAC overhaul
+            ready to fix
         CAC region changes
             North Rockies is a special case (cacb); so is HG; add parser handling for these
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
@@ -89,9 +91,6 @@ WS
         IPAC
             change to extract hazard level via image links (then fix code and tests)
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
-        GNFAC page load broken due to user-agent issue -- requested fix from them
-        ESAC overhaul
-            waiting on details from Andy
     waiting on or need to contact center
         [see Excel sheet]
     existing integrations: minor issues / enhancements
