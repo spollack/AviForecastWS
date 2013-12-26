@@ -84,7 +84,7 @@ function startHTTPServer() {
     // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
     app.get('/proxy/caic/:zone', function(req, res) {
-        var url = 'https://avalanche.state.co.us/pub_bc_avo.php?zone_id=' + req.params.zone;
+        var url = 'http://avalanche.state.co.us/forecasts/backcountry-avalanche/' + req.params.zone + '/';
         proxy(url, res);
     });
 

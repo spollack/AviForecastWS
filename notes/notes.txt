@@ -71,13 +71,15 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     changes for the new season
-        update app description in itunesconnect once it reopens Dec 28th
+        CAIC changes
+            data feed currently broken
+            moving to 2 day forecasts
+            region definitions changed
         CAC region changes
             North Rockies is a special case (cacb); so is HG; add parser handling for these
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
                 need to test in iPhone/Android
-        CAIC changes
-            waiting on details from Ethan/Marty
+        update app description in itunesconnect once it reopens Dec 28th; and re-eval region count after CAIC changes
         JAC
             add forecast parsing
         IPAC
