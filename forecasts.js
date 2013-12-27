@@ -374,6 +374,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://alaskasnow.org/haines/conditions.html';
                     parser = forecasts.parseForecast_noop;
                     break;
+                case 'vac':
+                    dataURL = 'http://www.valdezavalanchecenter.org/category/bulletin/';
+                    parser = forecasts.parseForecast_noop;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -932,7 +936,7 @@ forecasts.parseForecastIssuedDate_esac = function($, regionDetails) {
     return forecastIssuedDate;
 };
 
-forecasts.parseForecastValues_esac = function($, regionDetails) {
+forecasts.parseForecastValues_esac = function($) {
 
     // esac forecasts one days at a time
     var aviLevels = [];
@@ -1155,7 +1159,7 @@ forecasts.parseForecastIssuedDate_ipac = function($, regionDetails) {
     return forecastIssuedDate;
 };
 
-forecasts.parseForecastValues_ipac = function($, regionDetails) {
+forecasts.parseForecastValues_ipac = function($) {
 
     // ipac forecasts one days at a time
     var aviLevels = [];
