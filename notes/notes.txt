@@ -80,7 +80,9 @@ WS
             moving to 2 day forecasts
             region definitions changed... waiting on new kmz from Ethan
         ESAC overhaul
-            ready to fix
+            ready to redo, like SAC
+        VAC
+            ready to integrate
         CAC region changes
             North Rockies is a special case (cacb); so is HG; add parser handling for these
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
