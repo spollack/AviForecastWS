@@ -550,7 +550,7 @@ describe('parseForecast_sac', function(){
 describe('parseForecast_esac', function(){
     describe('file000.html', function(){
         it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file000.html','utf8'),
+            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file000.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('esac_north'));
 
             should.not.exist(forecast);
@@ -558,43 +558,18 @@ describe('parseForecast_esac', function(){
     })
     describe('file001.html', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file001.html','utf8'),
+            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file001.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('esac_mammoth'));
 
             should.exist(forecast);
             forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2013-02-10');
-            forecast[1].date.should.equal('2013-02-11');
-            forecast[0].aviLevel.should.equal(1);
-            forecast[1].aviLevel.should.equal(1);
-        })
-    })
-    describe('file002.html', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file002.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('esac_south'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2013-02-13');
-            forecast[1].date.should.equal('2013-02-14');
-            forecast[0].aviLevel.should.equal(1);
-            forecast[1].aviLevel.should.equal(1);
-        })
-    })
-    describe('file003.html', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_esac(fs.readFileSync('test/data/esac/file003.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('esac_south'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2013-04-21');
-            forecast[1].date.should.equal('2013-04-22');
-            forecast[0].aviLevel.should.equal(0); // BUGBUG they didn't follow their normal format, so we should fail cleanly
+            forecast[0].date.should.equal('2013-12-24');
+            forecast[1].date.should.equal('2013-12-25');
+            forecast[0].aviLevel.should.equal(0);
             forecast[1].aviLevel.should.equal(0);
         })
     })
+    // BUGBUG more test cases needed!
 })
 
 describe('parseForecast_wcmac', function(){

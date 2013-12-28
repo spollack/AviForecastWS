@@ -326,6 +326,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.sierraavalanchecenter.org/danger-rating-rss.xml';
                     parser = forecasts.parseForecast_sac;
                     break;
+                case 'esac':
+                    dataURL = 'http://esavalanche.org/danger-rating-rss.xml';
+                    parser = forecasts.parseForecast_esac;
+                    break;
                 case 'btac':
                     dataURL = 'http://www.jhavalanche.org/media/xml/' + components[1] + '_Avalanche_Forecast.xml';
                     parser = forecasts.parseForecast_simple_caaml;
@@ -333,10 +337,6 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'gnfac':
                     dataURL = 'http://www.mtavalanche.com/sites/default/files/xml/' + components[1] + '_Forecast.xml';
                     parser = forecasts.parseForecast_simple_caaml;
-                    break;
-                case 'esac':
-                    dataURL = 'http://esavalanche.org/advisory';
-                    parser = forecasts.parseForecast_esac;
                     break;
                 case 'wcmac':
                     dataURL = 'http://www.missoulaavalanche.org/feed/';
@@ -900,62 +900,31 @@ forecasts.parseForecast_esac = function(body, regionDetails) {
 
     var forecast = null;
 
-    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.channel.item.pubDate;
+            // NOTE typical date string: 'Thu, 04/11/2013 - 07:00'
+            var forecastIssuedDate = moment(forecastIssuedDateField, 'ddd, MM/DD/YYYY').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
-    var forecastIssuedDate = forecasts.parseForecastIssuedDate_esac($, regionDetails);
-    var aviLevels = forecasts.parseForecastValues_esac($, regionDetails);
+            var aviLevel = forecasts.findHighestAviLevelInString(result.channel.item.description);
 
-    // NOTE per request of Nate Greenberg (2013-01-01), make all esac forecasts valid for two days, unless replaced by a newer one
-    if (forecastIssuedDate) {
-        forecast = [];
-        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
-        forecast[1] = {'date': moment(forecastIssuedDate).clone().add('days', 1).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+            // NOTE per request of Nate Greenberg (2013-01-01), make all esac forecasts valid for two days, unless replaced by a newer one
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+            forecast[1] = {'date': moment(forecastIssuedDate).clone().add('days', 1).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
 
-        for (var j = 0; j < forecast.length; j++) {
-            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
         }
-    }
+    });
 
     return forecast;
-};
-
-forecasts.parseForecastIssuedDate_esac = function($, regionDetails) {
-
-    var forecastIssuedDate = null;
-
-    // capture the forecast timestamp
-    // NOTE typical html fragment for esac: '<span class="month">Feb</span> <span class="day">10</span> <span class="year">2013</span>'
-    var timestampString = [$('span.month').text(), $('span.day').text(), $('span.year').text()].join(' ').trim();
-    if (timestampString.length > 0) {
-        forecastIssuedDate = moment(timestampString, 'MMM DD YYYY');
-        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-    } else {
-        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
-    }
-
-    return forecastIssuedDate;
-};
-
-forecasts.parseForecastValues_esac = function($) {
-
-    // esac forecasts one days at a time
-    var aviLevels = [];
-    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
-
-    // NOTE esac forecasts show the bottom line based on an image bar that is specific to one of the 5 danger levels, so
-    // go grab that img tag and look at the source link to get the danger level
-    // typical example:
-    // <img class="avyrating_large" src="./file006_files/1.png" height="60" width="640">
-    // NOTE parsing the highest danger level from the text description doesn't always give the same result
-    var forecastAdvisoryImgTag = $('img.avyrating_large');
-    if (forecastAdvisoryImgTag && forecastAdvisoryImgTag.length > 0) {
-        var srcPath = forecastAdvisoryImgTag[0].attribs.src;
-        var lastPathElement = srcPath.split('/').pop();
-        var suffixString = '.png';
-        aviLevels[0] = parseInt(lastPathElement.slice(0, - suffixString.length));
-    }
-
-    return aviLevels;
 };
 
 forecasts.parseForecast_wcmac = function(body, regionDetails) {
