@@ -721,6 +721,17 @@ describe('parseForecast_ipac', function(){
             forecast[0].aviLevel.should.equal(2);
         })
     })
+    describe('file007.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_ipac(fs.readFileSync('test/data/ipac/file007.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('ipac_3'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2013-12-20');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
 })
 
 describe('parseForecast_cnfaic', function(){
