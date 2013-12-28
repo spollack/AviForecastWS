@@ -80,7 +80,7 @@ WS
             moving to 2 day forecasts
             region definitions changed... waiting on new kmz from Ethan
         ESAC overhaul
-            ready to redo, like SAC
+            moved to new format; but add more test cases as they come online
         VAC
             having same user-agent issue, need to get them to fix
         CAC region changes
