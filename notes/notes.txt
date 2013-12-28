@@ -79,10 +79,10 @@ WS
             data feed currently broken... waiting on fix
             moving to 2 day forecasts
             region definitions changed... waiting on new kmz from Ethan
-        ESAC overhaul
-            moved to new format; but add more test cases as they come online
         VAC
             having same user-agent issue, need to get them to fix
+        ESAC overhaul
+            moved to new format; but add more test cases as they come online
         CAC region changes
             North Rockies is a special case (cacb); so is HG; add parser handling for these
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
