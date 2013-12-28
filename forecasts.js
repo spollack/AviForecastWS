@@ -354,20 +354,20 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.idahopanhandleavalanche.org/' + (components[1] === '1' || components[1] === '2' ? 'selkirk--cabinets' : 'st-regis-basin--silver-valley') + '.html';
                     parser = forecasts.parseForecast_ipac;
                     break;
-                case 'cnfaic':
-                    dataURL = 'http://www.cnfaic.org/library/rssfeed_map.php';
-                    parser = forecasts.parseForecast_cnfaic;
-                    break;
                 case 'fac':
                     dataURL = 'http://www.flatheadavalanche.org/feed/';
                     parser = forecasts.parseForecast_fac;
                     break;
-                case 'aac':
-                    dataURL = 'http://www.anchorageavalanchecenter.org/';
-                    parser = forecasts.parseForecast_noop;
+                case 'cnfaic':
+                    dataURL = 'http://www.cnfaic.org/library/rssfeed_map.php';
+                    parser = forecasts.parseForecast_cnfaic;
                     break;
                 case 'jac':
                     dataURL = 'http://juneau.org/avalanche/';
+                    parser = forecasts.parseForecast_jac;
+                    break;
+                case 'aac':
+                    dataURL = 'http://www.anchorageavalanchecenter.org/';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'haic':
@@ -1144,47 +1144,6 @@ forecasts.parseForecastValues_ipac = function($) {
     return aviLevels;
 };
 
-forecasts.parseForecast_cnfaic = function(body, regionDetails) {
-
-    var forecast = null;
-
-    // NOTE cnfaic only does real forecasts for the turnagain region, not the summit region
-    if (regionDetails.subregion === 'summit') {
-        return null;
-    }
-    
-    try {
-        var parser = new xml2js.Parser(xml2js.defaults['0.1']);
-
-        // NOTE this block is called synchronously with parsing, even though it looks async
-        parser.parseString(body, function(err, result) {
-            try {
-                var forecastIssuedDateField = result.item[0]['dc:date'];
-                // NOTE typical date string: '2013-03-16T10:00:00+01:00'
-                var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD').format('YYYY-MM-DD');
-                winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
-
-                var ratingField = result.item[0].description;
-                var aviLevel = forecasts.findHighestAviLevelInString(ratingField);
-
-                // NOTE cnfaic issues single day forecasts
-                forecast = [];
-                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
-
-                for (var j = 0; j < forecast.length; j++) {
-                    winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-                }
-            } catch(e) {
-                winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
-            }
-        });
-    } catch (e) {
-        winston.warn('initial parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
-    }
-
-    return forecast;
-};
-
 forecasts.parseForecast_fac = function(body, regionDetails) {
 
     var forecast = null;
@@ -1244,6 +1203,118 @@ forecasts.parseForecast_fac = function(body, regionDetails) {
     }
 
     return forecast;
+};
+
+forecasts.parseForecast_cnfaic = function(body, regionDetails) {
+
+    var forecast = null;
+
+    // NOTE cnfaic only does real forecasts for the turnagain region, not the summit region
+    if (regionDetails.subregion === 'summit') {
+        return null;
+    }
+
+    try {
+        var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+
+        // NOTE this block is called synchronously with parsing, even though it looks async
+        parser.parseString(body, function(err, result) {
+            try {
+                var forecastIssuedDateField = result.item[0]['dc:date'];
+                // NOTE typical date string: '2013-03-16T10:00:00+01:00'
+                var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD').format('YYYY-MM-DD');
+                winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+                var ratingField = result.item[0].description;
+                var aviLevel = forecasts.findHighestAviLevelInString(ratingField);
+
+                // NOTE cnfaic issues single day forecasts
+                forecast = [];
+                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+                for (var j = 0; j < forecast.length; j++) {
+                    winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+                }
+            } catch(e) {
+                winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+            }
+        });
+    } catch (e) {
+        winston.warn('initial parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+    }
+
+    return forecast;
+};
+
+forecasts.parseForecast_jac = function(body, regionDetails) {
+
+    var forecast = null;
+
+    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
+
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_jac($, regionDetails);
+    var aviLevels = forecasts.parseForecastValues_jac($, regionDetails);
+
+    // NOTE jac currently issues forecasts morning of, for one day only
+    if (forecastIssuedDate) {
+        forecast = [];
+        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    }
+
+    return forecast;
+};
+
+forecasts.parseForecastIssuedDate_jac = function($, regionDetails) {
+
+    var forecastIssuedDate = null;
+
+    // capture the forecast timestamp
+    // NOTE typical html fragment for jac: '<h1 align="center">Current Advisory as of Friday, December 27, 2013</h1>'
+    var headlines = $('h1').text();
+    var timestampTextBlock = null;
+    if (headlines) {
+        var match = headlines.match(/Current Advisory as of\s+\w+,?\s+(\w+\s+\d+,?\s+\d+)/);
+        if (match && match.length == 2) {
+            timestampTextBlock = match[1];
+        }
+    }
+
+    if (timestampTextBlock) {
+        forecastIssuedDate = moment(timestampTextBlock, 'MMM DD, YYYY');
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+    } else {
+        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return forecastIssuedDate;
+};
+
+forecasts.parseForecastValues_jac = function($) {
+
+    // jac forecasts one days at a time
+    var aviLevels = [];
+    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
+
+    // NOTE typical HTML fragment for jac: '<a href="dangerdef.php"><img src="http://www.juneau.org/avalanche/images/danger1.jpg" alt="Avalanche Danger Level 1" border="0"></a>'
+    var forecastImageSource = $('img[src^="http://www.juneau.org/avalanche/images/danger"]').attr('src');
+    if (forecastImageSource) {
+        var forecastImageName = forecastImageSource.split('/').pop();
+        if (forecastImageName) {
+            var aviLevelNumberAsString = forecastImageName.split('.')[0].slice(-1);
+            if (aviLevelNumberAsString) {
+                var aviLevel = parseInt(aviLevelNumberAsString);
+                if (aviLevel >= forecasts.AVI_LEVEL_UNKNOWN && aviLevel <= forecasts.AVI_LEVEL_EXTREME) {
+                    aviLevels[0] = aviLevel;
+                }
+            }
+        }        
+    }
+
+    return aviLevels;
 };
 
 forecasts.parseForecast_noop = function() {
