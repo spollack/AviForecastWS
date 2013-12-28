@@ -81,15 +81,17 @@ WS
             region definitions changed... waiting on new kmz from Ethan
         VAC
             having same user-agent issue, need to get them to fix
+        JAC
+            add forecast parsing
         ESAC overhaul
             moved to new format; but add more test cases as they come online
         CAC region changes
             North Rockies is a special case (cacb); so is HG; add parser handling for these
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
                 need to test in iPhone/Android
+        HG
+            add as part of Canada work; new forecast website coming soon that will be HTML not PDF
         update app description in itunesconnect once it reopens Dec 28th; and re-eval region count after CAIC changes
-        JAC
-            add forecast parsing
         IPAC
             change to extract hazard level via image links (then fix code and tests)
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
