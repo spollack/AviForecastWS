@@ -71,18 +71,19 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     changes for the new season
+        UAC
+            changed logan region
         CAIC changes
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
                 get them to remove no-cache header? 
                 idea: enhance proxying to fix up relative urls to full urls? 
-            data feed currently broken... waiting on fix
+            region definitions changed
             moving to 2 day forecasts
-            region definitions changed... waiting on new kmz from Ethan
         VAC
             having same user-agent issue, need to get them to fix
         JAC
-            add forecast parsing
+            add forecast parsing -- test
         ESAC overhaul
             moved to new format; but add more test cases as they come online
         CAC region changes
