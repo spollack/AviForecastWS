@@ -71,8 +71,6 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     changes for the new season
-        UAC
-            changed logan region
         CAIC changes
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
