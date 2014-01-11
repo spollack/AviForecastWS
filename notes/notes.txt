@@ -74,8 +74,8 @@ WS
         CAIC changes
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
-                get them to remove no-cache header? 
-                idea: enhance proxying to fix up relative urls to full urls? 
+                they made some fixes, re-test
+                idea: enhance proxying to fix up relative urls to full urls?
             region definitions changed
             moving to 2 day forecasts
         VAC
