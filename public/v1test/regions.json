@@ -1,16 +1,16 @@
 [
     {
-        "regionId": "nwac_1",
+        "regionId": "nwac_olympics",
         "displayName": "Olympics",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/1/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/olympics/",
         "points": [
             {
                 "lat": "47.806",
-                "lon": "-123.888"
+                "lon": "-123.887"
             },
             {
                 "lat": "47.698",
-                "lon": "-123.785"
+                "lon": "-123.786"
             },
             {
                 "lat": "47.558",
@@ -54,14 +54,14 @@
             },
             {
                 "lat": "47.806",
-                "lon": "-123.888"
+                "lon": "-123.887"
             }
         ]
     },
     {
-        "regionId": "nwac_2",
+        "regionId": "nwac_cascade-west-stevens-pass",
         "displayName": "Stevens Pass",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/2/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-stevens-pass/",
         "points": [
             {
                 "lat": "47.627",
@@ -94,9 +94,9 @@
         ]
     },
     {
-        "regionId": "nwac_3",
+        "regionId": "nwac_cascade-west-snoqualmie-pass",
         "displayName": "Snoqualmie Pass",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/3/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-snoqualmie-pass/",
         "points": [
             {
                 "lat": "47.312",
@@ -133,9 +133,9 @@
         ]
     },
     {
-        "regionId": "nwac_4",
+        "regionId": "nwac_cascade-west-white-pass",
         "displayName": "White Pass",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/4/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-white-pass/",
         "points": [
             {
                 "lat": "46.611",
@@ -167,7 +167,7 @@
             },
             {
                 "lat": "46.666",
-                "lon": "-121.493"
+                "lon": "-121.492"
             },
             {
                 "lat": "46.611",
@@ -176,9 +176,9 @@
         ]
     },
     {
-        "regionId": "nwac_5",
-        "displayName": "WA Cascades West, North",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/5/",
+        "regionId": "nwac_cascade-west-stevens-pass-north",
+        "displayName": "Cascade West - Stevens Pass N",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-stevens-pass-north/",
         "points": [
             {
                 "lat": "48.703",
@@ -202,7 +202,7 @@
             },
             {
                 "lat": "47.711",
-                "lon": "-121.370"
+                "lon": "-121.369"
             },
             {
                 "lat": "47.717",
@@ -225,7 +225,7 @@
                 "lon": "-120.895"
             },
             {
-                "lat": "48.321",
+                "lat": "48.320",
                 "lon": "-121.044"
             },
             {
@@ -234,7 +234,7 @@
             },
             {
                 "lat": "48.502",
-                "lon": "-120.706"
+                "lon": "-120.705"
             },
             {
                 "lat": "49.000",
@@ -251,9 +251,9 @@
         ]
     },
     {
-        "regionId": "nwac_6",
-        "displayName": "WA Cascades West, North-Central",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/6/",
+        "regionId": "nwac_cascade-west-stevens-to-snoqualmie",
+        "displayName": "Cascade West - Stevens to Snoq",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-stevens-to-snoqualmie/",
         "points": [
             {
                 "lat": "47.519",
@@ -310,9 +310,9 @@
         ]
     },
     {
-        "regionId": "nwac_7",
-        "displayName": "WA Cascades West, South-Central",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/7/",
+        "regionId": "nwac_cascade-west-snoqualmie-to-white-pass",
+        "displayName": "Cascade West - Snoq to White",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-snoqualmie-to-white-pass/",
         "points": [
             {
                 "lat": "47.188",
@@ -320,7 +320,7 @@
             },
             {
                 "lat": "46.843",
-                "lon": "-122.335"
+                "lon": "-122.334"
             },
             {
                 "lat": "46.536",
@@ -385,9 +385,9 @@
         ]
     },
     {
-        "regionId": "nwac_8",
-        "displayName": "WA Cascades West, South",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/8/",
+        "regionId": "nwac_cascade-west-white-pass-south",
+        "displayName": "Cascade West - White Pass S",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-west-white-pass-south/",
         "points": [
             {
                 "lat": "45.961",
@@ -406,7 +406,7 @@
                 "lon": "-121.524"
             },
             {
-                "lat": "46.389",
+                "lat": "46.388",
                 "lon": "-121.523"
             },
             {
@@ -456,9 +456,9 @@
         ]
     },
     {
-        "regionId": "nwac_9",
-        "displayName": "WA Cascades East, North",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/9/",
+        "regionId": "nwac_cascade-east-stevens-pass-north",
+        "displayName": "Cascade East - Stevens Pass N",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-east-stevens-pass-north/",
         "points": [
             {
                 "lat": "48.503",
@@ -519,9 +519,9 @@
         ]
     },
     {
-        "regionId": "nwac_10",
-        "displayName": "WA Cascades East, North-Central",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/10/",
+        "regionId": "nwac_cascade-east-stevens-to-snoqualmie",
+        "displayName": "Cascade East - Stevens to Snoq",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-east-stevens-to-snoqualmie/",
         "points": [
             {
                 "lat": "47.658",
@@ -590,9 +590,9 @@
         ]
     },
     {
-        "regionId": "nwac_11",
-        "displayName": "WA Cascades East, South-Central",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/11/",
+        "regionId": "nwac_cascade-east-snoqualmie-to-white-pass",
+        "displayName": "Cascade East - Snoq to White",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-east-snoqualmie-to-white-pass/",
         "points": [
             {
                 "lat": "47.263",
@@ -607,7 +607,7 @@
                 "lon": "-121.514"
             },
             {
-                "lat": "46.697",
+                "lat": "46.696",
                 "lon": "-121.334"
             },
             {
@@ -649,9 +649,9 @@
         ]
     },
     {
-        "regionId": "nwac_12",
-        "displayName": "WA Cascades East, South",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/12/",
+        "regionId": "nwac_cascade-east-white-pass-south",
+        "displayName": "Cascade East - White Pass S",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/cascade-east-white-pass-south/",
         "points": [
             {
                 "lat": "46.597",
@@ -724,9 +724,9 @@
         ]
     },
     {
-        "regionId": "nwac_13",
+        "regionId": "nwac_mt-hood",
         "displayName": "Mt Hood",
-        "URL": "http://www.nwac.us/forecast/avalanche/current/zone/13/",
+        "URL": "http://www.nwac.us/avalanche-forecast/current/mt-hood/",
         "points": [
             {
                 "lat": "45.319",
@@ -9417,7 +9417,7 @@
     {
         "regionId": "caic_000",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/0",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/steamboat-flat-tops/",
         "points": [
             {
                 "lat": "40.013",
@@ -9540,7 +9540,7 @@
     {
         "regionId": "caic_001",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/0",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/steamboat-flat-tops/",
         "points": [
             {
                 "lat": "40.408",
@@ -9647,7 +9647,7 @@
     {
         "regionId": "caic_002",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/0",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/steamboat-flat-tops/",
         "points": [
             {
                 "lat": "40.443",
@@ -9726,7 +9726,7 @@
     {
         "regionId": "caic_003",
         "displayName": "Steamboat and Flat Tops",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/0",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/steamboat-flat-tops/",
         "points": [
             {
                 "lat": "40.870",
@@ -9893,7 +9893,7 @@
     {
         "regionId": "caic_010",
         "displayName": "Front Range",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/1",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/front-range/",
         "points": [
             {
                 "lat": "40.633",
@@ -10264,7 +10264,7 @@
     {
         "regionId": "caic_012",
         "displayName": "Front Range",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/1",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/front-range/",
         "points": [
             {
                 "lat": "38.520",
@@ -10331,7 +10331,7 @@
     {
         "regionId": "caic_013",
         "displayName": "Front Range",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/1",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/front-range/",
         "points": [
             {
                 "lat": "39.274",
@@ -10398,7 +10398,7 @@
     {
         "regionId": "caic_014",
         "displayName": "Front Range",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/1",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/front-range/",
         "points": [
             {
                 "lat": "39.324",
@@ -10445,7 +10445,7 @@
     {
         "regionId": "caic_015",
         "displayName": "Front Range",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/1",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/front-range/",
         "points": [
             {
                 "lat": "39.449",
@@ -10492,7 +10492,7 @@
     {
         "regionId": "caic_020",
         "displayName": "Vail and Summit County",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/2",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/vail-summit-county/",
         "points": [
             {
                 "lat": "39.880",
@@ -10811,7 +10811,7 @@
     {
         "regionId": "caic_030",
         "displayName": "Sawatch",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/3",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/sawatch/",
         "points": [
             {
                 "lat": "39.366",
@@ -11170,7 +11170,7 @@
     {
         "regionId": "caic_040",
         "displayName": "Aspen",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/4",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/aspen/",
         "points": [
             {
                 "lat": "39.392",
@@ -11201,7 +11201,7 @@
     {
         "regionId": "caic_042",
         "displayName": "Aspen",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/4",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/aspen/",
         "points": [
             {
                 "lat": "39.533",
@@ -11412,7 +11412,7 @@
     {
         "regionId": "caic_050",
         "displayName": "Gunnison",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/5",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/gunnison/",
         "points": [
             {
                 "lat": "38.997",
@@ -11687,7 +11687,7 @@
     {
         "regionId": "caic_060",
         "displayName": "Grand Mesa",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/6",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/grand-mesa/",
         "points": [
             {
                 "lat": "39.416",
@@ -11726,7 +11726,7 @@
     {
         "regionId": "caic_061",
         "displayName": "Grand Mesa",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/6",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/grand-mesa/",
         "points": [
             {
                 "lat": "39.076",
@@ -11869,7 +11869,7 @@
     {
         "regionId": "caic_070",
         "displayName": "Northern San Juan",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/7",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/north-san-juan/",
         "points": [
             {
                 "lat": "37.666",
@@ -12252,7 +12252,7 @@
     {
         "regionId": "caic_080",
         "displayName": "Southern San Juan",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/8",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/south-san-juan/",
         "points": [
             {
                 "lat": "37.666",
@@ -12595,7 +12595,7 @@
     {
         "regionId": "caic_090",
         "displayName": "Sangre de Cristo",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/9",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/sangre-de-cristo/",
         "points": [
             {
                 "lat": "37.309",
@@ -12642,7 +12642,7 @@
     {
         "regionId": "caic_091",
         "displayName": "Sangre de Cristo",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/9",
+        "URL": "http://avalanche.state.co.us/forecasts/backcountry-avalanche/sangre-de-cristo/",
         "points": [
             {
                 "lat": "38.323",
@@ -13251,116 +13251,104 @@
         "URL": "http://utahavalanchecenter.org/advisory/logan",
         "points": [
             {
-                "lat": "41.498",
-                "lon": "-112.044"
+                "lat": "41.502",
+                "lon": "-111.970"
             },
             {
-                "lat": "41.504",
-                "lon": "-111.960"
+                "lat": "41.474",
+                "lon": "-111.763"
             },
             {
-                "lat": "41.467",
-                "lon": "-111.631"
+                "lat": "41.454",
+                "lon": "-111.714"
             },
             {
-                "lat": "41.467",
-                "lon": "-111.503"
+                "lat": "41.454",
+                "lon": "-111.480"
             },
             {
-                "lat": "41.552",
-                "lon": "-111.427"
+                "lat": "41.533",
+                "lon": "-111.429"
             },
             {
-                "lat": "41.672",
-                "lon": "-111.389"
+                "lat": "41.585",
+                "lon": "-111.419"
             },
             {
-                "lat": "41.782",
-                "lon": "-111.406"
+                "lat": "41.636",
+                "lon": "-111.377"
             },
             {
-                "lat": "41.946",
-                "lon": "-111.405"
+                "lat": "41.725",
+                "lon": "-111.376"
             },
             {
-                "lat": "42.043",
-                "lon": "-111.433"
+                "lat": "41.803",
+                "lon": "-111.395"
             },
             {
-                "lat": "42.149",
-                "lon": "-111.440"
+                "lat": "41.842",
+                "lon": "-111.423"
             },
             {
-                "lat": "42.306",
-                "lon": "-111.516"
+                "lat": "41.997",
+                "lon": "-111.411"
             },
             {
-                "lat": "42.302",
-                "lon": "-111.557"
+                "lat": "41.998",
+                "lon": "-111.639"
             },
             {
-                "lat": "42.249",
-                "lon": "-111.609"
+                "lat": "41.993",
+                "lon": "-111.702"
             },
             {
-                "lat": "42.074",
-                "lon": "-111.626"
+                "lat": "41.973",
+                "lon": "-111.738"
             },
             {
-                "lat": "41.923",
-                "lon": "-111.733"
+                "lat": "41.750",
+                "lon": "-111.781"
             },
             {
-                "lat": "41.769",
-                "lon": "-111.786"
+                "lat": "41.567",
+                "lon": "-111.756"
             },
             {
-                "lat": "41.591",
-                "lon": "-111.770"
+                "lat": "41.496",
+                "lon": "-111.767"
             },
             {
-                "lat": "41.531",
-                "lon": "-111.783"
+                "lat": "41.510",
+                "lon": "-111.829"
             },
             {
-                "lat": "41.523",
-                "lon": "-111.813"
+                "lat": "41.547",
+                "lon": "-111.888"
             },
             {
-                "lat": "41.542",
-                "lon": "-111.846"
+                "lat": "41.610",
+                "lon": "-111.916"
             },
             {
-                "lat": "41.627",
-                "lon": "-111.923"
+                "lat": "41.647",
+                "lon": "-111.972"
             },
             {
-                "lat": "41.689",
-                "lon": "-112.005"
+                "lat": "41.746",
+                "lon": "-112.028"
             },
             {
-                "lat": "41.805",
-                "lon": "-112.072"
+                "lat": "41.776",
+                "lon": "-112.074"
             },
             {
-                "lat": "41.805",
-                "lon": "-112.120"
+                "lat": "41.658",
+                "lon": "-112.052"
             },
             {
-                "lat": "41.682",
-                "lon": "-112.094"
-            },
-            {
-                "lat": "41.631",
-                "lon": "-112.055"
-            },
-            {
-                "lat": "41.553",
-                "lon": "-112.032"
-            },
-            {
-                "lat": "41.498",
-                "lon": "-112.044"
+                "lat": "41.502",
+                "lon": "-111.970"
             }
         ]
     },
@@ -15258,127 +15246,294 @@
     },
     {
         "regionId": "wcmac_north",
-        "displayName": "West Central Montana - Northern",
+        "displayName": "WCMAC Northern Coverage Area",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [
             {
-                "lat": "47.268",
-                "lon": "-114.011"
+                "lat": "47.319",
+                "lon": "-113.713"
             },
             {
-                "lat": "47.190",
-                "lon": "-114.104"
+                "lat": "47.294",
+                "lon": "-113.745"
             },
             {
-                "lat": "47.104",
-                "lon": "-114.137"
+                "lat": "47.241",
+                "lon": "-113.724"
             },
             {
-                "lat": "47.044",
-                "lon": "-114.104"
+                "lat": "47.224",
+                "lon": "-113.739"
             },
             {
-                "lat": "47.010",
-                "lon": "-114.005"
+                "lat": "47.205",
+                "lon": "-113.695"
             },
             {
-                "lat": "46.939",
-                "lon": "-113.906"
+                "lat": "47.169",
+                "lon": "-113.684"
             },
             {
-                "lat": "46.991",
-                "lon": "-113.791"
-            },
-            {
-                "lat": "47.074",
-                "lon": "-113.824"
+                "lat": "47.158",
+                "lon": "-113.635"
             },
             {
                 "lat": "47.179",
-                "lon": "-113.796"
+                "lon": "-113.559"
             },
             {
-                "lat": "47.208",
-                "lon": "-113.582"
+                "lat": "47.181",
+                "lon": "-113.295"
             },
             {
-                "lat": "47.193",
-                "lon": "-113.231"
+                "lat": "47.238",
+                "lon": "-113.296"
             },
             {
-                "lat": "47.122",
-                "lon": "-113.000"
+                "lat": "47.251",
+                "lon": "-113.381"
             },
             {
-                "lat": "47.179",
-                "lon": "-112.901"
+                "lat": "47.300",
+                "lon": "-113.435"
             },
             {
-                "lat": "47.447",
-                "lon": "-113.093"
+                "lat": "47.347",
+                "lon": "-113.432"
             },
             {
-                "lat": "47.499",
-                "lon": "-113.154"
+                "lat": "47.355",
+                "lon": "-113.489"
             },
             {
-                "lat": "47.611",
-                "lon": "-113.401"
+                "lat": "47.423",
+                "lon": "-113.536"
             },
             {
-                "lat": "47.702",
-                "lon": "-113.670"
+                "lat": "47.410",
+                "lon": "-113.571"
             },
             {
-                "lat": "47.679",
-                "lon": "-114.056"
+                "lat": "47.396",
+                "lon": "-113.570"
             },
             {
-                "lat": "47.598",
-                "lon": "-114.105"
+                "lat": "47.407",
+                "lon": "-113.625"
             },
             {
-                "lat": "47.268",
-                "lon": "-114.011"
+                "lat": "47.389",
+                "lon": "-113.625"
+            },
+            {
+                "lat": "47.387",
+                "lon": "-113.678"
+            },
+            {
+                "lat": "47.328",
+                "lon": "-113.667"
+            },
+            {
+                "lat": "47.319",
+                "lon": "-113.713"
+            }
+        ]
+    },
+    {
+        "regionId": "wcmac_central",
+        "displayName": "WCMAC Central Coverage Area",
+        "URL": "http://www.missoulaavalanche.org/current-advisory/",
+        "points": [
+            {
+                "lat": "46.965",
+                "lon": "-113.637"
+            },
+            {
+                "lat": "46.964",
+                "lon": "-113.659"
+            },
+            {
+                "lat": "46.929",
+                "lon": "-113.659"
+            },
+            {
+                "lat": "46.919",
+                "lon": "-113.763"
+            },
+            {
+                "lat": "46.905",
+                "lon": "-113.766"
+            },
+            {
+                "lat": "46.905",
+                "lon": "-113.805"
+            },
+            {
+                "lat": "46.890",
+                "lon": "-113.821"
+            },
+            {
+                "lat": "46.891",
+                "lon": "-113.934"
+            },
+            {
+                "lat": "46.937",
+                "lon": "-113.951"
+            },
+            {
+                "lat": "46.916",
+                "lon": "-113.959"
+            },
+            {
+                "lat": "46.932",
+                "lon": "-113.976"
+            },
+            {
+                "lat": "46.928",
+                "lon": "-113.997"
+            },
+            {
+                "lat": "46.964",
+                "lon": "-113.994"
+            },
+            {
+                "lat": "46.964",
+                "lon": "-114.040"
+            },
+            {
+                "lat": "46.979",
+                "lon": "-114.040"
+            },
+            {
+                "lat": "46.993",
+                "lon": "-114.082"
+            },
+            {
+                "lat": "47.008",
+                "lon": "-114.083"
+            },
+            {
+                "lat": "47.011",
+                "lon": "-114.036"
+            },
+            {
+                "lat": "47.064",
+                "lon": "-113.950"
+            },
+            {
+                "lat": "47.080",
+                "lon": "-113.950"
+            },
+            {
+                "lat": "47.106",
+                "lon": "-113.914"
+            },
+            {
+                "lat": "47.086",
+                "lon": "-113.855"
+            },
+            {
+                "lat": "47.098",
+                "lon": "-113.803"
+            },
+            {
+                "lat": "47.070",
+                "lon": "-113.690"
+            },
+            {
+                "lat": "47.030",
+                "lon": "-113.647"
+            },
+            {
+                "lat": "46.965",
+                "lon": "-113.637"
             }
         ]
     },
     {
         "regionId": "wcmac_south",
-        "displayName": "West Central Montana - Southern",
+        "displayName": "WCMAC Southern Coverage Area",
         "URL": "http://www.missoulaavalanche.org/current-advisory/",
         "points": [
             {
-                "lat": "46.800",
+                "lat": "46.633",
+                "lon": "-114.586"
+            },
+            {
+                "lat": "46.649",
+                "lon": "-114.541"
+            },
+            {
+                "lat": "46.632",
+                "lon": "-114.473"
+            },
+            {
+                "lat": "46.660",
+                "lon": "-114.424"
+            },
+            {
+                "lat": "46.670",
+                "lon": "-114.359"
+            },
+            {
+                "lat": "46.646",
+                "lon": "-114.321"
+            },
+            {
+                "lat": "46.612",
+                "lon": "-114.323"
+            },
+            {
+                "lat": "46.590",
+                "lon": "-114.343"
+            },
+            {
+                "lat": "46.578",
+                "lon": "-114.331"
+            },
+            {
+                "lat": "46.601",
+                "lon": "-114.282"
+            },
+            {
+                "lat": "46.687",
+                "lon": "-114.234"
+            },
+            {
+                "lat": "46.687",
                 "lon": "-114.170"
             },
             {
-                "lat": "46.762",
-                "lon": "-114.093"
+                "lat": "46.736",
+                "lon": "-114.109"
             },
             {
-                "lat": "46.683",
-                "lon": "-114.066"
+                "lat": "46.684",
+                "lon": "-114.109"
             },
             {
-                "lat": "46.521",
-                "lon": "-114.142"
+                "lat": "46.476",
+                "lon": "-114.174"
             },
             {
-                "lat": "46.268",
-                "lon": "-114.191"
+                "lat": "46.402",
+                "lon": "-114.233"
             },
             {
-                "lat": "46.213",
-                "lon": "-114.185"
+                "lat": "46.273",
+                "lon": "-114.218"
             },
             {
-                "lat": "46.164",
-                "lon": "-114.203"
+                "lat": "46.251",
+                "lon": "-114.229"
             },
             {
-                "lat": "46.130",
-                "lon": "-114.186"
+                "lat": "46.170",
+                "lon": "-114.208"
+            },
+            {
+                "lat": "46.136",
+                "lon": "-114.228"
             },
             {
                 "lat": "45.993",
@@ -15397,172 +15552,248 @@
                 "lon": "-113.958"
             },
             {
-                "lat": "45.695",
-                "lon": "-113.972"
+                "lat": "45.852",
+                "lon": "-114.410"
             },
             {
-                "lat": "45.677",
-                "lon": "-113.961"
+                "lat": "45.891",
+                "lon": "-114.387"
             },
             {
-                "lat": "45.648",
-                "lon": "-113.986"
+                "lat": "45.937",
+                "lon": "-114.431"
             },
             {
-                "lat": "45.650",
-                "lon": "-113.967"
+                "lat": "45.963",
+                "lon": "-114.401"
             },
             {
-                "lat": "45.636",
-                "lon": "-113.980"
+                "lat": "45.986",
+                "lon": "-114.431"
             },
             {
-                "lat": "45.601",
-                "lon": "-113.976"
+                "lat": "45.997",
+                "lon": "-114.485"
             },
             {
-                "lat": "45.565",
-                "lon": "-114.009"
+                "lat": "46.030",
+                "lon": "-114.481"
             },
             {
-                "lat": "45.569",
-                "lon": "-113.996"
+                "lat": "46.039",
+                "lon": "-114.506"
             },
             {
-                "lat": "45.495",
-                "lon": "-114.109"
+                "lat": "46.063",
+                "lon": "-114.468"
             },
             {
-                "lat": "45.410",
-                "lon": "-114.192"
+                "lat": "46.096",
+                "lon": "-114.460"
             },
             {
-                "lat": "45.383",
-                "lon": "-114.329"
+                "lat": "46.126",
+                "lon": "-114.521"
             },
             {
-                "lat": "45.398",
-                "lon": "-114.620"
+                "lat": "46.146",
+                "lon": "-114.528"
             },
             {
-                "lat": "45.479",
-                "lon": "-114.714"
+                "lat": "46.168",
+                "lon": "-114.516"
             },
             {
-                "lat": "45.533",
-                "lon": "-114.818"
+                "lat": "46.168",
+                "lon": "-114.444"
             },
             {
-                "lat": "45.695",
-                "lon": "-114.895"
+                "lat": "46.239",
+                "lon": "-114.450"
             },
             {
-                "lat": "45.817",
-                "lon": "-114.747"
+                "lat": "46.246",
+                "lon": "-114.469"
             },
             {
-                "lat": "45.947",
-                "lon": "-114.780"
+                "lat": "46.266",
+                "lon": "-114.470"
             },
             {
-                "lat": "46.020",
-                "lon": "-114.851"
+                "lat": "46.283",
+                "lon": "-114.425"
             },
             {
-                "lat": "46.104",
-                "lon": "-114.840"
+                "lat": "46.307",
+                "lon": "-114.434"
             },
             {
-                "lat": "46.157",
-                "lon": "-114.736"
+                "lat": "46.365",
+                "lon": "-114.411"
             },
             {
-                "lat": "46.248",
-                "lon": "-114.686"
+                "lat": "46.385",
+                "lon": "-114.423"
             },
             {
-                "lat": "46.400",
-                "lon": "-114.846"
+                "lat": "46.436",
+                "lon": "-114.369"
             },
             {
-                "lat": "46.468",
-                "lon": "-114.747"
+                "lat": "46.448",
+                "lon": "-114.387"
             },
             {
-                "lat": "46.502",
-                "lon": "-114.587"
+                "lat": "46.503",
+                "lon": "-114.401"
             },
             {
-                "lat": "46.563",
-                "lon": "-114.587"
+                "lat": "46.518",
+                "lon": "-114.340"
             },
             {
-                "lat": "46.538",
-                "lon": "-114.678"
+                "lat": "46.565",
+                "lon": "-114.343"
             },
             {
-                "lat": "46.631",
-                "lon": "-114.901"
+                "lat": "46.540",
+                "lon": "-114.582"
             },
             {
-                "lat": "46.657",
-                "lon": "-115.010"
+                "lat": "46.555",
+                "lon": "-114.664"
             },
             {
-                "lat": "46.732",
-                "lon": "-115.148"
+                "lat": "46.611",
+                "lon": "-114.594"
             },
             {
-                "lat": "46.890",
-                "lon": "-115.345"
+                "lat": "46.633",
+                "lon": "-114.593"
             },
             {
-                "lat": "47.066",
-                "lon": "-115.527"
-            },
-            {
-                "lat": "47.187",
-                "lon": "-115.487"
-            },
-            {
-                "lat": "47.272",
-                "lon": "-115.477"
-            },
-            {
-                "lat": "47.287",
-                "lon": "-115.280"
-            },
-            {
-                "lat": "47.279",
-                "lon": "-115.175"
-            },
-            {
-                "lat": "47.164",
-                "lon": "-115.087"
-            },
-            {
-                "lat": "46.991",
-                "lon": "-114.703"
-            },
-            {
-                "lat": "46.939",
+                "lat": "46.673",
                 "lon": "-114.642"
             },
             {
-                "lat": "46.808",
-                "lon": "-114.604"
+                "lat": "46.708",
+                "lon": "-114.622"
             },
             {
-                "lat": "46.761",
-                "lon": "-114.538"
+                "lat": "46.737",
+                "lon": "-114.664"
             },
             {
-                "lat": "46.759",
-                "lon": "-114.445"
+                "lat": "46.739",
+                "lon": "-114.697"
             },
             {
-                "lat": "46.800",
-                "lon": "-114.170"
+                "lat": "46.714",
+                "lon": "-114.716"
+            },
+            {
+                "lat": "46.698",
+                "lon": "-114.769"
+            },
+            {
+                "lat": "46.715",
+                "lon": "-114.788"
+            },
+            {
+                "lat": "46.758",
+                "lon": "-114.766"
+            },
+            {
+                "lat": "46.780",
+                "lon": "-114.788"
+            },
+            {
+                "lat": "46.783",
+                "lon": "-114.829"
+            },
+            {
+                "lat": "46.814",
+                "lon": "-114.867"
+            },
+            {
+                "lat": "46.802",
+                "lon": "-114.896"
+            },
+            {
+                "lat": "46.823",
+                "lon": "-114.900"
+            },
+            {
+                "lat": "46.833",
+                "lon": "-114.926"
+            },
+            {
+                "lat": "46.855",
+                "lon": "-114.928"
+            },
+            {
+                "lat": "46.859",
+                "lon": "-114.948"
+            },
+            {
+                "lat": "46.915",
+                "lon": "-114.923"
+            },
+            {
+                "lat": "46.976",
+                "lon": "-115.026"
+            },
+            {
+                "lat": "47.143",
+                "lon": "-114.843"
+            },
+            {
+                "lat": "47.128",
+                "lon": "-114.802"
+            },
+            {
+                "lat": "47.055",
+                "lon": "-114.783"
+            },
+            {
+                "lat": "47.007",
+                "lon": "-114.743"
+            },
+            {
+                "lat": "46.998",
+                "lon": "-114.716"
+            },
+            {
+                "lat": "47.011",
+                "lon": "-114.697"
+            },
+            {
+                "lat": "46.980",
+                "lon": "-114.654"
+            },
+            {
+                "lat": "46.928",
+                "lon": "-114.698"
+            },
+            {
+                "lat": "46.855",
+                "lon": "-114.686"
+            },
+            {
+                "lat": "46.819",
+                "lon": "-114.650"
+            },
+            {
+                "lat": "46.757",
+                "lon": "-114.511"
+            },
+            {
+                "lat": "46.673",
+                "lon": "-114.574"
+            },
+            {
+                "lat": "46.633",
+                "lon": "-114.586"
             }
         ]
     },
@@ -16217,7 +16448,7 @@
     },
     {
         "regionId": "ipac_3",
-        "displayName": "St. Regis/ Silver Valley",
+        "displayName": "St. Regis / Silver Valley",
         "URL": "http://aviforecast.herokuapp.com/proxy/ipac/st-regis-basin--silver-valley",
         "points": [
             {
@@ -16343,49 +16574,6 @@
             {
                 "lat": "47.538",
                 "lon": "-116.357"
-            }
-        ]
-    },
-    {
-        "regionId": "ipac_4",
-        "displayName": "St. Joe's",
-        "URL": "http://aviforecast.herokuapp.com/proxy/ipac/st-regis-basin--silver-valley",
-        "points": [
-            {
-                "lat": "47.252",
-                "lon": "-115.849"
-            },
-            {
-                "lat": "47.192",
-                "lon": "-115.845"
-            },
-            {
-                "lat": "47.140",
-                "lon": "-115.874"
-            },
-            {
-                "lat": "47.106",
-                "lon": "-115.860"
-            },
-            {
-                "lat": "47.126",
-                "lon": "-115.728"
-            },
-            {
-                "lat": "47.095",
-                "lon": "-115.610"
-            },
-            {
-                "lat": "47.187",
-                "lon": "-115.487"
-            },
-            {
-                "lat": "47.227",
-                "lon": "-115.583"
-            },
-            {
-                "lat": "47.252",
-                "lon": "-115.849"
             }
         ]
     },
@@ -16750,6 +16938,911 @@
             {
                 "lat": "58.412",
                 "lon": "-134.421"
+            }
+        ]
+    },
+    {
+        "regionId": "haic_1",
+        "displayName": "HAIC Forecast Area",
+        "URL": "http://alaskasnow.org/haines/conditions.php",
+        "points": [
+            {
+                "lat": "59.088",
+                "lon": "-135.471"
+            },
+            {
+                "lat": "59.089",
+                "lon": "-135.278"
+            },
+            {
+                "lat": "59.390",
+                "lon": "-135.498"
+            },
+            {
+                "lat": "59.409",
+                "lon": "-135.678"
+            },
+            {
+                "lat": "59.509",
+                "lon": "-135.865"
+            },
+            {
+                "lat": "59.517",
+                "lon": "-136.235"
+            },
+            {
+                "lat": "59.612",
+                "lon": "-136.345"
+            },
+            {
+                "lat": "59.743",
+                "lon": "-136.443"
+            },
+            {
+                "lat": "59.747",
+                "lon": "-136.760"
+            },
+            {
+                "lat": "59.562",
+                "lon": "-136.704"
+            },
+            {
+                "lat": "59.380",
+                "lon": "-136.354"
+            },
+            {
+                "lat": "59.364",
+                "lon": "-136.356"
+            },
+            {
+                "lat": "59.271",
+                "lon": "-136.135"
+            },
+            {
+                "lat": "59.241",
+                "lon": "-135.781"
+            },
+            {
+                "lat": "59.178",
+                "lon": "-135.572"
+            },
+            {
+                "lat": "59.149",
+                "lon": "-135.513"
+            },
+            {
+                "lat": "59.088",
+                "lon": "-135.471"
+            }
+        ]
+    },
+    {
+        "regionId": "fac_1",
+        "displayName": "Flathead and Lewis Ranges",
+        "URL": "http://www.flatheadavalanche.org/category/advisories/",
+        "points": [
+            {
+                "lat": "48.362",
+                "lon": "-113.965"
+            },
+            {
+                "lat": "48.338",
+                "lon": "-113.903"
+            },
+            {
+                "lat": "48.294",
+                "lon": "-113.872"
+            },
+            {
+                "lat": "48.285",
+                "lon": "-113.811"
+            },
+            {
+                "lat": "48.192",
+                "lon": "-113.735"
+            },
+            {
+                "lat": "48.166",
+                "lon": "-113.739"
+            },
+            {
+                "lat": "48.136",
+                "lon": "-113.697"
+            },
+            {
+                "lat": "48.070",
+                "lon": "-113.654"
+            },
+            {
+                "lat": "48.025",
+                "lon": "-113.579"
+            },
+            {
+                "lat": "47.994",
+                "lon": "-113.560"
+            },
+            {
+                "lat": "48.014",
+                "lon": "-113.535"
+            },
+            {
+                "lat": "48.066",
+                "lon": "-113.587"
+            },
+            {
+                "lat": "48.128",
+                "lon": "-113.608"
+            },
+            {
+                "lat": "48.153",
+                "lon": "-113.606"
+            },
+            {
+                "lat": "48.178",
+                "lon": "-113.576"
+            },
+            {
+                "lat": "48.155",
+                "lon": "-113.481"
+            },
+            {
+                "lat": "48.182",
+                "lon": "-113.370"
+            },
+            {
+                "lat": "48.164",
+                "lon": "-113.232"
+            },
+            {
+                "lat": "48.235",
+                "lon": "-113.227"
+            },
+            {
+                "lat": "48.321",
+                "lon": "-113.361"
+            },
+            {
+                "lat": "48.313",
+                "lon": "-113.471"
+            },
+            {
+                "lat": "48.332",
+                "lon": "-113.542"
+            },
+            {
+                "lat": "48.310",
+                "lon": "-113.614"
+            },
+            {
+                "lat": "48.357",
+                "lon": "-113.645"
+            },
+            {
+                "lat": "48.419",
+                "lon": "-113.728"
+            },
+            {
+                "lat": "48.427",
+                "lon": "-113.791"
+            },
+            {
+                "lat": "48.475",
+                "lon": "-113.821"
+            },
+            {
+                "lat": "48.495",
+                "lon": "-113.856"
+            },
+            {
+                "lat": "48.500",
+                "lon": "-113.943"
+            },
+            {
+                "lat": "48.447",
+                "lon": "-113.960"
+            },
+            {
+                "lat": "48.430",
+                "lon": "-113.997"
+            },
+            {
+                "lat": "48.362",
+                "lon": "-113.965"
+            }
+        ]
+    },
+    {
+        "regionId": "fac_2",
+        "displayName": "Whitefish Range",
+        "URL": "http://www.flatheadavalanche.org/category/advisories/",
+        "points": [
+            {
+                "lat": "48.509",
+                "lon": "-114.093"
+            },
+            {
+                "lat": "48.489",
+                "lon": "-114.047"
+            },
+            {
+                "lat": "48.513",
+                "lon": "-114.047"
+            },
+            {
+                "lat": "48.514",
+                "lon": "-114.016"
+            },
+            {
+                "lat": "48.584",
+                "lon": "-114.035"
+            },
+            {
+                "lat": "48.607",
+                "lon": "-114.066"
+            },
+            {
+                "lat": "48.627",
+                "lon": "-114.150"
+            },
+            {
+                "lat": "48.696",
+                "lon": "-114.255"
+            },
+            {
+                "lat": "48.800",
+                "lon": "-114.367"
+            },
+            {
+                "lat": "48.876",
+                "lon": "-114.419"
+            },
+            {
+                "lat": "48.856",
+                "lon": "-114.593"
+            },
+            {
+                "lat": "48.758",
+                "lon": "-114.742"
+            },
+            {
+                "lat": "48.695",
+                "lon": "-114.741"
+            },
+            {
+                "lat": "48.664",
+                "lon": "-114.712"
+            },
+            {
+                "lat": "48.579",
+                "lon": "-114.537"
+            },
+            {
+                "lat": "48.576",
+                "lon": "-114.467"
+            },
+            {
+                "lat": "48.520",
+                "lon": "-114.432"
+            },
+            {
+                "lat": "48.475",
+                "lon": "-114.377"
+            },
+            {
+                "lat": "48.457",
+                "lon": "-114.231"
+            },
+            {
+                "lat": "48.438",
+                "lon": "-114.193"
+            },
+            {
+                "lat": "48.453",
+                "lon": "-114.162"
+            },
+            {
+                "lat": "48.391",
+                "lon": "-114.112"
+            },
+            {
+                "lat": "48.408",
+                "lon": "-114.076"
+            },
+            {
+                "lat": "48.457",
+                "lon": "-114.118"
+            },
+            {
+                "lat": "48.469",
+                "lon": "-114.164"
+            },
+            {
+                "lat": "48.500",
+                "lon": "-114.177"
+            },
+            {
+                "lat": "48.532",
+                "lon": "-114.131"
+            },
+            {
+                "lat": "48.509",
+                "lon": "-114.093"
+            }
+        ]
+    },
+    {
+        "regionId": "fac_3",
+        "displayName": "Swan Range",
+        "URL": "http://www.flatheadavalanche.org/category/advisories/",
+        "points": [
+            {
+                "lat": "48.313",
+                "lon": "-113.975"
+            },
+            {
+                "lat": "48.377",
+                "lon": "-114.078"
+            },
+            {
+                "lat": "48.373",
+                "lon": "-114.119"
+            },
+            {
+                "lat": "48.328",
+                "lon": "-114.130"
+            },
+            {
+                "lat": "48.255",
+                "lon": "-114.107"
+            },
+            {
+                "lat": "48.196",
+                "lon": "-114.050"
+            },
+            {
+                "lat": "48.183",
+                "lon": "-113.994"
+            },
+            {
+                "lat": "48.116",
+                "lon": "-113.947"
+            },
+            {
+                "lat": "47.983",
+                "lon": "-113.897"
+            },
+            {
+                "lat": "47.950",
+                "lon": "-113.870"
+            },
+            {
+                "lat": "47.945",
+                "lon": "-113.819"
+            },
+            {
+                "lat": "47.926",
+                "lon": "-113.805"
+            },
+            {
+                "lat": "47.805",
+                "lon": "-113.767"
+            },
+            {
+                "lat": "47.813",
+                "lon": "-113.732"
+            },
+            {
+                "lat": "47.796",
+                "lon": "-113.680"
+            },
+            {
+                "lat": "47.949",
+                "lon": "-113.647"
+            },
+            {
+                "lat": "47.977",
+                "lon": "-113.629"
+            },
+            {
+                "lat": "47.999",
+                "lon": "-113.585"
+            },
+            {
+                "lat": "48.057",
+                "lon": "-113.686"
+            },
+            {
+                "lat": "48.148",
+                "lon": "-113.781"
+            },
+            {
+                "lat": "48.192",
+                "lon": "-113.789"
+            },
+            {
+                "lat": "48.215",
+                "lon": "-113.813"
+            },
+            {
+                "lat": "48.313",
+                "lon": "-113.975"
+            }
+        ]
+    },
+    {
+        "regionId": "fac_4",
+        "displayName": "Purcell Range",
+        "URL": "http://www.flatheadavalanche.org/category/kootenai-national-forest-avalanche-advisory/",
+        "points": [
+            {
+                "lat": "48.497",
+                "lon": "-115.638"
+            },
+            {
+                "lat": "48.505",
+                "lon": "-115.619"
+            },
+            {
+                "lat": "48.544",
+                "lon": "-115.620"
+            },
+            {
+                "lat": "48.542",
+                "lon": "-115.574"
+            },
+            {
+                "lat": "48.556",
+                "lon": "-115.574"
+            },
+            {
+                "lat": "48.570",
+                "lon": "-115.599"
+            },
+            {
+                "lat": "48.589",
+                "lon": "-115.591"
+            },
+            {
+                "lat": "48.585",
+                "lon": "-115.553"
+            },
+            {
+                "lat": "48.545",
+                "lon": "-115.483"
+            },
+            {
+                "lat": "48.515",
+                "lon": "-115.496"
+            },
+            {
+                "lat": "48.472",
+                "lon": "-115.463"
+            },
+            {
+                "lat": "48.495",
+                "lon": "-115.327"
+            },
+            {
+                "lat": "48.532",
+                "lon": "-115.416"
+            },
+            {
+                "lat": "48.542",
+                "lon": "-115.358"
+            },
+            {
+                "lat": "48.563",
+                "lon": "-115.360"
+            },
+            {
+                "lat": "48.566",
+                "lon": "-115.254"
+            },
+            {
+                "lat": "48.580",
+                "lon": "-115.243"
+            },
+            {
+                "lat": "48.644",
+                "lon": "-115.362"
+            },
+            {
+                "lat": "48.663",
+                "lon": "-115.368"
+            },
+            {
+                "lat": "48.699",
+                "lon": "-115.340"
+            },
+            {
+                "lat": "48.731",
+                "lon": "-115.339"
+            },
+            {
+                "lat": "48.751",
+                "lon": "-115.413"
+            },
+            {
+                "lat": "48.765",
+                "lon": "-115.391"
+            },
+            {
+                "lat": "48.756",
+                "lon": "-115.320"
+            },
+            {
+                "lat": "48.789",
+                "lon": "-115.337"
+            },
+            {
+                "lat": "48.847",
+                "lon": "-115.276"
+            },
+            {
+                "lat": "48.895",
+                "lon": "-115.260"
+            },
+            {
+                "lat": "48.972",
+                "lon": "-115.295"
+            },
+            {
+                "lat": "49.000",
+                "lon": "-115.283"
+            },
+            {
+                "lat": "49.001",
+                "lon": "-116.049"
+            },
+            {
+                "lat": "48.741",
+                "lon": "-116.049"
+            },
+            {
+                "lat": "48.708",
+                "lon": "-116.024"
+            },
+            {
+                "lat": "48.626",
+                "lon": "-115.942"
+            },
+            {
+                "lat": "48.634",
+                "lon": "-115.891"
+            },
+            {
+                "lat": "48.590",
+                "lon": "-115.873"
+            },
+            {
+                "lat": "48.564",
+                "lon": "-115.824"
+            },
+            {
+                "lat": "48.547",
+                "lon": "-115.886"
+            },
+            {
+                "lat": "48.495",
+                "lon": "-115.824"
+            },
+            {
+                "lat": "48.458",
+                "lon": "-115.809"
+            },
+            {
+                "lat": "48.469",
+                "lon": "-115.775"
+            },
+            {
+                "lat": "48.459",
+                "lon": "-115.679"
+            },
+            {
+                "lat": "48.477",
+                "lon": "-115.671"
+            },
+            {
+                "lat": "48.512",
+                "lon": "-115.689"
+            },
+            {
+                "lat": "48.515",
+                "lon": "-115.654"
+            },
+            {
+                "lat": "48.497",
+                "lon": "-115.638"
+            }
+        ]
+    },
+    {
+        "regionId": "fac_5",
+        "displayName": "Cabinet Range",
+        "URL": "http://www.flatheadavalanche.org/category/kootenai-national-forest-avalanche-advisory/",
+        "points": [
+            {
+                "lat": "48.419",
+                "lon": "-115.960"
+            },
+            {
+                "lat": "48.435",
+                "lon": "-116.019"
+            },
+            {
+                "lat": "48.454",
+                "lon": "-116.001"
+            },
+            {
+                "lat": "48.454",
+                "lon": "-115.948"
+            },
+            {
+                "lat": "48.478",
+                "lon": "-115.955"
+            },
+            {
+                "lat": "48.504",
+                "lon": "-116.008"
+            },
+            {
+                "lat": "48.537",
+                "lon": "-116.030"
+            },
+            {
+                "lat": "48.528",
+                "lon": "-116.049"
+            },
+            {
+                "lat": "48.148",
+                "lon": "-116.049"
+            },
+            {
+                "lat": "48.088",
+                "lon": "-115.945"
+            },
+            {
+                "lat": "47.979",
+                "lon": "-115.659"
+            },
+            {
+                "lat": "47.941",
+                "lon": "-115.612"
+            },
+            {
+                "lat": "47.930",
+                "lon": "-115.511"
+            },
+            {
+                "lat": "47.979",
+                "lon": "-115.489"
+            },
+            {
+                "lat": "48.124",
+                "lon": "-115.556"
+            },
+            {
+                "lat": "48.159",
+                "lon": "-115.559"
+            },
+            {
+                "lat": "48.204",
+                "lon": "-115.605"
+            },
+            {
+                "lat": "48.326",
+                "lon": "-115.625"
+            },
+            {
+                "lat": "48.406",
+                "lon": "-115.677"
+            },
+            {
+                "lat": "48.433",
+                "lon": "-115.675"
+            },
+            {
+                "lat": "48.435",
+                "lon": "-115.787"
+            },
+            {
+                "lat": "48.362",
+                "lon": "-115.818"
+            },
+            {
+                "lat": "48.341",
+                "lon": "-115.806"
+            },
+            {
+                "lat": "48.267",
+                "lon": "-115.823"
+            },
+            {
+                "lat": "48.219",
+                "lon": "-115.809"
+            },
+            {
+                "lat": "48.159",
+                "lon": "-115.764"
+            },
+            {
+                "lat": "48.147",
+                "lon": "-115.785"
+            },
+            {
+                "lat": "48.183",
+                "lon": "-115.824"
+            },
+            {
+                "lat": "48.172",
+                "lon": "-115.845"
+            },
+            {
+                "lat": "48.143",
+                "lon": "-115.854"
+            },
+            {
+                "lat": "48.127",
+                "lon": "-115.838"
+            },
+            {
+                "lat": "48.102",
+                "lon": "-115.855"
+            },
+            {
+                "lat": "48.147",
+                "lon": "-115.905"
+            },
+            {
+                "lat": "48.192",
+                "lon": "-115.882"
+            },
+            {
+                "lat": "48.206",
+                "lon": "-115.919"
+            },
+            {
+                "lat": "48.219",
+                "lon": "-115.879"
+            },
+            {
+                "lat": "48.241",
+                "lon": "-115.873"
+            },
+            {
+                "lat": "48.279",
+                "lon": "-115.939"
+            },
+            {
+                "lat": "48.305",
+                "lon": "-115.886"
+            },
+            {
+                "lat": "48.326",
+                "lon": "-115.888"
+            },
+            {
+                "lat": "48.329",
+                "lon": "-115.954"
+            },
+            {
+                "lat": "48.363",
+                "lon": "-115.949"
+            },
+            {
+                "lat": "48.382",
+                "lon": "-115.920"
+            },
+            {
+                "lat": "48.419",
+                "lon": "-115.960"
+            }
+        ]
+    },
+    {
+        "regionId": "vac_1",
+        "displayName": "Valdez Chugach",
+        "URL": "http://www.valdezavalanchecenter.org/category/bulletin/",
+        "points": [
+            {
+                "lat": "61.033",
+                "lon": "-146.731"
+            },
+            {
+                "lat": "60.939",
+                "lon": "-146.185"
+            },
+            {
+                "lat": "60.934",
+                "lon": "-145.880"
+            },
+            {
+                "lat": "60.896",
+                "lon": "-145.517"
+            },
+            {
+                "lat": "60.908",
+                "lon": "-145.370"
+            },
+            {
+                "lat": "60.960",
+                "lon": "-145.246"
+            },
+            {
+                "lat": "61.045",
+                "lon": "-145.171"
+            },
+            {
+                "lat": "61.138",
+                "lon": "-145.124"
+            },
+            {
+                "lat": "61.248",
+                "lon": "-144.998"
+            },
+            {
+                "lat": "61.382",
+                "lon": "-144.904"
+            },
+            {
+                "lat": "61.471",
+                "lon": "-144.898"
+            },
+            {
+                "lat": "61.528",
+                "lon": "-144.936"
+            },
+            {
+                "lat": "61.572",
+                "lon": "-145.033"
+            },
+            {
+                "lat": "61.575",
+                "lon": "-145.250"
+            },
+            {
+                "lat": "61.552",
+                "lon": "-145.394"
+            },
+            {
+                "lat": "61.525",
+                "lon": "-145.425"
+            },
+            {
+                "lat": "61.435",
+                "lon": "-145.435"
+            },
+            {
+                "lat": "61.275",
+                "lon": "-145.670"
+            },
+            {
+                "lat": "61.260",
+                "lon": "-145.824"
+            },
+            {
+                "lat": "61.251",
+                "lon": "-146.376"
+            },
+            {
+                "lat": "61.221",
+                "lon": "-146.602"
+            },
+            {
+                "lat": "61.185",
+                "lon": "-146.711"
+            },
+            {
+                "lat": "61.132",
+                "lon": "-146.766"
+            },
+            {
+                "lat": "61.049",
+                "lon": "-146.773"
+            },
+            {
+                "lat": "61.033",
+                "lon": "-146.731"
             }
         ]
     }
