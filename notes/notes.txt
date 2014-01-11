@@ -210,6 +210,7 @@ iOS
             OR... use a software update style model instead? (never block user waiting for download...
                 although investigate what happens to network ops if the app loses focus
             reload regions.json periodically in app (for case where people don't restart the app/phone regularly)
+            ability to voice-read the forecast
         make iPad experience better (user request)
         full height launch screen for iPhone5 (no black bars)
         feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
