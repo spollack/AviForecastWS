@@ -70,7 +70,7 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
-    changes for the new season
+    changes for the 2013-2014 season
         CAIC changes
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
@@ -81,7 +81,7 @@ WS
         VAC
             having same user-agent issue, need to get them to fix
         JAC
-            add forecast parsing -- test
+            add forecast parsing, including multi-day -- test
         ESAC overhaul
             moved to new format; but add more test cases as they come online
         CAC region changes
@@ -90,7 +90,7 @@ WS
                 need to test in iPhone/Android
         HG
             add as part of Canada work; new forecast website coming soon that will be HTML not PDF
-        update app description in itunesconnect once it reopens Dec 28th; and re-eval region count after CAIC changes
+        update app description in itunesconnect to match others; and re-eval region count after CAIC changes
         IPAC
             change to extract hazard level via image links (then fix code and tests)
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
