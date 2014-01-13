@@ -90,7 +90,7 @@ WS
                 need to test in iPhone/Android
         HG
             add as part of Canada work; new forecast website coming soon that will be HTML not PDF
-        update app description in itunesconnect to match others; and re-eval region count after CAIC changes
+        update app description in itunesconnect to match others; add Valdez (20th center); and re-eval region count after CAIC changes
         IPAC
             change to extract hazard level via image links (then fix code and tests)
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
@@ -99,8 +99,6 @@ WS
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
-    political
-        Crested Butte, CO (CBAC): http://www.cbavalanchecenter.org/ -- NOTE this is within the CAIC Gunnison zone; based on email with CAIC, skip it for now
     internal
         figure out way to get usage stats per forecast center / region
         set up real (remote) git
