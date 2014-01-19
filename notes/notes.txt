@@ -89,7 +89,7 @@ WS
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
                 need to test in iPhone/Android
         HG
-            add as part of Canada work; new forecast website coming soon that will be HTML not PDF
+            ready to integrate
         update app description in itunesconnect to match others; add Valdez (20th center); and re-eval region count after CAIC changes
         IPAC
             change to extract hazard level via image links (then fix code and tests)
