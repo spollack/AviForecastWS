@@ -80,8 +80,6 @@ WS
             moving to 2 day forecasts
         VAC
             having same user-agent issue, need to get them to fix
-        JAC
-            add forecast parsing, including multi-day -- test
         ESAC overhaul
             moved to new format; but add more test cases as they come online
         CAC region changes
