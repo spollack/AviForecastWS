@@ -1253,12 +1253,18 @@ forecasts.parseForecast_jac = function(body, regionDetails) {
     var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
 
     var forecastIssuedDate = forecasts.parseForecastIssuedDate_jac($, regionDetails);
+    var forecastValidThroughDate = forecasts.parseForecastValidThroughDate_jac($, regionDetails);
     var aviLevels = forecasts.parseForecastValues_jac($, regionDetails);
 
-    // NOTE jac currently issues forecasts morning of, for one day only
-    if (forecastIssuedDate) {
+    // NOTE jac currently issues forecasts for variable number of days at a time (one or two from the cases i've seen),
+    // but with one danger level for the duration
+    // NOTE since forecasts expire early in the morning, only consider them valid through the end of the day before
+    if (forecastIssuedDate && forecastValidThroughDate) {
         forecast = [];
-        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+        var numDays = moment(forecastValidThroughDate).diff(moment(forecastIssuedDate), 'days');
+        for (var i = 0; i < numDays; i++) {
+            forecast[i] = {'date': moment(forecastIssuedDate).clone().add('days', i).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+        }
 
         for (var j = 0; j < forecast.length; j++) {
             winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
@@ -1272,7 +1278,7 @@ forecasts.parseForecastIssuedDate_jac = function($, regionDetails) {
 
     var forecastIssuedDate = null;
 
-    // capture the forecast timestamp
+    // capture the forecast issued timestamp
     // NOTE typical html fragment for jac: '<h1 align="center">Current Advisory as of Friday, December 27, 2013</h1>'
     var headlines = $('h1').text();
     var timestampTextBlock = null;
@@ -1293,9 +1299,34 @@ forecasts.parseForecastIssuedDate_jac = function($, regionDetails) {
     return forecastIssuedDate;
 };
 
+forecasts.parseForecastValidThroughDate_jac = function($, regionDetails) {
+
+    var forecastValidThroughDate = null;
+
+    // capture the forecast issued timestamp
+    // NOTE typical html fragment for jac: '<h2 align='center'>Expires 7:00am on Saturday, January 25, 2014<br>Issued by Tom Mattice</h2>'
+    var headlines = $('h2').text();
+    var timestampTextBlock = null;
+    if (headlines) {
+        var match = headlines.match(/Expires \d+:\d+\w+ on\s+\w+,?\s+(\w+\s+\d+,?\s+\d+)/);
+        if (match && match.length == 2) {
+            timestampTextBlock = match[1];
+        }
+    }
+
+    if (timestampTextBlock) {
+        forecastValidThroughDate = moment(timestampTextBlock, 'MMM DD, YYYY');
+        winston.verbose('found forecast valid through date; regionId: ' + regionDetails.regionId + '; forecastValidThroughDate: ' + moment(forecastValidThroughDate).format('YYYY-MM-DD'));
+    } else {
+        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return forecastValidThroughDate;
+};
+
 forecasts.parseForecastValues_jac = function($) {
 
-    // jac forecasts one days at a time
+    // jac forecasts only one danger level for the forecast duration
     var aviLevels = [];
     aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
 
