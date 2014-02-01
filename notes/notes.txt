@@ -85,8 +85,6 @@ WS
         HG
             ready to integrate forecast data
         update app description in itunesconnect to match others; add new centers; and re-eval region count after CAIC changes
-        ESAC
-            moved to new format; but add more test cases as they come online
         IPAC
             change to extract hazard level via image links (then fix code and tests)
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
