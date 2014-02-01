@@ -927,7 +927,61 @@ describe('parseForecast_jac', function(){
     })
 })
 
+describe('parseForecast_hg', function(){
+    describe('file000.html', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_hg(fs.readFileSync('test/data/hg/file000.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('hg_'));
 
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_hg(fs.readFileSync('test/data/hg/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('hg_'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2014-01-18');
+            forecast[1].date.should.equal('2014-01-19');
+            forecast[2].date.should.equal('2014-01-20');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
+        })
+    })
+    describe('file002.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_hg(fs.readFileSync('test/data/hg/file002.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('hg_'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2014-01-24');
+            forecast[1].date.should.equal('2014-01-25');
+            forecast[2].date.should.equal('2014-01-26');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(3);
+            forecast[2].aviLevel.should.equal(3);
+        })
+    })
+    describe('file003.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_hg(fs.readFileSync('test/data/hg/file003.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('hg_'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2014-01-28');
+            forecast[1].date.should.equal('2014-01-29');
+            forecast[2].date.should.equal('2014-01-30');
+            forecast[0].aviLevel.should.equal(3);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
+        })
+    })
+})
 
 
 
