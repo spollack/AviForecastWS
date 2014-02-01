@@ -81,8 +81,6 @@ WS
             North Rockies is a special case (cacb)
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
                 need to test in iPhone/Android
-        HG
-            ready to integrate forecast data
         update app description in itunesconnect to match others; add new centers; and re-eval region count after CAIC changes
         IPAC
             whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
