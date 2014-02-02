@@ -76,7 +76,7 @@ WS
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
                 they made some fixes, re-test
-                idea: enhance proxying to fix up relative urls to full urls? is there an http header i can set to fix this? how do regular proxies work in this regard?
+                idea: enhance proxying to fix up relative urls to full urls?
         CAC region changes
             North Rockies is a special case (cacb)
             the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
