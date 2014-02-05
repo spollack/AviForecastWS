@@ -75,7 +75,6 @@ WS
             region definitions changed
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
-                they made some fixes, re-test
                 idea: enhance proxying to fix up relative urls to full urls?
         CAC region changes
             North Rockies is a special case (cacb)
