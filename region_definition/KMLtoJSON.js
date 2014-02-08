@@ -6,8 +6,8 @@ var fs = require('fs');
 
 // KMLFileToJSONFile('nwac/nwac_regions.kml','nwac/nwac_regions.json','nwac','http://www.nwac.us/forecast/avalanche/current/zone/');
 // KMLFileToJSONFile('Canada_all/canada_regions_simplified.kml','Canada_all/canada_regions_simplified.json','cac','http://www.avalanche.ca/cac/bulletins/latest/');
-// KMLFileToJSONFile('caic/caic_simplified.kml','caic/caic_simplified.json','caic','http://avalanche.state.co.us/pub_bc_avo.php?zone_id=');
-KMLFileToJSONFile('uac/uac_simplified.kml','uac/uac_simplified.json','uac','http://utahavalanchecenter.org/advisory/');
+KMLFileToJSONFile('caic/caic_simplified.kml','caic/caic_simplified.json','caic','http://avalanche.state.co.us/forecasts/backcountry-avalanche/');
+// KMLFileToJSONFile('uac/uac_simplified.kml','uac/uac_simplified.json','uac','http://utahavalanchecenter.org/advisory/');
 // KMLFileToJSONFile('sac/SACForecastArea_simplified.kml','sac/sac_simplified.json','sac','http://www.sierraavalanchecenter.org/advisory');
 // KMLFileToJSONFile('btac/JHAFC_Zones_simplified.kml','btac/btac_simplified.json','btac','http://jhavalanche.org/viewOther?area=');
 // KMLFileToJSONFile('esac/ESACRegions_simplified.kml','esac/esac_simplified.json','esac','http://esavalanche.org/advisory');
