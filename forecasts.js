@@ -161,7 +161,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but 
                 // without danger level ratings
-                if (regionId === 'caic_090' || regionId === 'caic_091'|| regionId === 'uac_skyline' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId ==='snfac_4') {
+                if (regionId === 'caic_9' || regionId === 'uac_skyline' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId ==='snfac_4') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
@@ -403,44 +403,36 @@ forecasts.getDataURL_caic = function(subregion) {
     var baseURL = 'http://avalanche.state.co.us/media/xml/';
 
     switch (subregion) {
-        case '000':
-        case '001':
-        case '002':
-        case '003':
+        case '0a':
+        case '0b':
             dataURL = baseURL + 'Steamboat_and_Flat_Tops_Avalanche_Forecast.xml';
             break;
-        case '010':
-        case '012':
-        case '013':
-        case '014':
-        case '015':
+        case '1a':
+        case '1b':
             dataURL = baseURL + 'Front_Range_Avalanche_Forecast.xml';
             break;
-        case '020':
+        case '2':
             dataURL = baseURL + 'Vail_and_Summit_County_Avalanche_Forecast.xml';
             break;
-        case '030':
+        case '3':
             dataURL = baseURL + 'Sawatch_Range_Avalanche_Forecast.xml';
             break;
-        case '040':
-        case '042':
+        case '4':
             dataURL = baseURL + 'Aspen_Avalanche_Forecast.xml';
             break;
-        case '050':
+        case '5':
             dataURL = baseURL + 'Gunnison_Avalanche_Forecast.xml';
             break;
-        case '060':
-        case '061':
+        case '6':
             dataURL = baseURL + 'Grand_Mesa_Avalanche_Forecast.xml';
             break;
-        case '070':
+        case '7':
             dataURL = baseURL + 'Northern_San_Juan_Avalanche_Forecast.xml';
             break;
-        case '080':
+        case '8':
             dataURL = baseURL + 'Southern_San_Juan_Avalanche_Forecast.xml';
             break;
-        case '090':
-        case '091':
+        case '9':
             dataURL = baseURL + 'Sangre_de_Cristo_Avalanche_Forecast.xml';
             break;
         default:

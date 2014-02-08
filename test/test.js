@@ -88,7 +88,7 @@ describe('getRegionDetailsForRegionId', function(){
             forecasts.getRegionDetailsForRegionId('nwac_olympics').should.have.property('provider','nwac');
             forecasts.getRegionDetailsForRegionId('cac_1').should.have.property('provider','cac');
             forecasts.getRegionDetailsForRegionId('pc_1').should.have.property('provider','pc');
-            forecasts.getRegionDetailsForRegionId('caic_010').should.have.property('provider','caic');
+            forecasts.getRegionDetailsForRegionId('caic_1b').should.have.property('provider','caic');
         })
     })
     describe('non-matching strings', function(){
@@ -119,9 +119,9 @@ describe('validateForecast', function(){
                 forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file001.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('cac_sea-to-sky')), false).should.be.true;
 
-            forecasts.validateForecast('caic_080',
+            forecasts.validateForecast('caic_8',
                 forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file002.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('caic_080')), false).should.be.true;
+                forecasts.getRegionDetailsForRegionId('caic_8')), false).should.be.true;
         })
     })
     describe('forecasts with bad dates', function(){
@@ -359,7 +359,7 @@ describe('parseForecast_simple_caaml caic', function(){
     describe('file000.xml', function(){
         it('should fail gracefully on bad input', function(){
             var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file000.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('caic_000'));
+                forecasts.getRegionDetailsForRegionId('caic_0a'));
 
             should.not.exist(forecast);
         })
@@ -367,7 +367,7 @@ describe('parseForecast_simple_caaml caic', function(){
     describe('file001.xml', function(){
         it('should return the correct forecast details', function(){
             var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file001.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('caic_040'));
+                forecasts.getRegionDetailsForRegionId('caic_4'));
 
             should.exist(forecast);
             forecast.length.should.equal(1);
@@ -378,7 +378,7 @@ describe('parseForecast_simple_caaml caic', function(){
     describe('file002.xml', function(){
         it('should return the correct forecast details', function(){
             var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file002.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('caic_080'));
+                forecasts.getRegionDetailsForRegionId('caic_8'));
 
             should.exist(forecast);
             forecast.length.should.equal(1);
