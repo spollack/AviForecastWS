@@ -72,7 +72,10 @@ marketing
 WS
     changes for the 2013-2014 season
         CAC region changes
-            test all; (particularly the Sea To Sky and WB regions due to map shenanigans, test in both iPhone/Android)
+            Sea To Sky and WB regions due to map shenanigans
+                make WB outline match StS cutout
+                test in both iPhone/Android
+            test all
         update app description everywhere (itunesconnect is out of date from others too); add new centers; and re-eval region count
         CAIC
             web page proxying broken due to relative paths
