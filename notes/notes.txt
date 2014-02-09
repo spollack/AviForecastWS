@@ -71,7 +71,6 @@ marketing
     review Uli's marketing guide for other steps to take
 WS
     changes for the 2013-2014 season
-        update app description everywhere (itunesconnect is out of date from others too); add new centers; and re-eval region count
         CAIC
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
