@@ -11,6 +11,7 @@ var winston = require('winston');
 var express = require('express');
 var request = require('request');
 var gzippo = require('gzippo');
+var cheerio = require('cheerio');
 var config = require('./config.js');
 var forecasts = require('./forecasts.js');
 
@@ -77,22 +78,25 @@ function startHTTPServer() {
     // BUGBUG hack to get around problem caching IPAC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
     app.get('/proxy/ipac/:zone', function(req, res) {
-        var url = 'http://www.idahopanhandleavalanche.org/' + req.params.zone + '.html';
-        proxy(url, res);
+        var baseUrl = 'http://www.idahopanhandleavalanche.org/';
+        var url = baseUrl + req.params.zone + '.html';
+        proxy(url, baseUrl, res);
     });
 
     // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
     app.get('/proxy/caic/:zone', function(req, res) {
-        var url = 'http://avalanche.state.co.us/forecasts/backcountry-avalanche/' + req.params.zone + '/';
-        proxy(url, res);
+        var baseUrl = 'http://avalanche.state.co.us/';
+        var url = baseUrl + 'forecasts/backcountry-avalanche/' + req.params.zone + '/';
+        proxy(url, baseUrl, res);
     });
 
-    function proxy(url, res) {
+    function proxy(url, baseUrl, res) {
         request({url:url, jar:false, timeout: forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000},
             function(error, response, body) {
                 if (!error && response.statusCode === 200) {
                     winston.info('successful proxy response; url: ' + url);
+                    body = fixRelativeLinks(baseUrl, body);
                     res.send(body);
                 } else {
                     winston.warn('failed proxy response; url: ' + url + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
@@ -100,6 +104,14 @@ function startHTTPServer() {
                 }
             }
         );
+    }
+
+    function fixRelativeLinks(baseUrl, body) {
+        // NOTE several proxied sites use relative links, but don't specify the base url, which breaks things when
+        // going through our explicit proxy; so fix the pages by putting in a <base> tag
+        var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
+        $('head').prepend('<base href=' + baseUrl + '>');
+        return $.html();
     }
     
     //
