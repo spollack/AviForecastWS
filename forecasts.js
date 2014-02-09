@@ -126,7 +126,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // check for null forecast
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
-        if (regionId === 'cac_bighorn' || regionId === 'cac_north-rockies' || regionId === 'cnfaic_summit') {
+        if (regionId === 'cacb_northrockies' || regionId === 'cnfaic_summit') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
@@ -298,6 +298,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'cac':
                     dataURL = 'http://www.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
                     parser = forecasts.parseForecast_cac;
+                    break;
+                case 'cacb': // CAC blog-only forecasts, which we don't parse
+                    dataURL = 'http://blogs.avalanche.ca/category/' + components[1] + '/';
+                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'pc':
                     dataURL = 'http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];

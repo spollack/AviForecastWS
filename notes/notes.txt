@@ -72,9 +72,7 @@ marketing
 WS
     changes for the 2013-2014 season
         CAC region changes
-            North Rockies is a special case (cacb)
-            the Sea To Sky region does jog around the WB region, but its very tight -- probably need to separate a bit more,
-                need to test in iPhone/Android
+            test all; (particularly the Sea To Sky and WB regions due to map shenanigans, test in both iPhone/Android)
         CAIC
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
