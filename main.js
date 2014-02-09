@@ -87,7 +87,7 @@ function startHTTPServer() {
     // proxy their content to avoid these headers being sent to the client
     app.get('/proxy/caic/:zone', function(req, res) {
         var baseUrl = 'http://avalanche.state.co.us/';
-        var url = baseUrl + 'forecasts/backcountry-avalanche/' + req.params.zone + '/';
+        var url = baseUrl + 'caic/pub_bc_avo.php?zone_id=' + req.params.zone;
         proxy(url, baseUrl, res);
     });
 
@@ -107,7 +107,7 @@ function startHTTPServer() {
     }
 
     function fixRelativeLinks(baseUrl, body) {
-        // NOTE several proxied sites use relative links, but don't specify the base url, which breaks things when
+        // NOTE some sites use relative links, but don't specify the base url, which breaks things when
         // going through our explicit proxy; so fix the pages by putting in a <base> tag
         var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
         $('head').prepend('<base href=' + baseUrl + '>');

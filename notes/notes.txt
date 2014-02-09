@@ -70,14 +70,12 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
-    changes for the 2013-2014 season
-        CAIC
-            caching broken on Android (only) for the sub-link that has all the real info
-            change to use the sublink directly, and proxy it! http://avalanche.state.co.us/caic/pub_bc_avo.php?zone_id=0
     waiting on or need to contact center
         [see Excel sheet]
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
+        CAIC -- to work around cache-control:no-store on not only the forecast pages but also the iframe within that has most of
+            the details, we link directly to the iframe piece and proxy that; it works, but we lose the window dressing around it
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
         CAIC -- would like to incorporate tomorrow forecast info too -- need to get it included in the CAAML
     internal

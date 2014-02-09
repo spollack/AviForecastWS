@@ -9185,7 +9185,7 @@
     {
         "regionId": "caic_0a",
         "displayName": "Steamboat & Flat Tops",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/steamboat-flat-tops/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/0/",
         "points": [
             {
                 "lat": "39.958",
@@ -9304,7 +9304,7 @@
     {
         "regionId": "caic_0b",
         "displayName": "Steamboat & Flat Tops",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/steamboat-flat-tops/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/0/",
         "points": [
             {
                 "lat": "40.883",
@@ -9503,7 +9503,7 @@
     {
         "regionId": "caic_1a",
         "displayName": "Front Range",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/front-range/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/1/",
         "points": [
             {
                 "lat": "39.031",
@@ -9798,7 +9798,7 @@
     {
         "regionId": "caic_1b",
         "displayName": "Front Range",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/front-range/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/1/",
         "points": [
             {
                 "lat": "38.659",
@@ -9873,7 +9873,7 @@
     {
         "regionId": "caic_2",
         "displayName": "Vail & Summit County",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/vail-summit-county/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/2/",
         "points": [
             {
                 "lat": "39.964",
@@ -10076,7 +10076,7 @@
     {
         "regionId": "caic_3",
         "displayName": "Sawatch",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/sawatch/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/3/",
         "points": [
             {
                 "lat": "39.366",
@@ -10351,7 +10351,7 @@
     {
         "regionId": "caic_4",
         "displayName": "Aspen",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/aspen/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/4/",
         "points": [
             {
                 "lat": "39.584",
@@ -10526,7 +10526,7 @@
     {
         "regionId": "caic_5",
         "displayName": "Gunnison",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/gunnison/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/5/",
         "points": [
             {
                 "lat": "38.997",
@@ -10757,7 +10757,7 @@
     {
         "regionId": "caic_6",
         "displayName": "Grand Mesa",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/grand-mesa/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/6/",
         "points": [
             {
                 "lat": "39.287",
@@ -10868,7 +10868,7 @@
     {
         "regionId": "caic_7",
         "displayName": "North San Juan",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/north-san-juan/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/7/",
         "points": [
             {
                 "lat": "37.666",
@@ -11103,7 +11103,7 @@
     {
         "regionId": "caic_8",
         "displayName": "South San Juan",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/south-san-juan/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/8/",
         "points": [
             {
                 "lat": "37.666",
@@ -11346,7 +11346,7 @@
     {
         "regionId": "caic_9",
         "displayName": "Sangre de Cristo",
-        "URL": "http://aviforecast.herokuapp.com/proxy/caic/sangre-de-cristo/",
+        "URL": "http://aviforecast.herokuapp.com/proxy/caic/9/",
         "points": [
             {
                 "lat": "38.307",
