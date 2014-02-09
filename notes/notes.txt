@@ -72,8 +72,6 @@ marketing
 WS
     changes for the 2013-2014 season
         CAIC
-            region definitions changed
-                deploy and test all!
             web page proxying broken due to relative paths
                 for now, removed proxying, which breaks offline caching for android
                 idea: enhance proxying to fix up relative urls to full urls?
