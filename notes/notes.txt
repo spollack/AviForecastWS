@@ -73,6 +73,7 @@ WS
     changes for the 2013-2014 season
         CAIC
             caching broken on Android (only) for the sub-link that has all the real info
+            change to use the sublink directly, and proxy it! http://avalanche.state.co.us/caic/pub_bc_avo.php?zone_id=0
     waiting on or need to contact center
         [see Excel sheet]
     existing integrations: minor issues / enhancements
