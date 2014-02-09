@@ -70,13 +70,6 @@ marketing
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
 WS
-    changes for the 2013-2014 season
-        CAIC
-            web page proxying broken due to relative paths
-                for now, removed proxying, which breaks offline caching for android
-                idea: enhance proxying to fix up relative urls to full urls?
-        IPAC
-            whole detailed page not loading due to relative paths in their HTML; asked them to fix the path for the header
     waiting on or need to contact center
         [see Excel sheet]
     existing integrations: minor issues / enhancements
