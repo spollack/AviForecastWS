@@ -106,7 +106,7 @@ describe('validateForecast', function(){
     describe('null forecasts', function(){
         it('should return false, unless it is a known exception region', function(){
             forecasts.validateForecast('nwac_olympics', null).should.be.false;
-            forecasts.validateForecast('cac_bighorn', null).should.be.true;     // NOTE this region currently never issues danger levels
+            forecasts.validateForecast('cacb_northrockies', null).should.be.true;     // NOTE this region currently never issues danger levels
         })
     })
     describe('valid forecasts', function(){
