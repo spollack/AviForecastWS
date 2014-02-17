@@ -983,6 +983,28 @@ describe('parseForecast_hg', function(){
     })
 })
 
+describe('parseForecast_mwac', function(){
+    describe('file000.xml', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file000.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('mwac_'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('mwac_'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-02-16');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
+})
+
 
 
 

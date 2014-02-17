@@ -386,6 +386,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.centreavalanche.qc.ca/conditions/bulletins-avalanche/bulletin-en';
                     parser = forecasts.parseForecast_hg;
                     break;
+                case 'mwac':
+                    dataURL = 'http://www.mountwashingtonavalanchecenter.org/feed/';
+                    parser = forecasts.parseForecast_mwac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -1443,6 +1447,45 @@ forecasts.parseForecastValues_hg = function(body, regionDetails) {
     }
 
     return aviLevels;
+};
+
+forecasts.parseForecast_mwac = function(body, regionDetails) {
+
+    var forecast = null;
+
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastDateField = result.channel.item.title;
+            // NOTE typical date string: 'Avalanche Advisory for Sunday, February 16, 2014'
+            var forecastIssuedDate = moment.utc(forecastDateField, 'ddd, MMM DD YYYY').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+            // NOTE parse the special rating html field out of the content field
+            // typical special rating html field: <div id="rating">high</div>
+            var contentField = result.channel.item['content:encoded'];
+            var ratingMatch = contentField.match(/<div id=\"rating\">(\w+)<\/div>/i);
+
+            // the capture groups from the regex will be in slot 1 in the array
+            if (ratingMatch && ratingMatch.length === 2) {
+                var aviLevelString = ratingMatch[1];
+                var aviLevel = forecasts.findHighestAviLevelInString(aviLevelString);
+
+                // NOTE mwac issues single day forecasts (although not every day)
+                forecast = [];
+                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+                for (var j = 0; j < forecast.length; j++) {
+                    winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+                }
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
 };
 
 
