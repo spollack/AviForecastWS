@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="CutlerRiverDrainage">
+    <name>CutlerRiverDrainage</name>
+    <Snippet></Snippet>
+    <Folder id="FeatureLayer0">
+      <name>CutlerRiverDrainage</name>
+      <Snippet></Snippet>
+      <Placemark>
+        <name>CutlerRiverDrainage</name>
+        <styleUrl>#PolyStyle00</styleUrl>
+        <Snippet></Snippet>
+        <MultiGeometry>
+            <Polygon><outerBoundaryIs><LinearRing><coordinates>-71.292850000000001,44.278877000000001,0 -71.278416000000007,44.282077999999998,0 -71.269441999999998,44.278312,0 -71.253192999999996,44.278920999999997,0 -71.254693000000003,44.264304000000003,0 -71.247932000000006,44.261377000000003,0 -71.253452999999993,44.255015,0 -71.274150000000006,44.260219999999997,0 -71.280162000000004,44.254238999999998,0 -71.295055000000005,44.252859999999998,0 -71.306301000000005,44.259346000000001,0 -71.308476999999996,44.266379999999998,0 -71.306557999999995,44.270685,0 -71.301441999999994,44.269896000000003,0 -71.301831000000007,44.275928999999998,0 -71.292850000000001,44.278877000000001,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+        </MultiGeometry>
+      </Placemark>
+    </Folder>
+    <Style id="PolyStyle00">
+      <LabelStyle>
+        <color>00000000</color>
+        <scale>0.000000</scale>
+      </LabelStyle>
+      <LineStyle>
+        <color>ff000000</color>
+        <width>1.000000</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>00f0f0f0</color>
+        <outline>1</outline>
+      </PolyStyle>
+    </Style>
+  </Document>
+</kml>
