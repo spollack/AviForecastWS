@@ -221,9 +221,9 @@ avalanche forecast center intro/integration blurb:
 
 Hello,
 
-I am the developer of the free “Avalanche Forecasts" mobile app, and I'd like to get the XXX center integrated.
+I am the developer of the “Avalanche Forecasts" mobile app, and I'd like to get the XXX center integrated.
 
-The app, which is available for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
+The app, which is available free for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
 
 I currently have it integrated with over 20 forecast centers, including NWAC, SAC, ESAC, CAIC, UAC, BTAC, GNFAC, WCMAC, FAC, SNFAC, IPAC, CNFAIC, CAC, Parks Canada, Whistler-Blackcomb, and more. I'd like to eventually include all the avalanche forecasting centers across North America.
 
