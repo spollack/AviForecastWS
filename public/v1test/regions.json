@@ -16540,5 +16540,150 @@
                 "lon": "-66.011"
             }
         ]
+    },
+    {
+        "regionId": "mwac_",
+        "displayName": "CutlerRiverDrainage",
+        "URL": "http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/",
+        "points": [
+            {
+                "lat": "44.279",
+                "lon": "-71.293"
+            },
+            {
+                "lat": "44.282",
+                "lon": "-71.278"
+            },
+            {
+                "lat": "44.278",
+                "lon": "-71.269"
+            },
+            {
+                "lat": "44.279",
+                "lon": "-71.253"
+            },
+            {
+                "lat": "44.264",
+                "lon": "-71.255"
+            },
+            {
+                "lat": "44.261",
+                "lon": "-71.248"
+            },
+            {
+                "lat": "44.255",
+                "lon": "-71.253"
+            },
+            {
+                "lat": "44.260",
+                "lon": "-71.274"
+            },
+            {
+                "lat": "44.254",
+                "lon": "-71.280"
+            },
+            {
+                "lat": "44.253",
+                "lon": "-71.295"
+            },
+            {
+                "lat": "44.259",
+                "lon": "-71.306"
+            },
+            {
+                "lat": "44.266",
+                "lon": "-71.308"
+            },
+            {
+                "lat": "44.271",
+                "lon": "-71.307"
+            },
+            {
+                "lat": "44.270",
+                "lon": "-71.301"
+            },
+            {
+                "lat": "44.276",
+                "lon": "-71.302"
+            },
+            {
+                "lat": "44.279",
+                "lon": "-71.293"
+            }
+        ]
+    },
+    {
+        "regionId": "cac2_1",
+        "displayName": "Cordova",
+        "URL": "http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions",
+        "points": [
+            {
+                "lat": "60.521",
+                "lon": "-146.073"
+            },
+            {
+                "lat": "60.454",
+                "lon": "-145.971"
+            },
+            {
+                "lat": "60.347",
+                "lon": "-145.362"
+            },
+            {
+                "lat": "60.640",
+                "lon": "-144.654"
+            },
+            {
+                "lat": "60.903",
+                "lon": "-145.082"
+            },
+            {
+                "lat": "60.640",
+                "lon": "-145.791"
+            },
+            {
+                "lat": "60.521",
+                "lon": "-146.073"
+            }
+        ]
+    },
+    {
+        "regionId": "kpac_1",
+        "displayName": "San Francisco Peaks",
+        "URL": "http://www.kachinapeaks.org/snow-pack-summaries/",
+        "points": [
+            {
+                "lat": "35.342",
+                "lon": "-111.715"
+            },
+            {
+                "lat": "35.303",
+                "lon": "-111.715"
+            },
+            {
+                "lat": "35.302",
+                "lon": "-111.660"
+            },
+            {
+                "lat": "35.333",
+                "lon": "-111.613"
+            },
+            {
+                "lat": "35.369",
+                "lon": "-111.626"
+            },
+            {
+                "lat": "35.382",
+                "lon": "-111.662"
+            },
+            {
+                "lat": "35.369",
+                "lon": "-111.707"
+            },
+            {
+                "lat": "35.342",
+                "lon": "-111.715"
+            }
+        ]
     }
 ]
