@@ -244,26 +244,6 @@ ps: A word on my motivations: i'm doing this project as a pro bono service to th
 
 
 
-get the word out blurb:
---------------------
-[Avalanche Forecasts mobile app]
-
-I recently developed a free avalanche forecasts mobile app as a pro bono project, and I'd like to ask your help to spread the word more broadly about this app within the backcountry community. 
-
-The app, which is available free for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. Bottom-line danger levels are shown color-coded for each forecast region on a map. Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains. 
-
-I currently have integrated with the NWAC (Northwest US), SAC (central Sierras), ESAC (Eastern Sierras), CAIC (Colorado), UAC (Utah), BTAC (Jackson Hole), GNFAC (Bozeman), WCMAC (Missoula), FAC (Kalispell), SNFAC (Sun Valley), IPAC (Idaho Panhandle), CNFAIC (Chugach), JAC (Juneau), AAC (Anchorage), HAIC (Haines), CAC (Canada), Parks Canada, WhistlerBlackcomb, and VIAC (Vancouver Island) forecasting centers. My goal over time is to eventually include all the avalanche forecasting centers across North America.
-
-You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/  
-
-Thanks for your help!
-
-Seth
-206-553-9420
-
-ps: A word on my motivations: i'm doing this project as a pro bono service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Plus its a fun project!
-
-
 
 
 
