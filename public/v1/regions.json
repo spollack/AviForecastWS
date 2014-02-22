@@ -16611,5 +16611,79 @@
                 "lon": "-71.293"
             }
         ]
+    },
+    {
+        "regionId": "cac2_1",
+        "displayName": "Cordova",
+        "URL": "http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions",
+        "points": [
+            {
+                "lat": "60.521",
+                "lon": "-146.073"
+            },
+            {
+                "lat": "60.454",
+                "lon": "-145.971"
+            },
+            {
+                "lat": "60.347",
+                "lon": "-145.362"
+            },
+            {
+                "lat": "60.640",
+                "lon": "-144.654"
+            },
+            {
+                "lat": "60.903",
+                "lon": "-145.082"
+            },
+            {
+                "lat": "60.640",
+                "lon": "-145.791"
+            },
+            {
+                "lat": "60.521",
+                "lon": "-146.073"
+            }
+        ]
+    },
+    {
+        "regionId": "kpac_1",
+        "displayName": "San Francisco Peaks",
+        "URL": "http://www.kachinapeaks.org/snow-pack-summaries/",
+        "points": [
+            {
+                "lat": "35.342",
+                "lon": "-111.715"
+            },
+            {
+                "lat": "35.303",
+                "lon": "-111.715"
+            },
+            {
+                "lat": "35.302",
+                "lon": "-111.660"
+            },
+            {
+                "lat": "35.333",
+                "lon": "-111.613"
+            },
+            {
+                "lat": "35.369",
+                "lon": "-111.626"
+            },
+            {
+                "lat": "35.382",
+                "lon": "-111.662"
+            },
+            {
+                "lat": "35.369",
+                "lon": "-111.707"
+            },
+            {
+                "lat": "35.342",
+                "lon": "-111.715"
+            }
+        ]
     }
 ]

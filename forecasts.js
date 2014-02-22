@@ -126,7 +126,8 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // check for null forecast
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
-        if (regionId === 'cacb_northrockies' || regionId === 'cnfaic_summit') {
+        if (regionId === 'cacb_northrockies' || regionId === 'cnfaic_summit' || regionId === 'haic_1' || regionId === 'vac_1' ||
+            regionId === 'aac_1' || regionId === 'cac2_1' || regionId === 'kpac_1') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
@@ -207,7 +208,8 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
             if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
                 || regionId === 'wcmac_north' || regionId === 'wcmac_south' || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
-                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3' || regionId === 'ipac_4') {
+                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3' || regionId === 'ipac_4'
+                || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4' || regionId === 'fac_5') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
@@ -380,6 +382,14 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'vac':
                     dataURL = 'http://www.valdezavalanchecenter.org/category/bulletin/';
+                    parser = forecasts.parseForecast_noop;
+                    break;
+                case 'cac2':
+                    dataURL = 'http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions';
+                    parser = forecasts.parseForecast_noop;
+                    break;
+                case 'kpac':
+                    dataURL = 'http://www.kachinapeaks.org/snow-pack-summaries/';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'hg':
