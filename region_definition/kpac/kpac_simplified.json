@@ -1,0 +1,41 @@
+[
+    {
+        "regionId": "kpac_",
+        "displayName": "San Francisco Peaks",
+        "URL": "http://www.kachinapeaks.org/snow-pack-summaries/",
+        "points": [
+            {
+                "lat": "35.342",
+                "lon": "-111.715"
+            },
+            {
+                "lat": "35.303",
+                "lon": "-111.715"
+            },
+            {
+                "lat": "35.302",
+                "lon": "-111.660"
+            },
+            {
+                "lat": "35.333",
+                "lon": "-111.613"
+            },
+            {
+                "lat": "35.369",
+                "lon": "-111.626"
+            },
+            {
+                "lat": "35.382",
+                "lon": "-111.662"
+            },
+            {
+                "lat": "35.369",
+                "lon": "-111.707"
+            },
+            {
+                "lat": "35.342",
+                "lon": "-111.715"
+            }
+        ]
+    }
+]

@@ -21,7 +21,9 @@ var fs = require('fs');
 // KMLFileToJSONFile('haic/haic_simplified.kml','haic/haic_simplified.json','haic','http://alaskasnow.org/haines/conditions.html');
 // KMLFileToJSONFile('fac/fac_simplified.kml','fac/fac_simplified.json','fac','http://www.flatheadavalanche.org/category/advisories/');
 // KMLFileToJSONFile('vac/vac_simplified.kml','vac/vac_simplified.json','vac','http://www.valdezavalanchecenter.org/category/bulletin/');
-KMLFileToJSONFile('mwac/mwac_simplified.kml','mwac/mwac_simplified.json','mwac','http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/');
+// KMLFileToJSONFile('mwac/mwac_simplified.kml','mwac/mwac_simplified.json','mwac','http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/');
+// KMLFileToJSONFile('kpac/kpac_simplified.kml','kpac/kpac_simplified.json','kpac','http://www.kachinapeaks.org/snow-pack-summaries/');
+KMLFileToJSONFile('cac2/cac2_simplified.kml','cac2/cac2_simplified.json','cac2','http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {
