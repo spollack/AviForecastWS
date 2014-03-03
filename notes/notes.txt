@@ -78,6 +78,7 @@ WS
             the details, we link directly to the iframe piece and proxy that; it works, but we lose the window dressing around it
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
         CAIC -- would like to incorporate tomorrow forecast info too -- need to get it included in the CAAML
+        CAIC -- would like them to resolve the region overlap with CBAC
     internal
         figure out way to get usage stats per forecast center / region
         set up real (remote) git
