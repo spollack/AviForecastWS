@@ -127,7 +127,8 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
         if (regionId === 'cacb_northrockies' || regionId === 'cnfaic_summit' || regionId === 'haic_1' || regionId === 'vac_1' ||
-            regionId === 'aac_1' || regionId === 'cac2_1' || regionId === 'hpac_1' || regionId === 'kpac_1') {
+            regionId === 'aac_1' || regionId === 'cac2_1' || regionId === 'hpac_1' || regionId === 'kpac_1' ||
+            regionId === 'fac_4' || regionId === 'fac_5') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
