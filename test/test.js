@@ -807,6 +807,17 @@ describe('parseForecast_fac', function(){
             forecast[0].aviLevel.should.equal(2);
         })
     })
+    describe('file006.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file006.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('fac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-03-02');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
 })
 
 describe('parseForecast_cnfaic', function(){
@@ -987,7 +998,7 @@ describe('parseForecast_mwac', function(){
     describe('file000.xml', function(){
         it('should fail gracefully on bad input', function(){
             var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file000.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('mwac_'));
+                forecasts.getRegionDetailsForRegionId('mwac_1'));
 
             should.not.exist(forecast);
         })
@@ -995,11 +1006,22 @@ describe('parseForecast_mwac', function(){
     describe('file001.xml', function(){
         it('should return the correct forecast details', function(){
             var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file001.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('mwac_'));
+                forecasts.getRegionDetailsForRegionId('mwac_1'));
 
             should.exist(forecast);
             forecast.length.should.equal(1);
             forecast[0].date.should.equal('2014-02-16');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
+    describe('file002.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('mwac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-03-02');
             forecast[0].aviLevel.should.equal(3);
         })
     })

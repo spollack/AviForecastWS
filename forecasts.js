@@ -1473,8 +1473,8 @@ forecasts.parseForecast_mwac = function(body, regionDetails) {
         try {
             var forecastDateField = result.channel.item.title;
             // NOTE typical date string: 'Avalanche Advisory for Sunday, February 16, 2014'
-            // NOTE we are relying on moment parsing here to ignore the noise words at the front of the string
-            var forecastIssuedDate = moment(forecastDateField, 'ddd, MMM DD, YYYY').format('YYYY-MM-DD');
+            var dateString = forecastDateField.match(/\w+\s+\w+\s*,?\s+\w+\s*$/i);
+            var forecastIssuedDate = moment(dateString, 'MMM DD, YYYY').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
             // NOTE parse the special rating html field out of the content field
