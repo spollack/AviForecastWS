@@ -23,7 +23,8 @@ var fs = require('fs');
 // KMLFileToJSONFile('vac/vac_simplified.kml','vac/vac_simplified.json','vac','http://www.valdezavalanchecenter.org/category/bulletin/');
 // KMLFileToJSONFile('mwac/mwac_simplified.kml','mwac/mwac_simplified.json','mwac','http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/');
 // KMLFileToJSONFile('kpac/kpac_simplified.kml','kpac/kpac_simplified.json','kpac','http://www.kachinapeaks.org/snow-pack-summaries/');
-KMLFileToJSONFile('cac2/cac2_simplified.kml','cac2/cac2_simplified.json','cac2','http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions');
+// KMLFileToJSONFile('cac2/cac2_simplified.kml','cac2/cac2_simplified.json','cac2','http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions');
+KMLFileToJSONFile('hpac/hpac_simplified.kml','hpac/hpac_simplified.json','hpac','http://hatcherpassavalanchecenter.org/');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {

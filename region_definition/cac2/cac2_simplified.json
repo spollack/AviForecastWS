@@ -1,0 +1,25 @@
+[
+    {
+        "regionId": "cac2_1",
+        "displayName": "Cordova",
+        "URL": "http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions",
+        "points": [
+            {
+                "lat": "60.488",
+                "lon": "-144.925"
+            },
+            {
+                "lat": "60.815",
+                "lon": "-145.354"
+            },
+            {
+                "lat": "60.439",
+                "lon": "-146.020"
+            },
+            {
+                "lat": "60.488",
+                "lon": "-144.925"
+            }
+        ]
+    }
+]
