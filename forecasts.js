@@ -208,9 +208,11 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
             if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
-                || regionId === 'wcmac_north' || regionId === 'wcmac_south' || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
+                || regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south'
+                || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
                 || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3' || regionId === 'ipac_4'
-                || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4' || regionId === 'fac_5') {
+                || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4' || regionId === 'fac_5'
+                || regionId === 'msac_1') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
@@ -408,6 +410,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'mwac':
                     dataURL = 'http://www.mountwashingtonavalanchecenter.org/feed/';
                     parser = forecasts.parseForecast_mwac;
+                    break;
+                case 'msac':
+                    dataURL = 'http://shastaavalanche.org/danger-rating-rss.xml';
+                    parser = forecasts.parseForecast_msac;
                     break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
@@ -1508,6 +1514,35 @@ forecasts.parseForecast_mwac = function(body, regionDetails) {
     return forecast;
 };
 
+forecasts.parseForecast_msac = function(body, regionDetails) {
+
+    var forecast = null;
+
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.channel.item.pubDate;
+            // NOTE typical date string: '03/08/2014 - 6:58am'
+            var forecastIssuedDate = moment(forecastIssuedDateField, 'MM/DD/YYYY').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+            // NOTE forecasts are valid for the day issued only
+            var aviLevel = forecasts.findHighestAviLevelInString(result.channel.item.description);
+
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
+};
 
 
 

@@ -1027,6 +1027,39 @@ describe('parseForecast_mwac', function(){
     })
 })
 
+describe('parseForecast_msac', function(){
+    describe('file000.xml', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_msac(fs.readFileSync('test/data/msac/file000.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('msac_1'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_msac(fs.readFileSync('test/data/msac/file001.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('msac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-03-08');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+    describe('file002.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_msac(fs.readFileSync('test/data/msac/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('msac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-03-09');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
+})
+
 
 
 
