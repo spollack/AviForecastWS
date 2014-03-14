@@ -16783,7 +16783,7 @@
     {
         "regionId": "wac_1",
         "displayName": "Blue Mountains",
-        "URL": "http://www.wallowaavalanchecenter.org/condition_summary_list",
+        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
         "points": [
             {
                 "lat": "45.315",
@@ -16870,7 +16870,7 @@
     {
         "regionId": "wac_2",
         "displayName": "Elkhorn Mountains",
-        "URL": "http://www.wallowaavalanchecenter.org/condition_summary_list",
+        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
         "points": [
             {
                 "lat": "45.258",
@@ -16925,7 +16925,7 @@
     {
         "regionId": "wac_3",
         "displayName": "Salt Creek Summit",
-        "URL": "http://www.wallowaavalanchecenter.org/condition_summary_list",
+        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
         "points": [
             {
                 "lat": "45.216",
@@ -16968,7 +16968,7 @@
     {
         "regionId": "wac_4",
         "displayName": "Sugarloaf / Clear Creek",
-        "URL": "http://www.wallowaavalanchecenter.org/condition_summary_list",
+        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
         "points": [
             {
                 "lat": "45.216",
@@ -17011,7 +17011,7 @@
     {
         "regionId": "wac_5",
         "displayName": "Catherine Creek / Taylor Green",
-        "URL": "http://www.wallowaavalanchecenter.org/condition_summary_list",
+        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
         "points": [
             {
                 "lat": "45.059",
@@ -17054,7 +17054,7 @@
     {
         "regionId": "wac_6",
         "displayName": "Northern Wallowa Mtns.",
-        "URL": "http://www.wallowaavalanchecenter.org/condition_summary_list",
+        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
         "points": [
             {
                 "lat": "45.336",
@@ -17105,7 +17105,7 @@
     {
         "regionId": "wac_7",
         "displayName": "Norway Basin / Cornucopia",
-        "URL": "http://www.wallowaavalanchecenter.org/condition_summary_list",
+        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
         "points": [
             {
                 "lat": "45.102",
@@ -17156,7 +17156,7 @@
     {
         "regionId": "wac_8",
         "displayName": "Moss Springs",
-        "URL": "http://www.wallowaavalanchecenter.org/condition_summary_list",
+        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
         "points": [
             {
                 "lat": "45.223",
