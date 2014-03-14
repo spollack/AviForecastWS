@@ -400,7 +400,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'wac':
-                    dataURL = 'http://www.wallowaavalanchecenter.org/condition_summary_list';
+                    dataURL = 'http://www.wallowaavalanchecenter.org/bulletin';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'hg':
