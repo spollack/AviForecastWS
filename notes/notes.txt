@@ -69,6 +69,10 @@ marketing
         add screenshots showing US Rockies integrations and other newer areas
     use rivaliq ;-)
     review Uli's marketing guide for other steps to take
+KEY NEW FEATURES per discussion with Andy Anderson
+    upload field observations (photo, geotagged, some dropdown fields, notes w/ voice input)
+    donate to avi center (via link to center website, not direct); also probably want a dropdown to pick your "home" center when you first install
+    perhaps ability to push notifications of avalanche warnings/watches, etc.
 WS
     waiting on or need to contact center
         [see Excel sheet]
