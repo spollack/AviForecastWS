@@ -21,6 +21,7 @@ web service
         replace gzippo with express3 built-in compression
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         update to current semantics (not 0.1.x) with xml2js
+        update dependency packages
         fix use of config.js
         use HTML parsing library (cheerio) as opposed by regexs
         create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
