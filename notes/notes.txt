@@ -1,79 +1,11 @@
-things to do:
+backlist of things to do:
 --------------------
-marketing
-    get iOS app reviews (new/updated) of latest version
-    promote availability
-        invite all forecast center pages to like my FB page
-        get the integrated avalanche centers to share with their communities
-            NWAC: asked Libby, she is talking to Benj; reposted Bruce's blog post
-            SAC: posted on FB; going to hopefully put something on their website
-            UAC: Bruce did a blog post; listed on website
-            CAIC: reposted Bruce's blog post
-            BTAC: Carol talking to Bob about where/how to put on website
-            GNFAC: posted on their facebook page
-            VIAC: communicated; listed on website
-            CAC: asked about reposting Bruce's blog post, no response
-            PC: Grant said they will repost Bruce's blog post
-            WCMAC: posted on facebook
-            SNFAC: made request
-            ESAC: made request
-            WB: made request
-            IPAC: made request
-            CNFAIC: Kevin said they will promote via social media
-        send to ski areas
-        send to avalanche class instructors
-        send to professional avalanche organizations
-            http://www.fsavalanche.org/
-            http://www.americanavalancheassociation.org/publications.php
-            http://www.americanavalancheinstitute.com/aai2/resources.php
-            avalanche.org
-            etc.
-        send to ski/snowboard/backcountry mags/sites: 
-            Powder Magazine (http://www.powdermag.com/) -- sent email to John Stifter, editor, 2012-12-20
-            www.wildsnow.com -- emailed 2013-01-13
-            http://www.backcountrymagazine.com/
-            http://coastmountainculture.com/
-            www.backcountryskiingcanada.com
-            www.straightchuter.com
-            www.notesfromtheneve.com
-            www.biglines.com
-            http://wasatchbackcountryskiing.com/
-            http://www.sleddermag.com/
-            www.alpinist.com
-            http://www.skiwashington.com/   https://www.facebook.com/pages/Ski-Washington/282794856579  [FB page]
-            www.snowmobilers.org
-            Outside Magazine
-            http://www.wta.org/
-            http://americanalpineclub.org/
-            http://www.rockandice.com/
-            http://www.climbing.com/
-            etc.
-        other folks to send to
-            http://www.alaskasnow.org/ (once i've integrated Alaska sites)
-    Twitter
-        deliver content
-        do some posts mentioning included centers handles
-        figure out hashtags to use
-    Facebook
-        deliver content
-    sebnarware.com website
-        phone layout
-            fix title text size
-        SEO
-            on-page
-            get inbound links
-            check search results rankings in google, bing
-        add a FAQ page?
-        add nav bar?
-    app store pages
-        add screenshots showing US Rockies integrations and other newer areas
-    use rivaliq ;-)
-    review Uli's marketing guide for other steps to take
-KEY NEW FEATURES per discussion with Andy Anderson
+
+key new features per discussion with Andy Anderson
     upload field observations (photo, geotagged, some dropdown fields, notes w/ voice input)
     donate to avi center (via link to center website, not direct); also probably want a dropdown to pick your "home" center when you first install
     perhaps ability to push notifications of avalanche warnings/watches, etc.
-WS
+web service
     waiting on or need to contact center
         [see Excel sheet]
     existing integrations: minor issues / enhancements
@@ -203,7 +135,7 @@ iOS
         get app rotation working in all views (or at least danger scale definition view)?
 
 
-postgis shape simplification
+postgis shape simplification flow
 --------------------
 
 first, in the "postgis" database:
@@ -218,57 +150,4 @@ get KML:
 SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
 KML_fragment_here
 		'), 0.01));
-
-
-avalanche forecast center intro/integration blurb:
---------------------
-[Avalanche Forecasts mobile app integration]
-
-Hello,
-
-I am the developer of the “Avalanche Forecasts" mobile app, and I'd like to get the XXX center integrated.
-
-The app, which is available free for both iPhone and Android, displays avalanche conditions "at-a-glance", across multiple forecasting centers. My goal is to make avalanche forecasts more readily accessible to folks heading out into the backcountry. Bottom-line danger levels are shown color-coded for each forecast region on a map (following the standard North American danger scale), based on the selected timeframe (Today/Tomorrow/2 Days Out). Clicking on any region brings up the detailed avalanche forecast from the source forecasting center. All content is cached for offline use, so you can refer back to the information you've seen even if you lose coverage in the mountains.
-
-I currently have it integrated with over 20 forecast centers, including NWAC, SAC, ESAC, MSAC, CAIC, UAC, BTAC, GNFAC, WCMAC, FAC, SNFAC, IPAC, CNFAIC, CAC, Parks Canada, Whistler-Blackcomb, and more. I'd like to eventually include all the avalanche forecasting centers across North America.
-
-You can view screenshots, etc. and download the app here: http://avalancheforecasts.com/
-
-In order to integrate technically, there are two elements i'll need. Usually this is a small amount of work for you.
-1) forecast region definitions: do you have a KMZ/KML file that describes the borders of each of your forecast regions? If not, i can work with you to create this.
-2) forecast data: to color the map regions appropriately, i need a way for my software to get the overall hazard level (low/moderate/considerable/high/extreme) and associated valid date(s). If you have a CAAML feed or other data API that’s great; if not I can extract the forecast information by parsing your web page HTML or RSS feed.
-
-Would you please connect me with your technical point of contact? 
-
-Thanks for your help!
-
-Seth
-206-553-9420
-
-ps: A word on my motivations: i'm doing this project as a pro bono service to the outdoors community, because i feel getting the avalanche forecast information out there broadly, consistently, and in an easy-to-consume fashion is so important. Plus it's a fun project!
-
-
-
-
-
-
-Avalanche Forecasts mobile app: preseason check-in
-
-Hi XXX, 
-
-I hope you had a great summer. The snow is beginning to fly, so i'm reaching out to re-connect in preparation for the upcoming avalanche forecasting season. 
-
-I'd like to check if you are making any changes to your region definitions or your forecast format, or if there is anything else that i should be aware of so that our integration operates smoothly. 
-
-Looking forward to working together again this winter. 
-
-Thanks!
-Seth
-
-Avalanche Forecasts app:
-Website: http://avalancheforecasts.com/
-Facebook: http://www.facebook.com/AvalancheForecasts
-Twitter: @aviforecast
-
-
 
