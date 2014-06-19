@@ -17,7 +17,6 @@ web service
         CAIC -- would like to see the region overlap with CBAC resolved
     internal
         figure out way to get usage stats per forecast center / region
-        set up real (remote) git
         replace gzippo with express3 built-in compression
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         update to current semantics (not 0.1.x) with xml2js
