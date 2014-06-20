@@ -37,6 +37,7 @@ web service
 Android
     v1.2
         bugs and cleanup
+            externalize keys for things like flurry from codebase
             change to grey, instead of white, for the "no rating" color
             lifecycle management
                 on rotation, don't reload anything
@@ -78,6 +79,7 @@ iOS
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             set a max zoom level
         other
+            externalize keys for things like flurry from codebase
             change to grey, instead of white, for the "no rating" color
             add loading spinner for detailed forecasts too
             drop custom user agent string (test with NWAC and all other sites)
