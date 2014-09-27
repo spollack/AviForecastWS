@@ -1,9 +1,14 @@
-backlist of things to do:
+backlog of things to do:
 --------------------
 
-key new features per discussion with Andy Anderson
-    upload field observations (photo, geotagged, some dropdown fields, notes w/ voice input)
-    donate to avi center (via link to center website, not direct); also probably want a dropdown to pick your "home" center when you first install
+general feature roadmap
+    v2
+        upload field observations (photo, geotagged, some dropdown fields, etc)
+        support your avi center (via link to center website, not direct); also probably want a dropdown to pick your "home" center when you first install
+        sharing: make it easy to share the app via facebook, twitter
+    v3
+        push notifications of avalanche warnings/watches, etc.
+        add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
 website
     change website host; a separate heroku app is probably easiest/best; could alternatively use S3 file serving
 web service
@@ -16,14 +21,16 @@ web service
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
         CAIC -- would like to incorporate tomorrow forecast info too -- need to get it included in the CAAML
         CAIC -- would like to see the region overlap with CBAC resolved
-    internal
+    v2
+        overall v2 features (from above)
         figure out way to get usage stats per forecast center / region
         replace gzippo with express3 built-in compression
-        wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
-        update to current semantics (not 0.1.x) with xml2js
         create server-oriented regions config structure (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         fix use of config.js
+        wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
+        update to current semantics (not 0.1.x) with xml2js
         use HTML parsing library (cheerio) as opposed by regexs
+    v3
         deal with timezones in a rigorous way (forecasts expiring at a given time, etc.)
         capture all generated forecasts (for example, in S3)?
         further auto-validation of each generated forecast
@@ -35,22 +42,26 @@ web service
             also snapshot user URL vs. data URL vs. my forecast always, for later review
             add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android
-    v1.2
+    v2
+        overall v2 features (from above)
+        map usability
+            remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
+            set a max zoom level
         bugs and cleanup
+            drop custom user agent string (test with NWAC and all other sites)
             externalize keys for things like flurry from codebase
             change to grey, instead of white, for the "no rating" color
             lifecycle management
                 on rotation, don't reload anything
                 clean up what happens at what phase of lifecycle
-            remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             redo location services stuff to turn off gps after we have a first fix
-            swap top and bottom bars
+            swap top and bottom bars to be consistent with iOS app
             update the usage text, from iOS version
-            drop custom user agent string (test with NWAC and all other sites)
-            bug to look at:
-                ANR keyDispatchingTimedOut : com.sebnarware.avalanche/.DangerScaleActivity
-                check developer portal for more details
-            offline caching not working in all cases? (tests out fine on my phone and Adam's phone...)
+        for external builds, before releasing, REMEMBER...
+            set version string appropriately
+            be sure to build with production map key
+            do signed export flow
+    v3
         further map performance tuning
             investigate keeping path, and transforming via matrix to pan or scale
             split up path calc per OSM approach
@@ -58,8 +69,6 @@ Android
                 http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/views/MapView.java?r=790
             simplify polygons (point thinning when zoomed out)
             consider creating my own overlay manager class, to unify top-level logic
-        new features
-            [see iOS list]
         low pri issues
             danger scale view should zoom to fill screen by default (based on orientation)
             title bar shows up in different colors on different android versions
@@ -67,32 +76,26 @@ Android
                 (tried it, but getting dark icon on dark background; so either leave it, or change one the icon color, or the background color)
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS/JB
                 test again with my revised FixedMyLocationOverlay, that always does the drawing
-            in case of first time app use with no network, app must be shut down to try again once there is network
-        for all external builds
-            set version string appropriately
-            be sure to build with production map key
-            do signed export flow
+            in case of first time app use with no network, app must be shut down to try again once there is network        
 iOS
-    v1.6
+    v2
+        overall v2 features (from above)
         map usability
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             set a max zoom level
-        other
+        bugs and cleanup
+            drop custom user agent string (test with NWAC and all other sites)
             externalize keys for things like flurry from codebase
             change to grey, instead of white, for the "no rating" color
             add loading spinner for detailed forecasts too
-            drop custom user agent string (test with NWAC and all other sites)
             CAIC urls should be https at the top level, but RNCache only supports HTTP, investigate if its easy/hard to add HTTPS support too
             protect against null values for aviLevel in a forecast (even though this should never happen)
-        info section
             change info button to bring up a table of topics (master/detail), not a pop-up
-            add link to partners web page
-            add info on human factors and decision making, using your brain -- find good reference
-        sharing
-            make it easy to share (virally) via facebook, twitter
-            make it easy to start following Avalanche Forecasts on facebook
-    v2
+            get app rotation working in all views (or at least danger scale definition view)
+            improve "fit" on iPhone5, 6, 6+: no black bars at the top, etc. 
+            make iPad experience better
+    v3
         status bar (or pop-ups of some sort?)
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
                 need to think through how to handle multiple messages, no messages, etc.
@@ -105,37 +108,11 @@ iOS
                 address by not showing content if forecasts for that region is already out of date?
                 flag the detailed forecast page if the forecast is a day or more out of date? (from discussion from Bruce T)
             say when data was cached, for every page?
-    v3
-        push notifications of avalanche warnings/watches, etc.
-        add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
         more data at-a-glance
             show the danger stack (elevation view) as an icon or popup on the map too within each region?
             click on a region to bring up "selected details" intermediate level of display, driven by the Today/Tomorrow/2DaysOut buttons?
             label regions with their names? give them a danger level icon?
-        cache regions.json persistently in app, for performance? (as file is large, and growing) -- probably not needed after digit compression
-            do a lightweight validity check to see if file update is necessary (still important to keep dynamic region file updates, e.g. if URL changes)
-            note that every time i push to heroku, the file timestamp is updated, so ETag or hash might be better than if-modified-since
-            see for ideas: http://iphoneincubator.com/blog/server-communication/how-to-download-a-file-only-if-it-has-been-updated
-            store where it cannot be erased by iOS (separate from other cache)
-            could implement as a customer NSURLProtocolHandler, in front of the other one
-            load new file before proceeding
-            make sure i handle both the offline and online cases
-            preload cache at app install
-            get rid of special no regions.json alert path, if no longer needed
-            OR... use a software update style model instead? (never block user waiting for download...
-                although investigate what happens to network ops if the app loses focus
-            reload regions.json periodically in app (for case where people don't restart the app/phone regularly)
-            ability to voice-read the forecast
-        make iPad experience better (user request)
-        full height launch screen for iPhone5 (no black bars)
-        feature to put in a place name, and have the map jump there; and/or have a "favorite place" you can register?
-        add a "help your avalanche center" feature to take you to donation pages?
-        add more avi reference info?
-        add weather info?
-        add telemetry info?
-        show previous days, for history? allow selecting further into the future?
-        add push notifications?
-        get app rotation working in all views (or at least danger scale definition view)?
+        reload regions.json periodically in app (for case where people don't restart the app/phone regularly)
 
 
 postgis shape simplification flow
@@ -153,4 +130,3 @@ get KML:
 SELECT ST_AsKML(ST_SimplifyPreserveTopology(ST_GeomFromKML('
 KML_fragment_here
 		'), 0.01));
-
