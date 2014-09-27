@@ -10,7 +10,6 @@ var fs = require('fs');
 var winston = require('winston');
 var express = require('express');
 var request = require('request');
-var gzippo = require('gzippo');
 var cheerio = require('cheerio');
 var config = require('./config.js');
 var forecasts = require('./forecasts.js');
@@ -70,7 +69,9 @@ function startHTTPServer() {
         }
     };
     app.use(express.logger({stream:winstonStream}));
-    
+
+    app.use(express.compress());
+
     //
     // BEGIN PROXYING HACK
     //
@@ -119,7 +120,8 @@ function startHTTPServer() {
     //
 
     // serve static content, compressed
-    app.use(gzippo.staticGzip(forecasts.STATIC_FILES_DIR_PATH, {clientMaxAge:(forecasts.CACHE_MAX_AGE_SECONDS * 1000)}));
+    app.use(express.static(forecasts.STATIC_FILES_DIR_PATH, {maxAge: forecasts.CACHE_MAX_AGE_SECONDS * 1000 }));
+
     // handle errors gracefully
     app.use(express.errorHandler());
 

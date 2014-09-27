@@ -24,7 +24,6 @@ web service
     v2
         overall v2 features (from above)
         figure out way to get usage stats per forecast center / region
-        replace gzippo with express3 built-in compression
         create server-oriented regions config structure (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         fix use of config.js
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
