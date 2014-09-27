@@ -31,7 +31,7 @@ web service
         use HTML parsing library (cheerio) as opposed by regexs
     v3
         deal with timezones in a rigorous way (forecasts expiring at a given time, etc.)
-        capture all generated forecasts (for example, in S3)?
+        capture all generated forecasts (for example, in S3), to help debug any issues
         further auto-validation of each generated forecast
             check and refine all current results
             add notion of class that is map only, no forecast parsing
