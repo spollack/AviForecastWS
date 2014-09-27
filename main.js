@@ -11,7 +11,6 @@ var winston = require('winston');
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
-var config = require('./config.js');
 var forecasts = require('./forecasts.js');
 
 
@@ -28,6 +27,8 @@ function runServer() {
 
 function configureLogger() {
 
+    var localLogFilePath = '/tmp/aviforecast-log.txt';
+    
     // remove the default transport, so that we can reconfigure it
     winston.remove(winston.transports.Console);
 
@@ -39,8 +40,8 @@ function configureLogger() {
         });
 
     if (!(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')) {
-        winston.add(winston.transports.File, {level:'info', timestamp:true, json:false, filename:config.localLogFilePath});
-        winston.info('main_configureLogger NOT production or staging mode; local logfile is at: ' + config.localLogFilePath);
+        winston.add(winston.transports.File, {level:'info', timestamp:true, json:false, filename:localLogFilePath});
+        winston.info('main_configureLogger NOT production or staging mode; local logfile is at: ' + localLogFilePath);
     }
 }
 
