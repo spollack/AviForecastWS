@@ -4,11 +4,11 @@ backlog of things to do:
 general feature roadmap
     v2
         upload field observations (photo, geotagged, some dropdown fields, etc)
+        sharing: make it easy to share the app and observations via facebook, twitter
         support your avi center (via link to center website, not direct); also probably want a dropdown to pick your "home" center when you first install
     v3
         push notifications of avalanche warnings/watches, etc.
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
-        sharing: make it easy to share the app via facebook, twitter
 website
     change website host; a separate heroku app is probably easiest/best; could alternatively use S3 file serving
 web service
