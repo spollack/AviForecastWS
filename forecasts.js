@@ -194,7 +194,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
         // then offset to get to PST, which is what we use for our checking (close enough for now)
         var timezoneOffsetMinutes = moment().zone();
         var pstOffsetMinutes = 8 * 60;
-        var currentPSTDate = moment().add('minutes', timezoneOffsetMinutes).subtract('minutes', pstOffsetMinutes).format('YYYY-MM-DD');
+        var currentPSTDate = moment().add('minutes', timezoneOffsetMinutes).subtract(pstOffsetMinutes, 'minutes').format('YYYY-MM-DD');
         winston.verbose('forecast validation: right now the PST date is: ' + currentPSTDate);
 
         for (var i = 0; i < forecast.length; i++) {
@@ -579,7 +579,7 @@ forecasts.parseForecast_nwac = function(body, regionDetails) {
         for (var i = 0; i < NUM_FORECAST_DAYS_NWAC; i++) {
             // NOTE one-based index
             var forecastIndex = i + 1;
-            var forecastDate = moment(forecastDateDay1).clone().add('days', i).format('YYYY-MM-DD');
+            var forecastDate = moment(forecastDateDay1).clone().add(i, 'days').format('YYYY-MM-DD');
             var aviLevel = forecasts.getAviLevelForForecastDayIndex_nwac(bodyJson, regionDetails, forecastIndex);
             forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
         }
@@ -587,7 +587,7 @@ forecasts.parseForecast_nwac = function(body, regionDetails) {
         // if the forecast was issued the day before the first forecast day, copy the forecast from that 
         // first forecast day into the forecast issued day too
         var forecastIssuedDate = moment(bodyJson.publish_date, 'YYYY-MM-DD HH-mm-ss');
-        var dayAfterForecastIssuedDate = moment(forecastIssuedDate).clone().add('days', 1).format('YYYY-MM-DD');
+        var dayAfterForecastIssuedDate = moment(forecastIssuedDate).clone().add(1, 'days').format('YYYY-MM-DD');
         if (dayAfterForecastIssuedDate === forecast[0].date) {
             // create an entry at the front of the forecast array for the forecast issued date, with the aviLevel of the following day
             var issuedDateForecast = {date: moment(forecastIssuedDate).format('YYYY-MM-DD'), aviLevel: forecast[0].aviLevel};
@@ -645,7 +645,7 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before
-                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract('days', 1);
+                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract(1, 'days');
                     forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
@@ -696,7 +696,7 @@ forecasts.parseForecast_pc = function(body, regionDetails) {
                 // NOTE this also assumes the days are listed in chronological order in the input data
                 if (i === 0) {
                     // calculate the day before
-                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract('days', 1);
+                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract(1, 'days');
                     forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
                 }
 
@@ -764,7 +764,7 @@ forecasts.parseForecast_uac = function(body, regionDetails) {
         for (var i = 0; i < NUM_FORECAST_DAYS_UAC; i++) {
             // NOTE the timestamp is UTC, but we want the date in mountain time zone, so subtract 7 hours
             var mstOffsetHours = 7;
-            var forecastDate = moment.unix(bodyJson.advisories[0].advisory.date_issued_timestamp).utc().subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
+            var forecastDate = moment.unix(bodyJson.advisories[0].advisory.date_issued_timestamp).utc().subtract(mstOffsetHours, 'hours').format('YYYY-MM-DD');
             var aviLevel = forecasts.findHighestAviLevelInString(bodyJson.advisories[0].advisory.overall_danger_rating);
             forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
         }
@@ -789,7 +789,7 @@ forecasts.parseForecast_viac = function(body, regionDetails) {
     if (firstForecastedDate && aviLevels) {
         forecast = [];
         for (var i = 0; i < aviLevels.length; i++) {
-            forecast[i] = {'date': moment(firstForecastedDate).clone().add('days', i).format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
+            forecast[i] = {'date': moment(firstForecastedDate).clone().add(i, 'days').format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
         }
 
         for (var j = 0; j < forecast.length; j++) {
@@ -815,7 +815,7 @@ forecasts.parseFirstForecastedDate_viac = function(body, regionDetails) {
 
         for (var i = 0; i < 2; i++) {
             // copy the value of the forecast issued date, offset by the appropriate number of days, and get the day of week
-            daysOfWeek[i] = moment(forecastIssuedDate).clone().add('days', i);
+            daysOfWeek[i] = moment(forecastIssuedDate).clone().add(i, 'days');
 
             if (moment(daysOfWeek[i]).format('dddd').toLowerCase() === firstForecastedDayOfWeek.toLowerCase()) {
                 firstForecastedDate = daysOfWeek[i];
@@ -948,7 +948,7 @@ forecasts.parseForecast_esac = function(body, regionDetails) {
             // NOTE per request of Nate Greenberg (2013-01-01), make all esac forecasts valid for two days, unless replaced by a newer one
             forecast = [];
             forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
-            forecast[1] = {'date': moment(forecastIssuedDate).clone().add('days', 1).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
+            forecast[1] = {'date': moment(forecastIssuedDate).clone().add(1, 'days').format('YYYY-MM-DD'), 'aviLevel': aviLevel};
 
             for (var j = 0; j < forecast.length; j++) {
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
@@ -973,7 +973,7 @@ forecasts.parseForecast_wcmac = function(body, regionDetails) {
             // NOTE typical date string: 'Thu, 10 Jan 2013 01:37:02 +0000'
             // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
             var mstOffsetHours = 7;
-            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract(mstOffsetHours, 'hours').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
             // NOTE parse the special rating html field out of the content field
@@ -1012,7 +1012,7 @@ forecasts.parseForecast_wb = function(body, regionDetails) {
     if (firstForecastedDate && aviLevels) {
         forecast = [];
         for (var i = 0; i < aviLevels.length; i++) {
-            forecast[i] = {'date': moment(firstForecastedDate).clone().add('days', i).format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
+            forecast[i] = {'date': moment(firstForecastedDate).clone().add(i, 'days').format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
         }
 
         for (var j = 0; j < forecast.length; j++) {
@@ -1037,7 +1037,7 @@ forecasts.parseFirstForecastedDate_wb = function(body, regionDetails) {
 
         for (var i = 0; i < 2; i++) {
             // copy the value of the forecast issued date, offset by the appropriate number of days, and get the day of week
-            daysOfWeek[i] = moment(forecastIssuedDate).clone().add('days', i);
+            daysOfWeek[i] = moment(forecastIssuedDate).clone().add(i, 'days');
 
             if (moment(daysOfWeek[i]).format('dddd').toLowerCase() === firstForecastedDayOfWeek.toLowerCase()) {
                 firstForecastedDate = daysOfWeek[i];
@@ -1208,7 +1208,7 @@ forecasts.parseForecast_fac = function(body, regionDetails) {
                     // NOTE typical date string: 'Sun, 15 Dec 2013 13:52:47 +0000'
                     // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
                     var mstOffsetHours = 7;
-                    var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract('hours', mstOffsetHours).format('YYYY-MM-DD');
+                    var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract(mstOffsetHours, 'hours').format('YYYY-MM-DD');
                     winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
                     // NOTE parse the rating out of the content field; these are hazard strings with either all caps or 
@@ -1361,7 +1361,7 @@ forecasts.parseForecast_hg = function(body, regionDetails) {
     if (firstForecastedDate && aviLevels) {
         forecast = [];
         for (var i = 0; i < aviLevels.length; i++) {
-            forecast[i] = {'date': moment(firstForecastedDate).clone().add('days', i).format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
+            forecast[i] = {'date': moment(firstForecastedDate).clone().add(i, 'days').format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
         }
 
         for (var j = 0; j < forecast.length; j++) {
@@ -1387,7 +1387,7 @@ forecasts.parseFirstForecastedDate_hg = function(body, regionDetails) {
 
         for (var i = 0; i < 2; i++) {
             // copy the value of the forecast issued date, offset by the appropriate number of days, and get the day of week
-            daysOfWeek[i] = moment(forecastIssuedDate).clone().add('days', i);
+            daysOfWeek[i] = moment(forecastIssuedDate).clone().add(i, 'days');
 
             if (moment(daysOfWeek[i]).format('dddd').toLowerCase() === firstForecastedDayOfWeek.toLowerCase()) {
                 firstForecastedDate = daysOfWeek[i];
