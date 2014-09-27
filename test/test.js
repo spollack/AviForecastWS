@@ -152,7 +152,7 @@ describe('validateForecastForCurrentDay', function(){
         it('should return true', function(){
             // NOTE this is run using current local time...
             forecasts.validateForecastForCurrentDay('nwac_olympics',
-                [{date:moment().format('YYYY-MM-DD'), aviLevel:2},{date:moment().add('days', 1).format('YYYY-MM-DD'), aviLevel:3}]).should.be.true;
+                [{date:moment().format('YYYY-MM-DD'), aviLevel:2},{date:moment().add(1, 'days').format('YYYY-MM-DD'), aviLevel:3}]).should.be.true;
         })
     })
 })

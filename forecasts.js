@@ -142,7 +142,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         var firstDate = forecast[0].date;
         for (i = 0; i < forecast.length; i++) {
 
-            var expectedDate = moment(firstDate, 'YYYY-MM-DD').add('days', i).format('YYYY-MM-DD');
+            var expectedDate = moment(firstDate, 'YYYY-MM-DD').add(i, 'days').format('YYYY-MM-DD');
             if (expectedDate !== forecast[i].date) {
                 validForecast = false;
                 winston.warn('forecast validation: UNEXPECTED date for regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
@@ -194,7 +194,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
         // then offset to get to PST, which is what we use for our checking (close enough for now)
         var timezoneOffsetMinutes = moment().zone();
         var pstOffsetMinutes = 8 * 60;
-        var currentPSTDate = moment().add('minutes', timezoneOffsetMinutes).subtract(pstOffsetMinutes, 'minutes').format('YYYY-MM-DD');
+        var currentPSTDate = moment().add(timezoneOffsetMinutes, 'minutes').subtract(pstOffsetMinutes, 'minutes').format('YYYY-MM-DD');
         winston.verbose('forecast validation: right now the PST date is: ' + currentPSTDate);
 
         for (var i = 0; i < forecast.length; i++) {
