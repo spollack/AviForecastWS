@@ -1,0 +1,198 @@
+[
+    {
+        "providerId": "aac",
+        "displayName": "Anchorage Avalanche Center",
+        "locationName": "Alaska",        
+        "mainURL": "http://www.anchorageavalanchecenter.org/",
+        "donationURL": "http://www.anchorageavalanchecenter.org/"
+    },
+    {
+        "providerId": "cnfaic",
+        "displayName": "Chugach National Forest Avalanche Information Center",
+        "locationName": "Alaska",
+        "mainURL": "http://www.cnfaic.org/",
+        "donationURL": "https://www.cnfaic.org/site/friendsofthechugach/payment/"
+    },
+    {
+        "providerId": "cac2",
+        "displayName": "Cordova Avalanche Center",
+        "locationName": "Alaska",
+        "mainURL": "http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions",
+        "donationURL": "http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions"
+    },
+    {
+        "providerId": "haic",
+        "displayName": "Haines Avalanche Information Center",
+        "locationName": "Alaska",
+        "mainURL": "http://alaskasnow.org/haines/",
+        "donationURL": "http://alaskasnow.org/haines/"
+    },
+    {
+        "providerId": "hpac",
+        "displayName": "Hatcher Pass Avalanche Center",
+        "locationName": "Alaska",
+        "mainURL": "http://hatcherpassavalanchecenter.org/",
+        "donationURL": "http://hatcherpassavalanchecenter.org/"
+    },
+    {
+        "providerId": "jac",
+        "displayName": "Juneau Avalanche Center",
+        "locationName": "Alaska",
+        "mainURL": "http://www.juneau.org/avalanche/",
+        "donationURL": "http://www.juneau.org/avalanche/"
+    },
+    {
+        "providerId": "vac",
+        "displayName": "Valdez Avalanche Center",
+        "locationName": "Alaska",
+        "mainURL": "http://www.valdezavalanchecenter.org/",
+        "donationURL": "http://www.valdezavalanchecenter.org/"
+    },
+    {
+        "providerId": "kpac",
+        "displayName": "Kachina Peaks Avalanche Center",
+        "locationName": "Arizona",
+        "mainURL": "http://www.kachinapeaks.org/",
+        "donationURL": "http://www.kachinapeaks.org/support/"
+    },
+    {
+        "providerId": "esac",
+        "displayName": "Eastern Sierra Avalanche Center",
+        "locationName": "California",
+        "mainURL": "http://esavalanche.org/",
+        "donationURL": "http://esavalanche.org/support-your-avalanche-center"
+    },
+    {
+        "providerId": "msac",
+        "displayName": "Mt. Shasta Avalanche Center",
+        "locationName": "California",
+        "mainURL": "http://shastaavalanche.org/",
+        "donationURL": "http://shastaavalanche.org/members"
+    },
+    {
+        "providerId": "sac",
+        "displayName": "Sierra Avalanche Center",
+        "locationName": "California",
+        "mainURL": "http://www.sierraavalanchecenter.org/",
+        "donationURL": "http://www.sierraavalanchecenter.org/donate"
+    },
+    {
+        "providerId": "cac",
+        "displayName": "Canadian Avalanche Centre",
+        "locationName": "Canada",
+        "mainURL": "http://www.avalanche.ca/",
+        "donationURL": "http://www.avalanche.ca/caf/"
+    },
+    {
+        "providerId": "hg",
+        "displayName": "Haute Gaspésie",
+        "locationName": "Canada",
+        "mainURL": "http://www.centreavalanche.qc.ca/",
+        "donationURL": "http://www.centreavalanche.qc.ca/"
+    },
+    {
+        "providerId": "pc",
+        "displayName": "Parks Canada",
+        "locationName": "Canada",
+        "mainURL": "http://avalanche.pc.gc.ca/",
+        "donationURL": "http://avalanche.pc.gc.ca/"
+    },
+    {
+        "providerId": "viac",
+        "displayName": "Vancouver Island Avalanche Center",
+        "locationName": "Canada",
+        "mainURL": "http://islandavalanchebulletin.com/",
+        "donationURL": "http://islandavalanchebulletin.com/"
+    },
+    {
+        "providerId": "wb",
+        "displayName": "Whister-Blackcomb",
+        "locationName": "Canada",
+        "mainURL": "http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx",
+        "donationURL": "http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx"
+    },
+    {
+        "providerId": "caic",
+        "displayName": "Colorado Avalanche Information Center",
+        "locationName": "Colorado",
+        "mainURL": "http://avalanche.state.co.us/",
+        "donationURL": "http://avalanche.state.co.us/shop/donate/donation.html"
+    },
+    {
+        "providerId": "ipac",
+        "displayName": "Idaho Panhandle Avalanche Center",
+        "locationName": "Idaho",
+        "mainURL": "http://www.idahopanhandleavalanche.org/",
+        "donationURL": "http://www.idahopanhandleavalanche.org/friends-of-ipac.html"
+    },
+    {
+        "providerId": "pac",
+        "displayName": "Payette Avalanche Center",
+        "locationName": "Idaho",
+        "mainURL": "http://www.payetteavalanche.org/",
+        "donationURL": "http://payetteavalanche.org/donate/"
+    },
+    {
+        "providerId": "snfac",
+        "displayName": "Sawtooth National Forest Avalanche Center",
+        "locationName": "Idaho",
+        "mainURL": "http://www.sawtoothavalanche.com/",
+        "donationURL": "http://www.sawtoothavalanche.com/donate.php"
+    },
+    {
+        "providerId": "fac",
+        "displayName": "Flathead Avalanche Center",
+        "locationName": "Montana",
+        "mainURL": "http://www.flatheadavalanche.org/",
+        "donationURL": "http://www.flatheadavalanche.org/"
+    },
+    {
+        "providerId": "gnfac",
+        "displayName": "Gallatin National Forest Avalanche Center",
+        "locationName": "Montana",
+        "mainURL": "http://www.mtavalanche.com/",
+        "donationURL": "http://www.mtavalanche.com/node/811"
+    },
+    {
+        "providerId": "wcmac",
+        "displayName": "West Central Montana Avalanche Center",
+        "locationName": "Montana",
+        "mainURL": "http://www.missoulaavalanche.org/",
+        "donationURL": "http://www.missoulaavalanche.org/"
+    },
+    {
+        "providerId": "mwac",
+        "displayName": "Mount Washington Avalanche Center",
+        "locationName": "New Hampshire",
+        "mainURL": "http://www.mountwashingtonavalanchecenter.org/",
+        "donationURL": "http://www.mountwashingtonavalanchecenter.org/"
+    },
+    {
+        "providerId": "wac",
+        "displayName": "Wallowa Avalanche Center",
+        "locationName": "Oregon",
+        "mainURL": "http://wallowaavalanchecenter.org/",
+        "donationURL": "http://wallowaavalanchecenter.org/"
+    },
+    {
+        "providerId": "uac",
+        "displayName": "Utah Avalanche Center",
+        "locationName": "Utah",
+        "mainURL": "http://utahavalanchecenter.org/",
+        "donationURL": "http://utahavalanchecenter.org/donate"
+    },
+    {
+        "providerId": "nwac",
+        "displayName": "Northwest Avalanche Center",
+        "locationName": "Washington",
+        "mainURL": "http://www.nwac.us/",
+        "donationURL": "http://www.nwac.us/membership/"
+    },
+    {
+        "providerId": "btac",
+        "displayName": "Bridger-Teton Avalanche Center",
+        "locationName": "Wyoming",
+        "mainURL": "http://www.jhavalanche.org/",
+        "donationURL": "http://www.jhavalanche.org/"
+    }
+]

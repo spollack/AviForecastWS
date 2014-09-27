@@ -4,9 +4,10 @@ backlist of things to do:
 key new features per discussion with Andy Anderson
     upload field observations (photo, geotagged, some dropdown fields, notes w/ voice input)
     donate to avi center (via link to center website, not direct); also probably want a dropdown to pick your "home" center when you first install
-    perhaps ability to push notifications of avalanche warnings/watches, etc.
+website
+    change website host; a separate heroku app is probably easiest/best; could alternatively use S3 file serving
 web service
-    waiting on or need to contact center
+    new integrations:
         [see Excel sheet]
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
@@ -20,10 +21,9 @@ web service
         replace gzippo with express3 built-in compression
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         update to current semantics (not 0.1.x) with xml2js
-        update dependency packages
+        create server-oriented regions config structure (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         fix use of config.js
         use HTML parsing library (cheerio) as opposed by regexs
-        create server-oriented regions config file (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         deal with timezones in a rigorous way (forecasts expiring at a given time, etc.)
         capture all generated forecasts (for example, in S3)?
         further auto-validation of each generated forecast
@@ -106,6 +106,7 @@ iOS
                 flag the detailed forecast page if the forecast is a day or more out of date? (from discussion from Bruce T)
             say when data was cached, for every page?
     v3
+        push notifications of avalanche warnings/watches, etc.
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
         more data at-a-glance
             show the danger stack (elevation view) as an icon or popup on the map too within each region?
