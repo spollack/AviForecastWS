@@ -24,11 +24,14 @@ web service
     v2
         overall v2 features (from above)
         figure out way to get usage stats per forecast center / region
+            idea: if we make everyone choose a favorite center on first app usage, we could use that info in app usage events to get this
+            idea: if zoom level is at least X, and the user sees the summary map for a region on screen, count that as a use
+            idea: certainly could add events to track when a user drills into any given region, by region or provider
         create server-oriented regions config structure (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         wrap xml2js parsing in try/catch everywhere (like i did on cnfaic)
         update to current semantics (not 0.1.x) with xml2js
-        use HTML parsing library (cheerio) as opposed by regexs
     v3
+        use HTML parsing library (cheerio) as opposed to regexs for parsing HTML pages
         deal with timezones in a rigorous way (forecasts expiring at a given time, etc.)
         capture all generated forecasts (for example, in S3), to help debug any issues
         further auto-validation of each generated forecast
