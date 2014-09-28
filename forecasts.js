@@ -256,8 +256,13 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
                 if (!error && response.statusCode >= 200 && response.statusCode <= 299) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
                         '; dataURL: ' + regionDetails.dataURL);
-                    forecast = regionDetails.parser(body, regionDetails);
-                    
+
+                    try {
+                        forecast = regionDetails.parser(body, regionDetails);
+                    } catch(e) {
+                        winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+                    }
+
                     if (forecast) {
                         // cache the result
                         forecasts.mostRecentForecasts[regionId] = forecast;
@@ -1248,34 +1253,30 @@ forecasts.parseForecast_cnfaic = function(body, regionDetails) {
         return null;
     }
 
-    try {
-        var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
 
-        // NOTE this block is called synchronously with parsing, even though it looks async
-        parser.parseString(body, function(err, result) {
-            try {
-                var forecastIssuedDateField = result.item[0]['dc:date'];
-                // NOTE typical date string: '2013-03-16T10:00:00+01:00'
-                var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD').format('YYYY-MM-DD');
-                winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.item[0]['dc:date'];
+            // NOTE typical date string: '2013-03-16T10:00:00+01:00'
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
-                var ratingField = result.item[0].description;
-                var aviLevel = forecasts.findHighestAviLevelInString(ratingField);
+            var ratingField = result.item[0].description;
+            var aviLevel = forecasts.findHighestAviLevelInString(ratingField);
 
-                // NOTE cnfaic issues single day forecasts
-                forecast = [];
-                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+            // NOTE cnfaic issues single day forecasts
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
 
-                for (var j = 0; j < forecast.length; j++) {
-                    winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-                }
-            } catch(e) {
-                winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
             }
-        });
-    } catch (e) {
-        winston.warn('initial parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
-    }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
 
     return forecast;
 };
