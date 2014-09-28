@@ -16,7 +16,7 @@ function runServer() {
 
     configureLogger();
 
-    initializeForecastProcessing();
+//    initializeForecastProcessing();
 
     startHTTPServer();
 }
@@ -77,10 +77,10 @@ function startHTTPServer() {
     app.post('/v1/observation', function (req, res) {
         
         var observation = {
-            providerId: req.params.providerId,
-            email: req.params.email,
-            notes: req.params.notes,
-            image: req.files.image
+            providerId: req.body.providerId,
+            email: req.body.email,
+            notes: req.body.notes,
+            image: (req.files? req.files.image : null)
         };
 
         winston.info('received observation; contents: ' + JSON.stringify(observation));
