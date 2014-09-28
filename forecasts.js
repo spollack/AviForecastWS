@@ -1,9 +1,4 @@
 //
-// Copyright (c) 2012-2013 Sebnarware. All rights reserved.
-//
-
-
-//
 // exports
 //
 var forecasts = module.exports = {};
