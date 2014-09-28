@@ -11,7 +11,7 @@ general feature roadmap
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
 web service
     new integrations:
-        [see Excel sheet]
+        incorporate PAC
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         CAIC -- to work around cache-control:no-store on not only the forecast pages but also the iframe within that has most of
