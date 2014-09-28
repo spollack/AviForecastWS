@@ -1,4 +1,4 @@
-backlog of things to do:
+backlog of things to do
 --------------------
 
 general feature roadmap
@@ -9,8 +9,6 @@ general feature roadmap
     v3
         push notifications of avalanche warnings/watches, etc.
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
-website
-    change website host; a separate heroku app is probably easiest/best; could alternatively use S3 file serving
 web service
     new integrations:
         [see Excel sheet]
