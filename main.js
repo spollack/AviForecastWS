@@ -1,9 +1,4 @@
 //
-// Copyright (c) 2012-2013 Sebnarware. All rights reserved.
-//
-
-
-//
 // required packages
 //
 var fs = require('fs');
@@ -12,6 +7,7 @@ var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
 var forecasts = require('./forecasts.js');
+var observations = require('./observations.js');
 
 
 runServer();
@@ -71,7 +67,38 @@ function startHTTPServer() {
     };
     app.use(express.logger({stream:winstonStream}));
 
+    // compress responses
     app.use(express.compress());
+
+    // parse request bodies, including file uploads
+    app.use(express.bodyParser({keepExtensions: true}));
+
+    // support observation uploads
+    app.post(app, '/v1/observation', function (req, res) {
+        
+        var observation = {
+            providerId: req.params.providerId,
+            email: req.params.email,
+            notes: req.params.notes,
+            image: req.files.image
+        };
+
+        winston.info('received observation; contents: ' + JSON.stringify(observation));
+
+        if (!observation.providerId || !observation.email) {
+            // bad request
+            res.send(400);
+        } else {
+            observations.processObservation(observation, function(error) {
+                if (!error) {
+                    res.send(200);
+                } else {
+                    res.send(500);
+                }
+            });
+        }
+    });
+
 
     //
     // BEGIN PROXYING HACK
@@ -120,7 +147,8 @@ function startHTTPServer() {
     // END PROXYING HACK
     //
 
-    // serve static content, compressed
+    
+    // serve static content
     app.use(express.static(forecasts.STATIC_FILES_DIR_PATH, {maxAge: forecasts.CACHE_MAX_AGE_SECONDS * 1000 }));
 
     // handle errors gracefully
