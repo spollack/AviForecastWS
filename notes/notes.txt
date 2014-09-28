@@ -6,7 +6,7 @@ general feature roadmap
         upload field observations (photo, geotagged, some dropdown fields, etc)
         support your avi center (via link to center website, not direct); also probably want a dropdown to pick your "home" center when you first install
     v3
-        sharing: make it easy to share the app and observations via facebook, twitter
+        sharing: make it easy to share the app (and perhaps current conditions, or observations you just made) via facebook, twitter
         push notifications of avalanche warnings/watches, etc.
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
 web service
