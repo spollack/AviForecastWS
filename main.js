@@ -2,6 +2,7 @@
 // required packages
 //
 var fs = require('fs');
+var underscore = require('underscore');
 var winston = require('winston');
 var express = require('express');
 var request = require('request');
@@ -76,12 +77,8 @@ function startHTTPServer() {
     // support observation uploads
     app.post('/v1/observation', function (req, res) {
         
-        var observation = {
-            providerId: req.body.providerId,
-            email: req.body.email,
-            notes: req.body.notes,
-            image: (req.files? req.files.image : null)
-        };
+        var observation = underscore.pick(req.body, ['providerId', 'email', 'latitude', 'longitude', 'timestampUtc', 'notes']);
+        observation.image = (req.files ? req.files.image : null);
 
         winston.info('received observation; contents: ' + JSON.stringify(observation));
 

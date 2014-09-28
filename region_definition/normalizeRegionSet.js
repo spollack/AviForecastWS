@@ -2,7 +2,7 @@
 // required packages
 //
 var fs = require('fs');
-var _ = require('underscore');
+var underscore = require('underscore');
 
 // NOTE use this tool to compare the non-point metadata of two regions.json files
 
@@ -24,7 +24,7 @@ function normalizeRegionSet(input) {
     }
     
     // sort by regionId
-    regions = _.sortBy(regions, 'regionId');
+    regions = underscore.sortBy(regions, 'regionId');
 
     return (JSON.stringify(regions, null, 4));
 }
