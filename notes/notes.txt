@@ -3,8 +3,8 @@ backlog of things to do
 
 general feature roadmap
     v2
+        support your avi center (via link to center website, not direct)
         upload field observations (photo, geotagged, some dropdown fields, etc)
-        support your avi center (via link to center website, not direct); also probably want a dropdown to pick your "home" center when you first install
     v3
         sharing: make it easy to share the app (and perhaps current conditions, or observations you just made) via facebook, twitter
         push notifications of avalanche warnings/watches, etc.
@@ -40,7 +40,7 @@ web service
             on error, capture all inputs, and alert me
             also snapshot user URL vs. data URL vs. my forecast always, for later review
             add automatic, ongoing checks of HTML vs. API results for all api-based sites?
-Android
+Android app
     v2
         overall v2 features (from above)
         map usability
@@ -76,7 +76,7 @@ Android
             blue dot doesn't always show (even though map does position correctly) on Gingerbread; ok on ICS/JB
                 test again with my revised FixedMyLocationOverlay, that always does the drawing
             in case of first time app use with no network, app must be shut down to try again once there is network        
-iOS
+iOS app
     v2
         overall v2 features (from above)
         map usability
