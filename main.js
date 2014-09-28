@@ -82,8 +82,8 @@ function startHTTPServer() {
 
         winston.info('received observation; contents: ' + JSON.stringify(observation));
 
-        if (!observation.providerId || !observation.email) {
-            // bad request
+        if (!observation.providerId) {
+            // bad request, some parameter we require was missing
             res.send(400);
         } else {
             observations.processObservation(observation, function(error) {
