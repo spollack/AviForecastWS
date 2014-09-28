@@ -1,9 +1,4 @@
 //
-// Copyright (c) 2012-2013 Sebnarware. All rights reserved.
-//
-
-
-//
 // exports
 //
 var forecasts = module.exports = {};
@@ -16,7 +11,6 @@ var fs = require('fs');
 var winston = require('winston');
 var request = require('request');
 var moment = require('moment');
-var _ = require('underscore');
 var async = require('async');
 var xml2js = require('xml2js');
 var cheerio = require('cheerio');

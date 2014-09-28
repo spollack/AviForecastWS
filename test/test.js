@@ -1,8 +1,4 @@
 //
-// Copyright (c) 2012 Sebnarware. All rights reserved.
-//
-
-//
 // required packages
 //
 var should = require('should');

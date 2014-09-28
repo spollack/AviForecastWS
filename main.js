@@ -1,17 +1,14 @@
 //
-// Copyright (c) 2012-2013 Sebnarware. All rights reserved.
-//
-
-
-//
 // required packages
 //
 var fs = require('fs');
+var underscore = require('underscore');
 var winston = require('winston');
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
 var forecasts = require('./forecasts.js');
+var observations = require('./observations.js');
 
 
 runServer();
@@ -71,7 +68,34 @@ function startHTTPServer() {
     };
     app.use(express.logger({stream:winstonStream}));
 
+    // compress responses
     app.use(express.compress());
+
+    // parse request bodies, including file uploads
+    app.use(express.bodyParser({keepExtensions: true}));
+
+    // support observation uploads
+    app.post('/v1/observation', function (req, res) {
+        
+        var observation = underscore.pick(req.body, ['providerId', 'observerEmail', 'latitude', 'longitude', 'timestampUtc', 'notes']);
+        observation.image = (req.files ? req.files.image : null);
+
+        winston.info('received observation; contents: ' + JSON.stringify(observation));
+
+        if (!observation.providerId) {
+            // bad request, some parameter we require was missing
+            res.send(400);
+        } else {
+            observations.processObservation(observation, function(error) {
+                if (!error) {
+                    res.send(200);
+                } else {
+                    res.send(500);
+                }
+            });
+        }
+    });
+
 
     //
     // BEGIN PROXYING HACK
@@ -79,7 +103,7 @@ function startHTTPServer() {
 
     // BUGBUG hack to get around problem caching IPAC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
-    app.get('/proxy/ipac/:zone', function(req, res) {
+    app.get('/v1/proxy/ipac/:zone', function(req, res) {
         var baseUrl = 'http://www.idahopanhandleavalanche.org/';
         var url = baseUrl + req.params.zone + '.html';
         proxy(url, baseUrl, res);
@@ -87,7 +111,7 @@ function startHTTPServer() {
 
     // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
-    app.get('/proxy/caic/:zone', function(req, res) {
+    app.get('/v1/proxy/caic/:zone', function(req, res) {
         var baseUrl = 'http://avalanche.state.co.us/';
         var url = baseUrl + 'caic/pub_bc_avo.php?zone_id=' + req.params.zone;
         proxy(url, baseUrl, res);
@@ -120,7 +144,8 @@ function startHTTPServer() {
     // END PROXYING HACK
     //
 
-    // serve static content, compressed
+    
+    // serve static content
     app.use(express.static(forecasts.STATIC_FILES_DIR_PATH, {maxAge: forecasts.CACHE_MAX_AGE_SECONDS * 1000 }));
 
     // handle errors gracefully
