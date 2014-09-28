@@ -10,8 +10,8 @@ general feature roadmap
         push notifications of avalanche warnings/watches, etc.
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
 web service
-    new integrations:
-        incorporate PAC
+    new integrations
+        PAC
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         CAIC -- to work around cache-control:no-store on not only the forecast pages but also the iframe within that has most of
@@ -51,6 +51,7 @@ Android app
             redo location services stuff to turn off gps after we have a first fix
             swap top and bottom bars to be consistent with iOS app
             update the usage text, from iOS version
+            update all external libs
         for external builds, before releasing, REMEMBER...
             set version string appropriately
             be sure to build with production map key
@@ -89,6 +90,7 @@ iOS app
             get app rotation working in all views (or at least danger scale definition view)
             improve "fit" on iPhone5, 6, 6+: no black bars at the top, etc. 
             make iPad experience better
+            update all external libs
     v3
         status bar (or pop-ups of some sort?)
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
