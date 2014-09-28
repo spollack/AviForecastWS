@@ -26,7 +26,7 @@ web service
         figure out way to get usage stats per forecast center / region
             idea: if we make everyone choose a favorite center on first app usage, we could use that info in app usage events to get this
             idea: if zoom level is at least X, and the user sees the summary map for a region on screen, count that as a use
-            idea: certainly could add events to track when a user drills into any given region, by region or provider
+            idea: certainly could add events to track when a user drills into any given region, by region or provider; check what we already have
         create server-oriented regions config structure (for dataURL, parser, validation exceptions, etc.), to pull cases out of code
         update to current semantics (not old 0.1.x ones) with xml2js
     v3
