@@ -14,5 +14,5 @@ var async = require('async');
 
 
 observations.processObservation = function(observation, onCompletion) {
-
+    // BUGBUG to be implemented
 };
