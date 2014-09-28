@@ -74,7 +74,7 @@ function startHTTPServer() {
     app.use(express.bodyParser({keepExtensions: true}));
 
     // support observation uploads
-    app.post(app, '/v1/observation', function (req, res) {
+    app.post('/v1/observation', function (req, res) {
         
         var observation = {
             providerId: req.params.providerId,
