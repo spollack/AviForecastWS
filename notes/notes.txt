@@ -79,6 +79,7 @@ iOS app
             map zoom level is different on iPhone 5 device ... Apple responded and explained why, try tweaking settings to make it more consistent
             set a max zoom level
         bugs and cleanup
+            AFNetworking: move to 2.x from 1.x, but that has some breaking changes that require review
             externalize keys for things like flurry from codebase
             change to grey, instead of white, for the "no rating" color
             add loading spinner for detailed forecasts too
@@ -88,7 +89,6 @@ iOS app
             get app rotation working in all views (or at least danger scale definition view)
             improve "fit" on iPhone5, 6, 6+: no black bars at the top, etc. 
             make iPad experience better
-            update all external libs
     v3
         status bar (or pop-ups of some sort?)
             add status bar with current operation (loading regions, reloading forecasts, forecast last updated xxx ago, read from offline cache, etc.)?
