@@ -109,7 +109,6 @@ iOS app
         reload regions.json periodically in app (for case where people don't restart the app/phone regularly)
 website
     rebrand of Avalanche Canada
-    consider moving website hosting to heroku    
 other
     pull stats on usage by geography (i.e. center)
     
