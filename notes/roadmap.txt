@@ -9,6 +9,8 @@ general feature roadmap
 web service
     new integrations
         PAC
+    existing integrations: major issues
+        move to new NWAC API
     existing integrations: minor issues / enhancements
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         CAIC -- to work around cache-control:no-store on not only the forecast pages but also the iframe within that has most of
