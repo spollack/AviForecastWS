@@ -765,7 +765,7 @@
     {
         "regionId": "cac_yukon",
         "displayName": "Yukon - Klondike",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/yukon",
+        "URL": "http://www.avalanche.ca/forecasts/yukon",
         "points": [
             {
                 "lat": "60.306",
@@ -932,7 +932,7 @@
     {
         "regionId": "cac_northwest-coastal",
         "displayName": "Northwest - Coastal",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/northwest-coastal",
+        "URL": "http://www.avalanche.ca/forecasts/northwest-coastal",
         "points": [
             {
                 "lat": "55.119",
@@ -2555,7 +2555,7 @@
     {
         "regionId": "cac_northwest-inland",
         "displayName": "Northwest - Inland",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/northwest-inland",
+        "URL": "http://www.avalanche.ca/forecasts/northwest-inland",
         "points": [
             {
                 "lat": "58.044",
@@ -3170,7 +3170,7 @@
     {
         "regionId": "cac_sea-to-sky",
         "displayName": "Sea to Sky",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/sea-to-sky",
+        "URL": "http://www.avalanche.ca/forecasts/sea-to-sky",
         "points": [
             {
                 "lat": "49.328",
@@ -4409,7 +4409,7 @@
     {
         "regionId": "cac_south-coast",
         "displayName": "South Coast - Inland",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/south-coast",
+        "URL": "http://www.avalanche.ca/forecasts/south-coast",
         "points": [
             {
                 "lat": "50.309",
@@ -4872,7 +4872,7 @@
     {
         "regionId": "cac_north-shore",
         "displayName": "North Shore",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/north-shore",
+        "URL": "http://www.avalanche.ca/forecasts/north-shore",
         "points": [
             {
                 "lat": "49.416",
@@ -4959,7 +4959,7 @@
     {
         "regionId": "cac_cariboos",
         "displayName": "Cariboos",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/cariboos",
+        "URL": "http://www.avalanche.ca/forecasts/cariboos",
         "points": [
             {
                 "lat": "52.370",
@@ -5342,7 +5342,7 @@
     {
         "regionId": "cac_monashees-selkirks",
         "displayName": "North Columbia",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/monashees-selkirks",
+        "URL": "http://www.avalanche.ca/forecasts/monashees-selkirks",
         "points": [
             {
                 "lat": "51.176",
@@ -5765,7 +5765,7 @@
     {
         "regionId": "cac_south-columbia",
         "displayName": "South Columbia",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/south-columbia",
+        "URL": "http://www.avalanche.ca/forecasts/south-columbia",
         "points": [
             {
                 "lat": "51.183",
@@ -6212,7 +6212,7 @@
     {
         "regionId": "cac_purcells",
         "displayName": "Purcells",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/purcells",
+        "URL": "http://www.avalanche.ca/forecasts/purcells",
         "points": [
             {
                 "lat": "51.109",
@@ -6563,7 +6563,7 @@
     {
         "regionId": "cac_kootenay-boundary",
         "displayName": "Kootenay - Boundary",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/kootenay-boundary",
+        "URL": "http://www.avalanche.ca/forecasts/kootenay-boundary",
         "points": [
             {
                 "lat": "49.763",
@@ -6874,7 +6874,7 @@
     {
         "regionId": "cac_south-rockies",
         "displayName": "South Rockies",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/south-rockies",
+        "URL": "http://www.avalanche.ca/forecasts/south-rockies",
         "points": [
             {
                 "lat": "49.424",
@@ -7265,7 +7265,7 @@
     {
         "regionId": "cac_lizardrange",
         "displayName": "Fernie - Lizard Range",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/lizardrange",
+        "URL": "http://www.avalanche.ca/forecasts/lizardrange",
         "points": [
             {
                 "lat": "49.585",
@@ -7356,7 +7356,7 @@
     {
         "regionId": "cac_kananaskis",
         "displayName": "Kananaskis Country",
-        "URL": "http://www.avalanche.ca/cac/bulletins/latest/kananaskis",
+        "URL": "http://www.avalanche.ca/forecasts/kananaskis",
         "points": [
             {
                 "lat": "51.040",
