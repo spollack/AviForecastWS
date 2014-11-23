@@ -763,9 +763,9 @@
         ]
     },
     {
-        "regionId": "cac_yukon",
+        "regionId": "cacb_yukon",
         "displayName": "Yukon - Klondike",
-        "URL": "http://www.avalanche.ca/forecasts/yukon",
+        "URL": "http://www.avalanche.ca/blogs/yukon",
         "points": [
             {
                 "lat": "60.306",
@@ -7497,9 +7497,9 @@
         ]
     },
     {
-        "regionId": "cacb_northrockies",
+        "regionId": "cacb_north-rockies",
         "displayName": "North Rockies",
-        "URL": "http://blogs.avalanche.ca/category/northrockies/",
+        "URL": "http://www.avalanche.ca/blogs/north-rockies/",
         "points": [
             {
                 "lat": "53.077",
