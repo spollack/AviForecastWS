@@ -304,7 +304,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_cac;
                     break;
                 case 'cacb': // CAC blog-only forecasts, which we don't parse
-                    dataURL = 'http://blogs.avalanche.ca/category/' + components[1] + '/';
+                    dataURL = 'http://www.avalanche.ca/blogs/' + components[1];
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'pc':
