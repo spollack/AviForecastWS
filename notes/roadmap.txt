@@ -8,7 +8,7 @@ general feature roadmap
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
 web service
     new integrations
-        PAC
+        PAC -- add forecast parsing
     existing integrations: major issues
         move to new NWAC API
     existing integrations: minor issues / enhancements
