@@ -414,6 +414,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://shastaavalanche.org/danger-rating-rss.xml';
                     parser = forecasts.parseForecast_msac;
                     break;
+                case 'pac':
+                    dataURL = 'http://payetteavalanche.org/advisory/';
+                    parser = forecasts.parseForecast_noop;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
