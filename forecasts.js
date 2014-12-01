@@ -347,7 +347,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'wcmac':
-                    dataURL = 'http://www.missoulaavalanche.org/feed/';
+                    dataURL = 'http://www.missoulaavalanche.org/advisories/feed/';
                     parser = forecasts.parseForecast_wcmac;
                     break;
                 case 'snfac':
