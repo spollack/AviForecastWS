@@ -205,7 +205,7 @@ describe('parseForecast_nwac', function(){
     describe('file003.json', function(){
         it('should return the correct forecast details', function(){
             var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file003.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_nwac_cascade-west-stevens-pass'));
+                forecasts.getRegionDetailsForRegionId('nwac_cascade-west-stevens-pass'));
 
             should.exist(forecast);
             forecast.length.should.equal(3);
