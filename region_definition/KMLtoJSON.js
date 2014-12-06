@@ -4,7 +4,7 @@
 var fs = require('fs');
 
 
-// KMLFileToJSONFile('nwac/nwac_regions.kml','nwac/nwac_regions.json','nwac','http://www.nwac.us/forecast/avalanche/current/zone/');
+KMLFileToJSONFile('nwac/nwac_regions.kml','nwac/nwac_regions.json','nwac','http://www.nwac.us/avalanche-forecast/current/');
 // KMLFileToJSONFile('Canada_all/canada_regions_simplified.kml','Canada_all/canada_regions_simplified.json','cac','http://www.avalanche.ca/cac/bulletins/latest/');
 // KMLFileToJSONFile('caic/caic_simplified.kml','caic/caic_simplified.json','caic','http://avalanche.state.co.us/forecasts/backcountry-avalanche/');
 // KMLFileToJSONFile('uac/uac_simplified.kml','uac/uac_simplified.json','uac','http://utahavalanchecenter.org/advisory/');
@@ -25,8 +25,8 @@ var fs = require('fs');
 // KMLFileToJSONFile('kpac/kpac_simplified.kml','kpac/kpac_simplified.json','kpac','http://www.kachinapeaks.org/snow-pack-summaries/');
 // KMLFileToJSONFile('cac2/cac2_simplified.kml','cac2/cac2_simplified.json','cac2','http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions');
 // KMLFileToJSONFile('hpac/hpac_simplified.kml','hpac/hpac_simplified.json','hpac','http://hatcherpassavalanchecenter.org/');
-//KMLFileToJSONFile('msac/msac_simplified.kml','msac/msac_simplified.json','msac','http://www.shastaavalanche.org/advisories/avalanche-advisory');
-KMLFileToJSONFile('pac/pac_simplified.kml','pac/pac_simplified.json','pac','http://payetteavalanche.org/advisory/');
+// KMLFileToJSONFile('msac/msac_simplified.kml','msac/msac_simplified.json','msac','http://www.shastaavalanche.org/advisories/avalanche-advisory');
+// KMLFileToJSONFile('pac/pac_simplified.kml','pac/pac_simplified.json','pac','http://payetteavalanche.org/advisory/');
 
 
 function KMLFileToJSONFile(KMLFileName, JSONFileName, regionPrefix, URLPrefix) {

@@ -4,7 +4,7 @@
 var fs = require('fs');
 
 // trimDigitsInRegionsJSONFile('../public/v1/regions.json', '../public/v1/regions.json', 3);
-// trimDigitsInRegionsJSONFile('nwac/nwac_regions.json', 'nwac/nwac_regions.json', 3);
+trimDigitsInRegionsJSONFile('nwac/nwac_regions.json', 'nwac/nwac_regions.json', 3);
 // trimDigitsInRegionsJSONFile('Canada_all/canada_regions_simplified.json', 'Canada_all/canada_regions_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('btac/btac_simplified.json', 'btac/btac_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('sac/sac_simplified.json', 'sac/sac_simplified.json', 3);
@@ -26,7 +26,7 @@ var fs = require('fs');
 // trimDigitsInRegionsJSONFile('cac2/cac2_simplified.json', 'cac2/cac2_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('hpac/hpac_simplified.json', 'hpac/hpac_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('msac/msac_simplified.json', 'msac/msac_simplified.json', 3);
-trimDigitsInRegionsJSONFile('pac/pac_simplified.json', 'pac/pac_simplified.json', 3);
+// trimDigitsInRegionsJSONFile('pac/pac_simplified.json', 'pac/pac_simplified.json', 3);
 
 
 function trimDigitsInRegionsJSONFile(inputFilePath, outputFilePath, digits) {
