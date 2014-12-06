@@ -23,8 +23,6 @@ web service
         UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
         CAIC -- would like to incorporate tomorrow forecast info too -- need to get it included in the CAAML
         CAIC -- would like to see the region overlap with CBAC resolved
-    other
-        pull stats on usage by geography (i.e. center)
     v2
         overall v2 features (from above)
     v3
