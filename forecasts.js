@@ -300,6 +300,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_nwac;
                     break;
                 case 'cac':
+                    // NOTE using existing (old) api for now, while new api stabilizes (2014-12-07)
                     dataURL = 'http://old.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
                     parser = forecasts.parseForecast_cac;
                     break;
