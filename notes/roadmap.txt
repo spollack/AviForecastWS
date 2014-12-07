@@ -10,7 +10,6 @@ web service
     check in with all centers for start of 2014-2015 season
     new integrations
         PAC
-            fix User-Agent issue
             add forecast parsing
             add to partners page
             announce
