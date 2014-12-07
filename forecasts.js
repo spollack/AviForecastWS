@@ -296,7 +296,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
             var parser = null;
             switch (components[0]) {
                 case 'nwac':
-                    dataURL = 'http://www.nwac.us/api/v3/avalanche-region-forecast/?limit=1&zone=' + components[1];
+                    dataURL = 'http://www.nwac.us/api/v2/avalanche-region-forecast/?format=json&limit=1&zone=' + components[1];
                     parser = forecasts.parseForecast_nwac;
                     break;
                 case 'cac':
