@@ -417,7 +417,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'pac':
                     dataURL = 'http://payetteavalanche.org/advisory/';
-                    parser = forecasts.parseForecast_noop;
+                    parser = forecasts.parseForecast_pac;
                     break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
@@ -1544,6 +1544,10 @@ forecasts.parseForecast_msac = function(body, regionDetails) {
     return forecast;
 };
 
+forecasts.parseForecast_pac = function(body, regionDetails) {
+    // BUGBUG temp
+    return null;
+};
 
 
 
