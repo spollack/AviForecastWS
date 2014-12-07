@@ -1545,9 +1545,28 @@ forecasts.parseForecast_msac = function(body, regionDetails) {
 };
 
 forecasts.parseForecast_pac = function(body, regionDetails) {
+    
     // BUGBUG temp
     return null;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
