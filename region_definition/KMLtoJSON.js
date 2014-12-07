@@ -4,8 +4,8 @@
 var fs = require('fs');
 
 
-KMLFileToJSONFile('nwac/nwac_regions.kml','nwac/nwac_regions.json','nwac','http://www.nwac.us/avalanche-forecast/current/');
-// KMLFileToJSONFile('Canada_all/canada_regions_simplified.kml','Canada_all/canada_regions_simplified.json','cac','http://www.avalanche.ca/cac/bulletins/latest/');
+// KMLFileToJSONFile('nwac/nwac_regions.kml','nwac/nwac_regions.json','nwac','http://www.nwac.us/avalanche-forecast/current/');
+KMLFileToJSONFile('Canada_all/canada_regions_simplified.kml','Canada_all/canada_regions_simplified.json','cac','http://www.avalanche.ca/forecasts/');
 // KMLFileToJSONFile('caic/caic_simplified.kml','caic/caic_simplified.json','caic','http://avalanche.state.co.us/forecasts/backcountry-avalanche/');
 // KMLFileToJSONFile('uac/uac_simplified.kml','uac/uac_simplified.json','uac','http://utahavalanchecenter.org/advisory/');
 // KMLFileToJSONFile('sac/SACForecastArea_simplified.kml','sac/sac_simplified.json','sac','http://www.sierraavalanchecenter.org/advisory');
