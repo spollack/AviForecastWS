@@ -1546,6 +1546,9 @@ forecasts.parseForecast_msac = function(body, regionDetails) {
 
 forecasts.parseForecast_pac = function(body, regionDetails) {
     
+    // for date, look at date after "Created:"
+    // for hazard level, look at image name (e.g., "ds-cons.gif" for considerable, etc.) within div id="bottomline"
+    
     // BUGBUG temp
     return null;
 };
