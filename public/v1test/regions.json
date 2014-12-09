@@ -15982,7 +15982,7 @@
     {
         "regionId": "fac_1",
         "displayName": "Flathead and Lewis Ranges",
-        "URL": "http://www.flatheadavalanche.org/category/advisories/",
+        "URL": "http://www.flatheadavalanche.org/flathead-glacier/advisory",
         "points": [
             {
                 "lat": "48.362",
@@ -16117,7 +16117,7 @@
     {
         "regionId": "fac_2",
         "displayName": "Whitefish Range",
-        "URL": "http://www.flatheadavalanche.org/category/advisories/",
+        "URL": "http://www.flatheadavalanche.org/whitefish/advisory",
         "points": [
             {
                 "lat": "48.509",
@@ -16236,7 +16236,7 @@
     {
         "regionId": "fac_3",
         "displayName": "Swan Range",
-        "URL": "http://www.flatheadavalanche.org/category/advisories/",
+        "URL": "http://www.flatheadavalanche.org/swan/advisory",
         "points": [
             {
                 "lat": "48.313",
@@ -16335,7 +16335,7 @@
     {
         "regionId": "fac_4",
         "displayName": "Purcell Range",
-        "URL": "http://www.flatheadavalanche.org/category/kootenai-national-forest-avalanche-advisory/",
+        "URL": "http://www.flatheadavalanche.org/kootenai-snowpack-summary",
         "points": [
             {
                 "lat": "48.497",
@@ -16522,7 +16522,7 @@
     {
         "regionId": "fac_5",
         "displayName": "Cabinet Range",
-        "URL": "http://www.flatheadavalanche.org/category/kootenai-national-forest-avalanche-advisory/",
+        "URL": "http://www.flatheadavalanche.org/kootenai-snowpack-summary",
         "points": [
             {
                 "lat": "48.419",
