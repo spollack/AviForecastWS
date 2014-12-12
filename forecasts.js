@@ -364,7 +364,14 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_ipac;
                     break;
                 case 'fac':
-                    dataURL = 'http://www.flatheadavalanche.org/feed/';
+                    var paths = {
+                        1: 'http://www.flatheadavalanche.org/advisories/flathead-and-glacier-map-xml',
+                        2: 'http://www.flatheadavalanche.org/advisories/whitefish-map-xml',
+                        3: 'http://www.flatheadavalanche.org/advisories/swan-map-xml',
+                        4: 'http://www.flatheadavalanche.org/advisories/kootenai-map-xml',
+                        5: 'http://www.flatheadavalanche.org/advisories/kootenai-map-xml'
+                    };
+                    dataURL = paths[components[1]];
                     parser = forecasts.parseForecast_fac;
                     break;
                 case 'cnfaic':
@@ -1185,60 +1192,40 @@ forecasts.parseForecastValues_ipac = function($) {
 forecasts.parseForecast_fac = function(body, regionDetails) {
 
     var forecast = null;
-    
-    // NOTE FAC issues hazard levels for regions 1, 2, 3 (Flathead areas), but wishes regions 4, 5 (Kootenai areas) to 
-    // always show as No Rating, per Erich Peitzsch
-    var regionNumber = parseInt(regionDetails.subregion);
-    if (regionNumber && regionNumber >= 1 && regionNumber <= 3) {
         
-        var parser = new xml2js.Parser(xml2js.defaults['0.1']);
-        // NOTE this block is called synchronously with parsing, even though it looks async
-        parser.parseString(body, function(err, result) {
-            try {
-                // NOTE FAC publishes many types of items in their RSS feed, so find the first item in the feed of
-                // the correct type
-                var index = 0;
-                var found = false;
-                while (index < result.channel.item.length) {
-                    if (result.channel.item[index].category === 'Advisories') {
-                        found = true;
-                        break;
-                    }
-                    index++;
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.channel.item.pubDate;
+            // NOTE typical date string: 'Sun, 15 Dec 2013 13:52:47 +0000'
+            // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
+            var mstOffsetHours = 7;
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract(mstOffsetHours, 'hours').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+            // NOTE parse the rating out of the content field; these are hazard strings with either all caps or 
+            // leading caps, soon after the text "BOTTOM LINE"
+            var contentField = result.channel.item.description;
+
+            var ratingMatch = contentField.match(/BOTTOM\sLINE[\s\S]+?(LOW|MODERATE|CONSIDERABLE|HIGH|EXTREME|Low|Moderate|Considerable|High|Extreme)/);
+
+            // the capture groups from the regex will be in slot 1 in the array
+            if (ratingMatch && ratingMatch.length === 2) {
+                var aviLevel = forecasts.findHighestAviLevelInString(ratingMatch[1]);
+
+                forecast = [];
+                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+                for (var j = 0; j < forecast.length; j++) {
+                    winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
                 }
-
-                if (found) {
-                    var forecastIssuedDateField = result.channel.item[index].pubDate;
-                    // NOTE typical date string: 'Sun, 15 Dec 2013 13:52:47 +0000'
-                    // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
-                    var mstOffsetHours = 7;
-                    var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract(mstOffsetHours, 'hours').format('YYYY-MM-DD');
-                    winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
-
-                    // NOTE parse the rating out of the content field; these are hazard strings with either all caps or 
-                    // leading caps, soon after the text "BOTTOM LINE"
-                    var contentField = result.channel.item[index]['content:encoded'];
-
-                    var ratingMatch = contentField.match(/BOTTOM\sLINE[\s\S]+?(LOW|MODERATE|CONSIDERABLE|HIGH|EXTREME|Low|Moderate|Considerable|High|Extreme)/);
-
-                    // the capture groups from the regex will be in slot 1 in the array
-                    if (ratingMatch && ratingMatch.length === 2) {
-                        var aviLevel = forecasts.findHighestAviLevelInString(ratingMatch[1]);
-
-                        forecast = [];
-                        forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
-
-                        for (var j = 0; j < forecast.length; j++) {
-                            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-                        }
-                    }
-                }
-                
-            } catch(e) {
-                winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
             }
-        });
-    }
+            
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
 
     return forecast;
 };
