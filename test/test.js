@@ -758,8 +758,8 @@ describe('parseForecast_fac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2013-12-11');
-            forecast[0].aviLevel.should.equal(3);
+            forecast[0].date.should.equal('2014-12-11');
+            forecast[0].aviLevel.should.equal(2);
         })
     })
     describe('file002.xml', function(){
@@ -769,49 +769,8 @@ describe('parseForecast_fac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2013-12-14');
-            forecast[0].aviLevel.should.equal(3);
-        })
-    })
-    describe('file003.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file003.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('fac_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2013-12-15');
-            forecast[0].aviLevel.should.equal(3);
-        })
-    })
-    describe('file004.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file004.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('fac_1'));
-
-            should.not.exist(forecast);
-        })
-    })
-    describe('file005.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file005.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('fac_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2013-12-18');
+            forecast[0].date.should.equal('2014-12-11');
             forecast[0].aviLevel.should.equal(2);
-        })
-    })
-    describe('file006.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file006.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('fac_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-03-02');
-            forecast[0].aviLevel.should.equal(3);
         })
     })
 })
