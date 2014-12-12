@@ -769,7 +769,7 @@ describe('parseForecast_fac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-12-11');
+            forecast[0].date.should.equal('2014-12-09');
             forecast[0].aviLevel.should.equal(2);
         })
     })

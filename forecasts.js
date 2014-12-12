@@ -1197,31 +1197,18 @@ forecasts.parseForecast_fac = function(body, regionDetails) {
     // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function(err, result) {
         try {
-            var forecastIssuedDateField = result.channel.item.pubDate;
-            // NOTE typical date string: 'Sun, 15 Dec 2013 13:52:47 +0000'
-            // NOTE timestamps in this field are UTC! need to convert to mountain standard time to get the actual publish day
-            var mstOffsetHours = 7;
-            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'ddd, DD MMM YYYY HH:mm:ss Z').subtract(mstOffsetHours, 'hours').format('YYYY-MM-DD');
+            var forecastIssuedDateField = result.Advisory_data.Posted;
+            // NOTE typical date string: '2014-12-11T06:35:27-0700'
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+            var aviLevel = parseInt(result.Advisory_data.Danger_Rating);
 
-            // NOTE parse the rating out of the content field; these are hazard strings with either all caps or 
-            // leading caps, soon after the text "BOTTOM LINE"
-            var contentField = result.channel.item.description;
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
 
-            var ratingMatch = contentField.match(/BOTTOM\sLINE[\s\S]+?(LOW|MODERATE|CONSIDERABLE|HIGH|EXTREME|Low|Moderate|Considerable|High|Extreme)/);
-
-            // the capture groups from the regex will be in slot 1 in the array
-            if (ratingMatch && ratingMatch.length === 2) {
-                var aviLevel = forecasts.findHighestAviLevelInString(ratingMatch[1]);
-
-                forecast = [];
-                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
-
-                for (var j = 0; j < forecast.length; j++) {
-                    winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-                }
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
             }
-            
         } catch(e) {
             winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
         }
