@@ -1379,12 +1379,13 @@ forecasts.parseForecastIssuedDate_hg = function(body, regionDetails) {
 
     // capture the forecast timestamp
     // NOTE typical string for hg: 'Issued on :&nbsp;Thursday 30 January 2014 à 7:30'
-    var timestampMatch = body.match(/Issued\s+on\D+(\d+\s+\w+\s+\d+)/i);
+    // or: 'Issued on&thinsp;:&nbsp;Friday December 12th 2014 at 7:30'
+    var timestampMatch = body.match(/Issued\s+on\S+\s+(\w+\s+\w+\s+\d+)/i);
 
     // the capture group from the regex will be in slot 1 in the array
     if (timestampMatch && timestampMatch.length === 2) {
 
-        forecastIssuedDate = moment(timestampMatch[1], 'DD MMM YYYY');
+        forecastIssuedDate = moment(timestampMatch[1], 'MMM DD YYYY');
         winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
     } else {
         winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
