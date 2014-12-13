@@ -7,19 +7,15 @@ general feature roadmap
         push notifications of avalanche warnings/watches, etc.
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
 web service
-    check in with all centers for start of 2014-2015 season
     new integrations
         PAC
             add forecast parsing
             add to partners page
             announce
-    existing integrations: major issues
-        move to new NWAC API
     existing integrations: minor issues / enhancements
-        CAIC -- would like to incorporate tomorrow forecast info too -- need to get it included in the CAAML
+        CAIC -- would like to incorporate tomorrow forecast info too -- need to get it included in the API
         CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
         CAIC -- would like to see the region overlap with CBAC resolved
-        UAC -- would like to incorporate tomorrow forecast info too -- need to get it from them on a single page per region
     v2
         overall v2 features (from above)
     v3
