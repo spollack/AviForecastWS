@@ -7,6 +7,8 @@ general feature roadmap
         push notifications of avalanche warnings/watches, etc.
         add system message capability, to send dynamic messages to users (e.g. problem with forecast center X; forecast center Y added; etc.)
 web service
+    general
+        integrate jade serving directly into app
     new integrations
         PAC
             add forecast parsing
