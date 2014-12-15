@@ -68,6 +68,11 @@ function startHTTPServer() {
     };
     app.use(express.logger({stream:winstonStream}));
 
+    // enable jade template rendering
+    app.set('views', forecasts.TEMPLATE_FILES_DIR_PATH);
+    app.set('view engine', 'jade');
+    app.enable('view cache');
+    
     // compress responses
     app.use(express.compress());
 

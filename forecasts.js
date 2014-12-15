@@ -38,6 +38,7 @@ forecasts.STATIC_FILES_DIR_PATH  = __dirname + '/public';
 forecasts.REGIONS_PATH = __dirname + '/public/v1/regions.json';
 forecasts.FORECASTS_DATA_PATH = __dirname + '/public/v1/forecasts.json';
 forecasts.FORECASTS_DATA_TEMP_PATH = __dirname + '/public/v1/forecasts_TEMP.json';
+forecasts.TEMPLATE_FILES_DIR_PATH  = __dirname + '/templates';
 
 
 // generated forecast tracking
