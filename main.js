@@ -67,14 +67,22 @@ function startHTTPServer() {
         }
     };
     app.use(express.logger({stream:winstonStream}));
-
+    
+    // compress responses
+    app.use(express.compress());
+    
     // enable jade template rendering
     app.set('views', forecasts.TEMPLATE_FILES_DIR_PATH);
     app.set('view engine', 'jade');
     app.enable('view cache');
-    
-    // compress responses
-    app.use(express.compress());
+
+    // serve our website templates
+    app.get('/', function (req, res) {
+        res.render('index', {});
+    });
+    app.get('/partners', function (req, res) {
+        res.render('partners', {});
+    });
 
     // parse request bodies, including file uploads
     app.use(express.bodyParser({keepExtensions: true}));
