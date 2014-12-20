@@ -9,8 +9,8 @@ general feature roadmap
 web service
     existing integrations: minor issues / enhancements
         CAIC -- would like to incorporate tomorrow forecast info too -- need to get it included in the API
-        CAIC/IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
-        CAIC -- would like to see the region overlap with CBAC resolved
+        CAIC, IPAC -- problem caching their web pages on android due to cache-control:no-store; working with them to address (for now, proxying their webpages)
+        CAIC + CBAC -- would like to see the region overlap between CAIC and CBAC resolved
     v2
         overall v2 features (from above)
     v3
