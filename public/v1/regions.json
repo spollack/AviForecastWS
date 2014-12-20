@@ -1087,7 +1087,7 @@
     },
     {
         "regionId": "cacb_yukon",
-        "displayName": "Yukon - Klondike",
+        "displayName": "Yukon",
         "URL": "http://www.avalanche.ca/blogs/yukon",
         "points": [
             {
@@ -1254,7 +1254,7 @@
     },
     {
         "regionId": "cac_northwest-coastal",
-        "displayName": "Northwest - Coastal",
+        "displayName": "Northwest Coastal",
         "URL": "http://www.avalanche.ca/forecasts/northwest-coastal",
         "points": [
             {
@@ -2877,7 +2877,7 @@
     },
     {
         "regionId": "cac_northwest-inland",
-        "displayName": "Northwest - Inland",
+        "displayName": "Northwest Inland",
         "URL": "http://www.avalanche.ca/forecasts/northwest-inland",
         "points": [
             {
@@ -3492,7 +3492,7 @@
     },
     {
         "regionId": "cac_sea-to-sky",
-        "displayName": "Sea to Sky",
+        "displayName": "Sea-to-Sky",
         "URL": "http://www.avalanche.ca/forecasts/sea-to-sky",
         "points": [
             {
@@ -4731,7 +4731,7 @@
     },
     {
         "regionId": "cac_south-coast",
-        "displayName": "South Coast - Inland",
+        "displayName": "South Coast Inland",
         "URL": "http://www.avalanche.ca/forecasts/south-coast",
         "points": [
             {
@@ -5665,7 +5665,7 @@
     {
         "regionId": "cac_monashees-selkirks",
         "displayName": "North Columbia",
-        "URL": "http://www.avalanche.ca/forecasts/monashees-selkirks",
+        "URL": "http://www.avalanche.ca/forecasts/north-columbia",
         "points": [
             {
                 "lat": "51.176",
@@ -6885,7 +6885,7 @@
     },
     {
         "regionId": "cac_kootenay-boundary",
-        "displayName": "Kootenay - Boundary",
+        "displayName": "Kootenay Boundary",
         "URL": "http://www.avalanche.ca/forecasts/kootenay-boundary",
         "points": [
             {
@@ -7599,7 +7599,7 @@
     },
     {
         "regionId": "cac_lizardrange",
-        "displayName": "Fernie - Lizard Range",
+        "displayName": "Lizard Range",
         "URL": "http://www.avalanche.ca/forecasts/lizard-range",
         "points": [
             {
