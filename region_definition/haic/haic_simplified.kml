@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	
+	<Style id="na">
+		<PolyStyle>
+			<color>5fC8C8C8</color>
+			<outline>1</outline>
+			<fill>1</fill>
+		</PolyStyle>
+		<BalloonStyle>
+			<text><![CDATA[
+			<table width="300"><tr><td>
+			<a href=$[zonelink]>Current danger is <b>No Rating</b>.</a>
+			<br>Advisory Expires: $[expdate] 
+			<br>$[Zone]
+			</td></tr></table>
+			]]>
+			</text>
+		 </BalloonStyle>
+	</Style>
+	
+	<Style id="5">
+		<PolyStyle>
+			<color>71ff00ff</color>
+			<outline>1</outline>
+			<fill>1</fill>
+		</PolyStyle>
+		<BalloonStyle>
+			<text><![CDATA[
+			<table width="300"><tr><td>
+			<a href=$[zonelink]>Current danger is <b>EXTREME</b>.</a>
+			<br>Advisory Expires: $[expdate] 
+			<br>$[Zone]
+			</td></tr></table>
+			]]>
+			</text>
+		 </BalloonStyle>
+	</Style>
+	
+	<Style id="4">
+		<PolyStyle>
+			<color>710000ff</color>
+			<outline>1</outline>
+			<fill>1</fill>
+		</PolyStyle>
+		<BalloonStyle>
+			<text><![CDATA[
+			<table width="300"><tr><td>
+			<a href=$[zonelink]>Current danger is <b>HIGH</b>.</a>
+			<br>Advisory Expires: $[expdate] 
+			<br>$[Zone]
+			</td></tr></table>
+			]]>
+			</text>
+		  </BalloonStyle>
+	</Style>
+	
+	<Style id="3">
+		<PolyStyle>
+			<color>7100a5ff</color>
+			<outline>1</outline>
+			<fill>1</fill>
+		</PolyStyle>
+		<BalloonStyle>
+			<text><![CDATA[
+			<table width="300"><tr><td>
+			<a href=$[zonelink]>Current danger is <b>CONSIDERABLE</b>.</a>
+			<br>Advisory Expires: $[expdate] 
+			<br>$[Zone]
+			</td></tr></table>
+			]]>
+			</text>
+		  </BalloonStyle>
+	</Style>
+	
+	<Style id="2">
+		<PolyStyle>
+			<color>7100ffff</color>
+			<outline>1</outline>
+			<fill>1</fill>
+		</PolyStyle>
+		<BalloonStyle>
+			<text><![CDATA[
+			<table width="300"><tr><td>
+			<a href=$[zonelink]>Current danger is <b>MODERATE</b>.</a>
+			<br>Advisory Expires: $[expdate] 
+			<br>$[Zone]
+			</td></tr></table>
+			]]>
+			</text>
+		  </BalloonStyle>
+	</Style>
+	
+	<Style id="1">
+		<PolyStyle>
+			<color>7100ff00</color>
+			<outline>1</outline>
+			<fill>1</fill>
+		</PolyStyle>
+		<BalloonStyle>
+			<text><![CDATA[
+			<table width="300"><tr><td>
+			<a href=$[zonelink]>Current danger is <b>LOW</b>.</a>
+			<br>Advisory Expires: $[expdate] 
+			<br>$[Zone]
+			</td></tr></table>
+			]]>
+			</text>
+		  </BalloonStyle>
+	</Style>
+
+    <Placemark>
+        <name>Chilkat Pass</name>
+        <styleUrl>#3</styleUrl>
+    <ExtendedData>
+        <Data name="Zone">
+          <value>Chilkat Pass Zone: Includes 5-mile creek, 3-Guardsmen, Mineral mountain, Copper butte, Inspector peak, Nadahini mountain/glacier, and Kusawak peak</value>
+        </Data>
+        <Data name="zonelink">
+          <value>http://www.alaskasnow.org/haines/conditions.php</value>
+        </Data>
+        <Data name="expdate">
+          <value>12/15/2014 11pm</value>
+        </Data>
+    </ExtendedData>
+    <Polygon><outerBoundaryIs><LinearRing><coordinates>-136.605616815931114,59.723017649707437,0 -136.79266145545111,59.730070961033128,0 -136.675525191685011,59.561465571524941,0 -136.627443456243412,59.552025283965818,0 -136.527448652498407,59.469135682275059,0 -136.404658582197811,59.476171551852907,0 -136.314861352702195,59.555446685502027,0 -136.354938132509005,59.599461445506613,0 -136.369477541777911,59.65599247298362,0 -136.405557481574903,59.686769628898872,0 -136.486262214495696,59.709825930011583,0 -136.519028774797192,59.752045458542867,0 -136.605616815931114,59.723017649707437,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+        <name>Transitional Zone</name>
+        <styleUrl>#3</styleUrl>
+    <ExtendedData>
+        <Data name="Zone">
+          <value>Transitional Zone: Includes Takhin ridge, Old Faithful, Flower mountain, Surgeon mountain, Four Winds mountain</value>
+        </Data>
+        <Data name="zonelink">
+          <value>http://www.alaskasnow.org/haines/conditions.php</value>
+        </Data>
+        <Data name="expdate">
+          <value>12/15/2014 11pm</value>
+        </Data>
+    </ExtendedData>
+    <Polygon><outerBoundaryIs><LinearRing><coordinates>-135.821481516679512,59.295906128520002,0 -136.025752645503303,59.370198366425313,0 -136.028265119576389,59.45417474579186,0 -136.041975393426299,59.474500224823039,0 -136.147214951733901,59.52750609636945,0 -136.237947352334203,59.524117224134102,0 -136.279718071775903,59.487678597384367,0 -136.367402720097914,59.449665036317178,0 -136.480383044773703,59.42557561046425,0 -136.474328850567588,59.312088620807181,0 -136.330278637707494,59.281234587191967,0 -135.860822369541495,59.245018775910751,0 -135.724571921212487,59.254169033397062,0 -135.7674342581617,59.284645088177271,0 -135.821481516679512,59.295906128520002,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    <Placemark>
+        <name>Lutak Zone</name>
+        <styleUrl>#na</styleUrl>
+    <ExtendedData>
+        <Data name="Zone">
+          <value>Lutak Zone: Includes mount Ripinsky, point 3920, 7-mile saddle, Chilly ridge, Tukgahgo mountain, bowls and peaks surrounding Lutak inlet and lower Chilkoot lake, city of Haines, and mount Riley</value>
+        </Data>
+        <Data name="zonelink">
+          <value>http://www.alaskasnow.org/haines/conditions.php</value>
+        </Data>
+        <Data name="expdate">
+          <value>12/15/2014 11pm</value>
+        </Data>
+    </ExtendedData>
+    <Polygon><outerBoundaryIs><LinearRing><coordinates>-135.44487723814629,59.218773994793693,0 -135.392223540716287,59.219778353593597,0 -135.439565726883586,59.228369820754821,0 -135.426921382591502,59.244633860184358,0 -135.448994762076609,59.278371410308146,0 -135.559009080916297,59.323383676251723,0 -135.438034640434012,59.298468184275819,0 -135.551905088668292,59.367834587944287,0 -135.667542319111988,59.33618161134109,0 -135.669821057337003,59.321083249687739,0 -135.630238915206689,59.300193030828829,0 -135.616920057462806,59.266750896925743,0 -135.44487723814629,59.218773994793693,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+    </Placemark>
+    
+</Document>
+</kml>
