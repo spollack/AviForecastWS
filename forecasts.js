@@ -389,7 +389,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'haic':
-                    dataURL = 'http://alaskasnow.org/haines/conditions.html';
+                    dataURL = 'http://alaskasnow.org/haines/fz.kml';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'vac':
