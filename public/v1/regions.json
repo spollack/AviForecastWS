@@ -9582,7 +9582,7 @@
         ]
     },
     {
-        "regionId": "viac_",
+        "regionId": "viac_1",
         "displayName": "Vancouver Island",
         "URL": "http://www.islandavalanchebulletin.com/",
         "points": [
@@ -15300,7 +15300,7 @@
         ]
     },
     {
-        "regionId": "wb_",
+        "regionId": "wb_1",
         "displayName": "Whistler-Blackcomb Backcountry",
         "URL": "http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx",
         "points": [
@@ -17013,7 +17013,7 @@
         ]
     },
     {
-        "regionId": "hg_",
+        "regionId": "hg_1",
         "displayName": "Chic-Chocs",
         "URL": "http://www.centreavalanche.qc.ca/conditions/bulletins-avalanche",
         "points": [
@@ -17080,7 +17080,7 @@
         ]
     },
     {
-        "regionId": "mwac_",
+        "regionId": "mwac_1",
         "displayName": "Cutler River Drainage",
         "URL": "http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/",
         "points": [
