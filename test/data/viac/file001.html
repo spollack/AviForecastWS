@@ -1,327 +1,179 @@
-
 <!DOCTYPE html>
 
 <html>
 <head>
-    <link href="/stylesheets/base.css" rel="stylesheet" />
-    <link href="/ultraviolet/css/blackboard.css" rel="stylesheet" />
-    <link href="/stylesheets/prettyPhoto.css" rel="stylesheet" />
+      <link href="/stylesheets/base.css" rel="stylesheet" />
+      <link href="/ultraviolet/css/blackboard.css" rel="stylesheet" />
+      <link href="/stylesheets/prettyPhoto.css" rel="stylesheet" />
+      <link href="/stylesheets/superfish.css" rel="stylesheet" />
+      <link href="/stylesheets/slicebox.css" rel="stylesheet" />
+      <link href="/stylesheets/nivo-slider.css" rel="stylesheet" />
     <title>Vancouver Island Avalanche Bulletin</title>
-    <link href="/assets/style.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/print.css" rel="stylesheet" media="print" type="text/css" />
-    <link href="http://feeds.feedburner.com/VancouverIslandAvalancheBulletin" title="Current Conditions RSS Feed" rel="alternate" type="application/rss+xml" />
+  <link href="/assets/style.css" rel="stylesheet" type="text/css" />
+  <link href="/assets/print.css" rel="stylesheet" media="print" type="text/css" />
+   <link href="http://feeds.feedburner.com/VancouverIslandAvalancheBulletin" title="Current Conditions RSS Feed" rel="alternate" type="application/rss+xml" /> 
+  
 
 
 
+  
+  
+<script src="/javascripts/jquery.js" type="text/javascript"></script><script src="/javascripts/plugins/jquery.ui.js" type="text/javascript"></script><script src="/javascripts/i18n.js" type="text/javascript"></script><script src="/javascripts/translations.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        I18n.defaultLocale = 'en';
+        I18n.locale = 'en';
+      </script>
+    <script type="text/javascript" src="/javascripts/asterion.js?1419016699"></script><link href="/files/favicon.ico" rel="shortcut icon" /><link href="/entries.atom" title="All posts" rel="alternate" type="application/atom+xml" /><link href="/entries/incident-reports.atom" title="Incident Reports posts" rel="alternate" type="application/atom+xml" /><script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36273449-1']);
+  _gaq.push(['_setDomainName', 'islandavalanchebulletin.com']);
+  _gaq.push(['_trackPageview']);
 
-
-    <script type="text/javascript" src="/javascripts/asterion.js?1352909344"></script><link href="/files/favicon.ico" rel="shortcut icon" /><link href="/entries.atom" title="All posts" rel="alternate" type="application/atom+xml" /><link href="/entries/incident-reports.atom" title="Incident Reports posts" rel="alternate" type="application/atom+xml" /><script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36273449-1']);
-    _gaq.push(['_setDomainName', 'islandavalanchebulletin.com']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
 </script></head>
 
 <body class="page_index">
-
-
-<script>
+  
+  
+    <script>
     $j(function() {
+    
+    jQuery('.blog_post table td').each( function(idx,td) {   switch(jQuery(td).text()) 
+  {
+    case "LOW":
+      jQuery(td).css('background-color', '#a2bf57');
+      break;
+    case "MODERATE":
+      jQuery(td).css('background-color', '#fd7');
+      break;
+    case "CONSIDERABLE":
+      jQuery(td).css('background-color', '#f3aa5f');
+      break;
+    case "HIGH":
+      jQuery(td).css('background-color', '#f25f5f');
+      break;
+    case "EXTREME":
+      jQuery(td).css('background-color', '#f55');
+      jQuery(td).css('border-color', '#000');
+      break;
+  }
 
-        jQuery('.blog_post table td').each( function(idx,td) {   switch(jQuery(td).text())
-        {
-            case "LOW":
-                jQuery(td).css('background-color', '#a2bf57');
-                break;
-            case "MODERATE":
-                jQuery(td).css('background-color', '#fd7');
-                break;
-            case "CONSIDERABLE":
-                jQuery(td).css('background-color', '#f3aa5f');
-                break;
-            case "HIGH":
-                jQuery(td).css('background-color', '#f25f5f');
-                break;
-            case "EXTREME":
-                jQuery(td).css('background-color', '#f55');
-                jQuery(td).css('border-color', '#000');
-                break;
-        }
-
-        });
+});
 
     });
-
-</script>
-
-
-<div id="wrap">
-<div id="header">
-    <h1 id="site_heading"><span><a href="/">Vancouver Island Avalanche Bulletin</a></span></h1>
-    <h2 id="site_subheading"></h2>
-
-    <div id="primary_navigation"><ul><li class="first even item_0 active"><a href="/" class="navigation_page_link"><span>Home</span></a></li><li class="odd item_1"><a href="/sponsors" class="navigation_page_link"><span>Sponsors</span></a></li><li class="even item_2"><a href="/training" class="navigation_page_link"><span>Training</span></a></li><li class="odd item_3"><a href="/contact" class="navigation_page_link"><span>Contact</span></a></li><li class="even item_4"><a href="/annual-fundraising-party" class="navigation_page_link"><span>5th Annual Party for the Bulletin!</span></a></li><li class="last odd item_5"><a href="/ates-trip-planning" class="navigation_page_link"><span>ATES Trip Planning</span></a></li></ul></div>
-</div>
-
-<div id="content">
-<div class="location" id="location_1"><div class="asterion_components_container asterion_site_wide_components asterion_components_container_0"><div class="component custom_component" id="component_408614"><h2><span>Disclaimer</span></h2><div class="component_content"><div><a href="/disclaimer">Read about the limitations of this avalanche bulletin here.</a></div></div></div><div class="component custom_component" id="component_54269"><h2><span>Sponsors</span></h2><div class="component_content"><div><p style="text-align: center;"><a href="http://vpo.ca"><img src="/files/images/Valhalla.jpg" /></a></p>
-    <p style="text-align: center;"><a href="http://vpo.ca" target="_blank">Valhalla Pure, Courtenay B.C.</a></p>
-    <p style="text-align: center;"><a href="http://www.tlhheliskiing.com/"><img src="/files/images/TLH.jpg" /></a></p>
-    <p style="text-align: center;">&nbsp;</p>
-    <p style="text-align: center;"><a href="http://bcsnowmobile.com/"><img src="/files/resized/62214/240;240;eff22e26b03aff894e948832aab2ba0c1bbf1ac1.jpg" /></a></p>
-    <p style="text-align: center;"><a href="http://islandalpineguides.com"><img src="/files/images/3013f8d.jpg" /></a></p>
-    <p style="text-align: center;"><a href="http://www.mwskipatrol.com/"><img src="/files/resized/47954/240;240;15a92dd937c95f89f95c66fcad23b159e520296d.jpg" /></a></p>
-    <p style="text-align: center;">&nbsp;</p>
-    <p style="text-align: center;"><a href="http://www.mountwashington.ca/"><img src="/files/images/mw.png" /></a></p>
-    <p style="text-align: center;">&nbsp;</p>
-    <p style="text-align: center;"><strong><a href="/sponsors">View all our sponsors</a></strong></p></div></div></div><div class="component blog_component" id="component_54255"><h2><span>Incident Reports</span></h2><div class="component_content"><ul><li class="first even item_0"><a href="/entries/incident-reports/three-skier-triggered-avalanches-west-bowl-mount-cain-18-februarym-2012">Three avalanches West Bowl Mount Cain 18 February, 2012.</a></li><li class="odd item_1"><a href="/entries/incident-reports/saturday-07-january-2012-sliders-west-bowl-mount-cain">Saturday 07 January, 2012. "Sliders" West Bowl Mount Cain.</a></li><li class="last even item_2"><a href="/entries/incident-reports/friday-18-march-2011-large-avalanche-able-bowl-mount-cain-area">Friday 18 March, 2011. Large avalanche Able Bowl, Mount Cain area.</a></li></ul><script type="text/javascript">
-    //<![CDATA[
-
-    $j('body').on('click', 'a.inline_delete_blog_post', function(e){
-        var link = $j(this),
-                id = link.attr('id').replace(/post_/, '');
-        post = $j('.blog_post_'+id),
-                href = link.attr('href');
-
-        var options = {
-            title: 'Delete Blog Post',
-            buttons: {
-
-                "Delete Post": function() {
-                    $j.ajax({
-                        url: href,
-                        dataType: 'json',
-                        type: 'post',
-                        error: function(response, textStatus, errorThrown) {
-                        },
-                        success: function(response, textStatus) {
-                            post.fadeOutAndRemove(function(){
-                                $j('.delete_post_'+id).closest('div').remove();
-                            });
-                        }
-                    });
-
-                    $j(this).dialog('close');
-                },
-
-                "Cancel": function(){
-                    $j(this).dialog('close');
-                }
-
-            }
-        }
-
-        var message = "Are you sure you want to delete this blog post?";
-
-        // Prompt the user with the confirmation dialog
-        $j.asterion.dialog.confirm(message, options);
-
-        return false;
-    });
-
-    //]]>
-</script><p class="archived"><a href="/entries/incident-reports?page=1#post-17363">View older posts &raquo;</a></p></div></div><div class="component custom_component" id="component_162377"><h2><span>Stay Informed</span></h2><div class="component_content"><div><p><a href="http://twitter.com/viavalanche">Follow the Bulletin on Twitter</a> and get updates as soon as they are posted!</p></div></div></div><div class="component custom_component" id="component_101204"><h2><span>Avalanche Forecasting &quot;Ride Along&quot; Program</span></h2><div class="component_content"><div><p style="text-align: left;"><span style="font-family: arial,helvetica,sans-serif;">Join our forecasters for a day of learning in the mountains as they assess current conditions. <a href="/-ride-along-program">Click here for the details.</a></span></p></div></div></div><div class="component custom_component" id="component_54256"><h2><span>Traveling in the Backcountry? Send us your observations and become eligible for the Blue Touque &quot;Tip of the Month&quot; prize.</span></h2><div class="component_content"><div><p>If you have any information about conditions or activity in the back country or If you have observed avalanche activity or been involved in an avalanche, please send your obeservations to us at forecaster@islandavalanchebulletin.com. Each month we'll pick the best contribution to win a prize from the <a href="http://www.bluetoquesports.com/">Blue Toque Sport Swap</a>.</p></div></div></div><div class="component blog_component" id="component_54270"><h2><span>Older Posts</span></h2><div class="component_content"><ul><li class="first even item_0"><a href="/entries/current-condition/monday-26-november-2012">Monday 26 November, 2012</a></li><li class="odd item_1"><a href="/entries/current-condition/friday-23-november-2012-">Friday 23 November, 2012.</a></li><li class="even item_2"><a href="/entries/current-condition/the-snow-is-coming!">The Snow is Coming!</a></li><li class="odd item_3"><a href="/entries/current-condition/friday-27-april-2012-">Friday 27 April, 2012.</a></li><li class="last even item_4"><a href="/entries/current-condition/wednesday-april25-2012">Wednesday, April25. 2012</a></li></ul><script type="text/javascript">
-    //<![CDATA[
-
-    $j('body').on('click', 'a.inline_delete_blog_post', function(e){
-        var link = $j(this),
-                id = link.attr('id').replace(/post_/, '');
-        post = $j('.blog_post_'+id),
-                href = link.attr('href');
-
-        var options = {
-            title: 'Delete Blog Post',
-            buttons: {
-
-                "Delete Post": function() {
-                    $j.ajax({
-                        url: href,
-                        dataType: 'json',
-                        type: 'post',
-                        error: function(response, textStatus, errorThrown) {
-                        },
-                        success: function(response, textStatus) {
-                            post.fadeOutAndRemove(function(){
-                                $j('.delete_post_'+id).closest('div').remove();
-                            });
-                        }
-                    });
-
-                    $j(this).dialog('close');
-                },
-
-                "Cancel": function(){
-                    $j(this).dialog('close');
-                }
-
-            }
-        }
-
-        var message = "Are you sure you want to delete this blog post?";
-
-        // Prompt the user with the confirmation dialog
-        $j.asterion.dialog.confirm(message, options);
-
-        return false;
-    });
-
-    //]]>
-</script><p class="archived"><a href="/entries/current-condition?page=1#post-33383">View older posts &raquo;</a></p></div></div><div class="component custom_component" id="component_59871"><h2></h2><div class="component_content"><div><p><a href="http://feeds.feedburner.com/VancouverIslandAvalancheBulletin"><img src="/extras/images/icons/feed.png" style="vertical-align: middle; border: 0px;" /></a> <a href="http://feeds.feedburner.com/VancouverIslandAvalancheBulletin">Subscribe to the RSS Feed</a></p></div></div></div></div><div class="asterion_components_container asterion_page_specific_components asterion_components_container_2"></div><div class="asterion_components_container asterion_site_wide_components asterion_components_container_4"></div></div>
-<div class="location post" id="location_0"><div class="asterion_components_container asterion_site_wide_components asterion_components_container_0"></div><div class="asterion_components_container asterion_page_specific_components asterion_components_container_2"><div class="component custom_component" id="component_435106"><h2><span>New This Season:</span></h2><div class="component_content"><div><strong><span style="font-size: large;">Get Your Bulletin by Phone at 250 898 0222</span></strong></div></div></div><div class="component blog_component" id="component_162244"><h2></h2><div class="component_content"><div class="blog_post blog_post_92805 first even item_0" id="post-92805"><h3 class="title"><a href="/entries/current-condition/wednesday-28-november-2012-">Wednesday 28 November, 2012.</a></h3><div class="post_wrapper"><div title="1354137480000" class="date"><span class="date_prefix">Date Issued </span>November 28, 2012 at 01:18PM</div><div class="content"><p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">Valid until Friday 30 November, 2012.</p>
-    <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;">
-        <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;"><strong>DANGER RATINGS&nbsp;</strong>(Make sure you understand the&nbsp;<a href="http://www.islandavalanchebulletin.com/danger-levels" style="text-decoration: none; color: #438bc3;">danger level meanings</a>)</div>
+    
+  </script>
+  
+  
+  <div id="wrap">
+    <div id="header">
+      <h1 id="site_heading"></h1>  
+      <h2 id="site_subheading"></h2>    
+        
+      <div id="primary_navigation"><ul><li class="first even item_0 active"><a href="/" class="navigation_page_link"><span>Home</span></a></li><li class="odd item_1"><a href="/get-involved" class="navigation_page_link"><span>Get Involved</span></a></li><li class="even item_2"><a href="/events" class="navigation_page_link"><span>Party for the Bulletin & Backcountry Fest</span></a></li><li class="odd item_3"><a href="/ates-trip-planning" class="navigation_page_link"><span>ATES Trip Planning</span></a></li><li class="even item_4"><a href="/training" class="navigation_page_link"><span>Training</span></a></li><li class="odd item_5"><a href="/sponsors" class="navigation_page_link"><span>Sponsors</span></a></li><li class="last even item_6"><a href="/contact" class="navigation_page_link"><span>Contact</span></a></li></ul></div>    
     </div>
-    <table cellspacing="0" border="1" cellpadding="2" style="border-collapse: collapse; height: 102px; font-size: 14px !important; width: 546px;">
-        <tbody>
-        <tr><th style="background-color: #eeeeee;">Outlook</th><th style="background-color: #eeeeee;">Wednesday</th><th style="background-color: #eeeeee;">Thursday</th><th style="background-color: #eeeeee;">Friday</th></tr>
-        <tr>
-            <td style="text-align: center; font-weight: bold; padding: 5px; border: 1px solid #ffffff;"><strong style="font-size: 12px;">Alpine</strong></td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">MODERATE</td>
-            <td style="text-align: center; font-weight: bold; background-color: #ffdd77; padding: 5px; border: 1px solid #ffffff;">HIGH</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">HIGH</td>
-        </tr>
-        <tr>
-            <td style="text-align: center; font-weight: bold; padding: 5px; border: 1px solid #ffffff;"><strong style="font-size: 12px;">Treeline</strong></td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">LOW</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">CONSIDERABLE</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">CONSIDERABLE</td>
-        </tr>
-        <tr>
-            <td style="text-align: center; font-weight: bold; padding: 5px; border: 1px solid #ffffff;"><strong style="font-size: 12px;">Below Treeline</strong></td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">LOW</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">MODERATE</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">MODERATE</td>
-        </tr>
-        </tbody>
-    </table>
-    <p>&nbsp;</p>
-    <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;">
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong>Confidence: </strong>Fair. Field data is limited.<br /><br /><strong>Past Weather: </strong>We've seen at most a trace of precipitation in the Island mountains since Monday. Winds have been light gusting to moderate at times and mostly from the south east. Temperatures climbed steadily through the period with freezing levels reaching tree line and warmer air aloft. This is changing at time of writing with the onset of a significant weather system.</p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong><span style="text-decoration: underline;">Main Concerns:</span></strong><span style="text-decoration: underline;">&nbsp;(Avalanche problems)</span></p>
+
+    <div id="content">    
+      <div class="location" id="location_1"><div class="asterion_components_container asterion_site_wide_components asterion_components_container_0"><div class="component custom_component" id="component_501649"><div class="component_content"><div><p><a href="http://islandavalanchebulletin.com" class="navigation_external_link"><img src="/files/resized/72708/118;118;b58ff138c43a9bb54acc4a65d1f2062cd4e91dcc.gif" alt="" /></a></p></div></div></div></div><div class="asterion_components_container asterion_page_specific_components asterion_components_container_2"><div class="component custom_component" id="component_408614"><h2 class="component_heading"><span>Get Involved</span></h2><div class="component_content"><div>Help us out by reporting your observations, no matter how much experience you have. Keep a log on your smartphone, view forecasts on the go...&nbsp;<br /><br /><a href="/get-involved">M</a><a href="/get-involved">ore information on the 'Get Involved' page.</a><a href="/disclaimer"><br /></a></div></div></div></div><div class="asterion_components_container asterion_site_wide_components asterion_components_container_4"><div class="component custom_component" id="component_54269"><h2 class="component_heading"><span>Sponsors</span></h2><div class="component_content"><div><p style="text-align: center;"><a href="http://www.islandalpineguides.com/" class="navigation_external_link" target="_blank"><img src="/files/resized/28006/168;76;b5bf8830967fcc319044deb52fe495abf992095b.jpg" alt="" /></a></p>
+<p style="text-align: center;"><img src="/files/resized/84583/168;101;d65611a1bb7fe8309f81fa285e25a927efaba5ae.jpg" alt="" />&nbsp;</p>
+<p style="text-align: center;"><a href="http://backcountryaccess.com" class="navigation_external_link" target="_blank"><img src="/files/resized/81841/128;59;24d0405ffce8be574fb2a65e4a3489fdc1181da5.jpg" alt="" /></a><a href="http://k2skis.com" class="navigation_external_link" target="_blank"><img src="/files/resized/92269/94;61;801f20e9f8c05ef157bc9f850cfb00a35d40a50c.jpg" alt="" /></a></p>
+<p style="text-align: center;"><a href="http://vpo.ca" class="navigation_external_link" target="_blank"><img src="/files/resized/81842/221;34;4ecd0c6e35e75932c77a598443b78042e3adb3ee.jpg" alt="" /></a>&nbsp;</p>
+<p style="text-align: center;"><a href="http://www.lighthousebrewing.com/" class="navigation_external_link" target="_blank"><img src="/files/resized/92272/134;107;e15ea26113c7baaf6fe65ebcd54443bb14571daf.jpg" alt="" /></a>&nbsp;</p>
+<p style="text-align: center;"><a href="http://mountwashington.ca" class="navigation_external_link" target="_blank"><img src="/files/resized/28009/220;52;e6ef88b3cdae53dbe362c326412ecc4a4fcb701a.png" alt="" /></a>&nbsp;</p>
+<p style="text-align: center;"><a href="http://www.ridingfool.com/" class="navigation_external_link" target="_blank"><img src="/files/images/Fool-Logo.jpg" height="79" alt="" width="138" /></a></p>
+<p style="text-align: center;"><strong><a href="/sponsors">View all our sponsors</a></strong></p></div></div></div><div class="component blog_component" id="component_54255"><h2 class="component_heading"><span>Incident Reports</span></h2><div class="component_content"><ul><li class="first even item_0"><a href="/entries/incident-reports/march-20-2013-2-skier-involvement-north-bowl-above-mckay-lake">March 20,2013: 2 Skier involvement North Bowl above McKay Lake</a></li><li class="odd item_1"><a href="/entries/incident-reports/strata-mountain-jan-8-2013">Strata Mountain, Jan 8, 2013</a></li><li class="last even item_2"><a href="/entries/incident-reports/two-skier-triggered-avalanches-saturday-15-december-mount-cain-west-bowl-">Two Skier triggered avalanches, Saturday 15 December, Mount Cain West Bowl.</a></li></ul><p class="archived"><a href="/entries/incident-reports?page=1#post-106534">View older posts &raquo;</a></p></div></div><div class="component custom_component" id="component_162377"><h2 class="component_heading"><span>Stay Informed</span></h2><div class="component_content"><div><p><a href="http://twitter.com/viavalanche">Follow the Bulletin on Twitter</a> and get updates as soon as they are posted!</p></div></div></div><div class="component custom_component" id="component_54256"><h2 class="component_heading"><span>Traveling in the Backcountry? Send us your observations and become eligible for the Blue Touque "Tip of the Month" prize.</span></h2><div class="component_content"><div><p>If you have any information about conditions or activity in the back country or If you have observed avalanche activity or been involved in an avalanche, please send your obeservations to us at forecaster@islandavalanchebulletin.com. Each month we'll pick the best contribution to win a prize from the <a href="http://www.bluetoquesports.com/">Blue Toque Sport Swap</a>.</p></div></div></div><div class="component blog_component" id="component_54270"><h2 class="component_heading"><span>Older Posts</span></h2><div class="component_content"><ul><li class="first even item_0"><a href="/entries/current-condition/winer-2014-15">Winer 2014/15</a></li><li class="odd item_1"><a href="/entries/current-condition/sunday-april-20-2014">Sunday April 20, 2014</a></li><li class="even item_2"><a href="/entries/current-condition/thursday-april-17-2014-">Thursday April 17, 2014.</a></li><li class="odd item_3"><a href="/entries/current-condition/monday-april-14-2014-">Monday April 14, 2014.</a></li><li class="last even item_4"><a href="/entries/current-condition/saturday-april-12-2014-">Saturday April 12, 2014.</a></li></ul><p class="archived"><a href="/entries/current-condition?page=1#post-794278">View older posts &raquo;</a></p></div></div><div class="component custom_component" id="component_59871"><div class="component_content"><div><p><a href="http://feeds.feedburner.com/VancouverIslandAvalancheBulletin"><img src="/extras/images/icons/feed.png" style="vertical-align: middle; border: 0px;" /></a> <a href="http://feeds.feedburner.com/VancouverIslandAvalancheBulletin">Subscribe to the RSS Feed</a></p></div></div></div></div></div>      
+      <div class="location post" id="location_0"><div class="asterion_components_container asterion_site_wide_components asterion_components_container_0"></div><div class="asterion_components_container asterion_page_specific_components asterion_components_container_2"><div class="component custom_component" id="component_435106"><h2 class="component_heading"><span>Current Bulletin</span></h2><div class="component_content"><div><strong><span style="font-size: large;">Get Your Bulletin by Phone at 250 898 0222<br /></span></strong><a href="/disclaimer">Read about the limitations of this avalanche bulletin here.</a></div></div></div><div class="component blog_component" id="component_162244"><div class="component_content"><div class="blog_post blog_post_849293 first even item_0" id="post-849293"><h3 class="title"><a href="/entries/current-condition/friday-19-december-2014-">Friday 19 December, 2014.</a></h3><div class="post_wrapper"><div title="1419028140000" class="date">December 19, 2014 at 02:29PM</div><div class="content"><div class="date" title="1365914040000">This Bulletin Valid Until: &nbsp;Sunday, 21 December, 6pm.</div>
+<div class="content">
+<div class="content">
+<div class="content">
+<div class="content">
+<div class="content">
+<div class="content">
+<div class="content">
+<div class="content">
+<div class="content">
+<div class="content"><strong>DANGER RATINGS&nbsp;</strong>(Make sure you understand the&nbsp;<a href="http://www.islandavalanchebulletin.com/danger-levels">danger level meanings</a>)</div>
+<strong></strong></div>
+<div class="content">
+<table cellspacing="0" border="1" cellpadding="2">
+<tbody>
+<tr><th>Outlook</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr>
+<tr>
+<td><strong>Alpine</strong></td>
+<td>CONSIDERABLE</td>
+<td>HIGH</td>
+<td>CONSIDERABLE</td>
+</tr>
+<tr>
+<td><strong>Treeline</strong></td>
+<td><span>CONSIDERABLE</span></td>
+<td><span>HIGH</span></td>
+<td>CONSIDERABLE</td>
+</tr>
+<tr>
+<td><strong>Below Treeline</strong></td>
+<td><span>MODERATE</span></td>
+<td>MODERATE</td>
+<td>MODERATE<br /><br /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="content"><strong>Confidence:&nbsp;</strong>Fair. Field information for this forecast is very limited. Freezing level will rise bringing rain on Saturday but exact heights are uncertain.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Main Concerns:</strong>&nbsp;(Avalanche problems)</p>
+<p><strong>Wind Slab - </strong>40 to over 100cm of snow accumulating over the weekend combined with&nbsp;strong&nbsp;South East winds will create wind slab predominantly on west to north aspects and in cross loaded features at tree line and in the alpine. These slabs will fail naturally and will be touchy to human triggers. They could produce avalanches from relatively harmless to people (Sz1) up to large enough to destroy a car (Sz3).</p>
+<p><strong>Storm Slab -&nbsp;</strong>Variations in temperature during the storms, particularly with warming on Saturday will result in more dense snow overlying less dense snow. These storm slabs will be found on all aspects and at all elevations. They will be touchy to human loads in the alpine and at tree line and could produce avalanches from&nbsp;relatively harmless to people (Sz1) up to almost large enough to destroy a car (Sz2.5).</p>
+<p><strong>Wet Loose Avalanches&nbsp;</strong>&nbsp;- Rising freezing levels on Saturday will bring rain to at least tree line if not to the tops of the Island Alps. Wet snow avalanches will occur naturally and with human trigger on all aspects and at all elevations to which rain reaches.</p>
+<p><strong>Travel/Terrain Advice:</strong></p>
+<p>Stay out of avalanche terrain in times of high hazard as natural avalanches are likely. Travel in avalanche terrain under considerable hazard presents significant risks to anyone without extensive snow stability and terrain evaluation skills. Watch for windslab when entering wind affected areas and look for signs of unstable snow such as cracks and shooting cracks.</p>
+<p>Remember that though small, loose wet avalanches can be heavy and "pushy" and can do harm when combined with terrain traps such as trees and cliffs. Watch freezing levels on Saturday and recognize that rain will increase the loose wet snow avalanche likelihood.</p>
+<p>The height of snow tapers down significantly below tree line meaning that obstacles such as rocks and stumps remain barely covered at lower elevations. Watch out for these hazards.</p>
+<p><strong>Current Weather:</strong></p>
+<p>At time of writing the island mountains have received around a metre of snow at tree line and accumulation continues. Precipitation came with very strong winds, likely to 90kph or more mostly from the South East. Freezing levels have ranged from about 500m to 1500m.</p>
+<p><strong>Avalanche Summary :</strong></p>
+<p>A natural avalanche cycle is likely to have occurred and will continue in the alpine and at tree line though poor visibility and a lack of observers in the field mean that we can not confirm this.</p>
+<p>Some small, loose wet avalanches have been observed below tree line</p>
+<p><strong>Snowpack &nbsp;Summary:</strong></p>
+<p>The island snowpack currently consists of between about 50cm and 100cm of snow at tree line that has fallen on the Island Alps since winter began on Monday (lesser amounts on the north island). There are storm snow shears in the upper and mid snowpack which delivered easy to moderate test results on Thursday. Wind slab is widespread at tree line and in the alpine.</p>
+<p>&nbsp;<strong>Weather Forecast:</strong></p>
+<p><span>Friday: 15-50mm of precipitation (greater amounts on west coast), moderate to strong South East winds,&nbsp;freezing&nbsp;level around 1200m.</span><br /><span>Saturday: 25-60mm of precipitation (greater amounts on west coast), moderate to strong South East winds dropping to moderate to light South West as the day progresses, freezing level 1500-1900m .(uncertainty here).</span><br /><span>Sunday: 5-10mm of precipitation with the possibly up to 15-20mm on the west coast, moderate South West winds, freezing level 1500m dropping to 1200m.</span></p>
+<p><strong>Forecaster:</strong>&nbsp;Jan Neuspiel<br />Observations or comments?&nbsp;<a href="http://islandavalanche.jigsy.com/get-involved">We want to hear them</a></p>
+</div></div><div class="metadata"><div class="category"> <a href="/entries/current-condition">Current Conditions</a></div></div></div></div><div class="blog_post blog_post_848662 odd item_1" id="post-848662"><h3 class="title"><a href="/entries/current-condition/winer-2014-15">Winer 2014/15</a></h3><div class="post_wrapper"><div title="1418674320000" class="date">December 15, 2014 at 12:12PM</div><div class="content"><p>Due to a lack of snow in the Island Alps the Vancouver Island Avalanche Bulletin is delayed in starting forecasts this winter. Snow is starting to accumulate in the mountains now and the forecast for this week suggests that we'll be starting to issue avalanche bulletins soon. In the meantime be aware that as snow starts to accumulate the first avalanche problems to come into play will be wind slab and storm slab in the high alpine particularly in areas of smooth ground cover. As more snow accumulates we'll start to see avalanche hazard at lower elevations. The bulletin will be up and running well before then.</p>
+<p>If you have questions or if you are travelling in the mountains and have information to send our forecasters please do get in touch at <a href="mailto:forecaster@islandavalanchebulletin.com">forecaster@islandavalanchebulletin.com</a>. Any and all contributions of conditions reports are of use.</p></div><div class="metadata"><div class="category"> <a href="/entries/current-condition">Current Conditions</a></div></div></div></div><div class="blog_post blog_post_795310 last even item_2" id="post-795310"><h3 class="title"><a href="/entries/current-condition/sunday-april-20-2014">Sunday April 20, 2014</a></h3><div class="post_wrapper"><div title="1398034320000" class="date">April 20, 2014 at 03:52PM</div><div class="content"><p><span style="color: #ff0000;"><strong>Vancouver Island Avalanche Bulletin - End of the 2014 Season</strong></span></p>
+<p>This week end marks the end of the forecasting season for the V.I. Avalanche Bulletin.&nbsp;We will not issue further bulletins this spring unless a heightened hazard compels us to issue an up date or warning. If you are planning spring trips do check back here to see if we have issued any updates or warnings and as always plan your trips carefully.</p>
+<p><span style="color: #000080;"><strong>Below is some general advice for traveling in avalanche terrain at this time of year:</strong></span><br /><br />Spring avalanche danger patterns are generally quite predictable in that they relate largely to day time warming from rise in temperature and direct sun light. Choosing which aspect to be on when is the way to manage this hazard. Danger is generally lower early in the day when temperatures are cool, the sun is not yet affecting slopes, and a strong supportive&nbsp;melt-freeze&nbsp;crust exists. Danger increases as temperatures rise, solar radiation intensifies, and surface snow becomes wet or slushy. If wet snow does not freeze overnight or if it's raining, hazard can be up at any time of day.</p>
+<p>Watch for snow becoming wet and slushy to more than about 5cm depth, pinwheeling, snowballing and small loose, wet snow point releases out of steep terrain and at rock outcrops. When you see these signs be prepared to change your planned route to a shadier aspect which has not yet melted or if that is not available get out of avalanche terrain. Remember that wet snow avalanches can occur on lower angled slopes of 25 degrees or less.</p>
+<p>Always keep an eye on what is above you. Remember that though it may be cool lower down in the shade where you are, sun could be affecting start zones above you.</p>
+<p>While most loose wet avalanches tend to be small in size they are heavy and can be "pushy". As such, even small wet avalanches can cause significant harm especially when combined with terrain traps such as trees, stumps, rocks and cliffs.</p>
+<p>Not all wet snow avalanches are small. With very warm temperatures and strong solar radiation or heavy warm rain, the snow pack could become saturated to great enough depth to cause failure of old weaknesses deeper in the snowpack making for much larger avalanches. In such extreme weather events staying out of avalanche terrain makes sense.</p>
+<p>While getting out early is generally the rule of thumb it is worth considering that the snow tends to be hard first thing in the day and that exposure on steep slopes could result in nasty falls followed by sliding on hard snow which could be especially dangerous if there are consequences below. Remember that terrain traps such as cliffs and trees are a danger not only in avalanches!</p>
+<p>There is still snow in the forecast meaning that more winter like avalanche problems such as wind slab and storm slab remain possibilities, typically at the higher elevations. When it does snow look for amounts of 20 to 30cm or more and be aware that this snow may not bond well initially to underlying crusts. Also watch for moderate and stronger winds which can transport new snow and create slabs of greater depth in the lees and in cross loaded features.</p>
+<p>The Canadian Avalanche Centre's Forecaster Blog has some more good general advice for travel at this time of year. You can read the blog here:&nbsp;<a href="http://blogs.avalanche.ca/timing-is-everything-understanding-spring-danger-ratings/">http://blogs.avalanche.ca/timing-is-everything-understanding-spring-danger-ratings/</a></p>
+<p>If you are tripping in the island alps this spring please send your observations to us at forecaster@islandavalanchebulletin.com.</p>
+<p>Many thanks to all the great sponsors who have kept this bulletin going. If you appreciate the bulletin then please go to our sponsors page and pass your appreciations on to these fine community members that make it possible. Many thanks also to the board of the Vancouver Island Avalanche Centre and to all who volunteer and of course to all of you who turn up at the <a href="/annual-fundraising-party">Annual Party for the Bulletin</a> and the <a href="http://vanislebackcountryfest.ca">V.I. Backcountry Fest</a>. These fund raising events are a big part of what keeps your bulletin going!<br /><br />If you are interested in becoming a sponsor of the bulletin please contact us at forecaster@islandavalanchebulletin.com.</p>
+<p>Forecaster: Jan Neuspiel</p></div><div class="metadata"><div class="category"> <a href="/entries/current-condition">Current Conditions</a></div></div></div></div><p class="archived"><a href="/entries?page=1#post-795310">View older posts &raquo;</a></p></div></div><div class="component custom_component" id="component_54259"><h2 class="component_heading"><span>Important Notice</span></h2><div class="component_content"><div><p>This bulletin covers the mountainous region of Vancouver Island from the Mt. Cain Ski Area in the North to the Beaufort range to the South including the mountains of Strathcona Provincial Park.</p>
+<p>This is a regional forecast and significant variation may exist within the forecast area. The information and danger ratings are intended as a trip planning aid for recreational, backcountry users of avalanche terrain; they are not meant to be used as the sole factor in determining the avalanche danger presented by a specific slope.</p>
+<p> Always include local weather, snowpack and avalanche observations in your decision to travel in avalanche terrain. Observations and experience may lead to different conclusions from what is reported or recommended.<a href="/disclaimer"> See disclaimer</a> for further details. The technical data used to produce these bulletins is obtained from a variety of sources, including local ski areas and remote weather resources.</p></div></div></div></div><div class="asterion_components_container asterion_site_wide_components asterion_components_container_4"></div></div>
+      <br style="clear: both" />
     </div>
-    <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;">
-        <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;"><span id="ctl00_bc_bulletinUC_problem1_lblComments"><strong><span id="ctl00_bc_bulletinUC_problem1_lblComments"><strong>Wind Slab</strong> </span>- </strong>Precipitation starting on the east coast at time of writing will bring a total of 70 to 150mm of water <span id="ctl00_bc_bulletinUC_problem1_lblComments">by Friday night</span> (depending on location, highest amounts on the west coast). Strong winds will move snow to create wind slabs on west through north to north east aspects and in cross loaded features. Initially these slabs will be limited to the alpine but as freezing levels drop they will become a feature at tree line as well. Avalanches will occur naturally and be easily triggerable by humans and will range in size from small to almost big enough to bury, injure or kill a person.<strong><br /><br />Persistent Slab - </strong>A weak layer of faceted snow crystals at an ice crust has been identified as the cause of some large avalanches in the coast range. We do not have good field information as yet from the high alpine on Vancouver Island but this layer could exist here on all aspects in the alpine. It is possible that a human load could trigger an avalanche up to big enough to bury, injure or kill a person.<br /><br /></span></div>
-        <p class="Body" style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong>Weather Outlook:<br /><br /></strong>A significant frontal system has begun to hit the island at time of writing with rising freezing levels (to fall later), large amounts of precipitation and strong winds.<strong><br /></strong></p>
-        <p class="Body" style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">Wednesday - Precipitation beginning around mid day to bring 20 to 35mm of water. Freezing levels rising to 2000m by later in the day and then falling to around 1700m overnight, Winds strong and mostly from the south east but making their way round to south west as well.<br /><br />Thursday - 40 to 60mm additional precipitation. Freezing levels dropping toward tree line (snow line a few hundred metres below that). Strong winds continue from the east through south to south west.<br /><br />Friday - An additional 15 to 35mm of water coming as snow lower down now as freezing levels drop toward about 1200m. Winds continue to be strong.</p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong>Avalanche Activity:</strong></p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">No new avalanches have been observed in the past three days.<br /><br /><strong>Snowpack:</strong></p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">The precipitation will come as rain early in the storm thus destroying any surface hoar that may have existed as mentioned in our last report. At tree line and below a stable, progressive density snowpack will get a good soaking before rain turns to snow as our precipitation continues. In the alpine we have yet to confirm the existence in the island snow pack of the crust/facet combination found about 80cm deep in the snowpack at tree line and above in the coast range. Given that the weather conditions which produced this across the pond were much the same on the island, we will continue to assume the presence of this weak layer until proven otherwise. With significant additional load this layer could become a failure point causing large avalanches in the alpine.<strong><br /><br />Travel Advisory:</strong><br /><br />Stay out of avalanche terrain in times of&nbsp; high danger. Stick to lower angled slopes and/or well forested areas. Expect to find wind slab in the lees of ridge crests and in cross loaded features. Be aware that a deep weakness in the snowpack, such as that suspected to exist in our alpine, can produce larger avalanches. Particular areas of concern are alpine start zones with smooth ground cover such as rock slabs, glacial ice or snow from last winter found in shady parts of the terrain and especially where these are adjacent to ares of shallow snow pack.<br /><br />Prepared by Jan Neuspiel</p>
-    </div></div><div class="metadata"><div class="category">Posted in <a href="/entries/current-condition">Current Conditions</a></div></div></div></div><div class="blog_post blog_post_91694 odd item_1" id="post-91694"><h3 class="title"><a href="/entries/current-condition/monday-26-november-2012">Monday 26 November, 2012</a></h3><div class="post_wrapper"><div title="1353978840000" class="date"><span class="date_prefix">Date Issued </span>November 26, 2012 at 05:14PM</div><div class="content"><p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">Valid until Thursday 28 November, 2012.</p>
-    <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;">
-        <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;"><strong>DANGER RATINGS&nbsp;</strong>(Make sure you understand the&nbsp;<a href="http://www.islandavalanchebulletin.com/danger-levels" style="text-decoration: none; color: #438bc3;">danger level meanings</a>)</div>
-    </div>
-    <table cellspacing="0" border="1" cellpadding="2" style="border-collapse: collapse; height: 102px; font-size: 14px !important; width: 546px;">
-        <tbody>
-        <tr><th style="background-color: #eeeeee;">Outlook</th><th style="background-color: #eeeeee;">Tuesday</th><th style="background-color: #eeeeee;">Wednesday</th><th style="background-color: #eeeeee;">Thursday</th></tr>
-        <tr>
-            <td style="text-align: center; font-weight: bold; padding: 5px; border: 1px solid #ffffff;"><strong style="font-size: 12px;">Alpine</strong></td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">MODERATE</td>
-            <td style="text-align: center; font-weight: bold; background-color: #ffdd77; padding: 5px; border: 1px solid #ffffff;">MODERATE</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">HIGH</td>
-        </tr>
-        <tr>
-            <td style="text-align: center; font-weight: bold; padding: 5px; border: 1px solid #ffffff;"><strong style="font-size: 12px;">Treeline</strong></td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">LOW</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">LOW</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">CONSIDERABLE</td>
-        </tr>
-        <tr>
-            <td style="text-align: center; font-weight: bold; padding: 5px; border: 1px solid #ffffff;"><strong style="font-size: 12px;">Below Treeline</strong></td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">LOW</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">LOW</td>
-            <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">MODERATE</td>
-        </tr>
-        </tbody>
-    </table>
-    <p>&nbsp;</p>
-    <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;">
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong>Confidence: </strong>Fair. Field data remains limited at this time of year.<br /><br /><strong>Past Weather: </strong>The Island Alps have seen from zero to 10cm of snow over the past three days. Higher amounts on the west coast, least on the east and about 5cm on the north island. Since our last storm passed winds have been mostly light from the south east through to south west. Freezing levels have been as low as near sea level with a couple of spikes up to near tree line.</p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong><span style="text-decoration: underline;">Main Concerns:</span></strong><span style="text-decoration: underline;">&nbsp;(Avalanche problems)</span></p>
-    </div>
-    <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;">
-        <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;"><span id="ctl00_bc_bulletinUC_problem1_lblComments"><strong>Persistent Slab - </strong>A weak layer of faceted snow crystals at an ice crust has been identified as the cause of some large avalanches in the coast range. We do not have field information as yet from the high alpine on Vancouver Island but this layer could exist here on all aspects in the alpine. It is possible that a human load could trigger an avalanche up to big enough to bury, injure or kill a person.<br /><br /><strong>Wind Slab</strong> - Overnight Wednesday and Thursday 30 to 45cm of new snow accompanied by moderate to strong winds mostly from the south east will create wind slab which will fail both naturally and easily under human load. Avalanches could range from small in size to almost big enough to bury a person.<br /></span></div>
-        <p class="Body" style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong>Weather Outlook:<br /><br /></strong>Our ridge of high pressure will start to give way to an approaching warm front<strong>.<br /></strong></p>
-        <p class="Body" style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">Tuesday - Mix of sun and cloud, little to no precipitation, winds light gusting to moderate from the south east, freezing level around 1200-1400m with an above freezing layer of air aloft a distinct possibility.<br /><br />Wednesday: Increasing cloud and light precipitation, winds increasing to moderate and mostly from the south east, freezing levels variable as the warm air overtakes the cold.<br /><br />Thursday - Heavy precipitation starting later Wednesday with accumulations of 30 to 45mm of water. Winds increasing to moderate to strong south east and freezing levels settling in to somewhere around 1500-1700m (snow level a few hundred metres below that).</p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong>Avalanche Activity:</strong></p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">No new avalanches have been observed in the past three days.<br /><br /><strong>Snowpack:</strong></p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">The island snowpack sits at around 130cm to 150cm at tree line. The snow surface now has surface hoar on it which has melted on the sunny aspects but persists in the shade. Storm and wind slab weaknesses in the snowpack reported in our last bulletin have settled out and bonded now. There is a crust around 80cm down into the snowpack which is not of concern at tree line but may well have weak faceted crystals associated with it in the higher alpine. Our forecasters are aiming to get into the alpine this week to investigate this further. If you are making observations of this layer or any observations for that matter please do submit them to us at forecaster@islandavalanchebulletin.com.<br /><strong><br />Travel Advisory:</strong></p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">Travel is generally safe for Tuesday and Wednesday at and below tree line. Be aware that at the lower elevations hidden obstacles such as stumps and rocks remain a hazard. In the alpine be aware of the possibility of a weak layer deep in the snowpack that could cause larger avalanches especially in areas of smooth ground cover such as rock slabs, glacier ice and patches of last winters snow in the shady parts of the terrain. On Thursday hazard will increase dramatically with the onset of a significant storm. Stay in well forested areas and/or on low angled slopes to avoid being caught in an avalanche on Thursday.<br /><br />Prepared by Jan Neuspiel</p>
-    </div></div><div class="metadata"><div class="category">Posted in <a href="/entries/current-condition">Current Conditions</a></div></div></div></div><div class="blog_post blog_post_90091 last even item_2" id="post-90091"><h3 class="title"><a href="/entries/current-condition/friday-23-november-2012-">Friday 23 November, 2012.</a></h3><div class="post_wrapper"><div title="1353714660000" class="date"><span class="date_prefix">Date Issued </span>November 23, 2012 at 03:51PM</div><div class="content"><div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;">
-    <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">Valid until Monday 26 November 2012.<br /><br /><strong>Note:</strong> We have very limited data in the early season with which to write this bulletin. We will not venture hazard ratings yet but below you will find some information about what is happening in the Island Alps and some general advice for this time of year.<br /><br /><strong>Past Weather: </strong>A number of snowfalls and one rain event to the tops of the island alps have left us with a snowpack of around 130 to 180cm at tree line and about 100-130cm at 1000m. Winds have been strong at times making for variable snow depths in the alpine with bare ground in places and much deeper&nbsp; deposits in others. Our most recent storm overnight Thursday/Friday dropped 20 to 60cm of new snow depending on location and elevation<strong>.<br /><br /><br /><span style="text-decoration: underline;">Main Concerns:</span></strong><span style="text-decoration: underline;">&nbsp;(Avalanche problems)</span></p>
-</div>
-    <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;">
-        <div class="content" style="overflow-x: hidden; overflow-y: hidden; zoom: 1;"><strong>Wind Slab</strong> - Winds during storms have moved snow at tree line and in the alpine to form wind slabs on north east through north to north west aspects and in cross loaded features. These slabs become more difficult to trigger as they b0nd over time but could produce avalanches that while not big enough to bury a person could cause some trouble if combined with a terrain trap like trees or a cliff.<br /><span id="ctl00_bc_bulletinUC_problem1_lblComments"><br /><strong>Persistent Slab</strong> - Observations in the coast mountains have shown a deeper and persistent weakness in the snow pack in the alpine. Tree line evidence on the island suggests that this weakness may well exist in the island snowpack in the alpine on all aspects. If triggered it could produce avalanches from small to big enough to bury injure or kill a person.<br /></span></div>
-        <p class="Body" style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong>Weather Outlook:</strong></p>
-        <p class="Body" style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">Friday - Precipitation trailing off in the early hours and giving way to a mix of sun and cloud. Freezing level dropping from a high of around 1500m in the early hours of Friday to around 1000m. Winds lightening and from the west and south west.<br />Saturday - 0 to 5cm of snow. Light to moderate winds from the west. Freezing level 800-1000m.<br />Sunday - 0 to 5cm of snow. Light to moderate north west winds. Freezing level around 1000m.</p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;"><strong>Avalanche Activity:</strong></p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">A few natural avalanches to size 1.5 have been observed during and soon after our storms.<br /><br /><strong>Snowpack:</strong></p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">The island snowpack sits at around 130 to 180cm at tree line and about 100-130cm at 1000m. There are density variations within the snow pack due to temperature changes and wind effect during precipitation events. These density changes deliver natural avalanches and easy planar results in tests during and soon after storms but tend to start to bond after that and produce less reactive results. A crust from early November has been observed at tree line. While this crust poses no issues at this elevation, the same crust has been shown to be a persistent weakness in the alpine in the coast range due to faceted snow crystals at the crust. Alpine observations have not been made to confirm this problem exits in the island alps but it would be prudent to assume that it does until more data is collected. Snow distribution in the alpine is highly variable due to strong winds during previous storms with areas bare of snow while others are quite "fat".<br /><strong><br />Travel Advisory:</strong></p>
-        <p style="margin-top: 10px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; line-height: 1.3em; padding: 0px;">At tree line and in the alpine watch for wind slab. This presents as everything from soft slab just slightly more dense snow) to hard slab (little to no ski penetration). Watch for increasing density of snow in wind zones and for cracking and shooting cracks. Test small features for reactivity of slabs. In the alpine be aware that we may have a deeper persistent instability that could cause avalanches large enough to bury, injure or kill a person. Be particularly cautious in areas with smooth ground cover such as rock slabs, glaciers or where last years snow persists beneath. If you have the skills to identify the crust and associated faceted snow crystals mentioned above, do dig around to see if you can find these and to assess how they react in tests. Then send us your results to forecaster@islandavalanchebulletin.com. Any and all observations are of value!<br />While coverage is pretty good below tree line for this time of year it is still thin enough, especially at lower elevations, that hazards such as rocks, stumps etc still lurk beneath the snow.<br /><br /><strong>Please note:</strong> Mount Washington Alpine Resort is not open to the public until Friday 30 November.<br /><br />Prepared by Jan Neuspiel.</p>
-    </div></div><div class="metadata"><div class="category">Posted in <a href="/entries/current-condition">Current Conditions</a></div></div></div></div><script type="text/javascript">
-    //<![CDATA[
-
-    $j('body').on('click', 'a.inline_delete_blog_post', function(e){
-        var link = $j(this),
-                id = link.attr('id').replace(/post_/, '');
-        post = $j('.blog_post_'+id),
-                href = link.attr('href');
-
-        var options = {
-            title: 'Delete Blog Post',
-            buttons: {
-
-                "Delete Post": function() {
-                    $j.ajax({
-                        url: href,
-                        dataType: 'json',
-                        type: 'post',
-                        error: function(response, textStatus, errorThrown) {
-                        },
-                        success: function(response, textStatus) {
-                            post.fadeOutAndRemove(function(){
-                                $j('.delete_post_'+id).closest('div').remove();
-                            });
-                        }
-                    });
-
-                    $j(this).dialog('close');
-                },
-
-                "Cancel": function(){
-                    $j(this).dialog('close');
-                }
-
-            }
-        }
-
-        var message = "Are you sure you want to delete this blog post?";
-
-        // Prompt the user with the confirmation dialog
-        $j.asterion.dialog.confirm(message, options);
-
-        return false;
-    });
-
-    //]]>
-</script><p class="archived"><a href="/entries?page=1#post-90091">View older posts &raquo;</a></p></div></div><div class="component custom_component" id="component_54259"><h2><span>Important Notice</span></h2><div class="component_content"><div><p>This bulletin covers the mountainous region of Vancouver Island from the Mt. Cain Ski Area in the North to the Beaufort range to the South including the mountains of Strathcona Provincial Park.</p>
-    <p>This is a regional forecast and significant variation may exist within the forecast area. The information and danger ratings are intended as a trip planning aid for recreational, backcountry users of avalanche terrain; they are not meant to be used as the sole factor in determining the avalanche danger presented by a specific slope.</p>
-    <p> Always include local weather, snowpack and avalanche observations in your decision to travel in avalanche terrain. Observations and experience may lead to different conclusions from what is reported or recommended.<a href="/disclaimer"> See disclaimer</a> for further details. The technical data used to produce these bulletins is obtained from a variety of sources, including local ski areas and remote weather resources.</p></div></div></div></div><div class="asterion_components_container asterion_site_wide_components asterion_components_container_4"></div></div>
-<br style="clear: both" />
-</div>
-<div id="footer">
-    <div id="copyright"><p>&copy; Vancouver Island Avalanche Bulletin - Please read our <a href="/disclaimer">disclaimer</a> and make sure you understand the <a href="/danger-levels">avalanche danger ratings</a>.</p></div><div id="powered_by"><span style="font:normal 12px arial, helvetica, sans-serif;">Create a <a href="http://www.jigsy.com" style="text-decoration: underline;">Free Website</a>
-at <a href="http://www.jigsy.com" style="text-decoration: underline;">Jigsy.com</a>.</span></div>
-
-</div>
-</div>
+    <div id="footer">
+      <div id="copyright"><p>&copy; Vancouver Island Avalanche Bulletin - Please read our <a href="/disclaimer">disclaimer</a> and make sure you understand the <a href="/danger-levels">avalanche danger ratings</a>.</p></div><div id="powered_by"><span style="font:normal 12px arial, helvetica, sans-serif;">Create a <a href="http://www.jigsy.com" style="text-decoration: underline;">Free Website</a>
+at <a href="http://www.jigsy.com" style="text-decoration: underline;">Jigsy.com</a>. &nbsp;(<a href="mailto:feedback@jigsy.com" style="text-decoration: underline;">Report Abuse</a>)</span></div>
+      
+    </div>      
+  </div>
 </body>
 </html>
