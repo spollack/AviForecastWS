@@ -321,10 +321,6 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'uac':
                     // NOTE take only the first part of the subregion
                     var subregion = components[1].split('_')[0];
-                    
-                    // BUGBUG for sandbox testing
-//                    dataURL = 'http://sandbox.utahavalanchecenter.org/advisory/' + subregion + '/json';
-                    
                     dataURL = 'http://utahavalanchecenter.org/advisory/' + subregion + '/json';
                     parser = forecasts.parseForecast_uac;
                     break;
