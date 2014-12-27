@@ -248,7 +248,9 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
 
         request(requestOptions,
             function(error, response, body) {
-                if (!error && response.statusCode >= 200 && response.statusCode <= 299) {
+                // BUGBUG  should check status code too, but as of 2014-12-26, PAC returns its advisory page with a 404!
+                // && response.statusCode >= 200 && response.statusCode <= 299
+                if (!error) {
                     winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
                         '; dataURL: ' + regionDetails.dataURL);
 
