@@ -1042,4 +1042,15 @@ describe('parseForecast_pac', function(){
             forecast[0].aviLevel.should.equal(3);
         })
     })
+    describe('file004.html', function(){
+        it('should return the correct parseForecast_pac details', function(){
+            var forecast = forecasts.parseForecast_pac(fs.readFileSync('test/data/pac/file004.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('pac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-12-26');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
 })
