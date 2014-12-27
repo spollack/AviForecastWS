@@ -999,36 +999,47 @@ describe('parseForecast_msac', function(){
         })
     })
 })
-//
-//describe('parseForecast_pac', function(){
-//    describe('file000.html', function(){
-//        it('should fail gracefully on bad input', function(){
-//            var forecast = forecasts.parseForecast_pac(fs.readFileSync('test/data/pac/file000.html','utf8'),
-//                forecasts.getRegionDetailsForRegionId('pac_1'));
-//
-//            should.not.exist(forecast);
-//        })
-//    })
-//    describe('file001.html', function(){
-//        it('should return the correct forecast details', function(){
-//            var forecast = forecasts.parseForecast_pac(fs.readFileSync('test/data/pac/file001.html','utf8'),
-//                forecasts.getRegionDetailsForRegionId('pac_1'));
-//
-//            should.exist(forecast);
-//            forecast.length.should.equal(1);
-//            forecast[0].date.should.equal('2014-03-29');
-//            forecast[0].aviLevel.should.equal(3);
-//        })
-//    })
-//    describe('file002.html', function(){
-//        it('should return the correct parseForecast_pac details', function(){
-//            var forecast = forecasts.parseForecast_pac(fs.readFileSync('test/data/pac/file002.html','utf8'),
-//                forecasts.getRegionDetailsForRegionId('pac_1'));
-//
-//            should.exist(forecast);
-//            forecast.length.should.equal(1);
-//            forecast[0].date.should.equal('2014-01-07');
-//            forecast[0].aviLevel.should.equal(2);
-//        })
-//    })
-//})
+
+describe('parseForecast_pac', function(){
+    describe('file000.html', function(){
+        it('should fail gracefully on bad input', function(){
+            var forecast = forecasts.parseForecast_pac(fs.readFileSync('test/data/pac/file000.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('pac_1'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_pac(fs.readFileSync('test/data/pac/file001.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('pac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-12-20');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
+    describe('file002.html', function(){
+        it('should return the correct parseForecast_pac details', function(){
+            var forecast = forecasts.parseForecast_pac(fs.readFileSync('test/data/pac/file002.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('pac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-12-21');
+            forecast[0].aviLevel.should.equal(4);
+        })
+    })
+    describe('file003.html', function(){
+        it('should return the correct parseForecast_pac details', function(){
+            var forecast = forecasts.parseForecast_pac(fs.readFileSync('test/data/pac/file003.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('pac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2014-12-22');
+            forecast[0].aviLevel.should.equal(3);
+        })
+    })
+})
