@@ -842,8 +842,8 @@ forecasts.parseForecastIssuedDate_viac = function(body, regionDetails) {
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical string for viac: 'Date Issued </span>February 24, 2012 at 11:19AM</div>'
-    var timestampMatch = body.match(/Date Issued\s*<\/span>\s*(\w+\s+\d+)\w*\s*,?\s*(\d+)/i);
+    // NOTE typical string: '<div title="1419028140000" class="date">December 19, 2014 at 02:29PM</div>'
+    var timestampMatch = body.match(/class=\"date\">\s*(\w+\s+\d+)\w*\s*,?\s*(\d+)/i);
 
     // the capture groups from the regex will be in slots 1 and 2 in the array
     if (timestampMatch && timestampMatch.length > 2) {
