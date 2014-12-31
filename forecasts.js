@@ -11,6 +11,7 @@ var fs = require('fs');
 var winston = require('winston');
 var request = require('request');
 var moment = require('moment');
+var underscore = require('underscore');
 var async = require('async');
 var xml2js = require('xml2js');
 var cheerio = require('cheerio');
@@ -158,7 +159,8 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but 
                 // without danger level ratings
-                if (regionId === 'caic_9' || regionId === 'uac_skyline' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId ==='snfac_4') {
+                if (regionId === 'caic_9' || regionId === 'uac_skyline' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || 
+                    regionId === 'snfac_4') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
@@ -387,7 +389,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'haic':
                     dataURL = 'http://alaskasnow.org/haines/fz.kml';
-                    parser = forecasts.parseForecast_noop;
+                    parser = forecasts.parseForecast_haic;
                     break;
                 case 'vac':
                     dataURL = 'http://www.valdezavalanchecenter.org/category/bulletin/';
@@ -1592,4 +1594,48 @@ forecasts.parseForecastValues_pac = function($) {
     }
 
     return aviLevels;
+};
+
+forecasts.parseForecast_haic = function(body, regionDetails) {
+
+    var forecast = null;
+
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var regionNames = {
+                1: 'Chilkat Pass',
+                2: 'Transitional Zone',
+                3: 'Lutak Zone'
+            };
+            var regionName = regionNames[regionDetails.subregion];
+            var regionResults = underscore.find(result.Document.Placemark, function (item) {
+                return (item.name === regionName);
+            });
+            var forecastExpiresDateField = underscore.find(regionResults.ExtendedData.Data, function (item) {
+                return (item['@'].name === 'expdate');
+            });
+            
+            // NOTE typical date string: '12/19/2014 11pm'
+            var forecastIssuedDate = moment(forecastExpiresDateField.value, 'MM/DD/YYYY hha').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+            // NOTE typical hazard string: '#3'
+            var forecastHazardLevelString = regionResults.styleUrl.replace('#', '');
+            var aviLevel = forecasts.findAviLevelNumberInString(forecastHazardLevelString);
+
+            // NOTE forecasts are valid for the day issued only
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch(e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
 };
