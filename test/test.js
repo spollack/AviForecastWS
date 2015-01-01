@@ -944,26 +944,49 @@ describe('parseForecast_mwac', function(){
             should.not.exist(forecast);
         })
     })
-    describe('file001.xml', function(){
+    // BUGBUG commented these out until they start tagging the rating with an html id again
+    //describe('file001.xml', function(){
+    //    it('should return the correct forecast details', function(){
+    //        var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file001.xml','utf8'),
+    //            forecasts.getRegionDetailsForRegionId('mwac_1'));
+    //
+    //        should.exist(forecast);
+    //        forecast.length.should.equal(1);
+    //        forecast[0].date.should.equal('2014-02-16');
+    //        forecast[0].aviLevel.should.equal(3);
+    //    })
+    //})
+    //describe('file002.xml', function(){
+    //    it('should return the correct forecast details', function(){
+    //        var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file002.xml','utf8'),
+    //            forecasts.getRegionDetailsForRegionId('mwac_1'));
+    //
+    //        should.exist(forecast);
+    //        forecast.length.should.equal(1);
+    //        forecast[0].date.should.equal('2014-03-02');
+    //        forecast[0].aviLevel.should.equal(3);
+    //    })
+    //})
+    describe('file003.xml', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file001.xml','utf8'),
+            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file003.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('mwac_1'));
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-02-16');
-            forecast[0].aviLevel.should.equal(3);
+            forecast[0].date.should.equal('2014-12-30');
+            forecast[0].aviLevel.should.equal(1);
         })
     })
-    describe('file002.xml', function(){
+    describe('file004.xml', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file002.xml','utf8'),
+            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file004.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('mwac_1'));
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-03-02');
-            forecast[0].aviLevel.should.equal(3);
+            forecast[0].date.should.equal('2014-12-31');
+            forecast[0].aviLevel.should.equal(1);
         })
     })
 })
