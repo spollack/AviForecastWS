@@ -1181,7 +1181,7 @@ forecasts.parseForecastValues_ipac = function($) {
     aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
 
     // NOTE ipac danger ratings are in all caps
-    // BUGBUG we need to find only text in in strong or bold, to avoid some false matches
+    // BUGBUG we need to find only text in all caps, to avoid some false matches
     var forecastTextBlock = $('div#wsite-content').children().first().text();
     var allCapsMatches = forecastTextBlock.match(/[A-Z]{3,}/g);
     var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
