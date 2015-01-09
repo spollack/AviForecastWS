@@ -209,6 +209,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
                 || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
                 || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'
                 || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4' || regionId === 'fac_5'
+                || regionId === 'haic_1' || regionId === 'haic_2' || regionId === 'haic_3'
                 || regionId === 'msac_1') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
