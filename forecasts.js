@@ -207,7 +207,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
             if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
                 || regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south'
                 || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
-                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3' || regionId === 'ipac_4'
+                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'
                 || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4' || regionId === 'fac_5'
                 || regionId === 'msac_1') {
                 validForecast = true;
