@@ -1624,17 +1624,27 @@ forecasts.parseForecast_haic = function(body, regionDetails) {
                 return (item['@'].name === 'expdate');
             });
             
+            // NOTE haic has expiry dates but not issued at dates in their data files
             // NOTE typical date string: '12/19/2014 11pm'
-            var forecastIssuedDate = moment(forecastExpiresDateField.value, 'MM/DD/YYYY hha').format('YYYY-MM-DD');
-            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+            var forecastExpiryDate = moment(forecastExpiresDateField.value, 'MM/DD/YYYY hha').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastExpiryDate: ' + forecastExpiryDate);
 
             // NOTE typical hazard string: '#3'
             var forecastHazardLevelString = regionResults.styleUrl.replace('#', '');
             var aviLevel = forecasts.findAviLevelNumberInString(forecastHazardLevelString);
 
-            // NOTE forecasts are valid for the day issued only
             forecast = [];
-            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+            forecast[0] = {'date': forecastExpiryDate, 'aviLevel': aviLevel};
+
+            // NOTE forecasts are valid current time through the expiry date
+            var akstOffsetHours = 9;
+            var akstCurrentDate = moment.utc().subtract(akstOffsetHours, 'hours').format('YYYY-MM-DD');
+
+            var tempDate = moment.utc(forecastExpiryDate);
+            while (tempDate.isAfter(akstCurrentDate)) {
+                tempDate.subtract(1, 'days');
+                forecast.unshift({'date': tempDate.format('YYYY-MM-DD'), 'aviLevel': aviLevel});
+            }
 
             for (var j = 0; j < forecast.length; j++) {
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
