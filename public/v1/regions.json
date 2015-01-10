@@ -17547,7 +17547,7 @@
     {
         "regionId": "wac_1",
         "displayName": "Blue Mountains",
-        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
+        "URL": "http://www.wallowaavalanchecenter.org/",
         "points": [
             {
                 "lat": "46.000",
@@ -17634,7 +17634,7 @@
     {
         "regionId": "wac_2",
         "displayName": "Elkhorn Mountains",
-        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
+        "URL": "http://www.wallowaavalanchecenter.org/",
         "points": [
             {
                 "lat": "44.975",
@@ -17733,7 +17733,7 @@
     {
         "regionId": "wac_3",
         "displayName": "Northern Wallowas",
-        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
+        "URL": "http://www.wallowaavalanchecenter.org/",
         "points": [
             {
                 "lat": "45.485",
@@ -17840,7 +17840,7 @@
     {
         "regionId": "wac_4",
         "displayName": "Southern Wallowas",
-        "URL": "http://www.wallowaavalanchecenter.org/bulletin",
+        "URL": "http://www.wallowaavalanchecenter.org/",
         "points": [
             {
                 "lat": "45.164",
