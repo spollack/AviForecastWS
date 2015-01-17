@@ -1724,7 +1724,7 @@ forecasts.parseForecastIssuedDate_cbac = function($, regionDetails) {
     return forecastIssuedDate;
 };
 
-forecasts.parseForecastValues_cbac = function($, regionDetails) {
+forecasts.parseForecastValues_cbac = function($) {
 
     // cbac forecasts two days at a time
     var aviLevels = [];
