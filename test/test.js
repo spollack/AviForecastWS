@@ -1122,3 +1122,27 @@ describe('parseForecast_haic', function(){
         })
     })
 })
+
+describe('parseForecast_cbac', function() {
+    describe('file000.kml', function () {
+        it('should fail gracefully on bad input', function () {
+            var forecast = forecasts.parseForecast_cbac(fs.readFileSync('test/data/cbac/file000.html', 'utf8'),
+                forecasts.getRegionDetailsForRegionId('cbac_1'));
+
+            should.not.exist(forecast);
+        })
+    })
+    describe('file001.kml', function () {
+        it('should return the correct forecast details', function () {
+            var forecast = forecasts.parseForecast_cbac(fs.readFileSync('test/data/cbac/file001.html', 'utf8'),
+                forecasts.getRegionDetailsForRegionId('cbac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(2);
+            forecast[0].date.should.equal('2015-01-17');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].date.should.equal('2015-01-18');
+            forecast[1].aviLevel.should.equal(2);
+        })
+    })
+})

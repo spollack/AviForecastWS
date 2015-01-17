@@ -428,6 +428,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://payetteavalanche.org/advisory/';
                     parser = forecasts.parseForecast_pac;
                     break;
+                case 'cbac':
+                    dataURL = 'http://cbavalanchecenter.org/';
+                    parser = forecasts.parseForecast_cbac;
+                    break;
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -1656,3 +1660,7 @@ forecasts.parseForecast_haic = function(body, regionDetails) {
 
     return forecast;
 };
+
+forecasts.parseForecast_cbac = function(body, regionDetails) {
+    return null;
+}
