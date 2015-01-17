@@ -1705,7 +1705,7 @@ forecasts.parseForecastIssuedDate_cbac = function($, regionDetails) {
     //     </h2>
     // </td>
 
-    var dateBlock = $('.fx-mtn-date').text();
+    var dateBlock = $('.fx-mtn-date h2').text();
     var timestampTextBlock = null;
     if (dateBlock) {
         var match = dateBlock.match(/\s+\w+,?\s+(\w+\s+\d+,?\s+\d+)\s+at/);
