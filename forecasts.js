@@ -429,7 +429,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_pac;
                     break;
                 case 'cbac':
-                    dataURL = 'http://cbavalanchecenter.org/';
+                    dataURL = 'http://cbavalanchecenter.org/cbac/pub_bc_avo.php';
                     parser = forecasts.parseForecast_cbac;
                     break;
                 default:
@@ -1663,4 +1663,4 @@ forecasts.parseForecast_haic = function(body, regionDetails) {
 
 forecasts.parseForecast_cbac = function(body, regionDetails) {
     return null;
-}
+};
