@@ -1662,5 +1662,82 @@ forecasts.parseForecast_haic = function(body, regionDetails) {
 };
 
 forecasts.parseForecast_cbac = function(body, regionDetails) {
-    return null;
+
+    var forecast = null;
+
+    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
+
+    var forecastIssuedDate = forecasts.parseForecastIssuedDate_cbac($, regionDetails);
+    var aviLevels = forecasts.parseForecastValues_cbac($, regionDetails);
+
+    // NOTE cbac currently issues forecasts morning of, for two days
+    if (forecastIssuedDate) {
+        forecast = [];
+        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+        forecast[1] = {'date': moment(forecastIssuedDate).add(1, 'days').format('YYYY-MM-DD'), 'aviLevel': aviLevels[1]};
+
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    }
+
+    return forecast;
+};
+
+forecasts.parseForecastIssuedDate_cbac = function($, regionDetails) {
+
+    var forecastIssuedDate = null;
+
+    // capture the forecast timestamp
+    // NOTE typical html fragment:
+    // <td colspan="2" align="right" style="vertical-align:bottom;" class="fx-mtn-date">
+    //     <h2 class="caption caption-controls">
+    //     
+    //         Sat, Jan 17, 2015 at 6:28 AM<br>
+    //         <span class="by"> Issued by: CBAC</span>
+    // 
+    //         <!--span class="controls">
+    //             <a href="#">Previous Forecast</a>
+    //             <span class="slash">/</span>
+    //             <a href="#">Next Forecast</a>
+    //         &nbsp;
+    //         </span-->
+    //     </h2>
+    // </td>
+
+    var dateBlock = $('.fx-mtn-date').text();
+    var timestampTextBlock = null;
+    if (dateBlock) {
+        var match = dateBlock.match(/\s+\w+,?\s+(\w+\s+\d+,?\s+\d+)\s+at/);
+        if (match && match.length == 2) {
+            timestampTextBlock = match[1];
+        }
+    }
+
+    if (timestampTextBlock) {
+        forecastIssuedDate = moment(timestampTextBlock, 'MMM DD, YYYY');
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+    } else {
+        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
+    }
+
+    return forecastIssuedDate;
+};
+
+forecasts.parseForecastValues_cbac = function($, regionDetails) {
+
+    // cbac forecasts two days at a time
+    var aviLevels = [];
+    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
+    aviLevels[1] = forecasts.AVI_LEVEL_UNKNOWN;
+
+    // NOTE the 2 days times 3 elevation zones (6 ratings) are all tagged with a special class; extract them
+    var forecastBlocks = $('.today-text');
+
+    for (var i = 0; i < 6; i += 2) {
+        aviLevels[0] = Math.max(aviLevels[0], forecasts.findHighestAviLevelInString($(forecastBlocks.get()[i]).text()));
+        aviLevels[1] = Math.max(aviLevels[1], forecasts.findHighestAviLevelInString($(forecastBlocks.get()[i + 1]).text()));
+    }
+    
+    return aviLevels;
 };
