@@ -1735,6 +1735,7 @@ forecasts.parseForecastValues_cbac = function($, regionDetails) {
     var forecastBlocks = $('.today-text');
 
     for (var i = 0; i < 6; i += 2) {
+        // NOTE the forecasts for the two days alternate in order; take the highest danger level for each day from its three blocks
         aviLevels[0] = Math.max(aviLevels[0], forecasts.findHighestAviLevelInString($(forecastBlocks.get()[i]).text()));
         aviLevels[1] = Math.max(aviLevels[1], forecasts.findHighestAviLevelInString($(forecastBlocks.get()[i + 1]).text()));
     }
