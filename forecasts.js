@@ -417,7 +417,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_hg;
                     break;
                 case 'mwac':
-                    dataURL = 'http://www.mountwashingtonavalanchecenter.org/feed/';
+                    dataURL = 'http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/feed/';
                     parser = forecasts.parseForecast_mwac;
                     break;
                 case 'msac':
