@@ -872,7 +872,7 @@ forecasts.parseFirstForecastedDayOfWeek_viac = function(body, regionDetails) {
 
     // capture the first forecasted day of week
     // NOTE typical string for viac: '<th style="background-color: #eeeeee;">Outlook</th><th style="background-color: #eeeeee;">Sunday</th><th style="background-color: #eeeeee;">Monday<br /></th><th style="background-color: #eeeeee;">Tuesday<br /></th>'
-    var timestampMatch = body.match(/<th[^>]*>Outlook<\/th><th[^>]*>(\w+)<\/th>/i);
+    var timestampMatch = body.match(/<th[^>]*>Outlook<\/th>\s*<th[^>]*>\s*(\w+)[^<]*<\/th>/i);
 
     // the capture groups from the regex will be in slot 1 in the array
     if (timestampMatch && timestampMatch.length === 2) {

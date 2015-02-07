@@ -520,6 +520,21 @@ describe('parseForecast_viac', function(){
             forecast[2].aviLevel.should.equal(2);
         })
     })
+    describe('file003.html', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_viac(fs.readFileSync('test/data/viac/file003.html','utf8'),
+                forecasts.getRegionDetailsForRegionId('viac_1'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(3);
+            forecast[0].date.should.equal('2015-02-06');
+            forecast[1].date.should.equal('2015-02-07');
+            forecast[2].date.should.equal('2015-02-08');
+            forecast[0].aviLevel.should.equal(3);
+            forecast[1].aviLevel.should.equal(4);
+            forecast[2].aviLevel.should.equal(4);
+        })
+    })
 })
 
 describe('parseForecast_sac', function(){
