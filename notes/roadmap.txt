@@ -26,6 +26,7 @@ web service
             add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android app
     v1.2
+        put user agent override back in
         change to grey (185/B9), instead of white, for the "no rating" color
         update the usage text, from iOS version
         for external builds, before releasing, REMEMBER...
