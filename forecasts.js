@@ -1469,16 +1469,10 @@ forecasts.parseForecast_mwac = function(body, regionDetails) {
             var forecastIssuedDate = moment(dateString, 'MMM DD, YYYY').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
-            // BUGBUG disabled this code until they start tagging the rating with an html id again; this way is preferable
-            //// NOTE parse the special rating html field out of the content field
-            //// typical special rating html field: <div id="rating">high</div>
-            //var contentField = result.channel.item['content:encoded'];
-            //var ratingMatch = contentField.match(/<div id=\"rating\">(\w+)<\/div>/i);
-
-            // NOTE parse the rating from the description field
-            // typical special rating html field: <![CDATA[This advisory expires tonight at 12:00 midnight. Happy New Year&#8217;s Eve, everyone! All forecast areas of Tuckerman and Huntington Ravines have Low avalanche danger. Natural avalanches are very unlikely and human triggered avalanches are unlikely except in isolated terrain features. Unstable snow may exist in isolated terrain features – use caution in these locations. AVALANCHE <a href='http://www.mountwashingtonavalanchecenter.org/2014/12/31/avalanche-advisory-for-wednesday-december-31-2014/' class='excerpt-more'>[...]</a>]]>
-            var contentField = result.channel.item['description'];
-            var ratingMatch = contentField.match(/(Low|Moderate|Considerable|High|Extreme)/);
+            // NOTE parse the special rating html field out of the content field
+            // typical special rating html field: <div id="rating">high</div>
+            var contentField = result.channel.item['content:encoded'];
+            var ratingMatch = contentField.match(/<div id=\"rating\">(\w+)<\/div>/i);
 
             // the capture groups from the regex will be in slot 1 in the array
             if (ratingMatch && ratingMatch.length === 2) {
