@@ -314,6 +314,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.avalanche.ca/blogs/' + components[1];
                     parser = forecasts.parseForecast_noop;
                     break;
+                case 'wb':
+                    dataURL = 'http://old.avalanche.ca/dataservices/cac/bulletins/xml/whistler-blackcomb';
+                    parser = forecasts.parseForecast_cac;
+                    break;
                 case 'pc':
                     dataURL = 'http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
                     parser = forecasts.parseForecast_pc;
@@ -356,10 +360,6 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'snfac':
                     dataURL = 'http://sawtoothavalanche.com/caaml/SNFAC' + components[1] + '_Avalanche_Forecast.xml';
                     parser = forecasts.parseForecast_simple_caaml;
-                    break;
-                case 'wb':
-                    dataURL = 'http://movement.whistlerblackcomb.com/avi.php';
-                    parser = forecasts.parseForecast_wb;
                     break;
                 case 'ipac':
                     dataURL = 'http://www.idahopanhandleavalanche.org/' + (components[1] === '1' || components[1] === '2' ? 'selkirk--cabinets' : 'st-regis-basin--silver-valley') + '.html';
@@ -1017,125 +1017,6 @@ forecasts.parseForecast_wcmac = function(body, regionDetails) {
     });
 
     return forecast;
-};
-
-forecasts.parseForecast_wb = function(body, regionDetails) {
-
-    var forecast = null;
-
-    var firstForecastedDate = forecasts.parseFirstForecastedDate_wb(body, regionDetails);
-    var aviLevels = forecasts.parseForecastValues_wb(body, regionDetails);
-
-    if (firstForecastedDate && aviLevels) {
-        forecast = [];
-        for (var i = 0; i < aviLevels.length; i++) {
-            forecast[i] = {'date': moment(firstForecastedDate).clone().add(i, 'days').format('YYYY-MM-DD'), 'aviLevel': aviLevels[i]};
-        }
-
-        for (var j = 0; j < forecast.length; j++) {
-            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-        }
-    }
-
-    return forecast;
-};
-
-forecasts.parseFirstForecastedDate_wb = function(body, regionDetails) {
-
-    var firstForecastedDate = null;
-
-    // NOTE we need to correlate the forecast issued date with the days of week that are described in the forecast
-    var forecastIssuedDate = forecasts.parseForecastIssuedDate_wb(body, regionDetails);
-    var firstForecastedDayOfWeek = forecasts.parseFirstForecastedDayOfWeek_wb(body, regionDetails);
-
-    if (forecastIssuedDate && firstForecastedDayOfWeek) {
-
-        var daysOfWeek = [];
-
-        for (var i = 0; i < 2; i++) {
-            // copy the value of the forecast issued date, offset by the appropriate number of days, and get the day of week
-            daysOfWeek[i] = moment(forecastIssuedDate).clone().add(i, 'days');
-
-            if (moment(daysOfWeek[i]).format('dddd').toLowerCase() === firstForecastedDayOfWeek.toLowerCase()) {
-                firstForecastedDate = daysOfWeek[i];
-                break;
-            }
-        }
-    }
-
-    return firstForecastedDate;
-};
-
-forecasts.parseForecastIssuedDate_wb = function(body, regionDetails) {
-
-    var forecastIssuedDate = null;
-
-    // capture the forecast timestamp
-    // NOTE typical string for wb: '<p class="dstamp">Last updated: Sunday, February 03, 2013 7:20 AM</p>'
-    var timestampMatch = body.match(/Last updated:\s*\w+\s*,?\s*(\w+\s+\d+)\w*\s*,?\s*(\d+)/i);
-
-    // the capture groups from the regex will be in slots 1 and 2 in the array
-    if (timestampMatch && timestampMatch.length > 2) {
-
-        // capture group 1 has the month and day, capture group 2 has the year
-        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
-        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
-        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-    } else {
-        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
-    }
-
-    return forecastIssuedDate;
-};
-
-forecasts.parseFirstForecastedDayOfWeek_wb = function(body, regionDetails) {
-
-    var firstForecastedDayOfWeek = null;
-
-    // capture the first forecasted day of week
-    // NOTE typical string for wb: '<td><span class="title">Tuesday</span></td><td><span class="title">Wednesday</span></td><td><span class="title">Thursday</span></td>'
-    // NOTE we sometimes get single quotes, sometimes double quotes, so match either
-    var timestampMatch = body.match(/<td>\s*<span\s+class=.title.>(\w+)<\/span>/i);
-
-    // the capture groups from the regex will be in slot 1 in the array
-    if (timestampMatch && timestampMatch.length === 2) {
-        firstForecastedDayOfWeek = timestampMatch[1];
-        winston.verbose('found first forecasted day of week; regionId: ' + regionDetails.regionId + '; firstForecastedDayOfWeek: ' + firstForecastedDayOfWeek);
-    } else {
-        winston.warn('parse failure, first forecasted day of week not found; regionId: ' + regionDetails.regionId);
-    }
-
-    return firstForecastedDayOfWeek;
-};
-
-forecasts.parseForecastValues_wb = function(body, regionDetails) {
-
-    // wb forecasts three days at a time
-    var aviLevels = [];
-    for (var i = 0; i < 3; i++) {
-        aviLevels[i] = forecasts.AVI_LEVEL_UNKNOWN;
-    }
-
-    // NOTE typical string for wb:
-    //    <tr>
-    //    <td><span class="title2">Alpine</span></td>
-    //    <td><img src="./file001_files/Low.jpg" alt="Sunday Alpine is Low" title="Sunday Alpine is Low"></td>
-    //    <td><img src="./file001_files/Low.jpg" alt="Monday Alpine is Low" title="Monday Alpine is Low"></td>
-    //    <td><img src="./file001_files/Considerable.jpg" alt="Tuesday Alpine is Considerable" title="Tuesday Alpine is Considerable"></td>
-    //    </tr>
-
-    var dangerRatingMatch = body.match(/<td>.*Alpine.*<\/td>\s*\n(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)/i);
-
-    // the capture groups will be in slots 1, 2, 3
-    if (dangerRatingMatch && dangerRatingMatch.length === 4) {
-        for (var j = 0; j < aviLevels.length; j++) {
-            aviLevels[j] = forecasts.findHighestAviLevelInString(dangerRatingMatch[j+1]);
-        }
-    } else {
-        winston.warn('parse failure, danger levels not found; regionId: ' + regionDetails.regionId);
-    }
-
-    return aviLevels;
 };
 
 forecasts.parseForecast_ipac = function(body, regionDetails) {

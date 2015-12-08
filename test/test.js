@@ -629,47 +629,6 @@ describe('parseForecast_wcmac', function(){
     })
 })
 
-describe('parseForecast_wb', function(){
-    describe('file000.html', function(){
-        it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_wb(fs.readFileSync('test/data/wb/file000.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('wb_1'));
-
-            should.not.exist(forecast);
-        })
-    })
-    describe('file001.html', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_wb(fs.readFileSync('test/data/wb/file001.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('wb_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2013-02-03');
-            forecast[1].date.should.equal('2013-02-04');
-            forecast[2].date.should.equal('2013-02-05');
-            forecast[0].aviLevel.should.equal(1);
-            forecast[1].aviLevel.should.equal(1);
-            forecast[2].aviLevel.should.equal(3);
-        })
-    })
-    describe('file002.html', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_wb(fs.readFileSync('test/data/wb/file002.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('wb_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2013-02-05');
-            forecast[1].date.should.equal('2013-02-06');
-            forecast[2].date.should.equal('2013-02-07');
-            forecast[0].aviLevel.should.equal(3);
-            forecast[1].aviLevel.should.equal(3);
-            forecast[2].aviLevel.should.equal(3);
-        })
-    })
-})
-
 describe('parseForecast_ipac', function(){
     describe('file000.html', function(){
         it('should fail gracefully on bad input', function(){
