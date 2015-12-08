@@ -159,8 +159,8 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but 
                 // without danger level ratings
-                if (regionId === 'caic_9' || regionId === 'uac_skyline' || regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || 
-                    regionId === 'snfac_4' || regionId.split('_')[0] === 'esac') {
+                if (regionId === 'caic_9' || regionId === 'uac_skyline' || regionId === 'snfac_4' || 
+                    regionId.split('_')[0] === 'esac') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
@@ -204,7 +204,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
-            if (regionId === 'uac_moab_1' || regionId === 'uac_moab_2' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
+            if (regionId === 'uac_moab' || regionId === 'uac_abajo' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
                 || regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south'
                 || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
                 || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'
@@ -328,9 +328,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'uac':
-                    // NOTE take only the first part of the subregion
-                    var subregion = components[1].split('_')[0];
-                    dataURL = 'http://utahavalanchecenter.org/advisory/' + subregion + '/json';
+                    dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1] + '/json';
                     parser = forecasts.parseForecast_uac;
                     break;
                 case 'viac':

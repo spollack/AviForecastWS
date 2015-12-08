@@ -12739,8 +12739,8 @@
         ]
     },
     {
-        "regionId": "uac_moab_1",
-        "displayName": "La Sal (Moab)",
+        "regionId": "uac_moab",
+        "displayName": "Moab",
         "URL": "http://utahavalanchecenter.org/advisory/moab",
         "points": [
             {
@@ -12810,9 +12810,9 @@
         ]
     },
     {
-        "regionId": "uac_moab_2",
-        "displayName": "Abajo (Moab)",
-        "URL": "http://utahavalanchecenter.org/advisory/moab",
+        "regionId": "uac_abajo",
+        "displayName": "Abajo",
+        "URL": "http://utahavalanchecenter.org/advisory/abajo",
         "points": [
             {
                 "lat": "37.884",
