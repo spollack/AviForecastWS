@@ -28,7 +28,7 @@ Android app
     v1.2
         move to Android Studio from Eclipse
         update graphic assets
-        update libs
+        update all external libs
         test!!!
         for external builds, before releasing, REMEMBER...
             set version string appropriately
@@ -47,7 +47,6 @@ Android app
                 clean up what happens at what phase of lifecycle
             redo location services stuff to turn off gps after we have a first fix
             swap top and bottom bars to be consistent with iOS app
-            update all external libs
     v3
         further map performance tuning
             investigate keeping path, and transforming via matrix to pan or scale
