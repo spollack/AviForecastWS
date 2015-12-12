@@ -343,6 +343,10 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://esavalanche.org/danger-rating-rss.xml';
                     parser = forecasts.parseForecast_esac;
                     break;
+                case 'pac':
+                    dataURL = 'http://www.payetteavalanche.org/danger-rating-rss.xml';
+                    parser = forecasts.parseForecast_pac;
+                    break;
                 case 'btac':
                     dataURL = 'http://www.jhavalanche.org/media/xml/' + components[1] + '_Avalanche_Forecast.xml';
                     parser = forecasts.parseForecast_simple_caaml;
@@ -421,10 +425,6 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'msac':
                     dataURL = 'http://shastaavalanche.org/danger-rating-rss.xml';
                     parser = forecasts.parseForecast_msac;
-                    break;
-                case 'pac':
-                    dataURL = 'http://payetteavalanche.org/advisory/';
-                    parser = forecasts.parseForecast_pac;
                     break;
                 case 'cbac':
                     dataURL = 'http://cbavalanchecenter.org/cbac/pub_bc_avo.php';
@@ -976,6 +976,36 @@ forecasts.parseForecast_esac = function(body, regionDetails) {
     return forecast;
 };
 
+forecasts.parseForecast_pac = function(body, regionDetails) {
+
+    var forecast = null;
+
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.channel.item.pubDate;
+            // NOTE typical date string: 'Thu, 04/11/2013 - 07:00'
+            var forecastIssuedDate = moment(forecastIssuedDateField, 'ddd, MM/DD/YYYY').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+
+            var aviLevel = forecasts.findHighestAviLevelInString(result.channel.item.description);
+
+            // NOTE pac issues single day forecasts
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch (e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
+};
+
 forecasts.parseForecast_wcmac = function(body, regionDetails) {
 
     var forecast = null;
@@ -1402,82 +1432,6 @@ forecasts.parseForecast_msac = function(body, regionDetails) {
     });
 
     return forecast;
-};
-
-forecasts.parseForecast_pac = function(body, regionDetails) {
-    
-    var forecast = null;
-
-    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
-
-    var forecastIssuedDate = forecasts.parseForecastIssuedDate_pac($, regionDetails);
-    var aviLevels = forecasts.parseForecastValues_pac($);
-
-    // pac forecasts are single day, issued day of
-    if (forecastIssuedDate) {
-        forecast = [];
-        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
-
-        for (var j = 0; j < forecast.length; j++) {
-            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-        }
-    }
-
-    return forecast;
-};
-
-forecasts.parseForecastIssuedDate_pac = function($, regionDetails) {
-
-    var forecastIssuedDate = null;
-    
-    // capture the forecast timestamp, by looking at the date after "Created:"
-    // NOTE typical html fragment: '<p class="submitted"> Created:&nbsp;&nbsp; 12-22-2014 at 5:11 am<br /> </p>'
-    var textBlock = $('[class="submitted"]').first().text();
-    var dateText = null;
-    if (textBlock) {
-        var match = textBlock.match(/Created:\D*([0-9\-]+)/);
-        if (match && match.length == 2) {
-            dateText = match[1];
-        }
-    }
-
-    if (dateText) {
-        forecastIssuedDate = moment(dateText, 'MM-DD-YYYY');
-        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-    } else {
-        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
-    }
-
-    return forecastIssuedDate;
-};
-
-forecasts.parseForecastValues_pac = function($) {
-
-    // pac forecasts one day at a time
-    var aviLevels = [];
-    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
-
-    // for hazard level, look at image name (e.g., "ds-cons.gif" for considerable, etc.) within div id="bottomline"
-    // NOTE typical HTML fragment: '<div id="bottomline" class="clearfix">  <h3>Bottom Line</h3> <img src="../i/ds-high.gif" class="img-responsive"> </div>'
-    var forecastImageSource = $('div#bottomline > img').attr('src');
-    if (forecastImageSource) {
-        var forecastImageName = forecastImageSource.split('/').pop();
-        if (forecastImageName) {
-            var imageNameMap = {
-                'ds-low.gif': 1,
-                'ds-mod.gif': 2,
-                'ds-cons.gif': 3,
-                'ds-high.gif': 4,
-                'ds-extr.gif': 5
-            };
-            var aviLevel = imageNameMap[forecastImageName];
-            if (aviLevel) {
-                aviLevels[0] = aviLevel;
-            }
-        }
-    }
-
-    return aviLevels;
 };
 
 forecasts.parseForecast_haic = function(body, regionDetails) {
