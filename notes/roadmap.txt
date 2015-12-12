@@ -26,7 +26,7 @@ web service
             add automatic, ongoing checks of HTML vs. API results for all api-based sites?
 Android app
     v1.2
-        update to latest Android SDK/tools version (in Eclipse)
+        move to Android Studio from Eclipse
         update graphic assets
         update libs
         test!!!
@@ -40,7 +40,6 @@ Android app
             remember last map position and zoom, and return to that on restart, instead of recentering? and add button to center/zoom map
             set a max zoom level
         bugs and cleanup
-            move to Android Studio from Eclipse
             more configurable way to set/override user-agent string, per region
             externalize keys for things like flurry from codebase
             lifecycle management
