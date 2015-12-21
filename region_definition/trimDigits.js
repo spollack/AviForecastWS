@@ -26,9 +26,9 @@ var fs = require('fs');
 // trimDigitsInRegionsJSONFile('cac2/cac2_simplified.json', 'cac2/cac2_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('hpac/hpac_simplified.json', 'hpac/hpac_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('msac/msac_simplified.json', 'msac/msac_simplified.json', 3);
-// trimDigitsInRegionsJSONFile('pac/pac_simplified.json', 'pac/pac_simplified.json', 3);
+trimDigitsInRegionsJSONFile('pac/pac_simplified.json', 'pac/pac_simplified.json', 3);
 // trimDigitsInRegionsJSONFile('wac/wac_simplified.json', 'wac/wac_simplified.json', 3);
-trimDigitsInRegionsJSONFile('cbac/cbac_simplified.json', 'cbac/cbac_simplified.json', 3);
+// trimDigitsInRegionsJSONFile('cbac/cbac_simplified.json', 'cbac/cbac_simplified.json', 3);
 
 
 function trimDigitsInRegionsJSONFile(inputFilePath, outputFilePath, digits) {
