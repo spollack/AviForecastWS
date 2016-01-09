@@ -748,6 +748,17 @@ describe('parseForecast_fac', function(){
             forecast[0].aviLevel.should.equal(2);
         })
     })
+    describe('file003.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_fac(fs.readFileSync('test/data/fac/file003.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('fac_4'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2016-01-08');
+            forecast[0].aviLevel.should.equal(0);
+        })
+    })
 })
 
 describe('parseForecast_cnfaic', function(){

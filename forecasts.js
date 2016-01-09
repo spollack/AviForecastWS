@@ -1117,6 +1117,10 @@ forecasts.parseForecast_fac = function(body, regionDetails) {
             var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
             var aviLevel = parseInt(result.Advisory_data.Danger_Rating);
+            // NOTE protect against NaN
+            if (!(aviLevel >= 0)) {
+                aviLevel = forecasts.AVI_LEVEL_UNKNOWN;
+            }
 
             forecast = [];
             forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
