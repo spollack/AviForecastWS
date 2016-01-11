@@ -148,8 +148,8 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
 
         // aviLevel should never be null
         for (i = 0; i < forecast.length; i++) {
-            if (forecast[i].aviLevel === null) {
-                winston.warn('forecast validation: UNEXPECTED BUG!!! got aviLevel null in forecast; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+            if (!(forecast[i].aviLevel >= forecasts.AVI_LEVEL_UNKNOWN && forecast[i].aviLevel <= forecasts.AVI_LEVEL_EXTREME)) {
+                winston.warn('forecast validation: UNEXPECTED BUG!!! got invalid aviLevel in forecast; regionId: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
                 break;
             }
         }
@@ -159,8 +159,8 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but 
                 // without danger level ratings
-                if (regionId === 'caic_9' || regionId === 'uac_skyline' || regionId === 'snfac_4' || 
-                    regionId.split('_')[0] === 'esac') {
+                if (regionId === 'caic_9' || regionId === 'uac_skyline' || regionId === 'snfac_4' ||
+                    regionId === 'fac_4' || regionId === 'fac_5' || regionId.split('_')[0] === 'esac') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
