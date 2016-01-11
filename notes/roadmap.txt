@@ -64,6 +64,8 @@ Android app
                 test again with my revised FixedMyLocationOverlay, that always does the drawing
             in case of first time app use with no network, app must be shut down to try again once there is network        
 iOS app
+    v1.7
+        handle null/invalid values for aviLevel within a forecast object (crashing bug on invalid data)
     v2
         overall v2 features (from above)
         map usability
