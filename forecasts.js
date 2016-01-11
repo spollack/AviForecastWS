@@ -1229,10 +1229,7 @@ forecasts.parseForecastValues_jac = function($) {
         if (forecastImageName) {
             var aviLevelNumberAsString = forecastImageName.split('.')[0].slice(-1);
             if (aviLevelNumberAsString) {
-                var aviLevel = parseInt(aviLevelNumberAsString);
-                if (aviLevel >= forecasts.AVI_LEVEL_UNKNOWN && aviLevel <= forecasts.AVI_LEVEL_EXTREME) {
-                    aviLevels[0] = aviLevel;
-                }
+                aviLevels[0] = forecasts.findAviLevelNumberInString(aviLevelNumberAsString);
             }
         }        
     }
