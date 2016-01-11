@@ -364,7 +364,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'ipac':
-                    dataURL = 'http://www.idahopanhandleavalanche.org/' + (components[1] === '1' || components[1] === '2' ? 'selkirk--cabinets' : 'st-regis-basin--silver-valley') + '.html';
+                    dataURL = 'http://www.idahopanhandleavalanche.org/selkirk--cabinets-st-regis-valley';
                     parser = forecasts.parseForecast_ipac;
                     break;
                 case 'fac':
