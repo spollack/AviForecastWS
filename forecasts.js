@@ -1116,11 +1116,7 @@ forecasts.parseForecast_fac = function(body, regionDetails) {
             // NOTE typical date string: '2014-12-11T06:35:27-0700'
             var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
-            var aviLevel = parseInt(result.Advisory_data.Danger_Rating);
-            // NOTE protect against NaN
-            if (!(aviLevel >= 0)) {
-                aviLevel = forecasts.AVI_LEVEL_UNKNOWN;
-            }
+            var aviLevel = forecasts.findAviLevelNumberInString(result.Advisory_data.Danger_Rating);
 
             forecast = [];
             forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
