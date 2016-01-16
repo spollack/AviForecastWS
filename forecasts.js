@@ -124,7 +124,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
         if (regionId === 'cacb_north-rockies' || regionId === 'cacb_yukon' || regionId === 'cnfaic_summit' || regionId === 'vac_1' ||
             regionId === 'aac_1' || regionId === 'cac2_1' || regionId === 'hpac_1' || regionId === 'kpac_1' ||
-            regionId.split('_')[0] === 'wac') {
+            regionId.split('_')[0] === 'wac' || regionId.split('_')[0] === 'ipac') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
@@ -207,7 +207,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
             if (regionId === 'uac_moab' || regionId === 'uac_abajo' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
                 || regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south'
                 || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
-                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'
+//                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'
                 || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4' || regionId === 'fac_5'
                 || regionId === 'haic_1' || regionId === 'haic_2' || regionId === 'haic_3'
                 || regionId === 'msac_1') {
@@ -364,8 +364,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'ipac':
-                    dataURL = 'http://www.idahopanhandleavalanche.org/selkirk--cabinets-st-regis-valley';
-                    parser = forecasts.parseForecast_ipac;
+                    dataURL = 'http://www.idahopanhandleavalanche.org/current-advisory.html';
+                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'fac':
                     var paths = {
@@ -1046,63 +1046,63 @@ forecasts.parseForecast_wcmac = function(body, regionDetails) {
 
     return forecast;
 };
-
-forecasts.parseForecast_ipac = function(body, regionDetails) {
-
-    var forecast = null;
-
-    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
-
-    var forecastIssuedDate = forecasts.parseForecastIssuedDate_ipac($, regionDetails);
-    var aviLevels = forecasts.parseForecastValues_ipac($, regionDetails);
-
-    // NOTE ipac currently issues forecasts morning of, for one day only
-    if (forecastIssuedDate) {
-        forecast = [];
-        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
-
-        for (var j = 0; j < forecast.length; j++) {
-            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-        }
-    }
-
-    return forecast;
-};
-
-forecasts.parseForecastIssuedDate_ipac = function($, regionDetails) {
-
-    var forecastIssuedDate = null;
-
-    // capture the forecast timestamp
-    // NOTE typical html fragment for ipac: '<span class="date-text">02/15/2013</span>'
-    var timestampTextBlock = $('span.date-text').first().text();
-
-    if (timestampTextBlock.length > 0) {
-
-        forecastIssuedDate = moment(timestampTextBlock, 'MM/DD/YYYY');
-        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-    } else {
-        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
-    }
-
-    return forecastIssuedDate;
-};
-
-forecasts.parseForecastValues_ipac = function($) {
-
-    // ipac forecasts one day at a time
-    var aviLevels = [];
-    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
-
-    // NOTE ipac danger ratings are in all caps
-    // BUGBUG we need to find only text in all caps, to avoid some false matches
-    var forecastTextBlock = $('div#wsite-content').children().first().text();
-    var allCapsMatches = forecastTextBlock.match(/[A-Z]{3,}/g);
-    var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
-    aviLevels[0] = forecasts.findHighestAviLevelInString(allCapsText);
-
-    return aviLevels;
-};
+//
+//forecasts.parseForecast_ipac = function(body, regionDetails) {
+//
+//    var forecast = null;
+//
+//    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
+//
+//    var forecastIssuedDate = forecasts.parseForecastIssuedDate_ipac($, regionDetails);
+//    var aviLevels = forecasts.parseForecastValues_ipac($, regionDetails);
+//
+//    // NOTE ipac currently issues forecasts morning of, for one day only
+//    if (forecastIssuedDate) {
+//        forecast = [];
+//        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
+//
+//        for (var j = 0; j < forecast.length; j++) {
+//            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+//        }
+//    }
+//
+//    return forecast;
+//};
+//
+//forecasts.parseForecastIssuedDate_ipac = function($, regionDetails) {
+//
+//    var forecastIssuedDate = null;
+//
+//    // capture the forecast timestamp
+//    // NOTE typical html fragment for ipac: '<span class="date-text">02/15/2013</span>'
+//    var timestampTextBlock = $('span.date-text').first().text();
+//
+//    if (timestampTextBlock.length > 0) {
+//
+//        forecastIssuedDate = moment(timestampTextBlock, 'MM/DD/YYYY');
+//        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+//    } else {
+//        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
+//    }
+//
+//    return forecastIssuedDate;
+//};
+//
+//forecasts.parseForecastValues_ipac = function($) {
+//
+//    // ipac forecasts one day at a time
+//    var aviLevels = [];
+//    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
+//
+//    // NOTE ipac danger ratings are in all caps
+//    // BUGBUG we need to find only text in all caps, to avoid some false matches
+//    var forecastTextBlock = $('div#wsite-content').children().first().text();
+//    var allCapsMatches = forecastTextBlock.match(/[A-Z]{3,}/g);
+//    var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
+//    aviLevels[0] = forecasts.findHighestAviLevelInString(allCapsText);
+//
+//    return aviLevels;
+//};
 
 forecasts.parseForecast_fac = function(body, regionDetails) {
 
