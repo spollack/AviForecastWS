@@ -1086,173 +1086,6 @@
         ]
     },
     {
-        "regionId": "cacb_yukon",
-        "displayName": "Yukon",
-        "URL": "http://www.avalanche.ca/blogs/yukon",
-        "points": [
-            {
-                "lat": "60.306",
-                "lon": "-135.601"
-            },
-            {
-                "lat": "60.301",
-                "lon": "-135.771"
-            },
-            {
-                "lat": "60.273",
-                "lon": "-135.832"
-            },
-            {
-                "lat": "60.238",
-                "lon": "-135.829"
-            },
-            {
-                "lat": "60.128",
-                "lon": "-135.689"
-            },
-            {
-                "lat": "60.066",
-                "lon": "-135.662"
-            },
-            {
-                "lat": "60.047",
-                "lon": "-135.638"
-            },
-            {
-                "lat": "59.955",
-                "lon": "-135.620"
-            },
-            {
-                "lat": "59.798",
-                "lon": "-135.491"
-            },
-            {
-                "lat": "59.695",
-                "lon": "-135.234"
-            },
-            {
-                "lat": "59.665",
-                "lon": "-135.221"
-            },
-            {
-                "lat": "59.623",
-                "lon": "-135.158"
-            },
-            {
-                "lat": "59.623",
-                "lon": "-135.118"
-            },
-            {
-                "lat": "59.566",
-                "lon": "-135.028"
-            },
-            {
-                "lat": "59.541",
-                "lon": "-135.030"
-            },
-            {
-                "lat": "59.518",
-                "lon": "-134.967"
-            },
-            {
-                "lat": "59.525",
-                "lon": "-134.888"
-            },
-            {
-                "lat": "59.576",
-                "lon": "-134.767"
-            },
-            {
-                "lat": "59.604",
-                "lon": "-134.742"
-            },
-            {
-                "lat": "59.611",
-                "lon": "-134.682"
-            },
-            {
-                "lat": "59.630",
-                "lon": "-134.680"
-            },
-            {
-                "lat": "59.677",
-                "lon": "-134.749"
-            },
-            {
-                "lat": "59.762",
-                "lon": "-134.769"
-            },
-            {
-                "lat": "59.788",
-                "lon": "-134.686"
-            },
-            {
-                "lat": "59.812",
-                "lon": "-134.667"
-            },
-            {
-                "lat": "59.829",
-                "lon": "-134.674"
-            },
-            {
-                "lat": "59.861",
-                "lon": "-134.767"
-            },
-            {
-                "lat": "59.819",
-                "lon": "-134.793"
-            },
-            {
-                "lat": "59.821",
-                "lon": "-134.808"
-            },
-            {
-                "lat": "59.853",
-                "lon": "-134.787"
-            },
-            {
-                "lat": "59.898",
-                "lon": "-134.793"
-            },
-            {
-                "lat": "60.060",
-                "lon": "-134.558"
-            },
-            {
-                "lat": "60.126",
-                "lon": "-134.549"
-            },
-            {
-                "lat": "60.163",
-                "lon": "-134.693"
-            },
-            {
-                "lat": "60.155",
-                "lon": "-134.758"
-            },
-            {
-                "lat": "60.357",
-                "lon": "-134.874"
-            },
-            {
-                "lat": "60.379",
-                "lon": "-134.960"
-            },
-            {
-                "lat": "60.375",
-                "lon": "-135.210"
-            },
-            {
-                "lat": "60.323",
-                "lon": "-135.299"
-            },
-            {
-                "lat": "60.306",
-                "lon": "-135.601"
-            }
-        ]
-    },
-    {
         "regionId": "cac_northwest-coastal",
         "displayName": "Northwest Coastal",
         "URL": "http://www.avalanche.ca/forecasts/northwest-coastal",
@@ -5663,7 +5496,7 @@
         ]
     },
     {
-        "regionId": "cac_monashees-selkirks",
+        "regionId": "cac_north-columbia",
         "displayName": "North Columbia",
         "URL": "http://www.avalanche.ca/forecasts/north-columbia",
         "points": [
@@ -7598,7 +7431,7 @@
         ]
     },
     {
-        "regionId": "cac_lizardrange",
+        "regionId": "cac_lizard-range",
         "displayName": "Lizard Range",
         "URL": "http://www.avalanche.ca/forecasts/lizard-range",
         "points": [
@@ -7966,7 +7799,7 @@
     {
         "regionId": "cacb_north-rockies",
         "displayName": "North Rockies",
-        "URL": "http://www.avalanche.ca/blogs/north-rockies/",
+        "URL": "http://www.avalanche.ca/blogs?category=north-rockies",
         "points": [
             {
                 "lat": "53.077",
@@ -15560,85 +15393,6 @@
             {
                 "lat": "43.694",
                 "lon": "-114.905"
-            }
-        ]
-    },
-    {
-        "regionId": "wb_1",
-        "displayName": "Whistler-Blackcomb Backcountry",
-        "URL": "http://www.whistlerblackcomb.com/mountain-info/snow-report#backcountry",
-        "points": [
-            {
-                "lat": "50.075",
-                "lon": "-122.727"
-            },
-            {
-                "lat": "50.065",
-                "lon": "-122.724"
-            },
-            {
-                "lat": "50.013",
-                "lon": "-122.755"
-            },
-            {
-                "lat": "50.001",
-                "lon": "-122.749"
-            },
-            {
-                "lat": "49.980",
-                "lon": "-122.787"
-            },
-            {
-                "lat": "49.990",
-                "lon": "-122.891"
-            },
-            {
-                "lat": "50.020",
-                "lon": "-122.933"
-            },
-            {
-                "lat": "50.043",
-                "lon": "-123.016"
-            },
-            {
-                "lat": "50.073",
-                "lon": "-123.051"
-            },
-            {
-                "lat": "50.088",
-                "lon": "-123.112"
-            },
-            {
-                "lat": "50.115",
-                "lon": "-123.114"
-            },
-            {
-                "lat": "50.200",
-                "lon": "-123.181"
-            },
-            {
-                "lat": "50.233",
-                "lon": "-123.131"
-            },
-            {
-                "lat": "50.228",
-                "lon": "-122.908"
-            },
-            {
-                "lat": "50.218",
-                "lon": "-122.886"
-            },
-            {
-                "lat": "50.186",
-                "lon": "-122.874"
-            },
-            {
-                "lat": "50.147",
-                "lon": "-122.896"
-            },
-            {
-                "lat": "50.075",
-                "lon": "-122.727"
             }
         ]
     },

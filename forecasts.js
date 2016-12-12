@@ -122,7 +122,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // check for null forecast
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
-        if (regionId === 'cacb_north-rockies' || regionId === 'cacb_yukon' || regionId === 'cnfaic_summit' || regionId === 'vac_1' ||
+        if (regionId === 'cacb_north-rockies' || regionId === 'cnfaic_summit' || regionId === 'vac_1' ||
             regionId === 'aac_1' || regionId === 'cac2_1' || regionId === 'hpac_1' || regionId === 'kpac_1' ||
             regionId.split('_')[0] === 'wac' || regionId.split('_')[0] === 'ipac') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
@@ -306,17 +306,12 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_nwac;
                     break;
                 case 'cac':
-                    // NOTE using existing (old) api for now, while new api stabilizes (2014-12-07)
-                    dataURL = 'http://old.avalanche.ca/dataservices/cac/bulletins/xml/' + components[1];
+                    dataURL = 'http://www.avalanche.ca/api/forecasts/' + components[1] + '.json';
                     parser = forecasts.parseForecast_cac;
                     break;
                 case 'cacb': // CAC blog-only forecasts, which we don't parse
-                    dataURL = 'http://www.avalanche.ca/blogs/' + components[1];
+                    dataURL = 'http://www.avalanche.ca/blogs?category=' + components[1];
                     parser = forecasts.parseForecast_noop;
-                    break;
-                case 'wb':
-                    dataURL = 'http://old.avalanche.ca/dataservices/cac/bulletins/xml/whistler-blackcomb';
-                    parser = forecasts.parseForecast_cac;
                     break;
                 case 'pc':
                     dataURL = 'http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
@@ -631,51 +626,47 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
 
     var forecast = null;
 
-    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
-    // NOTE this block is called synchronously with parsing, even though it looks async
-    parser.parseString(body, function(err, result) {
-        try {
-            // NOTE cac uses xml namespace prefixes in their tags, which requires this byzantine lookup notation
-            var dayForecasts = result['caaml:observations']['caaml:Bulletin']['caaml:bulletinResultsOf']['caaml:BulletinMeasurements']['caaml:dangerRatings']['caaml:DangerRating'];
+    try {
 
-            // NOTE create an extra slot for the day before the first described day, as sometimes the forecast is issued
-            // with the first described day as the following day; we want to show some forecast for the time until
-            // the following day kicks in, so we assume in this case the the danger level for the first described day
-            // is also applicable to the time between when the forecast is issued and the first described day;
-            forecast = [];
+        var bodyJson = JSON.parse(body);
 
-            for (var i = 0; i < dayForecasts.length; i++) {
+        // NOTE create an extra slot for the day before the first described day, as sometimes the forecast is issued
+        // with the first described day as the following day; we want to show some forecast for the time until
+        // the following day kicks in, so we assume in this case the the danger level for the first described day
+        // is also applicable to the time between when the forecast is issued and the first described day
+        forecast = [];
 
-                var date = forecasts.dateStringFromDateTimeString_caaml(dayForecasts[i]['gml:validTime']['gml:TimeInstant']['gml:timePosition']);
+        for (var i = 0; i < bodyJson.dangerRatings.length; i++) {
 
-                // NOTE cac organizes forecasts by multiple elevation zones within a given day;
-                // take the highest danger level listed for each day
-                // NOTE not all 3 fields (Alp/Tln/Btl) are necessarily present
-                var aviLevel = Math.max(
-                    forecasts.findHighestAviLevelInString(dayForecasts[i]['caaml:dangerRatingAlpValue']),
-                    forecasts.findHighestAviLevelInString(dayForecasts[i]['caaml:dangerRatingTlnValue']),
-                    forecasts.findHighestAviLevelInString(dayForecasts[i]['caaml:dangerRatingBtlValue']));
+            var date = moment.utc(bodyJson.dangerRatings[i].date).format('YYYY-MM-DD');
 
-                // NOTE copy the first described day's forecast to the day before (see note above)
-                // NOTE this also assumes the days are listed in chronological order in the input data
-                if (i === 0) {
-                    // calculate the day before
-                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract(1, 'days');
-                    forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
-                }
+            // NOTE cac organizes forecasts by multiple elevation zones within a given day;
+            // take the highest danger level listed for each day
+            // NOTE not all 3 fields (Alp/Tln/Btl) are necessarily present
+            var aviLevel = Math.max(
+                forecasts.findHighestAviLevelInString(bodyJson.dangerRatings[i].dangerRating.alp),
+                forecasts.findHighestAviLevelInString(bodyJson.dangerRatings[i].dangerRating.tln),
+                forecasts.findHighestAviLevelInString(bodyJson.dangerRatings[i].dangerRating.btl));
 
-                // put this described day in the array, shifted by one position
-                forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
+            // NOTE copy the first described day's forecast to the day before (see note above)
+            // NOTE this also assumes the days are listed in chronological order in the input data
+            if (i === 0) {
+                // calculate the day before
+                var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract(1, 'days');
+                forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
             }
 
-            for (var j = 0; j < forecast.length; j++) {
-                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-             }
-        } catch (e) {
-            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
-            forecast = null;
+            // put this described day in the array, shifted by one position
+            forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
         }
-    });
+
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    } catch (e) {
+        winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        forecast = null;
+    }
 
     return forecast;
 };
