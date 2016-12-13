@@ -112,7 +112,7 @@ describe('validateForecast', function(){
                 forecasts.getRegionDetailsForRegionId('nwac_olympics')), false).should.be.true;
 
             forecasts.validateForecast('cac_sea-to-sky',
-                forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file001.xml','utf8'),
+                forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file002.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('cac_sea-to-sky')), false).should.be.true;
 
             forecasts.validateForecast('caic_8',
@@ -220,50 +220,46 @@ describe('parseForecast_nwac', function(){
 })
 
 describe('parseForecast_cac', function(){
-    describe('file000.xml', function(){
+    describe('file000.json', function(){
         it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file000.xml','utf8'),
+            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file000.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('cac_0'));
 
             should.not.exist(forecast);
         })
     })
-    describe('file001.xml', function(){
+    describe('file001.json', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file001.xml','utf8'),
+            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file001.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('cac_kananaskis'));
 
             should.exist(forecast);
-            forecast.length.should.equal(5);
-            forecast[0].date.should.equal('2012-12-04');
-            forecast[1].date.should.equal('2012-12-05');
-            forecast[2].date.should.equal('2012-12-06');
-            forecast[3].date.should.equal('2012-12-07');
-            forecast[4].date.should.equal('2012-12-08');
-            forecast[0].aviLevel.should.equal(3);
-            forecast[1].aviLevel.should.equal(3);
-            forecast[2].aviLevel.should.equal(4);
-            forecast[3].aviLevel.should.equal(3);
-            forecast[4].aviLevel.should.equal(2);
+            forecast.length.should.equal(4);
+            forecast[0].date.should.equal('2016-12-11');
+            forecast[1].date.should.equal('2016-12-12');
+            forecast[2].date.should.equal('2016-12-13');
+            forecast[3].date.should.equal('2016-12-14');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
+            forecast[3].aviLevel.should.equal(2);
         })
     })
-    describe('file002.xml', function(){
+    describe('file002.json', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file002.xml','utf8'),
+            var forecast = forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file002.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('cac_sea-to-sky'));
 
             should.exist(forecast);
-            forecast.length.should.equal(5);
-            forecast[0].date.should.equal('2012-12-04');
-            forecast[1].date.should.equal('2012-12-05');
-            forecast[2].date.should.equal('2012-12-06');
-            forecast[3].date.should.equal('2012-12-07');
-            forecast[4].date.should.equal('2012-12-08');
-            forecast[0].aviLevel.should.equal(4);
-            forecast[1].aviLevel.should.equal(4);
-            forecast[2].aviLevel.should.equal(4);
-            forecast[3].aviLevel.should.equal(3);
-            forecast[4].aviLevel.should.equal(3);
+            forecast.length.should.equal(4);
+            forecast[0].date.should.equal('2016-12-11');
+            forecast[1].date.should.equal('2016-12-12');
+            forecast[2].date.should.equal('2016-12-13');
+            forecast[3].date.should.equal('2016-12-14');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+            forecast[2].aviLevel.should.equal(2);
+            forecast[3].aviLevel.should.equal(2);
         })
     })
 })
