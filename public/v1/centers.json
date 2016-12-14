@@ -105,13 +105,6 @@
         "donationURL": "http://islandavalanchebulletin.com/"
     },
     {
-        "providerId": "wb",
-        "displayName": "Whister-Blackcomb",
-        "locationName": "Canada",
-        "mainURL": "http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx",
-        "donationURL": "http://www.whistlerblackcomb.com/the-mountain/backcountry/avalanche-advisory.aspx"
-    },
-    {
         "providerId": "caic",
         "displayName": "Colorado Avalanche Information Center",
         "locationName": "Colorado, US",
