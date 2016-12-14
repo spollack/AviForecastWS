@@ -307,7 +307,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'cac':
                     // CAC South Coast has two polygons that have the same forecast; handle that
-                    var subRegion = components[1].split['_'][0];
+                    var subRegion = components[1].split('_')[0];
                     dataURL = 'http://www.avalanche.ca/api/forecasts/' + components[1] + '.json';
                     parser = forecasts.parseForecast_cac;
                     break;
