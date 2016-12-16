@@ -16151,7 +16151,7 @@
     {
         "regionId": "haic_1",
         "displayName": "Chilkat Pass",
-        "URL": "http://alaskasnow.org/haines/conditions.php",
+        "URL": "http://alaskasnow.org/forecasts-observations/haines/",
         "points": [
             {
                 "lat": "59.723",
@@ -16210,7 +16210,7 @@
     {
         "regionId": "haic_2",
         "displayName": "Transitional Zone",
-        "URL": "http://alaskasnow.org/haines/conditions.php",
+        "URL": "http://alaskasnow.org/forecasts-observations/haines/",
         "points": [
             {
                 "lat": "59.296",
@@ -16277,7 +16277,7 @@
     {
         "regionId": "haic_3",
         "displayName": "Lutak Zone",
-        "URL": "http://alaskasnow.org/haines/conditions.php",
+        "URL": "http://alaskasnow.org/forecasts-observations/haines/",
         "points": [
             {
                 "lat": "59.219",
