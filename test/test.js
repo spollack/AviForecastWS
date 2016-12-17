@@ -932,30 +932,8 @@ describe('parseForecast_mwac', function(){
     
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-02-16');
-            forecast[0].aviLevel.should.equal(3);
-        })
-    })
-    describe('file002.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file002.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('mwac_1'));
-    
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-03-02');
-            forecast[0].aviLevel.should.equal(3);
-        })
-    })
-    describe('file003.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_mwac(fs.readFileSync('test/data/mwac/file003.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('mwac_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2015-02-07');
-            forecast[0].aviLevel.should.equal(3);
+            forecast[0].date.should.equal('2016-12-17');
+            forecast[0].aviLevel.should.equal(4);
         })
     })
 })
@@ -1011,50 +989,6 @@ describe('parseForecast_pac', function(){
             forecast.length.should.equal(1);
             forecast[0].date.should.equal('2015-12-12');
             forecast[0].aviLevel.should.equal(2);
-        })
-    })
-})
-
-describe('parseForecast_haic', function(){
-    describe('file000.kml', function(){
-        it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_haic(fs.readFileSync('test/data/haic/file000.kml','utf8'),
-                forecasts.getRegionDetailsForRegionId('haic_1'));
-    
-            should.not.exist(forecast);
-        })
-    })
-    describe('file001.kml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_haic(fs.readFileSync('test/data/haic/file001.kml','utf8'),
-                forecasts.getRegionDetailsForRegionId('haic_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-12-19');
-            forecast[0].aviLevel.should.equal(3);
-        })
-    })
-    describe('file002.kml', function(){
-        it('should return the correct parseForecast_haic details', function(){
-            var forecast = forecasts.parseForecast_haic(fs.readFileSync('test/data/haic/file002.kml','utf8'),
-                forecasts.getRegionDetailsForRegionId('haic_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-12-22');
-            forecast[0].aviLevel.should.equal(2);
-        })
-    })
-    describe('file003.kml', function(){
-        it('should return the correct parseForecast_haic details', function(){
-            var forecast = forecasts.parseForecast_haic(fs.readFileSync('test/data/haic/file003.kml','utf8'),
-                forecasts.getRegionDetailsForRegionId('haic_3'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-12-29');
-            forecast[0].aviLevel.should.equal(0);
         })
     })
 })

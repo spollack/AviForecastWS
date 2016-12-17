@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -9,49 +8,45 @@
 	>
 
 <channel>
-	<title>Mount Washington Avalanche Center</title>
-	<atom:link href="http://www.mountwashingtonavalanchecenter.org/feed/" rel="self" type="application/rss+xml" />
+	<title>Advisory &#8211; Mount Washington Avalanche Center</title>
+	<atom:link href="http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/feed/" rel="self" type="application/rss+xml" />
 	<link>http://www.mountwashingtonavalanchecenter.org</link>
-	<description>Information for Huntington and Tuckerman Ravine</description>
-	<lastBuildDate>Sun, 16 Feb 2014 17:10:07 +0000</lastBuildDate>
+	<description>Snow Safety Information for Mount Washington, Huntington Ravine, and Tuckerman Ravine</description>
+	<lastBuildDate>Sat, 17 Dec 2016 19:07:23 +0000</lastBuildDate>
 	<language>en-US</language>
-		<sy:updatePeriod>hourly</sy:updatePeriod>
-		<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>http://wordpress.org/?v=3.8.1</generator>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.6.1</generator>
 	<item>
-		<title>Avalanche Advisory for Sunday, February 16, 2014</title>
-		<link>http://www.mountwashingtonavalanchecenter.org/2014/02/16/avalanche-advisory-for-sunday-february-16-2014/</link>
-		<comments>http://www.mountwashingtonavalanchecenter.org/2014/02/16/avalanche-advisory-for-sunday-february-16-2014/#comments</comments>
-		<pubDate>Sun, 16 Feb 2014 13:49:43 +0000</pubDate>
+		<title>Avalanche Advisory for Saturday, December 17, 2016</title>
+		<link>http://www.mountwashingtonavalanchecenter.org/2016/12/17/avalanche-advisory-for-saturday-december-17-2016/</link>
+		<pubDate>Sat, 17 Dec 2016 13:08:38 +0000</pubDate>
 		<dc:creator><![CDATA[Frank Carus]]></dc:creator>
 				<category><![CDATA[Advisory]]></category>
 
-		<guid isPermaLink="false">http://www.mountwashingtonavalanchecenter.org/?p=5316</guid>
-		<description><![CDATA[This advisory expires at Midnight Tuckerman and Huntington Ravine has CONSIDERABLE avalanche danger. Natural avalanches are possible and human triggered avalanches are likely. Dangerous avalanche conditions exist. Careful snowpack evaluation, cautious route finding and conservative decision-making are essential. AVALANCHE PROBLEMS:  Not surprisingly, Wind Slab is the primary avalanche problem today.  New snow overnight has blown into both ravines forming <a href='http://www.mountwashingtonavalanchecenter.org/2014/02/16/avalanche-advisory-for-sunday-february-16-2014/' class='excerpt-more'>[...]</a>]]></description>
-					
-						<content:encoded><![CDATA[<p>This advisory expires at Midnight</p>
-<p><b>Tuckerman and Huntington Ravine has CONSIDERABLE avalanche danger.</b> Natural avalanches are possible and human triggered avalanches are likely. Dangerous avalanche conditions exist. Careful snowpack evaluation, cautious route finding and conservative decision-making are essential.</p>
-<p><b style="line-height: 1.5em;">AVALANCHE</b><span style="line-height: 1.5em;"> </span><b style="line-height: 1.5em;">PROBLEMS</b><span style="line-height: 1.5em;">:  Not surprisingly, </span><strong style="line-height: 1.5em;">Wind Slab</strong><span style="line-height: 1.5em;"> is the primary avalanche problem today.  New snow overnight has blown into both ravines forming dangerous wind slabs over existing wind slabs. Low visibility will make it challenging to assess slopes and avalanche paths above you. Wind speeds will increase today, further loading slopes in the lee of the northwest wind. Recent avalanche activity has filled in and smoothed out avalanche paths creating the opportunity for natural avalanches to run well into low angled terrain in both ravines. So far, winds are ideal for loading with little scouring so many areas are solidly Considerable.</span></p>
-<p><b>WEATHER</b>:  Steady northwest winds blowing in the 70-80 mph range, potentially gusting to over 100 mph, will make travel extremely difficult today. Evidence of snow loading appears right out of Pinkham Notch with wind drifts peppering the trail and frequent plumes of snow being picked up off the ground. In addition to some old snow being picked up and blown, 4&#8243; of new snow fell since 6pm yesterday creating a new wind slab problem. Temperatures are currently -10F (-23C) on the summit and 2F (-17C) at Hermit Lake. One skier appeared in Hermit Lake courtyard with a quarter sized white patch on his nose that developed in the ten minutes of exposure to the wind outside the lean-to. Conditions are pretty inhospitable on the mountain today&#8230;an ideal location for a super villains lair.</p>
-<p><b>SNOWPACK</b>:  Fieldwork yesterday revealed fair stability on south aspects with wind slabs in the upper snowpack failing in the CT easy range on multiple layers in 10 different tests in 4 locations though the failures were generally Q2. More troubling was a weak interface 90-100cm down. Though deep enough that accessing it would require really rotten luck, finding a thinner area in the snowpack to act as a trigger point while hiking or skiing is easily conceivable. New loading today, particularly in areas which didn&#8217;t appear to slide or slid early Thursday/Friday, like Center Bowl and Central, could push us beyond the tipping point naturally today with no human trigger needed. As mentioned earlier, avalanche paths developed further during the Thursday/Friday avalanche cycle. Lobster Claw ran just to the floor in it&#8217;s first avalanche of the year and is now a narrow but continuous run from the rim. Right Gully and Sluice both avalanche and piled debris to the top of the Lunch Rocks rescue cache. Debris from a Lip avalanche alomst completely buried the Open Book. Surprisingly, Center Bowl debris wasn&#8217;t evident so it would not surprise me at all to see a fairly large avalanche sweep out of there and into the floor today with the new loading. Central Gully approach, South Gully and Escape Hatch were all well loaded and plump yesterday so and ripe for a human trigger should someone attempt to travel through these areas today.</p>
-<p><b>Please Remember:</b></p>
+		<guid isPermaLink="false">http://www.mountwashingtonavalanchecenter.org/?p=7585</guid>
+		<description><![CDATA[This avalanche advisory expires at Midnight tonight. Huntington Ravine has HIGH and CONSIDERABLE avalanche danger. Central, Pinnacle, Odell and South Gully have High avalanche danger. Natural avalanches are likely and human-triggered avalanches are very likely. North, Damnation, Yale, and Escape Hatch have Considerable avalanche danger. Natural avalanches are possible and human triggered avalanches are likely. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>This avalanche advisory expires at Midnight tonight.</p>
+<p><strong>Huntington Ravine </strong><strong>has HIGH and CONSIDERABLE avalanche danger</strong>. Central, Pinnacle, Odell and South Gully have High avalanche danger. Natural avalanches are likely and human-triggered avalanches are very likely. North, Damnation, Yale, and Escape Hatch have Considerable avalanche danger. Natural avalanches are possible and human triggered avalanches are likely.</p>
+<p><strong> </strong><strong>Tuckerman Ravine has HIGH and CONSIDERABLE avalanche danger. </strong>Sluice, The Lip, Center Bowl, Chute, Left Gully and Hillmans Highway have High avalanche danger. Natural avalanches are likely and human-triggered avalanches are very likely. Lobster Claw and Right Gully have Considerable avalanche danger. Natural avalanches are possible and human triggered avalanches are likely. Lower Snowfields and Little Headwall are not rated due to a lack of snow though a portion of the Lower Snowfields could be struck by avalanche debris from Duchess.</p>
+<p><strong>Very dangerous avalanche conditions will exist in both Ravines today.</strong></p>
+<p><strong>AVALANCHE PROBLEM</strong>: 4-8” of new snow on increasing winds will build dangerous <strong>wind slabs</strong> today. Wind loading will form cohesive, unstable slabs of snow on top of softer, cold dry snow deposited by diminishing winds yesterday. Many avalanches paths ran in the past 36 hours and then reloaded so anticipate larger avalanches in some locations that will run further onto the floor than you might expect. The floor of Tuckerman Ravine would not be a good place to travel today. Several “red flags” exist today that will challenge even the most advanced avalanche practitioner so think hard if you want to try to outsmart the avalanche problem.</p>
+<p><strong>WEATHER</strong>: Winds currently from the southwest in the relatively light 35 mph range will increase and shift west this afternoon. This shift and increase in velocity to the 40-55 mph range will mark the transition to our peak natural avalanche potential. Gusts reaching 65 mph may transport enough snow today prior to the main shift in speed and direction. We are starting the day at 0F on the summit though temperatures will reach 20F or so by dark.</p>
+<p><strong>SNOWPACK</strong>: Clear visibility yesterday afternoon gave us a brief opportunity to observe signs of widespread avalanche activity in both Ravines. Yesterday’s avalanches appeared to be small to medium sized (R1-3) but I doubt that will be the case later today and tonight if the precipitation and wind forecast plays out. Our slopes and gullies have grown quite a bit since the start of the month, with avalanche debris stretching further down into the avalanche paths after each cycle. We have had very cold temperatures over the past few days which has not helped with snow settlement and may have even driven a faceting process near the deep ice crust that exists in some shady aspects. If venturing into the terrain today, know that poor visibility due to fog and blowing snow will challenge assessment and safe travel techniques. <strong>Upper start zones may be very different than the snow that you are traveling on below. For this reason, I would stay out of the path of any open slope or gully. </strong>A complex snowpack and multiple red flags will make it a good day to avoid avalanche terrain altogether.</p>
+<p><strong>The Lion Head Winter Route is open and the most direct route to the summit. The Tuckerman Ravine Trail bridge is completed enough to allow traffic again so you can avoid the detour</strong>. Please be careful of construction debris near crossover 7 on the Sherburne Ski Trail. Thanks for your continued patience!</p>
+<p><strong>Please Remember:</strong></p>
 <ul>
 <li>Safe travel in avalanche terrain requires training and experience. This advisory is just one tool to help you make your own decisions in avalanche terrain. You control your own risk by choosing where, when, and how you travel.</li>
 <li>Anticipate a changing avalanche danger when actual weather differs from the higher summits forecast.</li>
-<li>For more information contact the Forest Service Snow Rangers, the AMC at the Pinkham Notch Visitor Center, or the caretakers at Hermit Lake Shelters or the Harvard Cabin. <b>Posted 8:45 a.m. 2-16-2014. A new advisory will be issued tomorrow.</b></li>
+<li>For more information contact the Forest Service Snow Rangers, the AMC at the Pinkham Notch Visitor Center, or the caretakers at Hermit Lake Shelters or the Harvard Cabin.</li>
+<li><strong>Posted 8:05 a.m., Saturday, December 17, 2016. A new advisory will be issued tomorrow.</strong></li>
 </ul>
 <p>Frank Carus, Snow Ranger<br />
 USDA Forest Service<br />
 White Mountain National Forest<br />
-(603) 466-2713 TTY (603) 466-2856</p>
-<p><a href="http://www.mountwashingtonavalanchecenter.org/wp-content/uploads/2014/02/2014-02-16-Print-friendly.pdf">2014-02-16 Print friendly</a></p>
-<div id="rating">considerable</div>]]>  	
-							
-		</content:encoded>			
-
-			<wfw:commentRss>http://www.mountwashingtonavalanchecenter.org/2014/02/16/avalanche-advisory-for-sunday-february-16-2014/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
+(603) 466-2713 TTY (603) 466-2716</p>
+<p><a href="http://www.mountwashingtonavalanchecenter.org/wp-content/uploads/2016/12/2016-12-17.pdf">2016-12-17</a></p>
+]]></content:encoded>
+			</item>
 	</channel>
 </rss>
-<!-- WP Super Cache is installed but broken. The constant WPCACHEHOME must be set in the file wp-config.php and point at the WP Super Cache plugin directory. -->

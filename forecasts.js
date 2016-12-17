@@ -1367,24 +1367,21 @@ forecasts.parseForecast_mwac = function(body, regionDetails) {
             var forecastIssuedDate = moment(dateString, 'MMM DD, YYYY').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
-            // NOTE parse the special rating html field out of the content field
-            // typical special rating html field: <div id="rating">high</div>
-            var contentField = result.channel.item['content:encoded'];
-            var ratingMatch = contentField.match(/<div id=\"rating\">(\w+)<\/div>/i);
+            var forecastTextBlock = result.channel.item['content:encoded'];
 
-            // the capture groups from the regex will be in slot 1 in the array
-            if (ratingMatch && ratingMatch.length === 2) {
-                var aviLevelString = ratingMatch[1];
-                var aviLevel = forecasts.findHighestAviLevelInString(aviLevelString);
+            // NOTE mwac danger ratings are in all caps
+            var allCapsMatches = forecastTextBlock.match(/[A-Z]{3,}/g);
+            var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
+            var aviLevel = forecasts.findHighestAviLevelInString(allCapsText);
 
-                // NOTE mwac issues single day forecasts (although not every day)
-                forecast = [];
-                forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+            // NOTE mwac issues single day forecasts (although not every day)
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
 
-                for (var j = 0; j < forecast.length; j++) {
-                    winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-                }
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
             }
+
         } catch (e) {
             winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
         }
