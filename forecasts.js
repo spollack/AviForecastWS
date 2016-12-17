@@ -124,7 +124,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
         if (regionId === 'cacb_north-rockies' || regionId === 'cnfaic_summit' || regionId === 'vac_1' ||
             regionId === 'aac_1' || regionId === 'cac2_1' || regionId === 'hpac_1' || regionId === 'kpac_1' ||
-            regionId.split('_')[0] === 'wac' || regionId.split('_')[0] === 'ipac') {
+            regionId.split('_')[0] === 'wac' || regionId.split('_')[0] === 'ipac' || regionId.split('_')[0] === 'haic') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
@@ -209,7 +209,6 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
                 || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
 //                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'
                 || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4' || regionId === 'fac_5'
-                || regionId === 'haic_1' || regionId === 'haic_2' || regionId === 'haic_3'
                 || regionId === 'msac_1') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
@@ -388,8 +387,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'haic':
-                    dataURL = 'http://alaskasnow.org/haines/fz.kml';
-                    parser = forecasts.parseForecast_haic;
+                    dataURL = 'http://alaskasnow.org/forecasts-observations/haines/';
+                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'vac':
                     dataURL = 'http://www.valdezavalanchecenter.org/category/bulletin/';
@@ -1412,60 +1411,6 @@ forecasts.parseForecast_msac = function(body, regionDetails) {
 
             forecast = [];
             forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
-
-            for (var j = 0; j < forecast.length; j++) {
-                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-            }
-        } catch (e) {
-            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
-        }
-    });
-
-    return forecast;
-};
-
-forecasts.parseForecast_haic = function(body, regionDetails) {
-
-    var forecast = null;
-
-    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
-    // NOTE this block is called synchronously with parsing, even though it looks async
-    parser.parseString(body, function(err, result) {
-        try {
-            var regionNames = {
-                1: 'Chilkat Pass',
-                2: 'Transitional Zone',
-                3: 'Lutak Zone'
-            };
-            var regionName = regionNames[regionDetails.subregion];
-            var regionResults = underscore.find(result.Document.Placemark, function (item) {
-                return (item.name === regionName);
-            });
-            var forecastExpiresDateField = underscore.find(regionResults.ExtendedData.Data, function (item) {
-                return (item['@'].name === 'expdate');
-            });
-            
-            // NOTE haic has expiry dates but not issued at dates in their data files
-            // NOTE typical date string: '12/19/2014 11pm'
-            var forecastExpiryDate = moment(forecastExpiresDateField.value, 'MM/DD/YYYY hha').format('YYYY-MM-DD');
-            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastExpiryDate: ' + forecastExpiryDate);
-
-            // NOTE typical hazard string: '#3'
-            var forecastHazardLevelString = regionResults.styleUrl.replace('#', '');
-            var aviLevel = forecasts.findAviLevelNumberInString(forecastHazardLevelString);
-
-            forecast = [];
-            forecast[0] = {'date': forecastExpiryDate, 'aviLevel': aviLevel};
-
-            // NOTE forecasts are valid current time through the expiry date
-            var akstOffsetHours = 9;
-            var akstCurrentDate = moment.utc().subtract(akstOffsetHours, 'hours').format('YYYY-MM-DD');
-
-            var tempDate = moment.utc(forecastExpiryDate);
-            while (tempDate.isAfter(akstCurrentDate)) {
-                tempDate.subtract(1, 'days');
-                forecast.unshift({'date': tempDate.format('YYYY-MM-DD'), 'aviLevel': aviLevel});
-            }
 
             for (var j = 0; j < forecast.length; j++) {
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
