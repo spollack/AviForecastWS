@@ -391,7 +391,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'vac':
-                    dataURL = 'http://www.valdezavalanchecenter.org/category/bulletin/';
+                    dataURL = 'http://alaskasnow.org/forecasts-observations/valdez/';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'cac2':
