@@ -114,14 +114,6 @@ function startHTTPServer() {
     // BEGIN PROXYING HACK
     //
 
-    // BUGBUG hack to get around problem caching IPAC web pages on android due to cache-control:no-store header; 
-    // proxy their content to avoid these headers being sent to the client
-    app.get('/v1/proxy/ipac/:zone', function(req, res) {
-        var baseUrl = 'http://www.idahopanhandleavalanche.org/';
-        var url = baseUrl + req.params.zone + '.html';
-        proxy(url, baseUrl, res);
-    });
-
     // BUGBUG hack to get around problem caching CAIC web pages on android due to cache-control:no-store header; 
     // proxy their content to avoid these headers being sent to the client
     app.get('/v1/proxy/caic/:zone', function(req, res) {
