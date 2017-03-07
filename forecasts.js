@@ -1038,63 +1038,34 @@ forecasts.parseForecast_wcmac = function(body, regionDetails) {
 
     return forecast;
 };
-//
-//forecasts.parseForecast_ipac = function(body, regionDetails) {
-//
-//    var forecast = null;
-//
-//    var $ = cheerio.load(body, {lowerCaseTags:true, lowerCaseAttributeNames:true});
-//
-//    var forecastIssuedDate = forecasts.parseForecastIssuedDate_ipac($, regionDetails);
-//    var aviLevels = forecasts.parseForecastValues_ipac($, regionDetails);
-//
-//    // NOTE ipac currently issues forecasts morning of, for one day only
-//    if (forecastIssuedDate) {
-//        forecast = [];
-//        forecast[0] = {'date': moment(forecastIssuedDate).format('YYYY-MM-DD'), 'aviLevel': aviLevels[0]};
-//
-//        for (var j = 0; j < forecast.length; j++) {
-//            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-//        }
-//    }
-//
-//    return forecast;
-//};
-//
-//forecasts.parseForecastIssuedDate_ipac = function($, regionDetails) {
-//
-//    var forecastIssuedDate = null;
-//
-//    // capture the forecast timestamp
-//    // NOTE typical html fragment for ipac: '<span class="date-text">02/15/2013</span>'
-//    var timestampTextBlock = $('span.date-text').first().text();
-//
-//    if (timestampTextBlock.length > 0) {
-//
-//        forecastIssuedDate = moment(timestampTextBlock, 'MM/DD/YYYY');
-//        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
-//    } else {
-//        winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
-//    }
-//
-//    return forecastIssuedDate;
-//};
-//
-//forecasts.parseForecastValues_ipac = function($) {
-//
-//    // ipac forecasts one day at a time
-//    var aviLevels = [];
-//    aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
-//
-//    // NOTE ipac danger ratings are in all caps
-//    // BUGBUG we need to find only text in all caps, to avoid some false matches
-//    var forecastTextBlock = $('div#wsite-content').children().first().text();
-//    var allCapsMatches = forecastTextBlock.match(/[A-Z]{3,}/g);
-//    var allCapsText = (allCapsMatches ? allCapsMatches.join(' ') : '');
-//    aviLevels[0] = forecasts.findHighestAviLevelInString(allCapsText);
-//
-//    return aviLevels;
-//};
+
+forecasts.parseForecast_ipac = function(body, regionDetails) {
+
+    var forecast = null;
+
+    var parser = new xml2js.Parser(xml2js.defaults['0.1']);
+    // NOTE this block is called synchronously with parsing, even though it looks async
+    parser.parseString(body, function(err, result) {
+        try {
+            var forecastIssuedDateField = result.Advisory_data.Posted;
+            // NOTE typical date string: '2014-12-11T06:35:27-0700'
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
+            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
+            var aviLevel = forecasts.findAviLevelNumberInString(result.Advisory_data.Danger_Rating);
+
+            forecast = [];
+            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+
+            for (var j = 0; j < forecast.length; j++) {
+                winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+            }
+        } catch (e) {
+            winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+        }
+    });
+
+    return forecast;
+};
 
 forecasts.parseForecast_fac = function(body, regionDetails) {
 
