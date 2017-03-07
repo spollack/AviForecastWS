@@ -124,7 +124,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
         if (regionId === 'cacb_north-rockies' || regionId === 'cnfaic_summit' || regionId === 'vac_1' ||
             regionId === 'aac_1' || regionId === 'cac2_1' || regionId === 'hpac_1' || regionId === 'kpac_1' ||
-            regionId.split('_')[0] === 'wac' || regionId.split('_')[0] === 'ipac' || regionId.split('_')[0] === 'haic') {
+            regionId.split('_')[0] === 'wac' || regionId.split('_')[0] === 'haic') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
@@ -207,7 +207,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
             if (regionId === 'uac_moab' || regionId === 'uac_abajo' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
                 || regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south'
                 || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
-//                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'
+                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'
                 || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4' || regionId === 'fac_5'
                 || regionId === 'msac_1') {
                 validForecast = true;
@@ -360,18 +360,23 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'ipac':
-                    dataURL = 'http://www.idahopanhandleavalanche.org/current-advisory.html';
-                    parser = forecasts.parseForecast_noop;
+                    var ipacPaths = {
+                        1: 'http://www.idahopanhandleavalanche.org/advisories/selkirks-cabinets-map-xml',
+                        2: 'http://www.idahopanhandleavalanche.org/advisories/selkirks-cabinets-map-xml',
+                        3: 'http://www.idahopanhandleavalanche.org/advisories/st-regis-silver-map-xml'
+                    };
+                    dataURL = ipacPaths[components[1]];
+                    parser = forecasts.parseForecast_ipac;
                     break;
                 case 'fac':
-                    var paths = {
+                    var facPaths = {
                         1: 'http://www.flatheadavalanche.org/advisories/flathead-and-glacier-map-xml',
                         2: 'http://www.flatheadavalanche.org/advisories/whitefish-map-xml',
                         3: 'http://www.flatheadavalanche.org/advisories/swan-map-xml',
                         4: 'http://www.flatheadavalanche.org/advisories/kootenai-map-xml',
                         5: 'http://www.flatheadavalanche.org/advisories/kootenai-map-xml'
                     };
-                    dataURL = paths[components[1]];
+                    dataURL = facPaths[components[1]];
                     parser = forecasts.parseForecast_fac;
                     break;
                 case 'cnfaic':
@@ -403,7 +408,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'kpac':
-                    dataURL = 'http://www.kachinapeaks.org/snow-pack-summaries/';
+                    dataURL = 'https://kachinapeaks.org/snowpack';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'wac':
