@@ -19,7 +19,7 @@ KML_fragment_here
 
 3) edit and run KMLtoJSON.js
 
-4) edit and run trimDigits.js (optimize file size)
+4) edit and run trimDigits.js (to optimize file size)
 
 5) add to regions.json
 
