@@ -122,9 +122,9 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // check for null forecast
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
-        if (regionId === 'cacb_north-rockies' || regionId === 'cnfaic_summit' || regionId === 'vac_1' ||
+        if (regionId === 'cacb_north-rockies' || regionId === 'cnfaic_summit' ||
             regionId === 'aac_1' || regionId === 'cac2_1' || regionId === 'hpac_1' || regionId === 'kpac_1' ||
-            regionId.split('_')[0] === 'wac' || regionId.split('_')[0] === 'haic') {
+            regionId.split('_')[0] === 'wac' || regionId.split('_')[0] === 'haic' || regionId.split('_')[0] === 'vac') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
@@ -396,7 +396,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'vac':
-                    dataURL = 'http://alaskasnow.org/forecasts-observations/valdez/';
+                    dataURL = 'http://alaskasnow.org/forecasts-observations/valdez/valdez-avalanche-forecasts/';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'cac2':
