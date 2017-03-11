@@ -7,7 +7,7 @@
 first, in the "postgis" database:
 set search_path to public;
 
-check number of points output:
+[if desired] check number of points output:
 SELECT ST_NPoints(ST_SimplifyPreserveTopology(ST_GeomFromKML('
 KML_fragment_here
 		'), 0.01));
