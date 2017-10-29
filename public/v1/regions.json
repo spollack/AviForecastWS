@@ -16122,7 +16122,7 @@
         ]
     },
     {
-        "regionId": "jac_1",
+        "regionId": "juak_juneau",
         "displayName": "Juneau",
         "URL": "http://juneau.org/avalanche/",
         "points": [
@@ -16334,7 +16334,7 @@
         ]
     },
     {
-        "regionId": "fac_1",
+        "regionId": "fac_flathead",
         "displayName": "Flathead and Glacier",
         "URL": "http://www.flatheadavalanche.org/flathead-glacier/advisory",
         "points": [
@@ -16469,7 +16469,7 @@
         ]
     },
     {
-        "regionId": "fac_2",
+        "regionId": "fac_whitefish",
         "displayName": "Whitefish Range",
         "URL": "http://www.flatheadavalanche.org/whitefish/advisory",
         "points": [
@@ -16588,7 +16588,7 @@
         ]
     },
     {
-        "regionId": "fac_3",
+        "regionId": "fac_swan",
         "displayName": "Swan Range",
         "URL": "http://www.flatheadavalanche.org/swan/advisory",
         "points": [
@@ -16687,7 +16687,7 @@
         ]
     },
     {
-        "regionId": "fac_4",
+        "regionId": "fac_kootenai",
         "displayName": "Purcell Range",
         "URL": "http://www.flatheadavalanche.org/kootenai-snowpack-summary",
         "points": [
@@ -16874,7 +16874,7 @@
         ]
     },
     {
-        "regionId": "fac_5",
+        "regionId": "fac_kootenai",
         "displayName": "Cabinet Range",
         "URL": "http://www.flatheadavalanche.org/kootenai-snowpack-summary",
         "points": [
@@ -17460,7 +17460,7 @@
         ]
     },
     {
-        "regionId": "cac2_1",
+        "regionId": "ctcak_cordova",
         "displayName": "Cordova",
         "URL": "http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions",
         "points": [
@@ -17522,7 +17522,7 @@
         ]
     },
     {
-        "regionId": "kpac_1",
+        "regionId": "kpac_san-fran-peaks",
         "displayName": "San Francisco Peaks",
         "URL": "http://www.kachinapeaks.org/snow-pack-summaries/",
         "points": [
@@ -17561,7 +17561,7 @@
         ]
     },
     {
-        "regionId": "msac_1",
+        "regionId": "msac_shasta",
         "displayName": "MSAC Forecast Area",
         "URL": "http://www.shastaavalanche.org/advisories/avalanche-advisory",
         "points": [
@@ -17628,7 +17628,7 @@
         ]
     },
     {
-        "regionId": "wac_1",
+        "regionId": "wac_northeast-oregon-mountains",
         "displayName": "Blue Mountains",
         "URL": "http://www.wallowaavalanchecenter.org/",
         "points": [

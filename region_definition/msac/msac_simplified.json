@@ -1,6 +1,6 @@
 [
     {
-        "regionId": "msac_1",
+        "regionId": "msac_shasta",
         "displayName": "MSAC Forecast Area",
         "URL": "http://www.shastaavalanche.org/advisories/avalanche-advisory",
         "points": [

@@ -55,6 +55,41 @@ forecasts.aggregateForecasts = function(regions) {
     var startTime = new Date();
     var forecastsArray = [];
     var invalidCount = 0;
+    
+    var url = "https://api-avalanche.org/v1/forecast/get-map-data/all";
+
+      //get feed for all US centers and save for use instaed of calling for each region?
+    var requestOptions = {
+        url:'https://staging-api.avalanche.org/v1/forecast/get-map-data/all',
+        headers:{'User-Agent':'avalancheforecasts.com'},
+        jar:false, 
+        timeout:(forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000)
+    };
+
+    request(requestOptions,
+        function(error, response, body) {
+            // BUGBUG  should check status code too, but as of 2014-12-26, PAC returns its advisory page with a 404!
+            // && response.statusCode >= 200 && response.statusCode <= 299
+            if (!error) {
+                winston.info('successful response for US center');
+                forecasts.usCenters = body;
+                
+                try {
+                      //usCenters.features is array of zones
+                      //rearrange into array by center and name
+                  for (var c in usCenters.features) {
+                    x = forecasts.usCenters.features[c];
+                    forecasts[forecasts.usCenters.features[c].properties.center_id + "_" + forecasts.usCenters.features[c].properties.name] = forecasts.usCenters.features[c].properties;
+                  }
+                  winston.info('uscenters' + forecasts.usCenters.features.length;
+                } catch (e) {
+                    winston.warn('error getting json return; exception: ' + e);
+                }
+            } else {
+                winston.warn('failed dataURL getting US Centers; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
+            }
+        }
+      );
 
     async.forEachLimit(
         regions,
@@ -241,47 +276,63 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
         
         process.nextTick(function() { onForecast(forecast); } );
     } else {
-        var requestOptions = {
-            url:regionDetails.dataURL,
-            headers:{'User-Agent':'avalancheforecasts.com'},
-            jar:false, 
-            timeout:(forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000)
-        };
+        if (parser === 'parseForecast_usCenters' ) {
+          try {
+              forecast = parseForecast_usCenters(regionDetails);
+          } catch (e) {
+              winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+          }
 
-        request(requestOptions,
-            function(error, response, body) {
-                // BUGBUG  should check status code too, but as of 2014-12-26, PAC returns its advisory page with a 404!
-                // && response.statusCode >= 200 && response.statusCode <= 299
-                if (!error) {
-                    winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
-                        '; dataURL: ' + regionDetails.dataURL);
+          if (forecast) {
+              // cache the result
+              forecasts.mostRecentForecasts[regionId] = forecast;
+          }
+          
+          onForecast(forecast);
+        
+        } else {
+          var requestOptions = {
+              url:regionDetails.dataURL,
+              headers:{'User-Agent':'avalancheforecasts.com'},
+              jar:false, 
+              timeout:(forecasts.DATA_REQUEST_TIMEOUT_SECONDS * 1000)
+          };
 
-                    try {
-                        forecast = regionDetails.parser(body, regionDetails);
-                    } catch (e) {
-                        winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
-                    }
+          request(requestOptions,
+              function(error, response, body) {
+                  // BUGBUG  should check status code too, but as of 2014-12-26, PAC returns its advisory page with a 404!
+                  // && response.statusCode >= 200 && response.statusCode <= 299
+                  if (!error) {
+                      winston.info('successful dataURL response; regionId: ' + regionDetails.regionId +
+                          '; dataURL: ' + regionDetails.dataURL);
 
-                    if (forecast) {
-                        // cache the result
-                        forecasts.mostRecentForecasts[regionId] = forecast;
-                    }
-                    
-                    onForecast(forecast);
-                } else {
-                    winston.warn('failed dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
-                        regionDetails.dataURL + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
-                    
-                    // if there is a cached forecast for this region, fall back to that
-                    if (forecasts.mostRecentForecasts[regionId]) {
-                        forecast = forecasts.mostRecentForecasts[regionId];
-                        winston.info('using cached value, due to error, for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
-                    }
-                    
-                    onForecast(forecast);
-                }
-            }
-        );
+                      try {
+                          forecast = regionDetails.parser(body, regionDetails);
+                      } catch (e) {
+                          winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
+                      }
+
+                      if (forecast) {
+                          // cache the result
+                          forecasts.mostRecentForecasts[regionId] = forecast;
+                      }
+                      
+                      onForecast(forecast);
+                  } else {
+                      winston.warn('failed dataURL response; regionId: ' + regionDetails.regionId + '; dataURL: ' +
+                          regionDetails.dataURL + '; response status code: ' + (response ? response.statusCode : '[no response]') + '; error: ' + error);
+                      
+                      // if there is a cached forecast for this region, fall back to that
+                      if (forecasts.mostRecentForecasts[regionId]) {
+                          forecast = forecasts.mostRecentForecasts[regionId];
+                          winston.info('using cached value, due to error, for region: ' + regionId + '; forecast: ' + JSON.stringify(forecast));
+                      }
+                      
+                      onForecast(forecast);
+                  }
+              }
+          );
+        }
     }
 };
 
@@ -318,96 +369,189 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
                     parser = forecasts.parseForecast_pc;
                     break;
-                case 'caic':
-                    // NOTE look up the data url (because of the more complex mapping)
-                    dataURL = forecasts.getDataURL_caic(components[1]);
-                    parser = forecasts.parseForecast_simple_caaml;
+                case 'hg':
+                    dataURL = 'http://www.centreavalanche.qc.ca/conditions/bulletins-avalanche/bulletin-en';
+                    parser = forecasts.parseForecast_hg;
                     break;
-                case 'uac':
-                    dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1] + '/json';
-                    parser = forecasts.parseForecast_uac;
-                    break;
-                case 'viac':
+                case 'viac':      //vancouver island
                     dataURL = 'http://www.islandavalanchebulletin.com/';
                     parser = forecasts.parseForecast_viac;
                     break;
+                    
+                   /* US Centers from avy feed */ 
+                case 'caic':
+                    // NOTE look up the data url (because of the more complex mapping)
+                   /* dataURL = forecasts.getDataURL_caic(components[1]);
+                    parser = forecasts.parseForecast_simple_caaml; */
+                    
+                    dataURL = 'caic_' + components[1];
+                    parser = forecasts.parseForecast_usCenters ;
+                    
+                    break;
+                case 'uac':
+                   /* dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1] + '/json';
+                    parser = forecasts.parseForecast_uac; */
+                    dataURL = 'uac_' + components[1];
+                    parser = forecasts.parseForecast_usCenters ;
+                    break;
                 case 'sac':
-                    dataURL = 'http://www.sierraavalanchecenter.org/danger-rating-rss.xml';
-                    parser = forecasts.parseForecast_sac;
+                   /* dataURL = 'http://www.sierraavalanchecenter.org/danger-rating-rss.xml';
+                    parser = forecasts.parseForecast_sac; */
+                    dataURL = 'sac_1';
+                    parser = forecasts.parseForecast_usCenters ;
+                    
                     break;
                 case 'esac':
-                    dataURL = 'http://esavalanche.org/danger-rating-rss.xml';
-                    parser = forecasts.parseForecast_esac;
+                    //always use esac_1 to match avy feed
+                   /* dataURL = 'http://esavalanche.org/danger-rating-rss.xml';
+                    parser = forecasts.parseForecast_esac; */
+                    dataURL = 'esac_1';
+                    parser = forecasts.parseForecast_usCenters ;
+                    
                     break;
                 case 'pac':
-                    dataURL = 'http://www.payetteavalanche.org/danger-rating-rss.xml';
-                    parser = forecasts.parseForecast_pac;
+                   /* dataURL = 'http://www.payetteavalanche.org/danger-rating-rss.xml';
+                    parser = forecasts.parseForecast_pac; */
+                    dataURL = 'pac_1';
+                    parser = forecasts.parseForecast_usCenters ;
+                    
                     break;
                 case 'btac':
-                    dataURL = 'http://www.jhavalanche.org/media/xml/' + components[1] + '_Avalanche_Forecast.xml';
-                    parser = forecasts.parseForecast_simple_caaml;
+                    /*dataURL = 'http://www.jhavalanche.org/media/xml/' + components[1] + '_Avalanche_Forecast.xml';
+                    parser = forecasts.parseForecast_simple_caaml; */
+                    dataURL = 'btac_' + components[1];
+                    parser = forecasts.parseForecast_usCenters ;
+                    
                     break;
                 case 'gnfac':
-                    dataURL = 'http://www.mtavalanche.com/sites/default/files/xml/' + components[1] + '_Forecast.xml';
-                    parser = forecasts.parseForecast_simple_caaml;
+                    /*dataURL = 'http://www.mtavalanche.com/sites/default/files/xml/' + components[1] + '_Forecast.xml';
+                    parser = forecasts.parseForecast_simple_caaml; */
+                    var gnfacPaths = {
+                        'Bridgers': 'gnfac_0',
+                        'Northern_Gallatin': 'gnfac_1',
+                        'Lionhead_Area': 'gnfac_2',
+                        'Cooke_City': 'gnfac_3',
+                        'Northern_Madison': 'gnfac_4',
+                        'Southern_Madison': 'gnfac_5',
+                        'Southern_Gallatin': 'gnfac_6'
+                    };
+                    dataURL = gnfacPaths[components[1]];
+                    parser = forecasts.parseForecast_usCenters 
                     break;
                 case 'wcmac':
-                    dataURL = 'http://www.missoulaavalanche.org/advisories/feed/';
-                    parser = forecasts.parseForecast_wcmac;
+                case 'wcmaf':
+                   /* dataURL = 'http://www.missoulaavalanche.org/advisories/feed/';
+                    parser = forecasts.parseForecast_wcmac; */
+                    dataURL = 'wcmaf_1';
+                    parser = forecats.parseForecast_usCenters;
                     break;
                 case 'snfac':
-                    dataURL = 'http://sawtoothavalanche.com/caaml/SNFAC' + components[1] + '_Avalanche_Forecast.xml';
-                    parser = forecasts.parseForecast_simple_caaml;
+                    /*dataURL = 'http://sawtoothavalanche.com/caaml/SNFAC' + components[1] + '_Avalanche_Forecast.xml';
+                    parser = forecasts.parseForecast_simple_caaml; */
+                    dataURL = 'snfac_' + components[1];
+                    parser = forecasts.parseForecast_usCenters ;
                     break;
                 case 'ipac':
-                    var ipacPaths = {
+                   /* var ipacPaths = {
                         1: 'http://www.idahopanhandleavalanche.org/advisories/selkirks-cabinets-map-xml',
                         2: 'http://www.idahopanhandleavalanche.org/advisories/selkirks-cabinets-map-xml',
                         3: 'http://www.idahopanhandleavalanche.org/advisories/st-regis-silver-map-xml'
                     };
                     dataURL = ipacPaths[components[1]];
-                    parser = forecasts.parseForecast_ipac;
+                    parser = forecasts.parseForecast_ipac; */
+                    
+                    var ipacPaths = {
+                        1: 'ipac_selkirk--cabinets',
+                        2: 'ipac_selkirk--cabinets',
+                        3: 'ipac_st-regis--silver'
+                    };
+                    dataURL = ipacPaths[components[1]];
+                    parser = forecasts.parseForecast_usCenters 
+                    
                     break;
                 case 'fac':
-                    var facPaths = {
+                    /*var facPaths = {
                         1: 'http://www.flatheadavalanche.org/advisories/flathead-and-glacier-map-xml',
                         2: 'http://www.flatheadavalanche.org/advisories/whitefish-map-xml',
                         3: 'http://www.flatheadavalanche.org/advisories/swan-map-xml',
                         4: 'http://www.flatheadavalanche.org/advisories/kootenai-map-xml',
                         5: 'http://www.flatheadavalanche.org/advisories/kootenai-map-xml'
                     };
+                    parser = forecasts.parseForecast_fac; */
+                    
+                    var facPaths = {
+                        1: 'fac_flathead',
+                        2: 'fac_whitefish',
+                        3: 'fac_swan',
+                        4: 'fac_kootenai',
+                        5: 'fac_kootenai'
+                    };
+                    
                     dataURL = facPaths[components[1]];
-                    parser = forecasts.parseForecast_fac;
+                    parser = forecasts.parseForecast_usCenters 
                     break;
                 case 'cnfaic':
-                    dataURL = 'http://www.cnfaic.org/library/rssfeed_map.php';
-                    parser = forecasts.parseForecast_cnfaic;
+                    /*dataURL = 'http://www.cnfaic.org/library/rssfeed_map.php';
+                    parser = forecasts.parseForecast_cnfaic; */
+                    dataURL = 'cnfaic_' + components[1];
+                    parser = forecasts.parseForecast_usCenters ;
+                    
                     break;
                 case 'jac':
-                    dataURL = 'http://juneau.org/avalanche/';
-                    parser = forecasts.parseForecast_jac;
+                case 'juak': 
+/*                  dataURL = 'http://juneau.org/avalanche/';
+                    parser = forecasts.parseForecast_jac; */ 
+
+                    dataURL = 'juak_' + components[1];
+                    parser = forecasts.parseForecast_usCenters ;
+                    
+                    break;
+                case 'mwac':
+                    /*dataURL = 'http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/feed/';
+                    parser = forecasts.parseForecast_mwac; */
+                    dataURL = 'mwac_1';
+                    parser = forecasts.parseForecast_usCenters ;
+                    
+                    break;
+                case 'msac':
+                    /*dataURL = 'http://shastaavalanche.org/danger-rating-rss.xml';
+                    parser = forecasts.parseForecast_msac; */
+                    dataURL = 'mwac_shasta';
+                    parser = forecasts.parseForecast_usCenters ;
+                    
+                    break;
+                case 'cbac':      //crested butte???
+                    dataURL = 'http://cbavalanchecenter.org/cbac/pub_bc_avo.php';
+                    parser = forecasts.parseForecast_cbac;
                     break;
                 case 'aac':
                     dataURL = 'http://www.anchorageavalanchecenter.org/';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'haic':
+                    /* should be aaic_chilkat_pass, aaic_haines-transitional, aaic_lutak but there is no forecasting so doesn't matter */
                     dataURL = 'http://alaskasnow.org/forecasts-observations/haines/';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'vac':
+                    /* should be aaic_vac-continental, aaic_vac-intermountain, aaic_vac-maritime but no forecasting so doesn't matter */
                     dataURL = 'http://alaskasnow.org/forecasts-observations/valdez/valdez-avalanche-forecasts/';
                     parser = forecasts.parseForecast_noop;
                     break;
+                case 'cctak':     //replace cac2 with cctak
                 case 'cac2':
                     dataURL = 'http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions';
                     parser = forecasts.parseForecast_noop;
                     break;
-                case 'hpac':
-                    dataURL = 'http://hatcherpassavalanchecenter.org/';
-                    parser = forecasts.parseForecast_noop;
+                case 'hpac':      
+/*                    dataURL = 'http://hatcherpassavalanchecenter.org/';
+                    parser = forecasts.parseForecast_noop; */
+                    dataURL = 'aaic_hatcher-pass';
+                    parser = forecasts.parseForecast_usCenters ;
+                    
                     break;
-                case 'kpac':
+                case 'kpac':  
+                        //kpac_san-fran-peaks
                     dataURL = 'https://kachinapeaks.org/snowpack';
                     parser = forecasts.parseForecast_noop;
                     break;
@@ -415,22 +559,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'http://www.wallowaavalanchecenter.org/bulletin';
                     parser = forecasts.parseForecast_noop;
                     break;
-                case 'hg':
-                    dataURL = 'http://www.centreavalanche.qc.ca/conditions/bulletins-avalanche/bulletin-en';
-                    parser = forecasts.parseForecast_hg;
-                    break;
-                case 'mwac':
-                    dataURL = 'http://www.mountwashingtonavalanchecenter.org/category/avalanche-advisory-for-tuckerman-and-huntington-ravines/feed/';
-                    parser = forecasts.parseForecast_mwac;
-                    break;
-                case 'msac':
-                    dataURL = 'http://shastaavalanche.org/danger-rating-rss.xml';
-                    parser = forecasts.parseForecast_msac;
-                    break;
-                case 'cbac':
-                    dataURL = 'http://cbavalanchecenter.org/cbac/pub_bc_avo.php';
-                    parser = forecasts.parseForecast_cbac;
-                    break;
+                    
                 default:
                     winston.warn('no match for regionId: ' + regionId);
                     break;
@@ -567,6 +696,27 @@ forecasts.findAviLevelNumberInString = function(string) {
     }
 
     return aviLevel;
+};
+forecasts.parseForecast_usCenters = function(regionDetails) {
+
+    var forecast = null;
+    
+          //is there no matching region in the us feed?
+    if (typeof forecasts.usCenters.features[regionDetails.regionId] !== 'undefined') {
+            //if no start date, set forecast to null? 
+        forecast = [];
+        forecast[0] = {'date': forecasts.usCenters.features['id'].start_date, 'aviLevel': forecasts.usCenters.features['id'].danger_level};      
+
+        winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecast[0].date);
+
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    } else {
+      winston.warn('No matching forecast for region id = ' + regionDetails.regionId );
+    }
+
+    return forecast;
 };
 
 forecasts.parseForecast_noop = function() {
