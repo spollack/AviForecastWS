@@ -130,6 +130,11 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             validForecast = false;
             winston.warn('forecast validation: UNEXPECTED got null forecast; regionId: ' + regionId);
         }
+
+    } else if (!forecast.length) {
+        validForecast = false;
+        winston.warn('forecast validation: UNEXPECTED got empty forecast; regionId: ' + regionId);
+
     } else {
         // check forecast contents
         var i;
