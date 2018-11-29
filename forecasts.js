@@ -329,7 +329,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'uac':
-                    dataURL = 'http://utahavalanchecenter.org/advisory/' + components[1] + '/json';
+                    dataURL = 'https://utahavalanchecenter.org/forecast/' + components[1] + '/json';
                     parser = forecasts.parseForecast_uac;
                     break;
                 case 'viac':
