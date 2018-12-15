@@ -378,6 +378,19 @@ describe('parseForecast_simple_caaml caic', function(){
             forecast[0].aviLevel.should.equal(4);
         })
     })
+    describe('file003.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/caic/file003.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('caic_2'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(2);
+            forecast[0].date.should.equal('2018-12-14');
+            forecast[1].date.should.equal('2018-12-15');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].aviLevel.should.equal(2);
+        })
+    })
 })
 
 describe('parseForecast_simple_caaml btac', function(){

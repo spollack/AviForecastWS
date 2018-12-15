@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bulletin  xmlns="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS"  xmlns:gml="http://www.opengis.net/gml"  xmlns:xlink="http://www.w3.org/1999/xlink"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS    http://caaml.org/Schemas/V5.0/Profiles/BulletinUS/CAAMLv5_BulletinUS.xsd"  gml:id="BulletinID01">
+  <metaDataProperty>
+    <MetaData>
+      <dateTimeReport>2018-12-15T07:45:00</dateTimeReport>
+      <srcRef>
+        <Operation gml:id="CAICID01">
+          <name>Colorado Avalanche Information Center</name>
+          <contactPerson>
+            <Person gml:id="CAICStaffID5630">
+              <name>Kreston Rohrig</name>
+            </Person>
+          </contactPerson>
+        </Operation>
+      </srcRef>
+      <srcURL>https://avalanche.state.co.us/forecasts/backcountry-avalanche/vail-summit-county/</srcURL>
+    </MetaData>
+  </metaDataProperty>
+  <validTime>
+    <TimePeriod>
+      <beginPosition>2018-12-14T17:00:00</beginPosition>
+      <endPosition>2018-12-16T04:00:00</endPosition>
+    </TimePeriod>
+  </validTime>
+  <bulletinResultsOf>
+    <BulletinMeasurements>
+      <highlights>&lt;p&gt;Higher elevation wind-drifted slopes facing northeast to southeast are the most likely places you can trigger an avalanche.&lt;a href=&quot;https://avalanche.state.co.us/caic/obs/obs_report.php?obs_id=52649&quot; target=&quot;_blank&quot;&gt; A skier triggered avalanche &lt;/a&gt;yesterday near the Eisenhower Tunnel is a great example of the terrain you should identify and avoid. Steep leeward-slopes where stiffer slabs of drifted snow rest above weaker snow below remain the biggest threat to backcountry travelers. Identify these areas of concern by their smooth, rounded-appearance or denser, wind-etched texture. &lt;span style=&quot;display: inline !important; float: none; background-color: transparent; color: #000000; font-family: Arial,Helvetica,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;&quot;&gt;Recent avalanches have been triggered&lt;/span&gt; along the margins of the slab below ridges, under steep-rollovers, and in cross-loaded gullies where the snow pack tapers and is thinner. By avoiding these terrain features on slopes steeper than around 35 degrees, you will greatly reduce your exposure to avalanches.&amp;nbsp;&lt;/p&gt;</highlights>
+      <bulletinType>Bulletin</bulletinType>
+      <dangerRatings>
+        <DangerRatingSingle>
+          <mainValue>2</mainValue>
+        </DangerRatingSingle>
+      </dangerRatings>
+      <avProblems>
+        <AvProblem>
+          <type>Persistent Slab</type>
+          <validAspectElevation xlink:href="AspectElevation_NTln"/>
+          <validAspectElevation xlink:href="AspectElevation_NAlp"/>
+          <validAspectElevation xlink:href="AspectElevation_NETln"/>
+          <validAspectElevation xlink:href="AspectElevation_NEAlp"/>
+          <validAspectElevation xlink:href="AspectElevation_ETln"/>
+          <validAspectElevation xlink:href="AspectElevation_EAlp"/>
+          <validAspectElevation xlink:href="AspectElevation_SETln"/>
+          <validAspectElevation xlink:href="AspectElevation_SEAlp"/>
+          <expectedAvSize>
+            <Values>
+              <typical>Small-Large</typical>
+            </Values>
+          </expectedAvSize>
+          <likelihoodOfTriggering>
+            <Values>
+              <typical>Possible</typical>
+            </Values>
+          </likelihoodOfTriggering>
+          <comment></comment>
+        </AvProblem>
+      </avProblems>
+    </BulletinMeasurements>
+  </bulletinResultsOf>
+  <Region gml:id="2">
+    <name>Vail and Summit County</name>
+    <regionSubType>Forecast Zone</regionSubType>
+  </Region>
+  <locRef xlink:href="ForecastRegionID2"/>
+</Bulletin>

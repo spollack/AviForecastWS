@@ -740,14 +740,19 @@ forecasts.parseForecast_simple_caaml = function(body, regionDetails) {
     // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function(err, result) {
         try {
-            var forecastIssuedDate = forecasts.dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.beginPosition);
-            winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
+            var forecastValidTimeStart = forecasts.dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.beginPosition);
+            var forecastValidTimeEnd = forecasts.dateStringFromDateTimeString_caaml(result.validTime.TimePeriod.endPosition);
+
+            // NOTE these sites typically issue avalanche forecasts for one day at a time; however, if a longer time
+            // range is specified, follow that
+            var daysValid = moment(forecastValidTimeEnd).diff(moment(forecastValidTimeStart), 'days');
 
             var aviLevel = forecasts.findAviLevelNumberInString(result.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRatingSingle.mainValue);
 
-            // NOTE these sites issue avalanche forecasts for one day at a time
             forecast = [];
-            forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
+            for (var i = 0; i < daysValid; i++) {
+                forecast[i] = {'date': moment(forecastValidTimeStart).clone().add(i, 'days').format('YYYY-MM-DD'), 'aviLevel': aviLevel};
+            }
 
             for (var j = 0; j < forecast.length; j++) {
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
