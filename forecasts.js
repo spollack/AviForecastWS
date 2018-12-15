@@ -745,6 +745,8 @@ forecasts.parseForecast_simple_caaml = function(body, regionDetails) {
 
             // NOTE these sites typically issue avalanche forecasts for one day at a time; however, if a longer time
             // range is specified, follow that
+            // moment#diff will truncate the result to zero decimal places, returning an integer, so we are being
+            // conservative on forecast duration
             var daysValid = moment(forecastValidTimeEnd).diff(moment(forecastValidTimeStart), 'days');
 
             var aviLevel = forecasts.findAviLevelNumberInString(result.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRatingSingle.mainValue);
