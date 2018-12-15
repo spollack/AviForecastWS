@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Bulletin  xmlns="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS"  xmlns:gml="http://www.opengis.net/gml"  xmlns:xlink="http://www.w3.org/1999/xlink"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://caaml.org/Schemas/V5.0/Profiles/BulletinUS    http://caaml.org/Schemas/V5.0/Profiles/BulletinUS/CAAMLv5_BulletinUS.xsd"  gml:id="BulletinID01">
+  <metaDataProperty>
+    <MetaData>
+      <dateTimeReport>2018-12-15T13:36:00</dateTimeReport>
+      <srcRef>
+        <Operation gml:id="BTAC">
+          <name>Bridger Teton Avalanche Center</name>
+        </Operation>
+      </srcRef>
+      <srcURL>http://jhavalanche.org/viewTeton</srcURL>
+    </MetaData>
+  </metaDataProperty>
+  <validTime>
+    <TimePeriod>
+      <beginPosition>2018-12-15T06:18:00-07:00</beginPosition>
+      <endPosition>2018-12-15T23:59:00-07:00</endPosition>
+    </TimePeriod>
+  </validTime>
+  <bulletinResultsOf>
+    <BulletinMeasurements>
+      <customData>
+        <Media>
+          <uRL>http://jhavalanche.org/media</uRL>
+          <description>Some text for the media</description>
+        </Media>
+      </customData>
+      <bulletinType>Bulletin</bulletinType>
+      <dangerRatings>
+        <DangerRatingSingle>
+          <mainValue>2</mainValue>
+          <comment>At the mid and upper elevations, skiers and riders venturing into steep, wind loaded terrain could trigger small to larger wind slabs. While less likely, the possibility remains for backcountry travelers to trigger large persistent slab avalanches. These deeper slabs could also step down from the release of a wind slab. Skiers and riders might be able to trigger an isolated pocket of soft slab in very steep terrain at the lower elevations. </comment>
+        </DangerRatingSingle>
+      </dangerRatings>
+      <avSnowComment>At the mid and upper elevations, skiers and riders venturing into steep, wind loaded terrain could trigger small to larger wind slabs. While less likely, the possibility remains for backcountry travelers to trigger large persistent slab avalanches. These deeper slabs could also step down from the release of a wind slab. Skiers and riders might be able to trigger an isolated pocket of soft slab in very steep terrain at the lower elevations. </avSnowComment>
+    </BulletinMeasurements>
+  </bulletinResultsOf>
+  <Region gml:id="teton">
+<name>teton</name>
+    <regionSubType>Forecast Zone</regionSubType>
+  </Region>
+  <locRef xlink:href="ForecastRegionIDteton"/>
+</Bulletin>

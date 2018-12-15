@@ -405,6 +405,17 @@ describe('parseForecast_simple_caaml btac', function(){
             forecast[0].aviLevel.should.equal(2);
         })
     })
+    describe('file002.xml', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/btac/file002.xml','utf8'),
+                forecasts.getRegionDetailsForRegionId('btac_teton'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(1);
+            forecast[0].date.should.equal('2018-12-15');
+            forecast[0].aviLevel.should.equal(2);
+        })
+    })
 })
 
 describe('parseForecast_simple_caaml gnfac', function(){
