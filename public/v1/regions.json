@@ -16151,7 +16151,7 @@
     {
         "regionId": "haic_1",
         "displayName": "Chilkat Pass",
-        "URL": "http://alaskasnow.org/forecasts-observations/haines/",
+        "URL": "https://alaskasnow.org/haines-hac/",
         "points": [
             {
                 "lat": "59.723",
@@ -16210,7 +16210,7 @@
     {
         "regionId": "haic_2",
         "displayName": "Transitional Zone",
-        "URL": "http://alaskasnow.org/forecasts-observations/haines/",
+        "URL": "https://alaskasnow.org/haines-hac/",
         "points": [
             {
                 "lat": "59.296",
@@ -16277,7 +16277,7 @@
     {
         "regionId": "haic_3",
         "displayName": "Lutak Zone",
-        "URL": "http://alaskasnow.org/forecasts-observations/haines/",
+        "URL": "https://alaskasnow.org/haines-hac/",
         "points": [
             {
                 "lat": "59.219",
@@ -17059,7 +17059,7 @@
     {
         "regionId": "vac_1",
         "displayName": "Continental Zone",
-        "URL": "http://alaskasnow.org/forecasts-observations/valdez/valdez-avalanche-forecasts/",
+        "URL": "https://alaskasnow.org/valdez/",
         "points": [
             {
                 "lat": "61.236",
@@ -17126,7 +17126,7 @@
     {
         "regionId": "vac_2",
         "displayName": "Intermountain Zone",
-        "URL": "http://alaskasnow.org/forecasts-observations/valdez/valdez-avalanche-forecasts/",
+        "URL": "https://alaskasnow.org/valdez/",
         "points": [
             {
                 "lat": "61.274",
@@ -17209,7 +17209,7 @@
     {
         "regionId": "vac_3",
         "displayName": "Maritime Zone",
-        "URL": "http://alaskasnow.org/forecasts-observations/valdez/valdez-avalanche-forecasts/",
+        "URL": "https://alaskasnow.org/valdez/",
         "points": [
             {
                 "lat": "61.095",
