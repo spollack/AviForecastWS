@@ -17324,7 +17324,7 @@
     {
         "regionId": "hg_1",
         "displayName": "Chic-Chocs",
-        "URL": "http://www.centreavalanche.qc.ca/conditions/bulletins-avalanche",
+        "URL": "https://avalanchequebec.ca/conditions-chic-chocs#bulletins-avalanche",
         "points": [
             {
                 "lat": "49.041",
