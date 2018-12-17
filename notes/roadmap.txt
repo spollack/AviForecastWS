@@ -1,7 +1,16 @@
 near term
+    verify forecast parsing for all centers
+        the following centers (at least) need fixes to their forecast parsing:
+            msac
+            cnfaic
+            viac
+            mwac
+            hg
+    verify region set and region boundaries for all centers
+        the following centers (at least) need fixes to their regions:
+            uac
+    verify website urls for all centers
     add Central Oregon Avalanche Center (http://www.coavalanche.org/)
-    update region boundaries for a number of centers (UAC, others)
-
 
 general feature roadmap
     v2
