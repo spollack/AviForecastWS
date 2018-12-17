@@ -209,7 +209,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
-            if (regionId === 'uac_moab' || regionId === 'uac_abajo' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
+            if (regionId === 'uac_moab' || regionId === 'uac_abajos' || regionId === 'uac_skyline' || regionId === 'uac_uintas' || regionId === 'uac_logan'
                 || regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south'
                 || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
                 || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'

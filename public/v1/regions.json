@@ -12690,9 +12690,9 @@
         ]
     },
     {
-        "regionId": "uac_abajo",
-        "displayName": "Abajo",
-        "URL": "http://utahavalanchecenter.org/advisory/abajo",
+        "regionId": "uac_abajos",
+        "displayName": "Abajos",
+        "URL": "http://utahavalanchecenter.org/advisory/abajos",
         "points": [
             {
                 "lat": "37.884",
