@@ -345,7 +345,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_esac;
                     break;
                 case 'pac':
-                    dataURL = 'http://www.payetteavalanche.org/danger-rating-rss.xml';
+                    //dataURL = 'http://www.payetteavalanche.org/danger-rating-rss.xml';
+                    dataURL = 'http://www.payetteavalanche.org/pac-advisory-map-xml';
                     parser = forecasts.parseForecast_pac;
                     break;
                 case 'btac':
@@ -429,7 +430,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_mwac;
                     break;
                 case 'msac':
-                    dataURL = 'http://shastaavalanche.org/danger-rating-rss.xml';
+                    //dataURL = 'http://shastaavalanche.org/danger-rating-rss.xml';
+                    dataURL = 'https://www.shastaavalanche.org/msac-advisory-map-xml';                    
                     parser = forecasts.parseForecast_msac;
                     break;
                 case 'cbac':
@@ -993,17 +995,21 @@ forecasts.parseForecast_pac = function(body, regionDetails) {
     // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function(err, result) {
         try {
-            var forecastIssuedDateField = result.channel.item.pubDate;
-            // NOTE typical date string: 'Thu, 04/11/2013 - 07:00'
-            var forecastIssuedDate = moment(forecastIssuedDateField, 'ddd, MM/DD/YYYY').format('YYYY-MM-DD');
+           winston.verbose('pac forecast = ' + result);
+            var forecastIssuedDateField = result.Advisory_data.Posted;
+            // NOTE typical date string: '2014-12-11T06:35:27-0700'
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
-            var aviLevel = forecasts.findHighestAviLevelInString(result.channel.item.description);
+            // TODO check and leverage "Until" date too from forecast xml to see how many days the forecast should be valid for
 
+            //var aviLevel = forecasts.findAviLevelNumberInString(result.Advisory_data.Danger_Rating);
+            var aviLevel = result.Advisory_data.Danger_Rating;
             // NOTE pac issues single day forecasts
             forecast = [];
             forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
-
+            
+            
             for (var j = 0; j < forecast.length; j++) {
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
             }
@@ -1392,13 +1398,14 @@ forecasts.parseForecast_msac = function(body, regionDetails) {
     // NOTE this block is called synchronously with parsing, even though it looks async
     parser.parseString(body, function(err, result) {
         try {
-            var forecastIssuedDateField = result.channel.item.pubDate;
-            // NOTE typical date string: '03/08/2014 - 6:58am'
-            var forecastIssuedDate = moment(forecastIssuedDateField, 'MM/DD/YYYY').format('YYYY-MM-DD');
+          winston.verbose(' result for msac ' + result);
+            var forecastIssuedDateField = result.Advisory_data.Posted;
+            // NOTE typical date string: '2014-12-11T06:35:27-0700'
+            var forecastIssuedDate = moment.utc(forecastIssuedDateField, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
             winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + forecastIssuedDate);
 
             // NOTE forecasts are valid for the day issued only
-            var aviLevel = forecasts.findHighestAviLevelInString(result.channel.item.description);
+            var aviLevel =  result.Advisory_data.Danger_Rating;
 
             forecast = [];
             forecast[0] = {'date': forecastIssuedDate, 'aviLevel': aviLevel};
