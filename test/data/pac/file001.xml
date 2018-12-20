@@ -1,20 +1,9 @@
-<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="http://payetteavalanche.org/advisory" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Avalanche Danger Rating from the Payette Avalanche Center</title>
-        <link>http://payetteavalanche.org/advisory</link>
-        <description></description>
-        <language>en</language>
-        <atom:link href="http://payetteavalanche.org/danger-rating-rss.xml" rel="self" type="application/rss+xml" />
-        <item>
-            <title>Today the avalanche danger is: Moderate</title>
-            <link>http://payetteavalanche.org/advisory</link>
-            <description>
-                Today the avalanche danger is MODERATE
-
-            </description>
-            <pubDate>Sat, 12/12/2015 - 05:44</pubDate>
-            <dc:creator>532</dc:creator>
-            <guid isPermaLink="false">Sat, 12/12/2015 - 05:44</guid>
-        </item>
-    </channel>
-</rss>
+<Advisory>
+    <Advisory_data>
+        <Region>West Central Mountains</Region>
+        <Link>https://payetteavalanche.org/2018-12-19-062917</Link>
+        <Posted>2018-12-19T05:29:17-0800</Posted>
+        <Until>2018-12-20T06:29:17-0700</Until>
+        <Danger_Rating>3</Danger_Rating>
+    </Advisory_data>
+</Advisory>>

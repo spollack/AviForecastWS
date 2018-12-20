@@ -912,18 +912,7 @@ describe('parseForecast_msac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-03-08');
-            forecast[0].aviLevel.should.equal(2);
-        })
-    })
-    describe('file002.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_msac(fs.readFileSync('test/data/msac/file002.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('msac_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2014-03-09');
+            forecast[0].date.should.equal('2018-12-19');
             forecast[0].aviLevel.should.equal(2);
         })
     })
@@ -945,8 +934,8 @@ describe('parseForecast_pac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2015-12-12');
-            forecast[0].aviLevel.should.equal(2);
+            forecast[0].date.should.equal('2018-12-19');
+            forecast[0].aviLevel.should.equal(3);
         })
     })
 })
