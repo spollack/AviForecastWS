@@ -83,6 +83,9 @@ function startHTTPServer() {
     app.get('/partners', function (req, res) {
         res.render('partners', {});
     });
+    app.get('/privacy-policy', function(req, res) {
+        res.render('privacy-policy', {});
+    });
 
     // parse request bodies, including file uploads
     app.use(express.bodyParser({keepExtensions: true}));
