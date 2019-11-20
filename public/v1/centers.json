@@ -4,32 +4,28 @@
     "donate_url": "https://alaskasnow.org/donate/"
   },
   {
-    "name": "Anchorage Backcountry Center",
-    "donate_url": "http://anchorageavalanchecenter.org/"
-  },
-  {
     "name": "Avalanche Canada Foundation",
     "donate_url": "https://www.avalanche.ca/foundation/donate"
   },
   {
     "name": "Avalanche Québec",
-    "donate_url": "https://avalanchequebec.ca/conditions-chic-chocs/"
+    "donate_url": "https://avalanchequebec.ca/"
+  },
+  {
+    "name": "Bridgeport Avalanche Center",
+    "donate_url": "https://www.bridgeportavalanchecenter.org/bac-donate"
   },
   {
     "name": "Bridger-Teton Avalanche Center",
-    "donate_url": "http://jhavalanche.org/"
+    "donate_url": "https://jhavalanche.org/"
+  },
+  {
+    "name": "Central Oregon Avalanche Center",
+    "donate_url": "http://www.coavalanche.org/donate"
   },
   {
     "name": "Chugach National Forest Avalanche Information Center",
-    "donate_url": "https://www.cnfaic.org/site/friendsofthechugach/payment/"
-  },
-  {
-    "name": "City and Borough of Juneau",
-    "donate_url": "http://juneau.org/avalanche/"
-  },
-  {
-    "name": "City of Cordova",
-    "donate_url": "http://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions"
+    "donate_url": "https://www.cnfaic.org/friends/donate/"
   },
   {
     "name": "Colorado Avalanche Information Center",
@@ -49,11 +45,15 @@
   },
   {
     "name": "Gallatin National Forest Avalanche Center",
-    "donate_url": "https://www.mtavalanche.com/"
+    "donate_url": "https://www.mtavalanche.com/gnfac/store"
+  },
+  {
+    "name": "Hatcher Pass Avalanche Center",
+    "donate_url": "https://hpavalanche.org/donate/"
   },
   {
     "name": "Idaho Panhandle Avalanche Centeer",
-    "donate_url": "http://www.idahopanhandleavalanche.org/donate"
+    "donate_url": "https://www.idahopanhandleavalanche.org/donate"
   },
   {
     "name": "Kachina Peaks Avalanche Center",
@@ -65,7 +65,7 @@
   },
   {
     "name": "Mount Washington Avalanche Center",
-    "donate_url": "https://www.mountwashingtonavalanchecenter.org/we-need-your-help/"
+    "donate_url": "https://www.mountwashingtonavalanchecenter.org/"
   },
   {
     "name": "Northwest Avalanche Center",
@@ -73,7 +73,7 @@
   },
   {
     "name": "Payette Avalanche Center",
-    "donate_url": "http://payetteavalanche.org/donate"
+    "donate_url": "https://payetteavalanche.org/donate"
   },
   {
     "name": "Sawtooth Avalanche Center",
@@ -81,7 +81,11 @@
   },
   {
     "name": "Sierra Avalanche Center",
-    "donate_url": "http://www.sierraavalanchecenter.org/donate"
+    "donate_url": "https://www.sierraavalanchecenter.org/donate"
+  },
+  {
+    "name": "Taos Avalanche Center",
+    "donate_url": "https://taosavalanchecenter.org/donate"
   },
   {
     "name": "Utah Avalanche Center",
@@ -97,6 +101,6 @@
   },
   {
     "name": "West Central Montana Avalanche Foundation",
-    "donate_url": "http://www.missoulaavalanche.org/donate/"
+    "donate_url": "https://missoulaavalanche.org/donate/"
   }
 ]
