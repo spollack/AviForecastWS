@@ -443,27 +443,16 @@ describe('parseForecast_simple_caaml gnfac', function(){
     })
 })
 
-describe('parseForecast_simple_caaml snfac', function(){
-    describe('file001.xml', function(){
+describe('parseForecast_avalanche_org_api snfac', function(){
+    describe('file001.json', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/snfac/file001.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('snfac_1'));
+            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/snfac/file001.json','utf8'),
+                forecasts.getRegionDetailsForRegionId('snfac_293'));
 
             should.exist(forecast);
             forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2013-01-22');
-            forecast[0].aviLevel.should.equal(2);
-        })
-    })
-    describe('file002.xml', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/snfac/file002.xml','utf8'),
-                forecasts.getRegionDetailsForRegionId('snfac_4'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2013-01-22');
-            forecast[0].aviLevel.should.equal(0);
+            forecast[0].date.should.equal('2020-01-05');
+            forecast[0].aviLevel.should.equal(3);
         })
     })
 })
