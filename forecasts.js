@@ -361,8 +361,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_wcmac;
                     break;
                 case 'snfac':
-                    dataURL = 'http://sawtoothavalanche.com/caaml/SNFAC' + components[1] + '_Avalanche_Forecast.xml';
-                    parser = forecasts.parseForecast_simple_caaml;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/SNFAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'ipac':
                     var ipacPaths = {
@@ -728,6 +728,39 @@ forecasts.parseForecast_pc = function(body, regionDetails) {
             winston.warn('parse failure; regionId: ' + regionDetails.regionId + '; exception: ' + e);
         }
     });
+
+    return forecast;
+};
+
+forecasts.parseForecast_avalanche_org_api = function(body, regionDetails) {
+
+    var forecast = null;
+
+    try {
+        // convert the JSON response to an object
+        var bodyJson = JSON.parse(body);
+
+        // NOTE avalanche.org api region ids are not guaranteed stable over time...
+        var avalancheOrgApiRegionId = +(regionDetails.regionId.split('_')[1]);
+
+        var regionForecastData = underscore.findWhere(bodyJson.features, {id: avalancheOrgApiRegionId});
+
+        // NOTE for now, assume only one day forecasts due to the structure of the avalanche.org api
+        var NUM_FORECAST_DAYS = 1;
+
+        forecast = [];
+        for (var i = 0; i < NUM_FORECAST_DAYS; i++) {
+            var forecastDate = moment(regionForecastData.properties.start_date, 'MM/DD hh:mm a').format('YYYY-MM-DD');
+            var aviLevel = forecasts.findAviLevelNumberInString(regionForecastData.properties.rating);
+            forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
+        }
+
+        for (var j = 0; j < forecast.length; j++) {
+            winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
+        }
+    } catch (e) {
+        winston.warn('failure parsing avalanche.org api forecast; error: ' + JSON.stringify(e));
+    }
 
     return forecast;
 };
