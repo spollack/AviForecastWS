@@ -15713,7 +15713,7 @@
     {
         "regionId": "snfac_294",
         "displayName": "Sawtooth & Western Smoky Mtns",
-        "URL": "ttps://www.sawtoothavalanche.com/forecasts/#/sawtooth-&-western-smoky-mtns",
+        "URL": "https://www.sawtoothavalanche.com/forecasts/#/sawtooth-&-western-smoky-mtns",
         "points": [
             {
                 "lat": "44.141",
