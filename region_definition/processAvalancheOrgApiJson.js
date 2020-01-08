@@ -3,9 +3,10 @@
 //
 var fs = require('fs');
 
+var inputFile = process.argv[2] || './avalanche-org/api_output.json';
+var outputFile = process.argv[3] || './avalanche-org/api_output_processed.json';
 
-processJSONFile('./avalanche-org/api_output.json', './avalanche-org/api_output_processed.json', 3);
-
+processJSONFile(inputFile, outputFile, 3);
 
 function processJSONFile(inputFilePath, outputFilePath, digits) {
     var input = fs.readFileSync(inputFilePath, 'utf8');
