@@ -18,6 +18,7 @@ var cheerio = require('cheerio');
 
 
 // avi danger levels
+forecasts.AVI_LEVEL_UNKNOWN = -1;
 forecasts.AVI_LEVEL_UNKNOWN = 0;
 forecasts.AVI_LEVEL_LOW = 1;
 forecasts.AVI_LEVEL_MODERATE = 2;
@@ -123,7 +124,28 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
         if (regionId === 'cacb_north-rockies' ||
-            regionId === 'cac2_1' || regionId === 'hpac_1' || regionId === 'kpac_1' ||
+            regionId === 'cac2_1' ||
+            regionId === 'hpac_1' ||
+            regionId === 'kpac_1' ||
+            regionId === 'tac_260' ||
+            regionId === 'uac_259_1' ||
+            regionId === 'uac_259_2' ||
+            regionId === 'uac_259_3' ||
+            regionId === 'uac_259_4' ||
+            regionId === 'uac_259_5' ||
+            regionId === 'aaic_183' ||
+            regionId === 'aaic_189' ||
+            regionId === 'aaic_197' ||
+            regionId === 'aaic_193' ||
+            regionId === 'aaic_186' ||
+            regionId === 'aaic_194' ||
+            regionId === 'aaic_191' ||
+            regionId === 'coaa_205_1' ||
+            regionId === 'coaa_205_2' ||
+            regionId === 'coaa_205_3' ||
+            regionId === 'gnfaic_281' ||
+            regionId === 'cnfaic_282' ||
+            regionId === 'cnfaic_121' ||
             regionId.split('_')[0] === 'wac') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
@@ -234,8 +256,7 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
     if (!regionDetails) {
         winston.warn('invalid regionId: ' + regionId);
         process.nextTick(function() { onForecast(null); } );
-    }
-    else {
+    } else {
         var requestOptions = {
             url:regionDetails.dataURL,
             headers:{'User-Agent':'avalancheforecasts.com'},
@@ -372,7 +393,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'jac':
-                    dataURL = 'https://juneau.org/avalanche/';
+                    dataURL = 'https://beta.juneau.org/emergency/current-advisory';
                     parser = forecasts.parseForecast_jac;
                     break;
                 case 'cac2':
@@ -380,7 +401,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'hpac':
-                    dataURL = 'https://hatcherpassavalanchecenter.org/';
+                    dataURL = 'http://hatcherpassavalanchecenter.org/';
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'kpac':
@@ -392,7 +413,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'hg':
-                    dataURL = 'https://www.centreavalanche.qc.ca/conditions/bulletins-avalanche/bulletin-en';
+                    dataURL = 'https://avalanchequebec.ca/conditions-chic-chocs#bulletins-avalanche';
                     parser = forecasts.parseForecast_hg;
                     break;
                 case 'msac':
@@ -1140,13 +1161,13 @@ forecasts.parseForecastIssuedDate_jac = function($, regionDetails) {
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical html fragment for jac: '<h1 align="center">Current Advisory as of Friday, December 27, 2013</h1>'
-    var headlines = $('h1').text();
+    // NOTE typical html fragment for jac: '<div id="gv_diy_59234" class="gv-diy-view"><div class="gv-field-102-date_created">February 14, 2020</div></div>'
+    var headlines = $('#gv_diy_59234 div.gv-field-102-date_created').text();
     var timestampTextBlock = null;
     if (headlines) {
-        var match = headlines.match(/Current Advisory as of\s+\w+,?\s+(\w+\s+\d+,?\s+\d+)/);
+        var match = headlines.match(/(January?|February?|March?|April?|May|June?|July?|August?|September?|October?|November?|December?)\s+\d{1,2},\s+\d{4}/);
         if (match && match.length == 2) {
-            timestampTextBlock = match[1];
+            timestampTextBlock = match[0];
         }
     }
 
@@ -1166,8 +1187,8 @@ forecasts.parseForecastValues_jac = function($) {
     var aviLevels = [];
     aviLevels[0] = forecasts.AVI_LEVEL_UNKNOWN;
 
-    // NOTE typical HTML fragment for jac: '<a href="dangerdef.php"><img src="https://www.juneau.org/avalanche/images/danger1.jpg" alt="Avalanche Danger Level 1" border="0"></a>'
-    var forecastImageSource = $('img[src^="https://www.juneau.org/avalanche/images/danger"]').attr('src');
+    // NOTE typical HTML fragment for jac: '<img src="https://3tb2gc2mxpvu3uwt0l20tbhq-wpengine.netdna-ssl.com/wp-content/uploads/2018/12/danger2.jpg" alt="Danger Level: 2 - Moderate">'
+    var forecastImageSource = $('img[src^="https://3tb2gc2mxpvu3uwt0l20tbhq-wpengine.netdna-ssl.com/wp-content/uploads/2018/12/danger"]').attr('src');
     if (forecastImageSource) {
         var forecastImageName = forecastImageSource.split('/').pop();
         if (forecastImageName) {

@@ -30607,7 +30607,7 @@
     {
         "regionId": "hpac_1",
         "displayName": "Hatcher Pass",
-        "URL": "https://hpavalanche.org/forecast/hatcherpass/",
+        "URL": "http://hpavalanche.org/forecast/hatcherpass/",
         "points": [
                 {
                     "lat": "61.759",
@@ -33040,7 +33040,7 @@
             ]
     },
     {
-      "regionId": "taos_260",
+      "regionId": "tac_260",
       "displayName": "Northern New Mexico",
       "URL": "https://taosavalanchecenter.org/advisory",
       "points": [
