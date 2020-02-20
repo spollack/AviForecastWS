@@ -18,7 +18,6 @@ var cheerio = require('cheerio');
 
 
 // avi danger levels
-forecasts.AVI_LEVEL_UNKNOWN = -1;
 forecasts.AVI_LEVEL_UNKNOWN = 0;
 forecasts.AVI_LEVEL_LOW = 1;
 forecasts.AVI_LEVEL_MODERATE = 2;
@@ -870,15 +869,13 @@ forecasts.parseForecastIssuedDate_viac = function(body, regionDetails) {
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical string: '<div title="1419028140000" class="date">December 19, 2014 at 02:29PM</div>'
-    var timestampMatch = body.match(/class=\"date\">\s*(\w+\s+\d+)\w*\s*,?\s*(\d+)/i);
+    // NOTE typical string: '<h2>Wednesday February 19, 2020</h2>'
+    var timestampMatch = body.match(/(January?|February?|March?|April?|May|June?|July?|August?|September?|October?|November?|December?)\s+\d{1,2},\s+\d{4}\<\/h2\>/i);
 
-    // the capture groups from the regex will be in slots 1 and 2 in the array
-    if (timestampMatch && timestampMatch.length > 2) {
+    // the capture groups from the regex will be in slots 0 and 1 in the array
+    if (timestampMatch && timestampMatch.length === 2) {
 
-        // capture group 1 has the month and day, capture group 2 has the year
-        var cleanTimestamp = timestampMatch[1] + ' ' + timestampMatch[2];
-        forecastIssuedDate = moment(cleanTimestamp, 'MMM DD YYYY');
+        forecastIssuedDate = moment(timestampMatch[0], 'MMM DD YYYY');
         winston.verbose('found forecast issue date; regionId: ' + regionDetails.regionId + '; forecastIssuedDate: ' + moment(forecastIssuedDate).format('YYYY-MM-DD'));
     } else {
         winston.warn('parse failure, forecast issue date not found; regionId: ' + regionDetails.regionId);
@@ -892,11 +889,11 @@ forecasts.parseFirstForecastedDayOfWeek_viac = function(body, regionDetails) {
     var firstForecastedDayOfWeek = null;
 
     // capture the first forecasted day of week
-    // NOTE typical string for viac: '<th style="background-color: #eeeeee;">Outlook</th><th style="background-color: #eeeeee;">Sunday</th><th style="background-color: #eeeeee;">Monday<br /></th><th style="background-color: #eeeeee;">Tuesday<br /></th>'
-    var timestampMatch = body.match(/<th[^>]*>Outlook<\/th>\s*<th[^>]*>\s*(\w+)[^<]*<\/th>/i);
+    // NOTE typical string for viac: '<h2>Wednesday February 19, 2020</h2>'
+    var timestampMatch = body.match(/\<h2\>(Monday?|Tuesday?|Wednesday?|Thursday?|Friday|Saturday?|Sunday?)\s+(January?|February?|March?|April?|May|June?|July?|August?|September?|October?|November?|December?)\s+\d{1,2},\s+\d{4}\<\/h2\>/i);
 
     // the capture groups from the regex will be in slot 1 in the array
-    if (timestampMatch && timestampMatch.length === 2) {
+    if (timestampMatch && timestampMatch.length === 3) {
         firstForecastedDayOfWeek = timestampMatch[1];
         winston.verbose('found first forecasted day of week; regionId: ' + regionDetails.regionId + '; firstForecastedDayOfWeek: ' + firstForecastedDayOfWeek);
     } else {
@@ -916,13 +913,18 @@ forecasts.parseForecastValues_viac = function(body, regionDetails) {
 
     // NOTE typical string for viac:
     //
-    //    <tr><th style="background-color: #eeeeee;">Outlook</th><th style="background-color: #eeeeee;">Wednesday</th><th style="background-color: #eeeeee;">Thursday</th><th style="background-color: #eeeeee;">Friday</th></tr>
-    //    <tr>
-    //    <td style="text-align: center; font-weight: bold; padding: 5px; border: 1px solid #ffffff;"><strong style="font-size: 12px;">Alpine</strong></td>
-    //    <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">MODERATE</td>
-    //    <td style="text-align: center; font-weight: bold; background-color: #ffdd77; padding: 5px; border: 1px solid #ffffff;">HIGH</td>
-    //    <td style="text-align: center; font-weight: bold; background-color: #a2bf57; padding: 5px; border: 1px solid #ffffff;">HIGH</td>
-    //    </tr>
+    //<h2>Wednesday February 19, 2020</h2>
+    //  <div class="danger-ratings columns">
+    //    <div class="column">
+    //      <danger-rating :alpine="2" :treeline="1" :below="1">Wednesday February 19, 2020</danger-rating>
+    //    </div>
+    //    <div class="column">
+    //      <danger-rating :alpine="2" :treeline="1" :below="1">Thursday February 20, 2020</danger-rating>
+    //    </div>
+    //    <div class="column">
+    //      <danger-rating :alpine="2" :treeline="1" :below="1">Friday February 21, 2020</danger-rating>
+    //    </div>
+    //  </div>
 
     var dangerRatingMatch = body.match(/<td.*Alpine<\/strong><\/td>\s*\n(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)(\s*<td.*<\/td>\s*\n)/i);
 
@@ -1255,9 +1257,11 @@ forecasts.parseForecastIssuedDate_hg = function(body, regionDetails) {
     var forecastIssuedDate = null;
 
     // capture the forecast timestamp
-    // NOTE typical string for hg: 'Issued on :&nbsp;Thursday 30 January 2014 à 7:30'
-    // or: 'Issued on&thinsp;:&nbsp;Friday December 12th 2014 at 7:30'
-    var timestampMatch = body.match(/Issued\s+on\S+\s+(\w+\s+\w+\s+\d+)/i);
+    // NOTE typical string for hg:
+    // Issued on: 2020-02-20 @ 00:00
+    // Diffusé le : 2020-02-20 @ 00:00
+    // Regex for full timestamp including time: /Issued\s+on\S+\s+(\d+\-\d+\-\d+\s@\s\d+\:\d+)/
+    var timestampMatch = body.match(/Issued\s+on\S+\s+(\d+\-\d+\-\d+)/i);
 
     // the capture group from the regex will be in slot 1 in the array
     if (timestampMatch && timestampMatch.length === 2) {
@@ -1278,13 +1282,15 @@ forecasts.parseFirstForecastedDayOfWeek_hg = function(body, regionDetails) {
     // capture the first forecasted day of week
     // NOTE typical string for hg:
     //
-    //    <tr>
-    //        <th>Danger ratings</th>
-    //        <th>Thursday</th>
-    //        <th>Friday</th>
-    //        <th>Outlook Saturday</th>
-    //    </tr>
-    var timestampMatch = body.match(/Danger\s+ratings<\/th>[^<]*<th>(\w+)<\/th>/i);
+    //<thead>
+  	//	<tr>
+  	//		<td style="width: 40%;">Danger ratings</td>
+  	//		<td style="width: 20%;">Thursday</td>
+  	//		<td style="width: 20%;">Friday</td>
+  	//		<td style="width: 20%;">Saturday</td>
+  	//	</tr>
+  	//</thead>
+    var timestampMatch = body.match(/<td[^>]*>Danger\sratings<\/td>\s*<td[^>]*>\s*(\w+)[^<]*<\/td>/i);
 
     // the capture group from the regex will be in slot 1 in the array
     if (timestampMatch && timestampMatch.length === 2) {
@@ -1307,12 +1313,15 @@ forecasts.parseForecastValues_hg = function(body, regionDetails) {
 
     // NOTE typical string for hg:
     //
-    //    <tr>
-    //        <th>Alpine</th>
-    //        <td class="risk-medium">Moderate</td><td class="risk-medium">Moderate</td><td class="risk-medium">Moderate</td>
-    //    </tr>
+    // <tbody>
+    //		<tr>
+    //			<td>Alpine</td>
+    //			<td class="risk-significant">Considerable</td>
+    //			<td class="risk-significant">Considerable</td>
+    //			<td class="risk-significant">Considerable</td>
+    //		</tr>
 
-    var dangerRatingMatch = body.match(/<th.*Alpine<\/th>[^<]*(<td[^<]*<\/td>)[^<]*(<td[^<]*<\/td>)[^<]*(<td[^<]*<\/td>)/i);
+    var dangerRatingMatch = body.match(/<td.*Alpine<\/td>[^<]*(<td[^<]*<\/td>)[^<]*(<td[^<]*<\/td>)[^<]*(<td[^<]*<\/td>)/i);
 
     // the capture groups will be in slots 1, 2, 3
     if (dangerRatingMatch && dangerRatingMatch.length === 4) {
