@@ -127,6 +127,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             regionId === 'hpac_1' ||
             regionId === 'kpac_1' ||
             regionId === 'tac_260' ||
+            regionId === 'uac_252' ||
             regionId === 'uac_259_1' ||
             regionId === 'uac_259_2' ||
             regionId === 'uac_259_3' ||
