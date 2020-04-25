@@ -452,8 +452,7 @@ describe('parseForecast_avalanche_org_api coaa', function(){
             var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/coaa/file001.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('coaa_205'));
 
-            should.exist(forecast);
-            forecast.length.should.equal(0);
+            should.not.exist(forecast);
         })
     })
 })
@@ -464,8 +463,7 @@ describe('parseForecast_avalanche_org_api aaic', function(){
             var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/aaic/file001.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('aaic_193'));
 
-            should.exist(forecast);
-            forecast.length.should.equal(0);
+            should.not.exist(forecast);
         })
     })
 })
@@ -476,8 +474,7 @@ describe('parseForecast_avalanche_org_api bac', function(){
             var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/bac/file001.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('bac_261'));
 
-            should.exist(forecast);
-            forecast.length.should.equal(0);
+            should.not.exist(forecast);
         })
     })
 })
