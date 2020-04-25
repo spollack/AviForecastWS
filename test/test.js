@@ -453,9 +453,7 @@ describe('parseForecast_avalanche_org_api coaa', function(){
                 forecasts.getRegionDetailsForRegionId('coaa_205'));
 
             should.exist(forecast);
-            //forecast.length.should.equal(1);
-            //forecast[0].date.should.equal('2020-01-14');
-            forecast[0].aviLevel.should.equal(0);
+            forecast.length.should.equal(0);
         })
     })
 })
@@ -467,9 +465,7 @@ describe('parseForecast_avalanche_org_api aaic', function(){
                 forecasts.getRegionDetailsForRegionId('aaic_193'));
 
             should.exist(forecast);
-            //forecast.length.should.equal(1);
-            //forecast[0].date.should.equal('2020-01-14');
-            forecast[0].aviLevel.should.equal(0);
+            forecast.length.should.equal(0);
         })
     })
 })
@@ -481,9 +477,7 @@ describe('parseForecast_avalanche_org_api bac', function(){
                 forecasts.getRegionDetailsForRegionId('bac_261'));
 
             should.exist(forecast);
-            //forecast.length.should.equal(1);
-            //forecast[0].date.should.equal('2020-01-14');
-            forecast[0].aviLevel.should.equal(0);
+            forecast.length.should.equal(0);
         })
     })
 })

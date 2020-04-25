@@ -762,9 +762,12 @@ forecasts.parseForecast_avalanche_org_api = function(body, regionDetails) {
 
         forecast = [];
         for (var i = 0; i < NUM_FORECAST_DAYS; i++) {
-            var forecastDate = moment(regionForecastData.properties.start_date, 'MM/DD hh:mm a').format('YYYY-MM-DD');
-            var aviLevel = forecasts.findAviLevelNumberInString(regionForecastData.properties.rating);
-            forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
+            // NOTE the API can have null values for the dates, which means no rating available
+            if (regionForecastData.properties.start_date) {
+                var forecastDate = moment(regionForecastData.properties.start_date, 'MM/DD hh:mm a').format('YYYY-MM-DD');
+                var aviLevel = forecasts.findAviLevelNumberInString(regionForecastData.properties.rating);
+                forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
+            }
         }
 
         for (var j = 0; j < forecast.length; j++) {
