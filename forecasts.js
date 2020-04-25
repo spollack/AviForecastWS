@@ -216,9 +216,9 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
         // get the current date
         // NOTE timezones are tricky... first offset by the timezone that the environment is in to get back to UTC time,
         // then offset to get to PST, which is what we use for our checking (close enough for now)
-        var timezoneOffsetMinutes = moment().zone();
+        var timezoneOffsetMinutes = moment().utcOffset();
         var pstOffsetMinutes = 8 * 60;
-        var currentPSTDate = moment().add(timezoneOffsetMinutes, 'minutes').subtract(pstOffsetMinutes, 'minutes').format('YYYY-MM-DD');
+        var currentPSTDate = moment().subtract(timezoneOffsetMinutes, 'minutes').subtract(pstOffsetMinutes, 'minutes').format('YYYY-MM-DD');
         winston.verbose('forecast validation: right now the PST date is: ' + currentPSTDate);
 
         for (var i = 0; i < forecast.length; i++) {
