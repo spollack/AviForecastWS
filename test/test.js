@@ -535,31 +535,32 @@ describe('parseForecast_avalanche_org_api mwac', function(){
     })
 })
 
-describe('parseForecast_viac', function(){
-    describe('file000.html', function(){
-        it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_viac(fs.readFileSync('test/data/viac/file000.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('viac_1'));
-
-            should.not.exist(forecast);
-        })
-    })
-    describe('file001.html', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_viac(fs.readFileSync('test/data/viac/file001.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('viac_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2020-02-21');
-            forecast[1].date.should.equal('2020-02-22');
-            forecast[2].date.should.equal('2020-02-23');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].aviLevel.should.equal(2);
-            forecast[2].aviLevel.should.equal(3);
-        })
-    })
-})
+// NOTE parser is temporarily disabled
+// describe('parseForecast_viac', function(){
+//     describe('file000.html', function(){
+//         it('should fail gracefully on bad input', function(){
+//             var forecast = forecasts.parseForecast_viac(fs.readFileSync('test/data/viac/file000.html','utf8'),
+//                 forecasts.getRegionDetailsForRegionId('viac_1'));
+//
+//             should.not.exist(forecast);
+//         })
+//     })
+//     describe('file001.html', function(){
+//         it('should return the correct forecast details', function(){
+//             var forecast = forecasts.parseForecast_viac(fs.readFileSync('test/data/viac/file001.html','utf8'),
+//                 forecasts.getRegionDetailsForRegionId('viac_1'));
+//
+//             should.exist(forecast);
+//             forecast.length.should.equal(3);
+//             forecast[0].date.should.equal('2020-02-21');
+//             forecast[1].date.should.equal('2020-02-22');
+//             forecast[2].date.should.equal('2020-02-23');
+//             forecast[0].aviLevel.should.equal(2);
+//             forecast[1].aviLevel.should.equal(2);
+//             forecast[2].aviLevel.should.equal(3);
+//         })
+//     })
+// })
 
 describe('parseForecast_sac', function(){
     describe('file000.xml', function(){
@@ -697,53 +698,55 @@ describe('parseForecast_fac', function(){
     })
 })
 
-describe('parseForecast_jac', function(){
-    describe('file000.html', function(){
-        it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_jac(fs.readFileSync('test/data/jac/file000.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('jac_1'));
+// NOTE parser is temporarily disabled
+// describe('parseForecast_jac', function(){
+//     describe('file000.html', function(){
+//         it('should fail gracefully on bad input', function(){
+//             var forecast = forecasts.parseForecast_jac(fs.readFileSync('test/data/jac/file000.html','utf8'),
+//                 forecasts.getRegionDetailsForRegionId('jac_1'));
+//
+//             should.not.exist(forecast);
+//         })
+//     })
+//     describe('file001.html', function(){
+//         it('should return the correct forecast details', function(){
+//             var forecast = forecasts.parseForecast_jac(fs.readFileSync('test/data/jac/file001.html','utf8'),
+//                 forecasts.getRegionDetailsForRegionId('jac_1'));
+//
+//             should.exist(forecast);
+//             forecast.length.should.equal(1);
+//             forecast[0].date.should.equal('2020-02-22');
+//             forecast[0].aviLevel.should.equal(3);
+//         })
+//     })
+// })
 
-            should.not.exist(forecast);
-        })
-    })
-    describe('file001.html', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_jac(fs.readFileSync('test/data/jac/file001.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('jac_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2020-02-22');
-            forecast[0].aviLevel.should.equal(3);
-        })
-    })
-})
-
-describe('parseForecast_hg', function(){
-    describe('file000.html', function(){
-        it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_hg(fs.readFileSync('test/data/hg/file000.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('hg_1'));
-
-            should.not.exist(forecast);
-        })
-    })
-    describe('file001.html', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_hg(fs.readFileSync('test/data/hg/file001.html','utf8'),
-                forecasts.getRegionDetailsForRegionId('hg_1'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2020-02-23');
-            forecast[1].date.should.equal('2020-02-24');
-            forecast[2].date.should.equal('2020-02-25');
-            forecast[0].aviLevel.should.equal(3);
-            forecast[1].aviLevel.should.equal(2);
-            forecast[2].aviLevel.should.equal(2);
-        })
-    })
-})
+// NOTE parser is temporarily disabled
+// describe('parseForecast_hg', function(){
+//     describe('file000.html', function(){
+//         it('should fail gracefully on bad input', function(){
+//             var forecast = forecasts.parseForecast_hg(fs.readFileSync('test/data/hg/file000.html','utf8'),
+//                 forecasts.getRegionDetailsForRegionId('hg_1'));
+//
+//             should.not.exist(forecast);
+//         })
+//     })
+//     describe('file001.html', function(){
+//         it('should return the correct forecast details', function(){
+//             var forecast = forecasts.parseForecast_hg(fs.readFileSync('test/data/hg/file001.html','utf8'),
+//                 forecasts.getRegionDetailsForRegionId('hg_1'));
+//
+//             should.exist(forecast);
+//             forecast.length.should.equal(3);
+//             forecast[0].date.should.equal('2020-02-23');
+//             forecast[1].date.should.equal('2020-02-24');
+//             forecast[2].date.should.equal('2020-02-25');
+//             forecast[0].aviLevel.should.equal(3);
+//             forecast[1].aviLevel.should.equal(2);
+//             forecast[2].aviLevel.should.equal(2);
+//         })
+//     })
+// })
 
 describe('parseForecast_msac', function(){
     describe('file000.xml', function(){

@@ -341,7 +341,9 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'viac':
                     dataURL = 'https://www.islandavalanchebulletin.com/';
-                    parser = forecasts.parseForecast_viac;
+                    // NOTE parser is temporarily disabled
+                    //parser = forecasts.parseForecast_viac;
+                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'sac':
                     dataURL = 'https://www.sierraavalanchecenter.org/danger-rating-rss.xml';
@@ -394,7 +396,9 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'jac':
                     dataURL = 'https://beta.juneau.org/emergency/current-advisory';
-                    parser = forecasts.parseForecast_jac;
+                    // NOTE parser is temporarily disabled
+                    //parser = forecasts.parseForecast_jac;
+                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'cac2':
                     dataURL = 'https://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions';
@@ -414,7 +418,9 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     break;
                 case 'hg':
                     dataURL = 'https://avalanchequebec.ca/conditions-chic-chocs#bulletins-avalanche';
-                    parser = forecasts.parseForecast_hg;
+                    // NOTE parser is temporarily disabled
+                    //parser = forecasts.parseForecast_hg;
+                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'msac':
                     dataURL = 'https://www.shastaavalanche.org/msac-advisory-map-xml';
