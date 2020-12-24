@@ -324,8 +324,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
             var parser = null;
             switch (components[0]) {
                 case 'nwac':
-                    dataURL = 'https://www.nwac.us/api/v2/avalanche-region-forecast/?format=json&limit=1&zone=' + components[1];
-                    parser = forecasts.parseForecast_nwac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/NWAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'cac':
                     // CAC South Coast has two polygons that have the same forecast; handle that
