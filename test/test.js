@@ -81,7 +81,7 @@ describe('findHighestAviLevelInString', function(){
 describe('getRegionDetailsForRegionId', function(){
     describe('matching strings', function(){
         it('should return the correct region details', function(){
-            forecasts.getRegionDetailsForRegionId('nwac_olympics').should.have.property('provider','nwac');
+            forecasts.getRegionDetailsForRegionId('nwac_139').should.have.property('provider','nwac');
             forecasts.getRegionDetailsForRegionId('cac_1').should.have.property('provider','cac');
             forecasts.getRegionDetailsForRegionId('pc_1').should.have.property('provider','pc');
             forecasts.getRegionDetailsForRegionId('caic_1b').should.have.property('provider','caic');
@@ -101,16 +101,12 @@ describe('getRegionDetailsForRegionId', function(){
 describe('validateForecast', function(){
     describe('null forecasts', function(){
         it('should return false, unless it is a known exception region', function(){
-            forecasts.validateForecast('nwac_olympics', null).should.be.false;
+            forecasts.validateForecast('nwac_139', null).should.be.false;
             forecasts.validateForecast('cacb_north-rockies', null).should.be.true;     // NOTE this region currently never issues danger levels
         })
     })
     describe('valid forecasts', function(){
         it('should return true', function(){
-            forecasts.validateForecast('nwac_olympics',
-                forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_olympics')), false).should.be.true;
-
             forecasts.validateForecast('cac_sea-to-sky',
                 forecasts.parseForecast_cac(fs.readFileSync('test/data/cac/file002.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('cac_sea-to-sky')), false).should.be.true;
@@ -122,18 +118,18 @@ describe('validateForecast', function(){
     })
     describe('forecasts with bad dates', function(){
         it('should return false', function(){
-            forecasts.validateForecast('nwac_olympics', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-03', aviLevel:1}], false).should.be.false;
-            forecasts.validateForecast('nwac_olympics', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-01', aviLevel:1}], false).should.be.false;
-            forecasts.validateForecast('nwac_olympics', [{date:'2012-01-01', aviLevel:1},{date:'2011-12-31', aviLevel:1}], false).should.be.false;
-            forecasts.validateForecast('nwac_olympics', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:1},{date:'2012-01-04', aviLevel:1}], false).should.be.false;
-            forecasts.validateForecast('nwac_olympics', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:1},{date:'2012-01-01', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_139', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-03', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_139', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-01', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_139', [{date:'2012-01-01', aviLevel:1},{date:'2011-12-31', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_139', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:1},{date:'2012-01-04', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_139', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:1},{date:'2012-01-01', aviLevel:1}], false).should.be.false;
         })
     })
     describe('forecasts with bad aviLevels', function(){
         it('should return false', function(){
-            forecasts.validateForecast('nwac_olympics', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:0}], false).should.be.false;
-            forecasts.validateForecast('nwac_olympics', [{date:'2012-01-01', aviLevel:0},{date:'2012-01-02', aviLevel:1}], false).should.be.false;
-            forecasts.validateForecast('nwac_olympics', [{date:'2012-01-01', aviLevel:4},{date:'2012-01-02', aviLevel:1},{date:'2012-01-03', aviLevel:0}], false).should.be.false;
+            forecasts.validateForecast('nwac_139', [{date:'2012-01-01', aviLevel:1},{date:'2012-01-02', aviLevel:0}], false).should.be.false;
+            forecasts.validateForecast('nwac_139', [{date:'2012-01-01', aviLevel:0},{date:'2012-01-02', aviLevel:1}], false).should.be.false;
+            forecasts.validateForecast('nwac_139', [{date:'2012-01-01', aviLevel:4},{date:'2012-01-02', aviLevel:1},{date:'2012-01-03', aviLevel:0}], false).should.be.false;
         })
     })
 })
@@ -141,13 +137,13 @@ describe('validateForecast', function(){
 describe('validateForecastForCurrentDay', function(){
     describe('current date is not represented', function(){
         it('should return false', function(){
-            forecasts.validateForecastForCurrentDay('nwac_olympics', [{date:'2012-01-01', aviLevel:2},{date:'2012-01-02', aviLevel:3}]).should.be.false;
+            forecasts.validateForecastForCurrentDay('nwac_139', [{date:'2012-01-01', aviLevel:2},{date:'2012-01-02', aviLevel:3}]).should.be.false;
         })
     })
     describe('current date is not represented', function(){
         it('should return true', function(){
             // NOTE this is run using current local time...
-            forecasts.validateForecastForCurrentDay('nwac_olympics',
+            forecasts.validateForecastForCurrentDay('nwac_139',
                 [{date:moment().format('YYYY-MM-DD'), aviLevel:2},{date:moment().add(1, 'days').format('YYYY-MM-DD'), aviLevel:3}]).should.be.true;
         })
     })
@@ -159,62 +155,6 @@ describe('dateStringFromDateTimeString_caaml', function(){
             forecasts.dateStringFromDateTimeString_caaml('2012-02-02T18:14:00').should.equal('2012-02-02');
             forecasts.dateStringFromDateTimeString_caaml('2012-02-10T00:00:00Z').should.equal('2012-02-10');
             forecasts.dateStringFromDateTimeString_caaml('2012-02-02').should.equal('2012-02-02');
-        })
-    })
-})
-
-describe('parseForecast_nwac', function(){
-    describe('file000.json', function(){
-        it('should fail gracefully on bad input', function(){
-            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file000.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_olympics'));
-
-            should.not.exist(forecast);
-        })
-    })
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_olympics'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2013-12-05');
-            forecast[1].date.should.equal('2013-12-06');
-            forecast[2].date.should.equal('2013-12-07');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].aviLevel.should.equal(2);
-            forecast[2].aviLevel.should.equal(3);
-        })
-    })
-    describe('file002.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file002.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_mt-hood'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2013-12-05');
-            forecast[1].date.should.equal('2013-12-06');
-            forecast[2].date.should.equal('2013-12-07');
-            forecast[0].aviLevel.should.equal(0);
-            forecast[1].aviLevel.should.equal(0);
-            forecast[2].aviLevel.should.equal(0);
-        })
-    })
-    describe('file003.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_nwac(fs.readFileSync('test/data/nwac/file003.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_cascade-west-stevens-pass'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(3);
-            forecast[0].date.should.equal('2013-12-05');
-            forecast[1].date.should.equal('2013-12-06');
-            forecast[2].date.should.equal('2013-12-07');
-            forecast[0].aviLevel.should.equal(3);
-            forecast[1].aviLevel.should.equal(3);
-            forecast[2].aviLevel.should.equal(3);
         })
     })
 })
@@ -425,9 +365,11 @@ describe('parseForecast_avalanche_org_api snfac', function(){
                 forecasts.getRegionDetailsForRegionId('snfac_293'));
 
             should.exist(forecast);
-            forecast.length.should.equal(1);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2020-01-05');
             forecast[0].aviLevel.should.equal(3);
+            forecast[1].date.should.equal('2020-01-06');
+            forecast[1].aviLevel.should.equal(3);
         })
     })
 })
@@ -439,9 +381,11 @@ describe('parseForecast_avalanche_org_api gnfac', function(){
                 forecasts.getRegionDetailsForRegionId('gnfac_111'));
 
             should.exist(forecast);
-            forecast.length.should.equal(1);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2020-01-14');
             forecast[0].aviLevel.should.equal(3);
+            forecast[1].date.should.equal('2020-01-15');
+            forecast[1].aviLevel.should.equal(3);
         })
     })
 })
@@ -500,9 +444,11 @@ describe('parseForecast_avalanche_org_api uac', function(){
                 forecasts.getRegionDetailsForRegionId('uac_253'));
 
             should.exist(forecast);
-            forecast.length.should.equal(1);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2020-01-14');
             forecast[0].aviLevel.should.equal(2);
+            forecast[1].date.should.equal('2020-01-15');
+            forecast[1].aviLevel.should.equal(2);
         })
     })
 })
@@ -514,9 +460,11 @@ describe('parseForecast_avalanche_org_api cnfaic', function(){
                 forecasts.getRegionDetailsForRegionId('cnfaic_122'));
 
             should.exist(forecast);
-            forecast.length.should.equal(1);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2020-01-14');
             forecast[0].aviLevel.should.equal(2);
+            forecast[1].date.should.equal('2020-01-15');
+            forecast[1].aviLevel.should.equal(2);
         })
     })
 })
@@ -528,9 +476,27 @@ describe('parseForecast_avalanche_org_api mwac', function(){
                 forecasts.getRegionDetailsForRegionId('mwac_297'));
 
             should.exist(forecast);
-            forecast.length.should.equal(1);
+            forecast.length.should.equal(2);
             forecast[0].date.should.equal('2020-01-14');
             forecast[0].aviLevel.should.equal(1);
+            forecast[1].date.should.equal('2020-01-15');
+            forecast[1].aviLevel.should.equal(1);
+        })
+    })
+})
+
+describe('parseForecast_avalanche_org_api nwac', function(){
+    describe('file001.json', function(){
+        it('should return the correct forecast details', function(){
+            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/nwac/file001.json','utf8'),
+                forecasts.getRegionDetailsForRegionId('nwac_140'));
+
+            should.exist(forecast);
+            forecast.length.should.equal(2);
+            forecast[0].date.should.equal('2020-12-24');
+            forecast[0].aviLevel.should.equal(2);
+            forecast[1].date.should.equal('2020-12-25');
+            forecast[1].aviLevel.should.equal(2);
         })
     })
 })
