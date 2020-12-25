@@ -192,8 +192,6 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
                 if (regionId === 'caic_9' ||
                     regionId === 'ipac_4' ||
                     regionId === 'ipac_5' ||
-                    regionId === 'nwac_cascade-east-south' ||
-                    regionId === 'nwac_olympics' ||
                     regionId.split('_')[0] === 'esac') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
