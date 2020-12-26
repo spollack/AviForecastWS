@@ -2,7 +2,7 @@
     {
         "regionId": "nwac_139",
         "displayName": "Olympics",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/olympics",
+        "URL": "https://nwac.us/avalanche-forecast/#/olympics",
         "points": [
                 {
                     "lat": "48.026",
@@ -109,7 +109,7 @@
     {
         "regionId": "nwac_140",
         "displayName": "Stevens Pass",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/cascade-west-stevens-pass/",
+        "URL": "https://nwac.us/avalanche-forecast/#/stevens-pass",
         "points": [
                 {
                     "lat": "47.637",
@@ -188,7 +188,7 @@
     {
         "regionId": "nwac_141",
         "displayName": "Snoqualmie Pass",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/cascade-west-snoqualmie-pass/",
+        "URL": "https://nwac.us/avalanche-forecast/#/snoqualmie-pass",
         "points": [
                 {
                     "lat": "47.285",
@@ -286,8 +286,8 @@
     },
     {
         "regionId": "nwac_142",
-        "displayName": "WA Cascades West, Mt Baker",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/cascade-west-north-baker/",
+        "displayName": "WA Cascades West Slopes North",
+        "URL": "https://nwac.us/avalanche-forecast/#/west-slopes-north",
         "points": [
                 {
                     "lat": "48.636",
@@ -429,8 +429,8 @@
     },
     {
         "regionId": "nwac_143",
-        "displayName": "WA Cascades West, Central",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/cascade-west-central/",
+        "displayName": "WA Cascades West Slopes Central",
+        "URL": "https://nwac.us/avalanche-forecast/#/west-slopes-central",
         "points": [
                 {
                     "lat": "48.413",
@@ -672,8 +672,8 @@
     },
     {
         "regionId": "nwac_144",
-        "displayName": "WA Cascades West, South",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/cascade-west-south/",
+        "displayName": "WA Cascades West Slopes South",
+        "URL": "https://nwac.us/avalanche-forecast/#/west-slopes-south",
         "points": [
                 {
                     "lat": "47.027",
@@ -815,8 +815,8 @@
     },
     {
         "regionId": "nwac_145",
-        "displayName": "WA Cascades East, North",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/cascade-east-north/",
+        "displayName": "WA Cascades East Slopes North",
+        "URL": "https://nwac.us/avalanche-forecast/#/east-slopes-north",
         "points": [
                 {
                     "lat": "48.441",
@@ -1090,8 +1090,8 @@
     },
     {
         "regionId": "nwac_146",
-        "displayName": "WA Cascades East, Central",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/cascade-east-central/",
+        "displayName": "WA Cascades East Slopes Central",
+        "URL": "https://nwac.us/avalanche-forecast/#/east-slopes-central",
         "points": [
                 {
                     "lat": "47.626",
@@ -1421,8 +1421,8 @@
     },
     {
         "regionId": "nwac_147",
-        "displayName": "WA Cascades East, South",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/cascade-east-south/",
+        "displayName": "WA Cascades East Slopes South",
+        "URL": "https://nwac.us/avalanche-forecast/#/east-slopes-south",
         "points": [
                 {
                     "lat": "47.190",
@@ -1545,7 +1545,7 @@
     {
         "regionId": "nwac_148",
         "displayName": "Mt Hood",
-        "URL": "https://www.nwac.us/avalanche-forecast/current/mt-hood/",
+        "URL": "https://nwac.us/avalanche-forecast/#/mt-hood",
         "points": [
                 {
                     "lat": "45.279",
