@@ -192,8 +192,6 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
                 if (regionId === 'caic_9' ||
                     regionId === 'ipac_4' ||
                     regionId === 'ipac_5' ||
-                    regionId === 'nwac_cascade-east-south' ||
-                    regionId === 'nwac_olympics' ||
                     regionId.split('_')[0] === 'esac') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
@@ -324,8 +322,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
             var parser = null;
             switch (components[0]) {
                 case 'nwac':
-                    dataURL = 'https://www.nwac.us/api/v2/avalanche-region-forecast/?format=json&limit=1&zone=' + components[1];
-                    parser = forecasts.parseForecast_nwac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/NWAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'cac':
                     // CAC South Coast has two polygons that have the same forecast; handle that
@@ -770,23 +768,25 @@ forecasts.parseForecast_avalanche_org_api = function(body, regionDetails) {
 
         var regionForecastData = underscore.findWhere(bodyJson.features, {id: avalancheOrgApiRegionId});
 
-        // NOTE for now, assume only one day forecasts due to the structure of the avalanche.org api
-        var NUM_FORECAST_DAYS = 1;
-
         // NOTE the API can have null values for the dates, which means no rating available
-        if (regionForecastData.properties.start_date) {
+        if (regionForecastData.properties.start_date && regionForecastData.properties.end_date) {
+
+            // NOTE only parse the dates, ingore times for now
+            var forecastValidTimeStart = moment(regionForecastData.properties.start_date, 'MM/DD');
+            var forecastValidTimeEnd = moment(regionForecastData.properties.end_date, 'MM/DD');
+
+            var daysValid = moment(forecastValidTimeEnd).diff(moment(forecastValidTimeStart), 'days') + 1;
+
+            var aviLevel = forecasts.findAviLevelNumberInString(regionForecastData.properties.rating);
 
             forecast = [];
-
-            for (var i = 0; i < NUM_FORECAST_DAYS; i++) {
-                    var forecastDate = moment(regionForecastData.properties.start_date, 'MM/DD hh:mm a').format('YYYY-MM-DD');
-                    var aviLevel = forecasts.findAviLevelNumberInString(regionForecastData.properties.rating);
-                    forecast[i] = {'date':forecastDate, 'aviLevel':aviLevel};
+            for (var i = 0; i < daysValid; i++) {
+                forecast[i] = {'date': moment(forecastValidTimeStart).clone().add(i, 'days').format('YYYY-MM-DD'), 'aviLevel': aviLevel};
             }
 
             for (var j = 0; j < forecast.length; j++) {
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
-        }
+            }
         }
     } catch (e) {
         winston.warn('failure parsing avalanche.org api forecast; error: ' + JSON.stringify(e));
