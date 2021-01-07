@@ -15748,9 +15748,9 @@
             ]
     },
     {
-        "regionId": "sac_1",
+        "regionId": "sac_77",
         "displayName": "Central Sierras",
-        "URL": "https://www.sierraavalanchecenter.org/advisory",
+        "URL": "https://www.sierraavalanchecenter.org/forecasts#/central-sierra-nevada",
         "points": [
             {
                 "lat": "39.320",
@@ -23915,7 +23915,7 @@
         ]
     },
     {
-        "regionId": "ipac_1",
+        "regionId": "ipac_149",
         "displayName": "Selkirks",
         "URL": "https://www.idahopanhandleavalanche.org/selkirks-cabinets/advisory",
         "points": [
@@ -24046,7 +24046,7 @@
         ]
     },
     {
-        "regionId": "ipac_2",
+        "regionId": "ipac_149",
         "displayName": "Cabinets",
         "URL": "https://www.idahopanhandleavalanche.org/selkirks-cabinets/advisory",
         "points": [
@@ -24149,7 +24149,7 @@
         ]
     },
     {
-        "regionId": "ipac_3",
+        "regionId": "ipac_272",
         "displayName": "St. Regis / Silver Valley",
         "URL": "https://www.idahopanhandleavalanche.org/st-regis-silver/advisory",
         "points": [
@@ -27940,7 +27940,7 @@
             ]
     },
     {
-        "regionId": "fac_1",
+        "regionId": "fac_207",
         "displayName": "Flathead and Glacier",
         "URL": "https://www.flatheadavalanche.org/flathead-glacier/advisory",
         "points": [
@@ -28811,7 +28811,7 @@
             ]
     },
     {
-        "regionId": "fac_2",
+        "regionId": "fac_207",
         "displayName": "Flathead and Glacier",
         "URL": "https://www.flatheadavalanche.org/flathead-glacier/advisory",
         "points": [
@@ -29030,7 +29030,7 @@
             ]
     },
     {
-        "regionId": "fac_3",
+        "regionId": "fac_209",
         "displayName": "Whitefish Range",
         "URL": "https://www.flatheadavalanche.org/whitefish/advisory",
         "points": [
@@ -29665,7 +29665,7 @@
             ]
     },
     {
-        "regionId": "fac_4",
+        "regionId": "fac_208",
         "displayName": "Swan Range",
         "URL": "https://www.flatheadavalanche.org/swan/advisory",
         "points": [
@@ -29764,7 +29764,7 @@
         ]
     },
     {
-        "regionId": "ipac_4",
+        "regionId": "ipac_138",
         "displayName": "Kootenai",
         "URL": "https://www.idahopanhandleavalanche.org/kootenai/snowpack-summary",
         "points": [
@@ -29951,7 +29951,7 @@
         ]
     },
     {
-        "regionId": "ipac_5",
+        "regionId": "ipac_138",
         "displayName": "Kootenai",
         "URL": "https://www.idahopanhandleavalanche.org/kootenai/snowpack-summary",
         "points": [
@@ -31142,9 +31142,9 @@
             ]
     },
     {
-        "regionId": "pac_1",
+        "regionId": "pac_153",
         "displayName": "Payette",
-        "URL": "https://payetteavalanche.org/advisory/",
+        "URL": "https://payetteavalanche.org/forecasts/#/pac-advisory-area",
         "points": [
             {
                 "lat": "44.715",
@@ -33042,7 +33042,7 @@
     {
       "regionId": "tac_260",
       "displayName": "Northern New Mexico",
-      "URL": "https://taosavalanchecenter.org/advisory",
+      "URL": "https://taosavalanchecenter.org/advisory/#/northern-new-mexico",
       "points": [
                 {
                     "lat": "36.639",

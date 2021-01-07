@@ -351,16 +351,16 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'sac':
-                    dataURL = 'https://www.sierraavalanchecenter.org/danger-rating-rss.xml';
-                    parser = forecasts.parseForecast_sac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/SAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'esac':
                     dataURL = 'https://esavalanche.org/danger-rating-rss.xml';
                     parser = forecasts.parseForecast_esac;
                     break;
                 case 'pac':
-                    dataURL = 'https://www.payetteavalanche.org/pac-advisory-map-xml';
-                    parser = forecasts.parseForecast_pac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/PAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'btac':
                     dataURL = 'https://www.jhavalanche.org/media/xml/' + components[1] + '_Avalanche_Forecast.xml';
@@ -375,25 +375,12 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'ipac':
-                    var ipacPaths = {
-                        1: 'https://www.idahopanhandleavalanche.org/advisories/selkirks-cabinets-map-xml',
-                        2: 'https://www.idahopanhandleavalanche.org/advisories/selkirks-cabinets-map-xml',
-                        3: 'https://www.idahopanhandleavalanche.org/advisories/st-regis-silver-map-xml',
-                        4: 'https://www.idahopanhandleavalanche.org/advisories/kootenai-map-xml',
-                        5: 'https://www.idahopanhandleavalanche.org/advisories/kootenai-map-xml'
-                    };
-                    dataURL = ipacPaths[components[1]];
-                    parser = forecasts.parseForecast_ipac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/IPAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'fac':
-                    var facPaths = {
-                        1: 'https://www.flatheadavalanche.org/advisories/flathead-and-glacier-map-xml',
-                        2: 'https://www.flatheadavalanche.org/advisories/flathead-and-glacier-map-xml',
-                        3: 'https://www.flatheadavalanche.org/advisories/whitefish-map-xml',
-                        4: 'https://www.flatheadavalanche.org/advisories/swan-map-xml'
-                    };
-                    dataURL = facPaths[components[1]];
-                    parser = forecasts.parseForecast_fac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/FAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'cnfaic':
                     dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/CNFAIC';
