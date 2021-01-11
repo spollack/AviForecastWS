@@ -15750,7 +15750,7 @@
     {
         "regionId": "sac_77",
         "displayName": "Central Sierras",
-        "URL": "https://www.sierraavalanchecenter.org/forecasts#/central-sierra-nevada",
+        "URL": "https://www.sierraavalanchecenter.org/forecasts/#/central-sierra-nevada",
         "points": [
             {
                 "lat": "39.320",
@@ -19709,7 +19709,7 @@
         ]
     },
     {
-        "regionId": "esac_mammoth",
+        "regionId": "esac_128_1",
         "displayName": "Eastern Sierra - Mammoth Lakes",
         "URL": "https://esavalanche.org/advisory",
         "points": [
@@ -19820,7 +19820,7 @@
         ]
     },
     {
-        "regionId": "esac_south",
+        "regionId": "esac_128_2",
         "displayName": "Eastern Sierra - Southern",
         "URL": "https://esavalanche.org/advisory",
         "points": [
@@ -19967,7 +19967,7 @@
         ]
     },
     {
-        "regionId": "esac_north",
+        "regionId": "esac_128_3",
         "displayName": "Eastern Sierra - Northern",
         "URL": "https://esavalanche.org/advisory",
         "points": [
@@ -23915,9 +23915,9 @@
         ]
     },
     {
-        "regionId": "ipac_149",
+        "regionId": "ipac_149_1",
         "displayName": "Selkirks",
-        "URL": "https://www.idahopanhandleavalanche.org/selkirks-cabinets/advisory",
+        "URL": "https://www.idahopanhandleavalanche.org/forecasts/#/selkirks-&-cabinets",
         "points": [
             {
                 "lat": "48.300",
@@ -24046,9 +24046,9 @@
         ]
     },
     {
-        "regionId": "ipac_149",
+        "regionId": "ipac_149_2",
         "displayName": "Cabinets",
-        "URL": "https://www.idahopanhandleavalanche.org/selkirks-cabinets/advisory",
+        "URL": "https://www.idahopanhandleavalanche.org/forecasts/#/selkirks-&-cabinets",
         "points": [
             {
                 "lat": "48.459",
@@ -24151,7 +24151,7 @@
     {
         "regionId": "ipac_272",
         "displayName": "St. Regis / Silver Valley",
-        "URL": "https://www.idahopanhandleavalanche.org/st-regis-silver/advisory",
+        "URL": "https://www.idahopanhandleavalanche.org/forecasts/#/st.-regis-&-silver-valley",
         "points": [
                 {
                     "lat": "47.660",
@@ -27940,7 +27940,7 @@
             ]
     },
     {
-        "regionId": "fac_207",
+        "regionId": "fac_207_1",
         "displayName": "Flathead and Glacier",
         "URL": "https://www.flatheadavalanche.org/flathead-glacier/advisory",
         "points": [
@@ -28811,7 +28811,7 @@
             ]
     },
     {
-        "regionId": "fac_207",
+        "regionId": "fac_207_2",
         "displayName": "Flathead and Glacier",
         "URL": "https://www.flatheadavalanche.org/flathead-glacier/advisory",
         "points": [
@@ -29764,9 +29764,9 @@
         ]
     },
     {
-        "regionId": "ipac_138",
+        "regionId": "ipac_138_1",
         "displayName": "Kootenai",
-        "URL": "https://www.idahopanhandleavalanche.org/kootenai/snowpack-summary",
+        "URL": "https://www.idahopanhandleavalanche.org/forecasts/#/kootenai",
         "points": [
             {
                 "lat": "48.497",
@@ -29951,9 +29951,9 @@
         ]
     },
     {
-        "regionId": "ipac_138",
+        "regionId": "ipac_138_2",
         "displayName": "Kootenai",
-        "URL": "https://www.idahopanhandleavalanche.org/kootenai/snowpack-summary",
+        "URL": "https://www.idahopanhandleavalanche.org/forecasts/#/kootenai",
         "points": [
             {
                 "lat": "48.419",
@@ -30867,7 +30867,7 @@
             ]
     },
     {
-        "regionId": "msac_1",
+        "regionId": "msac_123",
         "displayName": "MSAC Forecast Area",
         "URL": "https://www.shastaavalanche.org/advisories/avalanche-advisory",
         "points": [
@@ -30934,9 +30934,9 @@
         ]
     },
     {
-        "regionId": "wac_1",
+        "regionId": "wac_273",
         "displayName": "Blue Mountains",
-        "URL": "https://www.wallowaavalanchecenter.org/forecast/blues",
+        "URL": "https://www.wallowaavalanchecenter.org/forecasts/#/blues",
         "points": [
                 {
                     "lat": "45.486",
@@ -30981,9 +30981,9 @@
             ]
     },
     {
-        "regionId": "wac_2",
+        "regionId": "wac_274",
         "displayName": "Elkhorn Mountains",
-        "URL": "https://www.wallowaavalanchecenter.org/forecast/elkhorns",
+        "URL": "https://www.wallowaavalanchecenter.org/forecasts/#/elkhorns",
         "points": [
                 {
                     "lat": "44.974",
@@ -31044,9 +31044,9 @@
             ]
     },
     {
-        "regionId": "wac_3",
+        "regionId": "wac_275",
         "displayName": "Northern Wallowas",
-        "URL": "https://www.wallowaavalanchecenter.org/forecast/northern-wallowas",
+        "URL": "https://www.wallowaavalanchecenter.org/forecasts/#/northern-wallowas",
         "points": [
                 {
                     "lat": "45.174",
@@ -31103,9 +31103,9 @@
             ]
     },
     {
-        "regionId": "wac_4",
+        "regionId": "wac_276",
         "displayName": "Southern Wallowas",
-        "URL": "https://www.wallowaavalanchecenter.org/forecast/southern-wallowas",
+        "URL": "https://www.wallowaavalanchecenter.org/forecasts/#/southern-wallowas",
         "points": [
                 {
                     "lat": "45.141",
@@ -31142,7 +31142,7 @@
             ]
     },
     {
-        "regionId": "pac_153",
+        "regionId": "pac_153_1",
         "displayName": "Payette",
         "URL": "https://payetteavalanche.org/forecasts/#/pac-advisory-area",
         "points": [
@@ -31329,9 +31329,9 @@
         ]
     },
     {
-        "regionId": "pac_2",
+        "regionId": "pac_153_2",
         "displayName": "Payette",
-        "URL": "https://payetteavalanche.org/advisory/",
+        "URL": "https://payetteavalanche.org/forecasts/#/pac-advisory-area",
         "points": [
             {
                 "lat": "45.276",
@@ -32779,7 +32779,7 @@
     {
       "regionId": "mwac_297",
       "displayName": "Northern Presidential Range",
-      "URL": "https://mountwashingtonavalanchecenter.org",
+      "URL": "https://mountwashingtonavalanchecenter.org/forecast/#/presidential-range",
       "points": [
                 {
                     "lat": "44.377",
@@ -33281,7 +33281,7 @@
     {
         "regionId": "coaa_205_1",
         "displayName": "Central Oregon Mountains",
-        "URL": "http://www.coavalanche.org/",
+        "URL": "https://www.coavalanche.org/avalanche-forecast/#/central-cascades",
         "points": [
                 {
                     "lat": "43.766",
@@ -33504,7 +33504,7 @@
     {
         "regionId": "coaa_205_2",
         "displayName": "Central Oregon Mountains",
-        "URL": "http://www.coavalanche.org/",
+        "URL": "https://www.coavalanche.org/avalanche-forecast/#/central-cascades",
         "points": [
                 {
                     "lat": "44.720",
@@ -34155,7 +34155,7 @@
     {
         "regionId": "coaa_205_3",
         "displayName": "Central Oregon Mountains",
-        "URL": "http://www.coavalanche.org/",
+        "URL": "https://www.coavalanche.org/avalanche-forecast/#/central-cascades",
         "points": [
                 {
                     "lat": "44.196",

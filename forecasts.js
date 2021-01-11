@@ -126,7 +126,6 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             regionId === 'cac2_1' ||
             regionId === 'hpac_1' ||
             regionId === 'kpac_1' ||
-            regionId === 'tac_260' ||
             regionId === 'uac_252' ||
             regionId === 'uac_259_1' ||
             regionId === 'uac_259_2' ||
@@ -140,13 +139,9 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             regionId === 'aaic_186' ||
             regionId === 'aaic_194' ||
             regionId === 'aaic_191' ||
-            regionId === 'coaa_205_1' ||
-            regionId === 'coaa_205_2' ||
-            regionId === 'coaa_205_3' ||
             regionId === 'gnfaic_281' ||
             regionId === 'cnfaic_282' ||
             regionId === 'cnfaic_121' ||
-            regionId.split('_')[0] === 'wac' ||
             regionId.split('_')[0] === 'jac' ||
             regionId.split('_')[0] === 'viac' ||
             regionId.split('_')[0] === 'hg') {
@@ -190,9 +185,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but
                 // without danger level ratings
                 if (regionId === 'caic_9' ||
-                    regionId === 'ipac_4' ||
-                    regionId === 'ipac_5' ||
-                    regionId.split('_')[0] === 'esac') {
+                    ) {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
@@ -236,11 +229,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
-            if (regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south'
-                || regionId === 'esac_north' || regionId === 'esac_south' || regionId === 'esac_mammoth'
-                || regionId === 'ipac_1' || regionId === 'ipac_2' || regionId === 'ipac_3'|| regionId === 'ipac_4' || regionId === 'ipac_5'
-                || regionId === 'fac_1' || regionId === 'fac_2' || regionId === 'fac_3' || regionId === 'fac_4'
-                || regionId === 'msac_1') {
+            if (regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
@@ -355,8 +344,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'esac':
-                    dataURL = 'https://esavalanche.org/danger-rating-rss.xml';
-                    parser = forecasts.parseForecast_esac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/ESAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'pac':
                     dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/PAC';
@@ -405,8 +394,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'wac':
-                    dataURL = 'https://www.wallowaavalanchecenter.org/bulletin';
-                    parser = forecasts.parseForecast_noop;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/WAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'hg':
                     dataURL = 'https://avalanchequebec.ca/conditions-chic-chocs#bulletins-avalanche';
@@ -415,8 +404,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_noop;
                     break;
                 case 'msac':
-                    dataURL = 'https://www.shastaavalanche.org/msac-advisory-map-xml';
-                    parser = forecasts.parseForecast_msac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/MSAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'aaic':
                     dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/AAIC';
