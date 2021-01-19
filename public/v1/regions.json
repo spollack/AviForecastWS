@@ -29292,7 +29292,7 @@
     {
         "regionId": "fac_207_1",
         "displayName": "Flathead and Glacier",
-        "URL": "https://www.flatheadavalanche.org/flathead-glacier/advisory",
+        "URL": "https://flatheadavalanche.org/avalanche-forecast#/flathead-range-&-glacier-np",
         "points": [
                 {
                     "lat": "48.362",
@@ -30163,7 +30163,7 @@
     {
         "regionId": "fac_207_2",
         "displayName": "Flathead and Glacier",
-        "URL": "https://www.flatheadavalanche.org/flathead-glacier/advisory",
+        "URL": "https://flatheadavalanche.org/avalanche-forecast#/flathead-range-&-glacier-np",
         "points": [
                 {
                     "lat": "48.635",
@@ -30382,7 +30382,7 @@
     {
         "regionId": "fac_209",
         "displayName": "Whitefish Range",
-        "URL": "https://www.flatheadavalanche.org/whitefish/advisory",
+        "URL": "https://flatheadavalanche.org/avalanche-forecast#/whitefish-range",
         "points": [
                 {
                     "lat": "48.509",
@@ -31017,7 +31017,7 @@
     {
         "regionId": "fac_208",
         "displayName": "Swan Range",
-        "URL": "https://www.flatheadavalanche.org/swan/advisory",
+        "URL": "https://flatheadavalanche.org/avalanche-forecast#/swan-range",
         "points": [
             {
                 "lat": "48.313",
