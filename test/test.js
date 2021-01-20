@@ -366,9 +366,9 @@ describe('parseForecast_avalanche_org_api snfac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2020-01-05');
+            forecast[0].date.should.equal('2021-01-05');
             forecast[0].aviLevel.should.equal(3);
-            forecast[1].date.should.equal('2020-01-06');
+            forecast[1].date.should.equal('2021-01-06');
             forecast[1].aviLevel.should.equal(3);
         })
     })
@@ -382,9 +382,9 @@ describe('parseForecast_avalanche_org_api gnfac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2020-01-14');
+            forecast[0].date.should.equal('2021-01-14');
             forecast[0].aviLevel.should.equal(3);
-            forecast[1].date.should.equal('2020-01-15');
+            forecast[1].date.should.equal('2021-01-15');
             forecast[1].aviLevel.should.equal(3);
         })
     })
@@ -436,7 +436,7 @@ describe('parseForecast_avalanche_org_api tac', function(){
 
             should.exist(forecast);
             //forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2020-01-14');
+            forecast[0].date.should.equal('2021-01-14');
             forecast[0].aviLevel.should.equal(0);
         })
     })
@@ -450,9 +450,9 @@ describe('parseForecast_avalanche_org_api uac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2020-01-14');
+            forecast[0].date.should.equal('2021-01-14');
             forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2020-01-15');
+            forecast[1].date.should.equal('2021-01-15');
             forecast[1].aviLevel.should.equal(2);
         })
     })
@@ -466,9 +466,9 @@ describe('parseForecast_avalanche_org_api cnfaic', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2020-01-14');
+            forecast[0].date.should.equal('2021-01-14');
             forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2020-01-15');
+            forecast[1].date.should.equal('2021-01-15');
             forecast[1].aviLevel.should.equal(2);
         })
     })
@@ -482,9 +482,9 @@ describe('parseForecast_avalanche_org_api mwac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2020-01-14');
+            forecast[0].date.should.equal('2021-01-14');
             forecast[0].aviLevel.should.equal(1);
-            forecast[1].date.should.equal('2020-01-15');
+            forecast[1].date.should.equal('2021-01-15');
             forecast[1].aviLevel.should.equal(1);
         })
     })
@@ -496,7 +496,12 @@ describe('parseForecast_avalanche_org_api wac', function(){
             var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/wac/file001.json','utf8'),
                 forecasts.getRegionDetailsForRegionId('wac_276'));
 
-            should.not.exist(forecast);
+                should.exist(forecast);
+                forecast.length.should.equal(2);
+                forecast[0].date.should.equal('2021-01-10');
+                forecast[0].aviLevel.should.equal(0);
+                forecast[1].date.should.equal('2021-01-11');
+                forecast[1].aviLevel.should.equal(0);
         })
     })
 })
@@ -509,9 +514,9 @@ describe('parseForecast_avalanche_org_api nwac', function(){
 
             should.exist(forecast);
             forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2020-12-24');
+            forecast[0].date.should.equal('2021-12-24');
             forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2020-12-25');
+            forecast[1].date.should.equal('2021-12-25');
             forecast[1].aviLevel.should.equal(2);
         })
     })
