@@ -184,8 +184,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but
                 // without danger level ratings
-                if (regionId === 'caic_9' ||
-                    ) {
+                if (regionId === 'caic_9') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
