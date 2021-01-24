@@ -140,8 +140,11 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             regionId === 'aaic_194' ||
             regionId === 'aaic_191' ||
             regionId === 'gnfaic_281' ||
-            regionId === 'cnfaic_282' ||
             regionId === 'cnfaic_121' ||
+            regionId === 'cnfaic_203' ||
+            regionId === 'cnfaic_282' ||
+            regionId === 'coaa_300' ||
+            regionId === 'bac_261' ||
             regionId.split('_')[0] === 'jac' ||
             regionId.split('_')[0] === 'viac' ||
             regionId.split('_')[0] === 'hg') {
@@ -184,7 +187,12 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but
                 // without danger level ratings
-                if (regionId === 'caic_9') {
+                if (regionId === 'caic_9' ||
+                    regionId === 'nwac_147' ||
+                    regionId === 'gnfac_281' ||
+                    regionId === 'cac_kananaskis' ||
+                    regionId.split('_')[0] === 'wac' ||
+                    regionId.split('_')[0] === 'ipac') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
