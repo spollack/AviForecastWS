@@ -358,166 +358,18 @@ describe('parseForecast_simple_caaml btac', function(){
     })
 })
 
-describe('parseForecast_avalanche_org_api snfac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/snfac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('snfac_293'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-05');
-            forecast[0].aviLevel.should.equal(3);
-            forecast[1].date.should.equal('2021-01-06');
-            forecast[1].aviLevel.should.equal(3);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api gnfac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/gnfac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('gnfac_111'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-14');
-            forecast[0].aviLevel.should.equal(3);
-            forecast[1].date.should.equal('2021-01-15');
-            forecast[1].aviLevel.should.equal(3);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api coaa', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/coaa/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('coaa_205'));
-
-                should.exist(forecast);
-                forecast.length.should.equal(2);
-                forecast[0].date.should.equal('2021-01-15');
-                forecast[0].aviLevel.should.equal(1);
-                forecast[1].date.should.equal('2021-01-16');
-                forecast[1].aviLevel.should.equal(1);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api aaic', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/aaic/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('aaic_193'));
-
-            should.not.exist(forecast);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api bac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/bac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('bac_261'));
-
-            should.not.exist(forecast);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api tac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/tac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('tac_260'));
-
-            should.exist(forecast);
-            //forecast.length.should.equal(1);
-            forecast[0].date.should.equal('2021-01-14');
-            forecast[0].aviLevel.should.equal(0);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api uac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/uac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('uac_253'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-14');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2021-01-15');
-            forecast[1].aviLevel.should.equal(2);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api cnfaic', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/cnfaic/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('cnfaic_122'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-14');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2021-01-15');
-            forecast[1].aviLevel.should.equal(2);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api mwac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/mwac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('mwac_297'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-14');
-            forecast[0].aviLevel.should.equal(1);
-            forecast[1].date.should.equal('2021-01-15');
-            forecast[1].aviLevel.should.equal(1);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api wac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/wac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('wac_276'));
-
-                should.exist(forecast);
-                forecast.length.should.equal(2);
-                forecast[0].date.should.equal('2021-01-10');
-                forecast[0].aviLevel.should.equal(0);
-                forecast[1].date.should.equal('2021-01-11');
-                forecast[1].aviLevel.should.equal(0);
-        })
-    })
-})
-
 describe('parseForecast_avalanche_org_api nwac', function(){
     describe('file001.json', function(){
         it('should return the correct forecast details', function(){
             var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/nwac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('nwac_140'));
+                forecasts.getRegionDetailsForRegionId('nwac_419'));
 
             should.exist(forecast);
             forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-12-24');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2021-12-25');
-            forecast[1].aviLevel.should.equal(2);
+            forecast[0].date.should.equal('2021-12-12');
+            forecast[0].aviLevel.should.equal(3);
+            forecast[1].date.should.equal('2021-12-13');
+            forecast[1].aviLevel.should.equal(3);
         })
     })
 })
@@ -549,38 +401,6 @@ describe('parseForecast_avalanche_org_api nwac', function(){
 //     })
 // })
 
-describe('parseForecast_avalanche_org_api sac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/sac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('sac_77'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-19');
-            forecast[0].aviLevel.should.equal(1);
-            forecast[1].date.should.equal('2021-01-20');
-            forecast[1].aviLevel.should.equal(1);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api esac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/esac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('esac_128'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-16');
-            forecast[0].aviLevel.should.equal(1);
-            forecast[1].date.should.equal('2021-01-17');
-            forecast[1].aviLevel.should.equal(1);
-        })
-    })
-})
-
 describe('parseForecast_wcmac', function(){
     describe('file000.xml', function(){
         it('should fail gracefully on bad input', function(){
@@ -610,38 +430,6 @@ describe('parseForecast_wcmac', function(){
             forecast.length.should.equal(1);
             forecast[0].date.should.equal('2013-01-11');
             forecast[0].aviLevel.should.equal(4);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api ipac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/ipac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('ipac_149'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-19');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2021-01-20');
-            forecast[1].aviLevel.should.equal(2);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api fac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/fac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('fac_209'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-19');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2021-01-20');
-            forecast[1].aviLevel.should.equal(2);
         })
     })
 })
@@ -695,36 +483,3 @@ describe('parseForecast_avalanche_org_api fac', function(){
 //         })
 //     })
 // })
-
-
-describe('parseForecast_avalanche_org_api msac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/msac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('msac_123'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-10');
-            forecast[0].aviLevel.should.equal(1);
-            forecast[1].date.should.equal('2021-01-11');
-            forecast[1].aviLevel.should.equal(1);
-        })
-    })
-})
-
-describe('parseForecast_avalanche_org_api pac', function(){
-    describe('file001.json', function(){
-        it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_avalanche_org_api(fs.readFileSync('test/data/pac/file001.json','utf8'),
-                forecasts.getRegionDetailsForRegionId('pac_153'));
-
-            should.exist(forecast);
-            forecast.length.should.equal(2);
-            forecast[0].date.should.equal('2021-01-19');
-            forecast[0].aviLevel.should.equal(2);
-            forecast[1].date.should.equal('2021-01-20');
-            forecast[1].aviLevel.should.equal(2);
-        })
-    })
-})

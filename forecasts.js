@@ -754,13 +754,13 @@ forecasts.parseForecast_avalanche_org_api = function(body, regionDetails) {
         // NOTE the API can have null values for the dates, which means no rating available
         if (regionForecastData.properties.start_date && regionForecastData.properties.end_date) {
 
-            // NOTE only parse the dates, ingore times for now
-            var forecastValidTimeStart = moment(regionForecastData.properties.start_date, 'MM/DD');
-            var forecastValidTimeEnd = moment(regionForecastData.properties.end_date, 'MM/DD');
+            // NOTE only parse the dates, ignore times for now
+            var forecastValidTimeStart = moment(regionForecastData.properties.start_date, 'YYYY-MM-DD');
+            var forecastValidTimeEnd = moment(regionForecastData.properties.end_date, 'YYYY-MM-DD');
 
             var daysValid = moment(forecastValidTimeEnd).diff(moment(forecastValidTimeStart), 'days') + 1;
 
-            var aviLevel = forecasts.findAviLevelNumberInString(regionForecastData.properties.rating);
+            var aviLevel = forecasts.findAviLevelNumberInString(regionForecastData.properties.danger_level);
 
             forecast = [];
             for (var i = 0; i < daysValid; i++) {
