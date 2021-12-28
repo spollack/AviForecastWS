@@ -19256,7 +19256,7 @@
             ]
     },
     {
-        "regionId": "gnfac_109",
+        "regionId": "gnfac_481",
         "displayName": "Bridger Range",
         "URL": "https://www.mtavalanche.com/forecast",
         "points": [
@@ -19307,7 +19307,7 @@
         ]
     },
     {
-        "regionId": "gnfac_110",
+        "regionId": "gnfac_485",
         "displayName": "Northern Madison Range",
         "URL": "https://www.mtavalanche.com/forecast",
         "points": [
@@ -19386,7 +19386,7 @@
         ]
     },
     {
-        "regionId": "gnfac_115",
+        "regionId": "gnfac_482",
         "displayName": "Northern Gallatin Range",
         "URL": "https://www.mtavalanche.com/forecast",
         "points": [
@@ -19469,7 +19469,7 @@
         ]
     },
     {
-        "regionId": "gnfac_116",
+        "regionId": "gnfac_483",
         "displayName": "Lionhead Area",
         "URL": "https://www.mtavalanche.com/forecast",
         "points": [
@@ -19524,7 +19524,7 @@
         ]
     },
     {
-        "regionId": "gnfac_117",
+        "regionId": "gnfac_484",
         "displayName": "Cooke City",
         "URL": "https://www.mtavalanche.com/forecast",
         "points": [
@@ -19567,7 +19567,7 @@
         ]
     },
     {
-        "regionId": "gnfac_111",
+        "regionId": "gnfac_486",
         "displayName": "Southern Madison Range",
         "URL": "https://www.mtavalanche.com/forecast",
         "points": [
@@ -19642,7 +19642,7 @@
         ]
     },
     {
-        "regionId": "gnfac_112",
+        "regionId": "gnfac_487",
         "displayName": "Southern Gallatin Range",
         "URL": "https://www.mtavalanche.com/forecast",
         "points": [
@@ -21949,7 +21949,7 @@
         ]
     },
     {
-        "regionId": "snfac_293",
+        "regionId": "snfac_478",
         "displayName": "Banner Summit",
         "URL": "https://www.sawtoothavalanche.com/forecasts/#/banner-summit",
         "points": [
@@ -22596,7 +22596,7 @@
         ]
     },
     {
-        "regionId": "snfac_294",
+        "regionId": "snfac_477",
         "displayName": "Sawtooth & Western Smoky Mtns",
         "URL": "https://www.sawtoothavalanche.com/forecasts/#/sawtooth-&-western-smoky-mtns",
         "points": [
@@ -23783,7 +23783,7 @@
         ]
     },
     {
-        "regionId": "snfac_295",
+        "regionId": "snfac_475",
         "displayName": "Galena Summit & Eastern Mtns",
         "URL": "https://www.sawtoothavalanche.com/forecasts/#/galena-summit-&-eastern-mtns",
         "points": [
@@ -24682,7 +24682,7 @@
         ]
     },
     {
-        "regionId": "snfac_296",
+        "regionId": "snfac_476",
         "displayName": "Soldier & Wood River Valley Mtns",
         "URL": "https://www.sawtoothavalanche.com/forecasts/#/soldier-&-wood-river-valley-mtns",
         "points": [
@@ -29290,7 +29290,7 @@
             ]
     },
     {
-        "regionId": "fac_207_1",
+        "regionId": "fac_450_1",
         "displayName": "Flathead and Glacier",
         "URL": "https://flatheadavalanche.org/avalanche-forecast#/flathead-range-&-glacier-np",
         "points": [
@@ -30161,7 +30161,7 @@
             ]
     },
     {
-        "regionId": "fac_207_2",
+        "regionId": "fac_450_2",
         "displayName": "Flathead and Glacier",
         "URL": "https://flatheadavalanche.org/avalanche-forecast#/flathead-range-&-glacier-np",
         "points": [
@@ -30380,7 +30380,7 @@
             ]
     },
     {
-        "regionId": "fac_209",
+        "regionId": "fac_448",
         "displayName": "Whitefish Range",
         "URL": "https://flatheadavalanche.org/avalanche-forecast#/whitefish-range",
         "points": [
@@ -31015,7 +31015,7 @@
             ]
     },
     {
-        "regionId": "fac_208",
+        "regionId": "fac_449",
         "displayName": "Swan Range",
         "URL": "https://flatheadavalanche.org/avalanche-forecast#/swan-range",
         "points": [
@@ -32284,8 +32284,8 @@
         ]
     },
     {
-        "regionId": "wac_273",
-        "displayName": "Blue Mountains",
+        "regionId": "wac_440",
+        "displayName": "Blues",
         "URL": "https://www.wallowaavalanchecenter.org/forecasts/#/blues",
         "points": [
                 {
@@ -32331,8 +32331,8 @@
             ]
     },
     {
-        "regionId": "wac_274",
-        "displayName": "Elkhorn Mountains",
+        "regionId": "wac_439",
+        "displayName": "Elkhorns",
         "URL": "https://www.wallowaavalanchecenter.org/forecasts/#/elkhorns",
         "points": [
                 {
@@ -32394,7 +32394,7 @@
             ]
     },
     {
-        "regionId": "wac_275",
+        "regionId": "wac_437",
         "displayName": "Northern Wallowas",
         "URL": "https://www.wallowaavalanchecenter.org/forecasts/#/northern-wallowas",
         "points": [
@@ -32453,7 +32453,7 @@
             ]
     },
     {
-        "regionId": "wac_276",
+        "regionId": "wac_438",
         "displayName": "Southern Wallowas",
         "URL": "https://www.wallowaavalanchecenter.org/forecasts/#/southern-wallowas",
         "points": [
@@ -34008,7 +34008,7 @@
             ]
     },
     {
-      "regionId": "gnfac_281",
+      "regionId": "gnfac_488",
       "displayName": "Centennial Range",
       "URL": "https://www.mtavalanche.com/forecast/centennials",
       "points": [
@@ -34390,7 +34390,7 @@
             ]
     },
     {
-      "regionId": "tac_260",
+      "regionId": "tac_490",
       "displayName": "Northern New Mexico",
       "URL": "https://taosavalanchecenter.org/advisory/#/northern-new-mexico",
       "points": [
@@ -34629,7 +34629,7 @@
             ]
     },
     {
-        "regionId": "coaa_205",
+        "regionId": "coaa_468",
         "displayName": "Central Oregon - Central Cascades",
         "URL": "https://www.coavalanche.org/avalanche-forecast/#/central-cascades",
         "points": [
@@ -35388,7 +35388,7 @@
             ]
     },
     {
-        "regionId": "coaa_300",
+        "regionId": "coaa_469",
         "displayName": "Central Oregon - Newberry",
         "URL": "https://www.coavalanche.org/avalanche-forecast#/newberry",
         "points": [
