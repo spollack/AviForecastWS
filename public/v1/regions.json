@@ -286,7 +286,7 @@
     },
     {
         "regionId": "nwac_420",
-        "displayName": "WA Cascades West Slopes North",
+        "displayName": "West Slopes North",
         "URL": "https://nwac.us/avalanche-forecast/#/west-slopes-north",
         "points": [
                 {
@@ -429,7 +429,7 @@
     },
     {
         "regionId": "nwac_421",
-        "displayName": "WA Cascades West Slopes Central",
+        "displayName": "West Slopes Central",
         "URL": "https://nwac.us/avalanche-forecast/#/west-slopes-central",
         "points": [
                 {
@@ -672,7 +672,7 @@
     },
     {
         "regionId": "nwac_422",
-        "displayName": "WA Cascades West Slopes South",
+        "displayName": "West Slopes South",
         "URL": "https://nwac.us/avalanche-forecast/#/west-slopes-south",
         "points": [
                 {
@@ -815,7 +815,7 @@
     },
     {
         "regionId": "nwac_428",
-        "displayName": "WA Cascades East Slopes North",
+        "displayName": "East Slopes North",
         "URL": "https://nwac.us/avalanche-forecast/#/east-slopes-north",
         "points": [
                 {
@@ -1090,7 +1090,7 @@
     },
     {
         "regionId": "nwac_429",
-        "displayName": "WA Cascades East Slopes Central",
+        "displayName": "East Slopes Central",
         "URL": "https://nwac.us/avalanche-forecast/#/east-slopes-central",
         "points": [
                 {
@@ -1421,7 +1421,7 @@
     },
     {
         "regionId": "nwac_430",
-        "displayName": "WA Cascades East Slopes South",
+        "displayName": "East Slopes South",
         "URL": "https://nwac.us/avalanche-forecast/#/east-slopes-south",
         "points": [
                 {
@@ -3857,7 +3857,7 @@
     },
     {
         "regionId": "cac_sea-to-sky",
-        "displayName": "Sea-to-Sky",
+        "displayName": "Sea to Sky",
         "URL": "https://www.avalanche.ca/forecasts/sea-to-sky",
         "points": [
             {
@@ -7987,7 +7987,7 @@
     },
     {
         "regionId": "cac_lizard-range",
-        "displayName": "Lizard Range",
+        "displayName": "Lizard-Flathead",
         "URL": "https://www.avalanche.ca/forecasts/lizard-range",
         "points": [
             {
@@ -10110,9 +10110,9 @@
         ]
     },
     {
-        "regionId": "viac_1",
+        "regionId": "cac_vancouver-island",
         "displayName": "Vancouver Island",
-        "URL": "https://www.islandavalanchebulletin.com/",
+        "URL": "https://www.avalanche.ca/forecasts/vancouver-island",
         "points": [
             {
                 "lat": "49.668",
@@ -14541,7 +14541,7 @@
     },
     {
         "regionId": "uac_257",
-        "displayName": "Manti-Skyline",
+        "displayName": "Skyline",
         "URL": "https://utahavalanchecenter.org/forecast/skyline",
         "points": [
                 {
@@ -15749,7 +15749,7 @@
     },
     {
         "regionId": "sac_77",
-        "displayName": "Central Sierras",
+        "displayName": "Central Sierra Nevada",
         "URL": "https://www.sierraavalanchecenter.org/forecasts/#/central-sierra-nevada",
         "points": [
             {
@@ -19258,7 +19258,7 @@
     {
         "regionId": "gnfac_481",
         "displayName": "Bridger Range",
-        "URL": "https://www.mtavalanche.com/forecast",
+        "URL": "https://www.mtavalanche.com/forecast/bridgers",
         "points": [
             {
                 "lat": "45.943",
@@ -19309,7 +19309,7 @@
     {
         "regionId": "gnfac_485",
         "displayName": "Northern Madison Range",
-        "URL": "https://www.mtavalanche.com/forecast",
+        "URL": "https://www.mtavalanche.com/forecast/northern-madison",
         "points": [
             {
                 "lat": "45.478",
@@ -19388,7 +19388,7 @@
     {
         "regionId": "gnfac_482",
         "displayName": "Northern Gallatin Range",
-        "URL": "https://www.mtavalanche.com/forecast",
+        "URL": "https://www.mtavalanche.com/forecast/northern-gallatin",
         "points": [
             {
                 "lat": "45.490",
@@ -19471,7 +19471,7 @@
     {
         "regionId": "gnfac_483",
         "displayName": "Lionhead Area",
-        "URL": "https://www.mtavalanche.com/forecast",
+        "URL": "https://www.mtavalanche.com/forecast/lionhead",
         "points": [
             {
                 "lat": "44.810",
@@ -19526,7 +19526,7 @@
     {
         "regionId": "gnfac_484",
         "displayName": "Cooke City",
-        "URL": "https://www.mtavalanche.com/forecast",
+        "URL": "https://www.mtavalanche.com/forecast/cooke-city",
         "points": [
             {
                 "lat": "44.991",
@@ -19569,7 +19569,7 @@
     {
         "regionId": "gnfac_486",
         "displayName": "Southern Madison Range",
-        "URL": "https://www.mtavalanche.com/forecast",
+        "URL": "https://www.mtavalanche.com/forecast/southern-madison",
         "points": [
             {
                 "lat": "45.151",
@@ -19644,7 +19644,7 @@
     {
         "regionId": "gnfac_487",
         "displayName": "Southern Gallatin Range",
-        "URL": "https://www.mtavalanche.com/forecast",
+        "URL": "https://www.mtavalanche.com/forecast/southern-gallatin",
         "points": [
             {
                 "lat": "45.150",
@@ -19710,8 +19710,8 @@
     },
     {
         "regionId": "esac_128",
-        "displayName": "Eastern Sierra",
-        "URL": "https://esavalanche.org/advisory",
+        "displayName": "Eastside Region",
+        "URL": "https://www.esavalanche.org/forecasts/#/eastside-region",
         "points": [
             {
                "lon": "-118.953",
@@ -21396,9 +21396,9 @@
         ]
     },
     {
-        "regionId": "wcmac_north",
-        "displayName": "WCMAC Northern Coverage Area",
-        "URL": "https://www.missoulaavalanche.org/current-advisory/",
+        "regionId": "wcmac_480_1",
+        "displayName": "West Central Montana",
+        "URL": "https://missoulaavalanche.org/forecasts/#/west-central-montana",
         "points": [
             {
                 "lat": "47.319",
@@ -21491,9 +21491,9 @@
         ]
     },
     {
-        "regionId": "wcmac_central",
-        "displayName": "WCMAC Central Coverage Area",
-        "URL": "https://www.missoulaavalanche.org/current-advisory/",
+        "regionId": "wcmac_480_2",
+        "displayName": "West Central Montana",
+        "URL": "https://missoulaavalanche.org/forecasts/#/west-central-montana",
         "points": [
             {
                 "lat": "46.965",
@@ -21602,9 +21602,9 @@
         ]
     },
     {
-        "regionId": "wcmac_south",
-        "displayName": "WCMAC Southern Coverage Area",
-        "URL": "https://www.missoulaavalanche.org/current-advisory/",
+        "regionId": "wcmac_480_3",
+        "displayName": "West Central Montana",
+        "URL": "https://missoulaavalanche.org/forecasts/#/west-central-montana",
         "points": [
             {
                 "lat": "46.633",
@@ -28954,7 +28954,7 @@
     {
         "regionId": "aaic_197",
         "displayName": "Haines Transitional",
-        "URL": "https://alaskasnow.org/haines-hac/",
+        "URL": "https://alaskasnow.org/haines-hac/?active=Haines-Transitional",
         "points": [
                 {
                     "lat": "59.296",
@@ -29065,7 +29065,7 @@
     {
         "regionId": "aaic_193",
         "displayName": "Lutak",
-        "URL": "https://alaskasnow.org/haines-hac/",
+        "URL": "https://alaskasnow.org/haines-hac/?active=Haines-Lutak",
         "points": [
                 {
                     "lat": "59.219",
@@ -31486,7 +31486,7 @@
     {
         "regionId": "aaic_186",
         "displayName": "Valdez Continental",
-        "URL": "https://alaskasnow.org/valdez/",
+        "URL": "https://alaskasnow.org/valdez/?active=Valdez-Continental",
         "points": [
                 {
                     "lat": "61.268",
@@ -31577,7 +31577,7 @@
     {
         "regionId": "aaic_191",
         "displayName": "Valdez Intermountain",
-        "URL": "https://alaskasnow.org/valdez/",
+        "URL": "https://alaskasnow.org/valdez/?active=Valdez-Intermountain",
         "points": [
                 {
                     "lat": "60.974",
@@ -31676,7 +31676,7 @@
     {
         "regionId": "aaic_194",
         "displayName": "Valdez Maritime",
-        "URL": "https://alaskasnow.org/valdez/",
+        "URL": "https://alaskasnow.org/valdez/?active=Valdez-Maritime",
         "points": [
                 {
                     "lat": "60.941",
@@ -32218,8 +32218,8 @@
     },
     {
         "regionId": "msac_123",
-        "displayName": "MSAC Forecast Area",
-        "URL": "https://www.shastaavalanche.org/advisories/avalanche-advisory",
+        "displayName": "Mount Shasta",
+        "URL": "https://www.shastaavalanche.org/advisories/avalanche-advisory/#/mount-shasta",
         "points": [
             {
                 "lat": "41.492",
@@ -32493,7 +32493,7 @@
     },
     {
         "regionId": "pac_153_1",
-        "displayName": "Payette",
+        "displayName": "PAC Advisory Area",
         "URL": "https://payetteavalanche.org/forecasts/#/pac-advisory-area",
         "points": [
             {
@@ -34009,7 +34009,7 @@
     },
     {
       "regionId": "gnfac_488",
-      "displayName": "Centennial Range",
+      "displayName": "Island Park",
       "URL": "https://www.mtavalanche.com/forecast/centennials",
       "points": [
                 {
@@ -34128,7 +34128,7 @@
     },
     {
       "regionId": "mwac_297",
-      "displayName": "Northern Presidential Range",
+      "displayName": "Presidential Range",
       "URL": "https://mountwashingtonavalanchecenter.org/forecast/#/presidential-range",
       "points": [
                 {
@@ -34630,8 +34630,8 @@
     },
     {
         "regionId": "coaa_468",
-        "displayName": "Central Oregon - Central Cascades",
-        "URL": "https://www.coavalanche.org/avalanche-forecast/#/central-cascades",
+        "displayName": "Central Cascades",
+        "URL": "https://www.coavalanche.org/forecasts/#/central-cascades",
         "points": [
                 {
                    "lon": "-121.841",
@@ -35390,7 +35390,7 @@
     {
         "regionId": "coaa_469",
         "displayName": "Central Oregon - Newberry",
-        "URL": "https://www.coavalanche.org/avalanche-forecast#/newberry",
+        "URL": "https://www.coavalanche.org/forecasts/#/newberry",
         "points": [
                 {
                    "lon": "-121.234",

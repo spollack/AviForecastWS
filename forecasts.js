@@ -363,8 +363,8 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'wcmac':
-                    dataURL = 'https://www.missoulaavalanche.org/advisories/feed/';
-                    parser = forecasts.parseForecast_wcmac;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/WCMAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'snfac':
                     dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/SNFAC';
