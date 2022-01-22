@@ -2,7 +2,7 @@
     {
         "regionId": "sac_1",
         "displayName": "Central Sierras",
-        "URL": "http://www.sierraavalanchecenter.org/advisory",
+        "URL": "https://www.sierraavalanchecenter.org/forecasts/#/central-sierra-nevada",
         "points": [
             {
                 "lat": "39.320",
