@@ -8352,9 +8352,9 @@
         ]
     },
     {
-        "regionId": "cacb_north-rockies",
+        "regionId": "cac_north-rockies",
         "displayName": "North Rockies",
-        "URL": "https://www.avalanche.ca/blogs?category=north-rockies",
+        "URL": "https://www.avalanche.ca/forecasts/north-rockies",
         "points": [
             {
                 "lat": "53.077",
