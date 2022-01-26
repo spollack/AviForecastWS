@@ -122,8 +122,7 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
         // check for null forecast
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
-        if (regionId === 'cacb_north-rockies' ||
-            regionId === 'cac2_1' ||
+        if (regionId === 'cac2_1' ||
             regionId === 'hpac_1' ||
             regionId === 'kpac_1' ||
             regionId === 'uac_252' ||
@@ -326,10 +325,6 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     var subRegion = components[1].split('_')[0];
                     dataURL = 'https://www.avalanche.ca/api/forecasts/' + subRegion + '.json';
                     parser = forecasts.parseForecast_cac;
-                    break;
-                case 'cacb': // CAC blog-only forecasts, which we don't parse
-                    dataURL = 'https://www.avalanche.ca/blogs?category=' + components[1];
-                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'pc':
                     dataURL = 'https://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
