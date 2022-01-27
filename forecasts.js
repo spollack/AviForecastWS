@@ -693,34 +693,28 @@ forecasts.parseForecast_pc = function(body, regionDetails) {
         try {
             var dayForecasts = result.observations.Bulletin.bulletinResultsOf.BulletinMeasurements.dangerRatings.DangerRating;
 
-            // NOTE create an extra slot for the day before the first described day, as sometimes the forecast is issued
+
+            forecast = [];
+            const forecastsByDay = {};
+
+            for (const dayForecast of dayForecasts) {
+                const timePosition = dayForecast.validTime.TimeInstant.timePosition;
+                const date = forecasts.dateStringFromDateTimeString_caaml(timePosition);
+                if (!(date in forecastsByDay)) {
+                    forecastsByDay[date] = [];
+                }
+                forecastsByDay[date].push(parseInt(dayForecast.mainValue));
+            }
+            for (const [date, aviLevels] of Object.entries(forecastsByDay)) {
+                forecast.push({date: date, aviLevel: Math.max(...aviLevels)});
+            }
+             // NOTE create an extra slot for the day before the first described day, as sometimes the forecast is issued
             // with the first described day as the following day; we want to show some forecast for the time until
             // the following day kicks in, so we assume in this case the the danger level for the first described day
             // is also applicable to the time between when the forecast is issued and the first described day;
-
-            forecast = [];
-
-            // NOTE pc lists each day three times, one for each elevation zone
-            for (var i = 0; i < (dayForecasts.length / 3); i++) {
-
-                var date = forecasts.dateStringFromDateTimeString_caaml(dayForecasts[i].validTime.TimeInstant.timePosition);
-
-                // NOTE pc organizes forecasts as separate entries for each elevation zone for each day;
-                // the alpine evevation zone is always listed first, and always has the highest danger level of the
-                // elevation zones, so we use it
-                var aviLevel = forecasts.findAviLevelNumberInString(dayForecasts[i].mainValue);
-
-                // NOTE copy the first described day's forcast to the day before (see note above)
-                // NOTE this also assumes the days are listed in chronological order in the input data
-                if (i === 0) {
-                    // calculate the day before
-                    var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract(1, 'days');
-                    forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
-                }
-
-                // put this described day in the array, shifted by one position
-                forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
-            }
+            forecast.sort((l, r) => { return l.date.localeCompare(r.date); });
+            const previousDay = moment(forecast[0].date).subtract(1, 'days').format('YYYY-MM-DD');
+            forecast.unshift({date: previousDay, aviLevel: forecast[0].aviLevel});
 
             for (var j = 0; j < forecast.length; j++) {
                 winston.verbose('regionId: ' + regionDetails.regionId + '; forecast[' + j + ']: ' + JSON.stringify(forecast[j]));
