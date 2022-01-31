@@ -102,7 +102,6 @@ describe('validateForecast', function(){
     describe('null forecasts', function(){
         it('should return false, unless it is a known exception region', function(){
             forecasts.validateForecast('nwac_139', null).should.be.false;
-            forecasts.validateForecast('cacb_north-rockies', null).should.be.true;     // NOTE this region currently never issues danger levels
         })
     })
     describe('valid forecasts', function(){

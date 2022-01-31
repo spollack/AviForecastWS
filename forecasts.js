@@ -703,7 +703,13 @@ forecasts.parseForecast_pc = function(body, regionDetails) {
                 if (!(date in forecastsByDay)) {
                     forecastsByDay[date] = [];
                 }
-                forecastsByDay[date].push(parseInt(dayForecast.mainValue));
+                let aviLevel = dayForecast.mainValue;
+                if (aviLevel == 'N/A') {
+                  aviLevel = 0;
+                } else {
+                  aviLevel = parseInt(aviLevel);
+                }
+                forecastsByDay[date].push(aviLevel);
             }
             for (const [date, aviLevels] of Object.entries(forecastsByDay)) {
                 forecast.push({date: date, aviLevel: Math.max(...aviLevels)});
