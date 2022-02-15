@@ -61,10 +61,10 @@ forecasts.aggregateForecasts = function(regions) {
         forecasts.DATA_REQUESTS_IN_PARALLEL,
         function(region, callback) {
             var regionId = region.regionId;
-            forecasts.forecastForRegionId(regionId, function(forecast) {
+            forecasts.forecastForRegion(region, function(forecast) {
 
                 // sanity check the forecast
-                var valid = forecasts.validateForecast(regionId, forecast, true);
+                var valid = forecasts.validateForecast(region, forecast, true);
                 if (!valid) {
                     invalidCount++;
                 }
@@ -112,41 +112,42 @@ forecasts.aggregateForecasts = function(regions) {
     );
 };
 
-forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay) {
+forecasts.validateForecast = function(region, forecast, validateForCurrentDay) {
 
     // BUGBUG how do we deal with centers shutting down for the season???
 
     var validForecast = true;
-
+    var regionId = region.regionId;
+    var centerId = region.centerId;
     if (!forecast) {
         // check for null forecast
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
-        if (regionId === 'cac2_1' ||
-            regionId === 'hpac_1' ||
-            regionId === 'kpac_1' ||
-            regionId === 'uac_252' ||
-            regionId === 'uac_259_1' ||
-            regionId === 'uac_259_2' ||
-            regionId === 'uac_259_3' ||
-            regionId === 'uac_259_4' ||
-            regionId === 'uac_259_5' ||
-            regionId === 'aaic_183' ||
-            regionId === 'aaic_189' ||
-            regionId === 'aaic_197' ||
-            regionId === 'aaic_193' ||
-            regionId === 'aaic_186' ||
-            regionId === 'aaic_194' ||
-            regionId === 'aaic_191' ||
-            regionId === 'gnfaic_281' ||
-            regionId === 'cnfaic_121' ||
-            regionId === 'cnfaic_203' ||
-            regionId === 'cnfaic_282' ||
-            regionId === 'coaa_300' ||
-            regionId === 'bac_261' ||
-            regionId.split('_')[0] === 'jac' ||
-            regionId.split('_')[0] === 'viac' ||
-            regionId.split('_')[0] === 'hg') {
+        if (regionId === 'ca_north-rockies' ||
+            regionId === 'nac_187' ||
+            regionId === 'nac_190' ||
+            regionId === 'nac_202' ||
+            regionId === 'nac_252' ||
+            regionId === 'nac_259_1' ||
+            regionId === 'nac_259_2' ||
+            regionId === 'nac_259_3' ||
+            regionId === 'nac_259_4' ||
+            regionId === 'nac_259_5' ||
+            regionId === 'nac_183' ||
+            regionId === 'nac_189' ||
+            regionId === 'nac_197' ||
+            regionId === 'nac_193' ||
+            regionId === 'nac_186' ||
+            regionId === 'nac_194' ||
+            regionId === 'nac_191' ||
+            regionId === 'nac_121' ||
+            regionId === 'nac_203' ||
+            regionId === 'nac_282' ||
+            regionId === 'nac_261' ||
+            centerId === 'caac' ||
+            centerId === 'juak' ||
+            centerId === 'wcmac' ||
+            centerId === 'avalanche-quebec') {
             winston.info('forecast validation: as expected, got null forecast; regionId: ' + regionId);
         } else {
             validForecast = false;
@@ -186,12 +187,11 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
             if (forecast[i].aviLevel === forecasts.AVI_LEVEL_UNKNOWN) {
                 // NOTE known exceptions: certain regions always/sometimes posts forecasts with a valid issued date but
                 // without danger level ratings
-                if (regionId === 'caic_9' ||
-                    regionId === 'nwac_147' ||
-                    regionId === 'gnfac_281' ||
-                    regionId === 'cac_kananaskis' ||
-                    regionId.split('_')[0] === 'wac' ||
-                    regionId.split('_')[0] === 'ipac') {
+                if (regionId === 'nac_60' ||
+                    regionId === 'ca_kananaskis' ||
+                    regionId === 'ca_long-range-mountains' ||
+                    centerId === 'wac' ||
+                    centerId === 'ipac') {
                     winston.info('forecast validation: as expected, got aviLevel 0 in forecast; regionId: ' + regionId);
                 } else {
                     validForecast = false;
@@ -203,14 +203,17 @@ forecasts.validateForecast = function(regionId, forecast, validateForCurrentDay)
 
         // if things look good so far, continue the validation
         if (validForecast && validateForCurrentDay) {
-            validForecast = forecasts.validateForecastForCurrentDay(regionId, forecast);
+            validForecast = forecasts.validateForecastForCurrentDay(region, forecast);
         }
     }
 
     return validForecast;
 };
 
-forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
+forecasts.validateForecastForCurrentDay = function(region, forecast) {
+
+    var regionId = region.regionId;
+    var centerId = region.centerId;
 
     // BUGBUG when run early in the morning, some centers haven't issued their forecasts for the day yet...
 
@@ -235,7 +238,7 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
 
         if (!validForecast) {
             // NOTE known exceptions: certain regions do not issue new forecasts daily, so this case can happen
-            if (regionId === 'wcmac_north' || regionId === 'wcmac_central' || regionId === 'wcmac_south') {
+            if (regionId === 'ca_long-range-mountains' || centerId === 'wcmac') {
                 validForecast = true;
                 winston.info('forecast validation: as expected, did not find forecast for current day; regionId: ' + regionId);
             } else {
@@ -248,10 +251,11 @@ forecasts.validateForecastForCurrentDay = function(regionId, forecast) {
     return validForecast;
 };
 
-forecasts.forecastForRegionId = function(regionId, onForecast) {
+forecasts.forecastForRegion = function(region, onForecast) {
 
-    var regionDetails = forecasts.getRegionDetailsForRegionId(regionId);
+    var regionDetails = forecasts.getRegionDetailsForRegion(region);
     var forecast = null;
+    var regionId = region.regiondId;
 
     if (!regionDetails) {
         winston.warn('invalid regionId: ' + regionId);
@@ -301,34 +305,40 @@ forecasts.forecastForRegionId = function(regionId, onForecast) {
     }
 };
 
-forecasts.getRegionDetailsForRegionId = function(regionId) {
+forecasts.getRegionDetailsForRegion = function(region) {
 
     var regionDetails = null;
-
-    if (regionId) {
+    var regionId = region.regionId;
+    var centerId = region.centerId;
+    if (centerId) {
         // NOTE split the regionId at the first underscore, into two pieces
         var index = regionId.indexOf('_');
         if (index !== -1) {
             var components = [regionId.slice(0, index), regionId.slice(index + 1)];
-
             // NOTE the URLs used here by the server for pull data may be different than the URLs for users viewing the
             // corresponding forecast as a web page
             var dataURL = null;
             var parser = null;
-            switch (components[0]) {
-                case 'nwac':
-                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/NWAC';
-                    parser = forecasts.parseForecast_avalanche_org_api;
-                    break;
-                case 'cac':
+            switch (centerId) {
+                case 'kananaskis':
+                case 'avalanche-canada':
                     // CAC South Coast has two polygons that have the same forecast; handle that
                     var subRegion = components[1].split('_')[0];
                     dataURL = 'https://www.avalanche.ca/api/forecasts/' + subRegion + '.json';
-                    parser = forecasts.parseForecast_cac;
                     break;
-                case 'pc':
-                    dataURL = 'https://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=' + components[1];
+                case 'parks-canada':
+                    dataURL = forecasts.getDataURL_pc(components[1])
                     parser = forecasts.parseForecast_pc;
+                    break;
+                case 'avalanche-quebec':
+                    dataURL = 'https://avalanchequebec.ca/conditions-chic-chocs#bulletins-avalanche';
+                    // NOTE parser is temporarily disabled
+                    //parser = forecasts.parseForecast_hg;
+                    parser = forecasts.parseForecast_noop;
+                    break;
+                case 'nwac':
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/NWAC';
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'caic':
                     // NOTE look up the data url (because of the more complex mapping)
@@ -354,7 +364,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'btac':
-                    dataURL = 'https://www.jhavalanche.org/media/xml/' + components[1] + '_Avalanche_Forecast.xml';
+                    dataURL = forecasts.getDataURL_btac(components[1]);
                     parser = forecasts.parseForecast_simple_caaml;
                     break;
                 case 'wcmac':
@@ -377,13 +387,14 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                     dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/CNFAIC';
                     parser = forecasts.parseForecast_avalanche_org_api;
                     break;
-                case 'jac':
+                case 'juak':
+                case 'caac':
                     dataURL = 'https://beta.juneau.org/emergency/current-advisory';
                     // NOTE parser is temporarily disabled
                     //parser = forecasts.parseForecast_jac;
                     parser = forecasts.parseForecast_noop;
                     break;
-                case 'cac2':
+                case 'ctcak':
                     dataURL = 'https://www.cityofcordova.net/residents/a-safe-cordova/avalanche-conditions';
                     parser = forecasts.parseForecast_noop;
                     break;
@@ -398,12 +409,6 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
                 case 'wac':
                     dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/WAC';
                     parser = forecasts.parseForecast_avalanche_org_api;
-                    break;
-                case 'hg':
-                    dataURL = 'https://avalanchequebec.ca/conditions-chic-chocs#bulletins-avalanche';
-                    // NOTE parser is temporarily disabled
-                    //parser = forecasts.parseForecast_hg;
-                    parser = forecasts.parseForecast_noop;
                     break;
                 case 'msac':
                     dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/MSAC';
@@ -443,7 +448,7 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
             }
 
             if (dataURL) {
-                regionDetails = {'regionId': regionId, 'provider': components[0], 'subregion': components[1], 'dataURL': dataURL, 'parser': parser};
+                regionDetails = {'regionId': regionId, 'provider': centerId, 'subregion': components[1], 'dataURL': dataURL, 'parser': parser};
                 winston.verbose('regionDetails: ' + JSON.stringify(regionDetails));
             }
         }
@@ -452,46 +457,94 @@ forecasts.getRegionDetailsForRegionId = function(regionId) {
     return regionDetails;
 };
 
+forecasts.getDataURL_pc = function(subregion) {
+    var dataURL = null;
+    var baseURL = 'https://avalanche.pc.gc.ca/CAAML-eng.aspx?d=TODAY&r=';
+    switch (subregion) {
+        case 'banff':
+            dataURL = baseURL + '1';
+            break;
+        case 'jasper':
+            dataURL = baseURL + '2';
+            break;
+        case 'glacier':
+            dataURL = baseURL + '3';
+            break;
+        case 'waterton':
+            dataURL = baseURL + '4';
+            break;
+        case 'littleYoho':
+            dataURL = baseURL + '5';
+            break;
+        default:
+            winston.warn('getDataURL_pc: no match for subregion: ' + subregion);
+            break;
+    }
+    return dataURL;
+}
 forecasts.getDataURL_caic = function(subregion) {
 
     var dataURL = null;
     var baseURL = 'https://avalanche.state.co.us/media/xml/';
 
     switch (subregion) {
-        case '0a':
-        case '0b':
+        case '51_1':
+        case '51_2':
             dataURL = baseURL + 'Steamboat_and_Flat_Tops_Avalanche_Forecast.xml';
             break;
-        case '1a':
-        case '1b':
+        case '52_1':
+        case '52_2':
             dataURL = baseURL + 'Front_Range_Avalanche_Forecast.xml';
             break;
-        case '2':
+        case '53':
             dataURL = baseURL + 'Vail_and_Summit_County_Avalanche_Forecast.xml';
             break;
-        case '3':
+        case '54':
             dataURL = baseURL + 'Sawatch_Range_Avalanche_Forecast.xml';
             break;
-        case '4':
+        case '55':
             dataURL = baseURL + 'Aspen_Avalanche_Forecast.xml';
             break;
-        case '5':
+        case '56':
             dataURL = baseURL + 'Gunnison_Avalanche_Forecast.xml';
             break;
-        case '6':
+        case '57':
             dataURL = baseURL + 'Grand_Mesa_Avalanche_Forecast.xml';
             break;
-        case '7':
+        case '58':
             dataURL = baseURL + 'Northern_San_Juan_Avalanche_Forecast.xml';
             break;
-        case '8':
+        case '59':
             dataURL = baseURL + 'Southern_San_Juan_Avalanche_Forecast.xml';
             break;
-        case '9':
+        case '60':
             dataURL = baseURL + 'Sangre_de_Cristo_Avalanche_Forecast.xml';
             break;
         default:
             winston.warn('getDataURL_caic: no match for subregion: ' + subregion);
+            break;
+    }
+
+    return dataURL;
+};
+
+forecasts.getDataURL_btac = function(subregion) {
+
+    var dataURL = null;
+    var baseURL = 'https://www.jhavalanche.org/media/xml/';
+
+    switch (subregion) {
+        case '1':
+            dataURL = baseURL + 'teton_Avalanche_Forecast.xml';
+            break;
+        case '2':
+            dataURL = baseURL + 'tog_Avalanche_Forecast.xml';
+            break;
+        case '3':
+            dataURL = baseURL + 'grey_Avalanche_Forecast.xml';
+            break;
+        default:
+            winston.warn('getDataURL_btac: no match for subregion: ' + subregion);
             break;
     }
 

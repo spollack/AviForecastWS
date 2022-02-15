@@ -9,23 +9,21 @@ var request = require('request');
 var cheerio = require('cheerio');
 var forecasts = require('./forecasts.js');
 var observations = require('./observations.js');
+var regions = require('./regions.js');
 
 
 runServer();
 
 function runServer() {
-
     configureLogger();
-
-    initializeForecastProcessing();
-
+    initializeRegionAndForecastProcessing();
     startHTTPServer();
 }
 
 function configureLogger() {
 
     var localLogFilePath = '/tmp/aviforecast-log.txt';
-    
+
     // remove the default transport, so that we can reconfigure it
     winston.remove(winston.transports.Console);
 
@@ -42,14 +40,12 @@ function configureLogger() {
     }
 }
 
+function initializeRegionAndForecastProcessing() {
+    // regenerate the regions.json file, which also triggers forecasts.json to be regenerated
+    regions.regenerateRegions();
 
-function initializeForecastProcessing() {
-
-    var regions = JSON.parse(fs.readFileSync(forecasts.REGIONS_PATH, 'utf8'));
-
-    // generate the forecast content
-    forecasts.aggregateForecasts(regions);
-
+    // configure a timer to regenerate the regions file on a recurring basis
+    setInterval(regions.regenerateRegions, regions.REGIONS_GEN_INTERVAL_SECONDS * 1000);
     // configure a timer to regenerate the forecast content on a recurring basis
     setInterval(forecasts.aggregateForecasts, forecasts.FORECAST_GEN_INTERVAL_SECONDS * 1000, regions);
 }
@@ -67,10 +63,10 @@ function startHTTPServer() {
         }
     };
     app.use(express.logger({stream:winstonStream}));
-    
+
     // compress responses
     app.use(express.compress());
-    
+
     // enable jade template rendering
     app.set('views', forecasts.TEMPLATE_FILES_DIR_PATH);
     app.set('view engine', 'jade');
@@ -92,7 +88,7 @@ function startHTTPServer() {
 
     // support observation uploads
     app.post('/v1/observation', function (req, res) {
-        
+
         var observation = underscore.pick(req.body, ['providerId', 'observerEmail', 'latitude', 'longitude', 'timestampUtc', 'notes']);
         observation.image = (req.files ? req.files.image : null);
 
@@ -147,12 +143,12 @@ function startHTTPServer() {
         $('head').prepend('<base href=' + baseUrl + '>');
         return $.html();
     }
-    
+
     //
     // END PROXYING HACK
     //
 
-    
+
     // serve static content
     app.use(express.static(forecasts.STATIC_FILES_DIR_PATH, {maxAge: forecasts.CACHE_MAX_AGE_SECONDS * 1000 }));
 
