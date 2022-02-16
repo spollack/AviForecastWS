@@ -123,8 +123,7 @@ forecasts.validateForecast = function(region, forecast, validateForCurrentDay) {
         // check for null forecast
 
         // NOTE known exceptions: these regions currently do not provide any danger level ratings
-        if (regionId === 'ca_north-rockies' ||
-            regionId === 'nac_187' ||
+        if (regionId === 'nac_187' ||
             regionId === 'nac_190' ||
             regionId === 'nac_202' ||
             regionId === 'nac_252' ||
