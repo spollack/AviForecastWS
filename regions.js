@@ -155,9 +155,9 @@ function processCanadianMetadata(input) {
         var caId = data[i].area.id;
         metadata[caId] = {};
         metadata[caId].regionId = 'ca_' + data[i].product.slug;
-        metadata[caId].centerId = data[i].owner.value;
         metadata[caId].displayName = data[i].area.name;
         metadata[caId].URL = data[i].url;
+        metadata[caId].centerId = data[i].owner.value;
     }
     return metadata;
 }
@@ -170,16 +170,9 @@ function processCanadianRegions(metadata, input, digits) {
     var formattedRegions = [];
     for (var i = 0; i < regionData.length; i++) {
         var caId = regionData[i].properties.id;
-        formattedRegions[i] = {};
-        formattedRegions[i].regionId = metadata[caId].regionId;
-        formattedRegions[i].displayName = metadata[caId].displayName;
-        formattedRegions[i].URL = metadata[caId].URL;
-        formattedRegions[i].centerId = metadata[caId].centerId;
-        formattedRegions[i].points = [];
+        formattedRegions[i] = populateNewRegion(metadata[caId], 1, false);
         for (var j = 0; j < regionData[i].geometry.coordinates[0].length; j++) {
-            var lon = regionData[i].geometry.coordinates[0][j][0] = parseFloat(regionData[i].geometry.coordinates[0][j][0]).toFixed(digits);
-            var lat = regionData[i].geometry.coordinates[0][j][1] = parseFloat(regionData[i].geometry.coordinates[0][j][1]).toFixed(digits);
-            formattedRegions[i].points[j] = {'lat': lat, 'lon': lon};
+          formattedRegions[i].points[j] = getLatLong(regionData[i].geometry.coordinates[0][j], digits);
         }
     }
     return formattedRegions;
@@ -196,7 +189,7 @@ function processNACRegions(input, digits) {
     for (var i = 0; i < regionData.length; i++) {
         polygons = regionData[i].geometry.coordinates.length;
         for (var j = 0; j < polygons; j++) {
-            formattedRegions[row] = populateNewRegion(regionData[i], j);
+            formattedRegions[row] = populateNewRegion(regionData[i], j, true);
             if (regionData[i].geometry.type === regions.DATA_MULTIPOLYGON_TYPE) {
                 for (var k = 0; k < regionData[i].geometry.coordinates[j][0].length; k++) {
                     formattedRegions[row].points[k] = getLatLong(regionData[i].geometry.coordinates[j][0][k], digits);
@@ -212,15 +205,19 @@ function processNACRegions(input, digits) {
     return formattedRegions;
 }
 
-function populateNewRegion(regionData, regionCount) {
+function populateNewRegion(regionData, regionCount, isNacData) {
     var region = {};
-    region.regionId = 'nac_' + regionData.id;
-    if (regionData.geometry.coordinates.length > 1) {
-        region.regionId += '_' + (regionCount+1);
+    if (isNacData == true) {
+        region.regionId = 'nac_' + regionData.id;
+        if (regionData.geometry.coordinates.length > 1) {
+            region.regionId += '_' + (regionCount+1);
+        }
+        region.displayName = regionData.properties.name;
+        region.URL = regionData.properties.link;
+        region.centerId = regionData.properties.center_id.toLowerCase();
+    } else {
+        region = regionData;
     }
-    region.displayName = regionData.properties.name;
-    region.URL = regionData.properties.link;
-    region.centerId = regionData.properties.center_id.toLowerCase();
     region.points = [];
     return region;
 }
