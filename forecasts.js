@@ -48,10 +48,11 @@ forecasts.forecastGenerationCount = 0;
 forecasts.mostRecentForecasts = [];
 
 
-forecasts.aggregateForecasts = function(regions) {
-
+forecasts.aggregateForecasts = function(regions = []) {
     winston.info('aggregateForecasts: initiated');
-
+    if (regions.length === 0) {
+        regions = JSON.parse(fs.readFileSync(forecasts.REGIONS_PATH, 'utf8'));
+    }
     var startTime = new Date();
     var forecastsArray = [];
     var invalidCount = 0;

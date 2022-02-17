@@ -47,7 +47,7 @@ function initializeRegionAndForecastProcessing() {
     // configure a timer to regenerate the regions file on a recurring basis
     setInterval(regions.regenerateRegions, regions.REGIONS_GEN_INTERVAL_SECONDS * 1000);
     // configure a timer to regenerate the forecast content on a recurring basis
-    setInterval(forecasts.aggregateForecasts, forecasts.FORECAST_GEN_INTERVAL_SECONDS * 1000, regions);
+    setInterval(forecasts.aggregateForecasts, forecasts.FORECAST_GEN_INTERVAL_SECONDS * 1000);
 }
 
 function startHTTPServer() {
