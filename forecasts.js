@@ -489,37 +489,37 @@ forecasts.getDataURL_caic = function(subregion) {
     var baseURL = 'https://avalanche.state.co.us/media/xml/';
 
     switch (subregion) {
-        case '51_1':
-        case '51_2':
+        case '551_1':
+        case '551_2':
             dataURL = baseURL + 'Steamboat_and_Flat_Tops_Avalanche_Forecast.xml';
             break;
-        case '52_1':
-        case '52_2':
+        case '552':
+            dataURL = baseURL + 'Sangre_de_Cristo_Avalanche_Forecast.xml';
+            break;
+        case '553_1':
+        case '553_2':
             dataURL = baseURL + 'Front_Range_Avalanche_Forecast.xml';
             break;
-        case '53':
+        case '554':
             dataURL = baseURL + 'Vail_and_Summit_County_Avalanche_Forecast.xml';
             break;
-        case '54':
+        case '555':
             dataURL = baseURL + 'Sawatch_Range_Avalanche_Forecast.xml';
             break;
-        case '55':
+        case '556':
             dataURL = baseURL + 'Aspen_Avalanche_Forecast.xml';
             break;
-        case '56':
+        case '557':
             dataURL = baseURL + 'Gunnison_Avalanche_Forecast.xml';
             break;
-        case '57':
+        case '558':
             dataURL = baseURL + 'Grand_Mesa_Avalanche_Forecast.xml';
             break;
-        case '58':
+        case '559':
             dataURL = baseURL + 'Northern_San_Juan_Avalanche_Forecast.xml';
             break;
-        case '59':
+        case '560':
             dataURL = baseURL + 'Southern_San_Juan_Avalanche_Forecast.xml';
-            break;
-        case '60':
-            dataURL = baseURL + 'Sangre_de_Cristo_Avalanche_Forecast.xml';
             break;
         default:
             winston.warn('getDataURL_caic: no match for subregion: ' + subregion);
