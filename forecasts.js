@@ -703,9 +703,8 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
         forecast = [];
 
         for (var i = 0; i < bodyJson.dangerRatings.length; i++) {
-
-            var date = moment.utc(bodyJson.dangerRatings[i].date).format('YYYY-MM-DD');
-
+            var endDate = moment.utc(bodyJson.dangerRatings[i].date).format('YYYY-MM-DD');
+            var startDate = moment(endDate, 'YYYY-MM-DD').subtract(1, 'days');
             // NOTE cac organizes forecasts by multiple elevation zones within a given day;
             // take the highest danger level listed for each day
             // NOTE not all 3 fields (Alp/Tln/Btl) are necessarily present
@@ -718,12 +717,12 @@ forecasts.parseForecast_cac = function(body, regionDetails) {
             // NOTE this also assumes the days are listed in chronological order in the input data
             if (i === 0) {
                 // calculate the day before
-                var dayBeforeFirstDate = moment(date, 'YYYY-MM-DD').subtract(1, 'days');
+                var dayBeforeFirstDate = moment(startDate, 'YYYY-MM-DD').subtract(1, 'days');
                 forecast[0] = {'date': moment(dayBeforeFirstDate).format('YYYY-MM-DD'), 'aviLevel': aviLevel};
             }
 
             // put this described day in the array, shifted by one position
-            forecast[i+1] = {'date': date, 'aviLevel': aviLevel};
+            forecast[i+1] = {'date': startDate, 'aviLevel': aviLevel};
         }
 
         for (var j = 0; j < forecast.length; j++) {
