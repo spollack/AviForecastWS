@@ -365,8 +365,8 @@ forecasts.getRegionDetailsForRegion = function(region) {
                     parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'btac':
-                    dataURL = forecasts.getDataURL_btac(components[1]);
-                    parser = forecasts.parseForecast_simple_caaml;
+                    dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/BTAC'                    
+                    parser = forecasts.parseForecast_avalanche_org_api;
                     break;
                 case 'wcmac':
                     dataURL = 'https://api.avalanche.org/v1/forecast/get-map-data/WCMAC';
@@ -523,29 +523,6 @@ forecasts.getDataURL_caic = function(subregion) {
             break;
         default:
             winston.warn('getDataURL_caic: no match for subregion: ' + subregion);
-            break;
-    }
-
-    return dataURL;
-};
-
-forecasts.getDataURL_btac = function(subregion) {
-
-    var dataURL = null;
-    var baseURL = 'https://www.jhavalanche.org/media/xml/';
-
-    switch (subregion) {
-        case '1':
-            dataURL = baseURL + 'teton_Avalanche_Forecast.xml';
-            break;
-        case '2':
-            dataURL = baseURL + 'tog_Avalanche_Forecast.xml';
-            break;
-        case '3':
-            dataURL = baseURL + 'grey_Avalanche_Forecast.xml';
-            break;
-        default:
-            winston.warn('getDataURL_btac: no match for subregion: ' + subregion);
             break;
     }
 

@@ -1,8 +1,8 @@
 [
     {
-        "regionId": "btac_teton",
+        "regionId": "btac_896",
         "displayName": "Teton",
-        "URL": "http://jhavalanche.org/viewOther?area=teton",
+        "URL": "https://bridgertetonavalanchecenter.org/forecasts/#/tetons",
         "points": [
             {
                 "lat": "44.133",
@@ -159,9 +159,9 @@
         ]
     },
     {
-        "regionId": "btac_tog",
+        "regionId": "btac_898",
         "displayName": "Togwotee Pass",
-        "URL": "http://jhavalanche.org/viewOther?area=tog",
+        "URL": "https://bridgertetonavalanchecenter.org/forecasts/#/togwotee-pass",
         "points": [
             {
                 "lat": "43.220",
@@ -450,9 +450,9 @@
         ]
     },
     {
-        "regionId": "btac_grey",
+        "regionId": "btac_897",
         "displayName": "Greys River",
-        "URL": "http://jhavalanche.org/viewOther?area=grey",
+        "URL": "https://bridgertetonavalanchecenter.org/forecasts/#/greys-river",
         "points": [
             {
                 "lat": "43.570",
