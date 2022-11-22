@@ -331,11 +331,11 @@ describe('parseForecast_simple_caaml caic', function(){
         })
     })
 })
-
+/* DISABLE BTAC test since it is now on NAC parser
 describe('parseForecast_simple_caaml btac', function(){
     describe('file001.xml', function(){
         it('should return the correct forecast details', function(){
-            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/btac/file001.xml','utf8'),
+            var forecast = forecasts.parseForecast_simple_caaml(fs.readFileSync('test/data/btac/////file001.xml','utf8'),
                 forecasts.getRegionDetailsForRegionId('btac_teton'));
 
             should.exist(forecast);
@@ -356,6 +356,7 @@ describe('parseForecast_simple_caaml btac', function(){
         })
     })
 })
+*/
 
 describe('parseForecast_avalanche_org_api nwac', function(){
     describe('file001.json', function(){
