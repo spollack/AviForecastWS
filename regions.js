@@ -17,7 +17,6 @@ regions.DATA_MULTIPOLYGON_TYPE = 'MultiPolygon';
 regions.NAC_DATA_URL = 'https://api.avalanche.org/v2/public/products/map-layer';
 regions.CANADIAN_METADATA_URL = 'https://api.avalanche.ca/forecasts/en/metadata';
 regions.CANADIAN_DATA_URL = 'https://api.avalanche.ca/forecasts/en/areas';
-regions.CANADIAN_API_KEY = process.env.CANADIAN_API_KEY;
 regions.REGIONS_GEN_INTERVAL_SECONDS = 60*60*24;
 
 // filepaths
@@ -65,7 +64,6 @@ function getCanadianMetadata() {
 
         var requestOptions = {
             url:dataURL,
-            headers:{'x-api-key':regions.CANADIAN_API_KEY},
             jar:false,
             timeout:(regions.DATA_REQUEST_TIMEOUT_SECONDS * 1000)
         };
@@ -95,7 +93,6 @@ async function getCanadianData(metadata) {
 
         var requestOptions = {
             url:dataURL,
-            headers:{'x-api-key':regions.CANADIAN_API_KEY},
             jar:false,
             timeout:(regions.DATA_REQUEST_TIMEOUT_SECONDS * 1000)
         };
